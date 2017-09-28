@@ -716,12 +716,12 @@ Prefab:
     - target: {fileID: 114098721338011144, guid: 8d3faa1c2f97942429b16cd7434fd1ff,
         type: 2}
       propertyPath: textComps.Array.data[0].Object
-      value: Hello
+      value: testing
       objectReference: {fileID: 0}
     - target: {fileID: 114098721338011144, guid: 8d3faa1c2f97942429b16cd7434fd1ff,
         type: 2}
       propertyPath: textComps.Array.data[0].Text
-      value: Hello Good Sir
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114390171139459122, guid: 8d3faa1c2f97942429b16cd7434fd1ff,
         type: 2}

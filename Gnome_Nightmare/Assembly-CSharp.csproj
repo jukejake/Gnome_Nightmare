@@ -90,9 +90,8 @@
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Talk_To_Me.txt" />
      <None Include="Assets\My_Assets\My_Log\GameObject\GameObject (UnityEngine.Transform).txt" />
-     <None Include="Assets\My_Assets\My_Dialogue\NPC\FUCK.txt" />
+     <None Include="Assets\My_Assets\My_Dialogue\NPC\testing.txt" />
      <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
-     <None Include="Assets\My_Assets\My_Dialogue\NPC\I Hate Myself.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

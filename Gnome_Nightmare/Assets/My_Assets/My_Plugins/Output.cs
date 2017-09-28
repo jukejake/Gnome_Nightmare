@@ -30,21 +30,13 @@ public class Output : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //Debug.Log(Marshal.PtrToStringAnsi(Helloworld()));
         ClearLog(gameObject.transform.name, gameObject.transform.ToString());
-        //Debug.Log(Marshal.PtrToStringAnsi(LoadDialogue("NPC", "Hello")));
-        SaveDialogue("NPC", "Talk_To_Me", "Talk to me! I have feelings too! JUST KILL MEEEEE!!!!!!");
-        //Debug.Log(Marshal.PtrToStringAnsi(LoadDialogue("NPC", "Talk_To_Me")));
-        //ClearLog("NPC", "Talk_To_Me");
-
     }
 	
 	// Update is called once per frame
 	void Update () {
         Log(gameObject.transform.name, gameObject.transform.ToString(), gameObject.transform.position.ToString());
-        foreach (TextComponent tc in textComps) {
-            //Debug.Log(ReadText(tc.Path, tc.Object));
-        }
+        //foreach (TextComponent tc in textComps) { ; }
     }
 
     public void SaveText() {
@@ -62,10 +54,6 @@ public class Output : MonoBehaviour {
     public string ReadText(string v_Path, string v_Object) {
         string v_Text = Marshal.PtrToStringAnsi(LoadDialogue(v_Path, v_Object));
         if (v_Text == null) { v_Text = "ERROR.003"; }
-
-        //Debug.Log(Marshal.PtrToStringAnsi(LoadDialogue(v_Path, v_Object)));
-        //Debug.Log(LoadDialogue(v_Path, v_Object));
-        //Debug.Log(v_Text);
 
         return v_Text;
     }

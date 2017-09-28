@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour {
     public Dialogue NPCDialogue;
     public Output LoadText;
-    private int TextNumber = 0;
+    public int TextNumber;
     public GameObject Dialogue_Prefab;
     
     private bool MenuOpen = false;
 
     private void Start() {
         LoadText = new Output();
+        TextNumber = 0;
     }
 
     private void OnTriggerStay(Collider other) {
@@ -29,7 +30,7 @@ public class DialogueManager : MonoBehaviour {
                 Dialogue_Menu.name = "Dialogue_Menu";
 
                 LoadAllNpcDialogue(other);
-                LoadNpcDialogue(TextNumber);
+                SetUIDialogue(TextNumber);
             }
         }
     }
@@ -54,7 +55,7 @@ public class DialogueManager : MonoBehaviour {
         Debug.Log("[" + NPCDialogue.NumberOfSentences + "] on Load");
     }
 
-    private void LoadNpcDialogue(int Number) {
+    private void SetUIDialogue(int Number) {
         GameObject.Find("Dialogue_Menu").transform.Find("Dialogue_Box").transform.Find("NPCName").GetComponent<Text>().text = NPCDialogue.NameOfNPC;
         GameObject.Find("Dialogue_Menu").transform.Find("Dialogue_Box").transform.Find("NPCDialogue").GetComponent<Text>().text = NPCDialogue.sentences[Number];
     }
@@ -63,17 +64,15 @@ public class DialogueManager : MonoBehaviour {
         Destroy(GameObject.Find("Dialogue_Menu").gameObject);
         NPCDialogue.OnDestroy();
         MenuOpen = false;
+        TextNumber = 0;
     }
 
     public void ContinueDialogue() {
-        Debug.Log("[" + NPCDialogue.NumberOfSentences + "] on Continue");
-        for (int i = 0; i < NPCDialogue.NumberOfSentences; i++)
-        {
-            Debug.Log(NPCDialogue.NameOfNPC);
-            Debug.Log(NPCDialogue.FileName);
-            Debug.Log(NPCDialogue.sentences[i]);
+        DialogueManager Temp = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueManager>();
+        if (Temp.TextNumber < Temp.NPCDialogue.NumberOfSentences - 1) {
+            Temp.TextNumber += 1;
+            Temp.SetUIDialogue(Temp.TextNumber);
         }
-        TextNumber = 0;
-        LoadNpcDialogue(TextNumber);
+        else { Temp.DistoryNpcDialogue(); }
     }
 }
