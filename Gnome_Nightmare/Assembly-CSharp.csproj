@@ -79,9 +79,12 @@
      <Compile Include="Assets\My_Assets\My_Scripts\Wave_Spawners.cs" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Q_002.txt" />
      <None Include="Assets\My_Assets\My_Dialogue\Pal\Hello.txt" />
+     <None Include="Assets\My_Assets\My_Dialogue\Pal\Q_001.txt" />
      <None Include="Assets\My_Assets\My_Dialogue\Steve\Hello.txt" />
+     <None Include="Assets\My_Assets\My_Dialogue\Steve\Hello1.txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Q_001.txt" />
      <None Include="Assets\My_Assets\My_Log\Main Camera\Main Camera (UnityEngine.Transform).txt" />
+     <None Include="Assets\My_Assets\My_Dialogue\Steve\Q_001.txt" />
      <None Include="Assets\My_Assets\My_Log\Slant_Rock\Slant_Rock (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Log\LoadPlayer\LoadPlayer (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />
@@ -91,7 +94,7 @@
      <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\I Hate Myself.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
