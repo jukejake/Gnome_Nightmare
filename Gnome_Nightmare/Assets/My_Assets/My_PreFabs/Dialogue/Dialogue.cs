@@ -7,7 +7,6 @@ public class Dialogue {
     public int NumberOfSentences;
     public string NameOfNPC;
     public List<string> FileName;
-    //[TextArea(0, 100)]
     public List<string> sentences;
 
     public void OnDestroy() {

@@ -53,7 +53,7 @@ public class Output : MonoBehaviour {
 
     public string ReadText(string v_Path, string v_Object) {
         string v_Text = Marshal.PtrToStringAnsi(LoadDialogue(v_Path, v_Object));
-        if (v_Text == null) { v_Text = "ERROR.003"; }
+        if (v_Text == null) { v_Text = "ERROR.003 Could not read text."; }
 
         return v_Text;
     }
