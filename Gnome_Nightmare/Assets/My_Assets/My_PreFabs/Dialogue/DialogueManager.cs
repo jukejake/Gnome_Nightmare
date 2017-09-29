@@ -79,12 +79,13 @@ public class DialogueManager : MonoBehaviour {
 
     private void DistoryNpcDialogue() {
         //Finds the Dialogue Menu and distroys it
-        //Need to put in a check so that; if it does not exist, it won't try to delete it
-        Destroy(GameObject.Find("Dialogue_Menu").gameObject);
-        //Destroys the loaded text files associated with the NPC
-        NPCDialogue.OnDestroy();
-        MenuOpen = false;
-        TextNumber = 0;
+        if (GameObject.Find("Dialogue_Menu") == true) {
+            Destroy(GameObject.Find("Dialogue_Menu").gameObject);
+            //Destroys the loaded text files associated with the NPC
+            NPCDialogue.OnDestroy();
+            MenuOpen = false;
+            TextNumber = 0;
+        }
     }
 
     public void ContinueDialogue() {
