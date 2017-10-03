@@ -1,32 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun_Behaviour : MonoBehaviour {
 
     public float Damage = 1.0f;
     public float Range = 100.0f;
-    public float FireRate = 1.0f;
-    public float ImpactForce = 1.0f;
+    public float FireRate = 3.0f;
+    private float NextTimeToFire = 0.0f;
+    public float ImpactForce = 100.0f;
     public Camera FpsCamera;
-    //public ParticleSystem MuzzleFlash;
-    //public GameObject ImpactEffect;
+    public ParticleSystem MuzzleFlash;
+    public GameObject ImpactEffect;
+
+    PlayerManager playerManager;
 
     // Use this for initialization
     void Start () {
         FpsCamera = Camera.main;
+        playerManager = PlayerManager.instance;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire1")) { Shoot(); }
+        if (Input.GetButton("Fire1") && Time.time >= NextTimeToFire) {
+            NextTimeToFire = Time.time + 1.0f / FireRate;
+            Shoot();
+        }
         if (Input.GetButtonDown("Fire2")) { Reload(); }
     }
 
     void Shoot() {
+        MuzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, Range)) {
-            Debug.Log(hit.transform.name);
+            EnemyStats EnemyStat = hit.transform.GetComponent<EnemyStats>();
+            if (EnemyStat != null) {
+                if (EnemyStat.KillEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.getValue())) {
+                    playerManager.GetComponent<PlayerStats>().addExperience(EnemyStat.Experience);
+                    EnemyStat.OnDeath();
+                }
+            }
+            if (hit.rigidbody != null) {
+                hit.rigidbody.AddForce(-hit.normal * ImpactForce);
+            }
+
+            GameObject ImpactAtHit = Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(ImpactAtHit, 2.0f);
         }
     }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems; //used for drag and drop
 
 public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {

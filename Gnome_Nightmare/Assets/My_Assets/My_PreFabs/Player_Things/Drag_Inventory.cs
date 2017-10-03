@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI; //used for LayoutElement
+﻿using UnityEngine.UI; //used for LayoutElement
 using UnityEngine;
 using UnityEngine.EventSystems; //used for drag and drop
 

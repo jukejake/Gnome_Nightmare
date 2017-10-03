@@ -84,29 +84,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Gnome_Nightmare.Plugins.csproj">
+      <Project>{DB08F816-5FEE-E2D7-3E3F-F654E37BDCF9}</Project>
+      <Name>Gnome_Nightmare.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\CharacterStats.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Load_Menu.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\EnemyStats.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\CameraFollow.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drag_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drop_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\If_Under_Floor.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Item_Pick_Up.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Item_To_Pick_Up.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Load_Menu.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap_Zoom.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Player_Movement.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\PlayerManager.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\PlayerStats.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Stat.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_CharacterMotor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_FPSInputController.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_PlatformInputController.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Destructible.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Drag_Inventory.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Drop_Inventory.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies_Prefs.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Eyes_Follow_Cursor.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\If_Under_Floor.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Item_Pick_Up.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Item_To_Pick_Up.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\MiniMap.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\MiniMap_Zoom.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Movement_001.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Orbit_Objects.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\RandomUtils.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Rotate_Slowly.cs" />
@@ -130,6 +142,10 @@
     <None Include="Assets\My_Assets\My_Log\Main Camera\Main Camera (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Slant_Rock\Slant_Rock (UnityEngine.Transform).txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
