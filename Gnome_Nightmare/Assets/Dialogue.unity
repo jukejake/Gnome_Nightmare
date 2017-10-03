@@ -395,7 +395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093321767}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &249428196 stripped
 GameObject:
@@ -524,7 +524,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   playerRotation: {x: 0, y: 0}
   height: 0.5
-  depth: 0.6
+  depth: 0
 --- !u!4 &633589581 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4851879806086930, guid: 86ae95b4088e0644dbd72eda1b78d4ec,
@@ -685,9 +685,9 @@ Transform:
   - {fileID: 1204343040}
   - {fileID: 1768475117}
   - {fileID: 633589581}
-  - {fileID: 1772968173}
-  - {fileID: 1935945954}
   - {fileID: 235912755}
+  - {fileID: 1935945954}
+  - {fileID: 1772968173}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

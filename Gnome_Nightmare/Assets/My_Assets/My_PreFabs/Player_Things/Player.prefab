@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114605071311928432}
   - component: {fileID: 114616908332673924}
   - component: {fileID: 114905972238024772}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 33472662914512442}
   - component: {fileID: 23821583495289558}
   - component: {fileID: 114608245539393412}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 4462885718732342}
   - component: {fileID: 198260919539937886}
   - component: {fileID: 199945279537113088}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606163833311176}
   - component: {fileID: 108293990197782878}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ MonoBehaviour:
   Damage: 1
   Range: 100
   FireRate: 3
-  ImpactForce: 1
+  ImpactForce: 100
   FpsCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198260919539937886}
   ImpactEffect: {fileID: 1465461403202474, guid: 0438351a6e6422d43a09930e9be00ee9,
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   Damage:
-    baseValue: 0
+    baseValue: 1
   Armor:
     baseValue: 0
   PlayerLevel: 1
