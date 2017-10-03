@@ -6,6 +6,9 @@ public class PlayerStats : CharacterStats {
     public int PlayerExperience = 0;
     public int MaxExperienceForLevel = 10;
 
+    public float PlayerDamage;
+    public float PlayerArmor;
+
 
     public void addExperience(int amount) {
         PlayerExperience += amount;
@@ -21,5 +24,8 @@ public class PlayerStats : CharacterStats {
         MaxExperienceForLevel = (PlayerLevel*PlayerLevel*4);
 
         if (PlayerExperience >= MaxExperienceForLevel) { PlayerLevelUp(); }
+
+        PlayerDamage = Damage.getValue();
+        PlayerArmor = Armor.getValue();
     }
 }

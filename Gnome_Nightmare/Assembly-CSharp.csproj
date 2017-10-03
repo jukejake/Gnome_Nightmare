@@ -53,10 +53,12 @@
   <ItemGroup>
      <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\CharacterStats.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\EnemyStats.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\CameraFollow.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drag_Inventory.cs" />
@@ -68,6 +70,9 @@
      <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap_Zoom.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Player_Movement.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\PlayerManager.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\PlayerStats.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Stat.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\CS_CharacterMotor.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\CS_FPSInputController.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\CS_PlatformInputController.cs" />
@@ -92,10 +97,14 @@
      <None Include="Assets\My_Assets\My_Log\Slant_Rock\Slant_Rock (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Log\LoadPlayer\LoadPlayer (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Talk_To_Me.txt" />
+     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\My_Assets\My_Log\GameObject\GameObject (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\testing.txt" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
@@ -120,6 +129,10 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{38D28D8C-0473-C835-7BC8-B508586BC7B0}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -29,15 +29,16 @@ public class Destructible : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.relativeVelocity.magnitude > MaxVelocity && Destroyed == false) {
-            Instantiate(destroyedVersion, this.transform.position, this.transform.rotation);
+            GameObject v_destroyedVersion = Instantiate(destroyedVersion, this.transform.position, this.transform.rotation);
+            Destroy(v_destroyedVersion, 6.0f);
             Destroy(this.gameObject);
             Destroyed = true;
         }
     }
 
     private void OnMouseDown() {
-        Instantiate(destroyedVersion, this.transform.position, this.transform.rotation);
-        Destroy(this.gameObject);
-        Destroyed = true;
+        //Instantiate(destroyedVersion, this.transform.position, this.transform.rotation);
+        //Destroy(this.gameObject);
+        //Destroyed = true;
     }
 }
