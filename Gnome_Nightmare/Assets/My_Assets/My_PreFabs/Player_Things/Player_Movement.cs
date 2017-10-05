@@ -58,7 +58,8 @@ public class Player_Movement : MonoBehaviour {
             }
         }
 
-        moveDirection.y -= 30.0f * Time.deltaTime;
+        if (m_IsGrounded) { moveDirection.y -= 0.0f * Time.deltaTime; }
+        else { moveDirection.y -= 30.0f * Time.deltaTime; }
         transform.Rotate(0, rotX, 0);
         moveDirection = transform.rotation * moveDirection;
         m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * Time.deltaTime);
@@ -67,7 +68,6 @@ public class Player_Movement : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-
         if (collision.contacts.Length > 0) {
             if (Vector3.Dot(transform.up, collision.contacts[0].normal) > 0.5f) {
                 m_IsGrounded = true;

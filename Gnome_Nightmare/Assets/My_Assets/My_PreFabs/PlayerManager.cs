@@ -11,9 +11,11 @@ public class PlayerManager : MonoBehaviour {
     public bool MenuOpen = false;
     private float MenuTimer = 0.0f;
     private MenuManager menuManager;
+    private CraftingManager craftingManager;
 
     private void Start() {
         menuManager = MenuManager.instance;
+        craftingManager = CraftingManager.instance;
     }
 
     private void Update() {
@@ -22,6 +24,11 @@ public class PlayerManager : MonoBehaviour {
             Mathf.Clamp(MenuTimer, 0.0f, 30.0f);
         }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
+        if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
+            if (MenuOpen) { ExitMenus(); }
+        }
+            //
+
     }
 
 
@@ -44,16 +51,23 @@ public class PlayerManager : MonoBehaviour {
                     MenuOpen = false;
                     menuManager.EnableGraphicRaycaster(false);
                     other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    
-                }
-                else {
+                } else {
                     MenuOpen = true;
                     menuManager.EnableGraphicRaycaster(true);
                     other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-
                 }
-                Debug.Log("Craft");
             }
+            else if (other.tag == "NPC") {
+
+            }
+            else { }
+        }
+    }
+    private void ExitMenus() {
+        if (MenuOpen) {
+            MenuOpen = false;
+            menuManager.EnableGraphicRaycaster(false);
+            craftingManager.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
