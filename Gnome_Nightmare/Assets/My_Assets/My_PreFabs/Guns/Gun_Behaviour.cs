@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿//Based off of a youtube video
+//https://www.youtube.com/watch?v=THnivyG0Mvo
+//
+
+using UnityEngine;
 
 public class Gun_Behaviour : MonoBehaviour {
 
@@ -11,7 +15,7 @@ public class Gun_Behaviour : MonoBehaviour {
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
 
-    PlayerManager playerManager;
+    private PlayerManager playerManager;
 
     // Use this for initialization
     void Start () {
@@ -29,6 +33,8 @@ public class Gun_Behaviour : MonoBehaviour {
     }
 
     void Shoot() {
+        if (playerManager.MenuOpen) { return; }
+
         MuzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, Range)) {

@@ -36,7 +36,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
         if (eventData.pointerDrag == null) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null) {
-            if (typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) {
+            if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
                 DI.placeholderParent = this.transform;
             }
         }
@@ -45,7 +45,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
         if (eventData.pointerDrag == null) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null && DI.placeholderParent == this.transform) {
-            if (typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) {
+            if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
                 DI.placeholderParent = DI.parentToReturnTo;
             }
         }

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//Based off of a youtube video
+//https://www.youtube.com/watch?v=e8GmfoaOB4Y
+//
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

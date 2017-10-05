@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Drop_Inventory
+  - NPC
+  - Items_Spawn_Here
+  - Items
+  - Weapon_Inventory
+  - Item_Inventory
+  - MiniMap
+  - Crafting_Table
   layers:
   - Default
   - TransparentFX

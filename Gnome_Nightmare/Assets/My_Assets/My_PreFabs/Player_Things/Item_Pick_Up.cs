@@ -2,18 +2,25 @@
 using UnityEngine.UI;
 
 public class Item_Pick_Up : MonoBehaviour {
-
-    public bool InInventory;
+    
     public GameObject InventorySlot;
     private bool ItemPickedUp = false;
     private float Timer = 0.0f;
     private float TabTimer = 0.0f;
     private Color color = UnityEngine.Color.white;
 
+    private PlayerManager playerManager;
+    private MenuManager menuManager;
+    private ItemsManager itemsManager;
+
     void Start() {
-        InInventory = false;
-        GameObject.Find("Menu").GetComponent<GraphicRaycaster>().enabled = false;
-        InventorySlot = GameObject.FindWithTag("Item_Inventory");
+        playerManager = PlayerManager.instance;
+        menuManager = MenuManager.instance;
+        itemsManager = ItemsManager.instance;
+        
+        InventorySlot = menuManager.Menu.transform.GetChild(0).gameObject; //0 is "Item_Inventory"
+        //GameObject.Find("Menu").GetComponent<GraphicRaycaster>().enabled = false;
+        //InventorySlot = GameObject.FindWithTag("Item_Inventory");
     }
 
     private void OnTriggerStay(Collider other) {
@@ -41,19 +48,20 @@ public class Item_Pick_Up : MonoBehaviour {
         else if (Timer > 0.0f) { Timer -= Time.deltaTime; }
 
 
-        if (Timer <= 0.0f && Input.GetButton("Tab") && InInventory == false) {
-            InInventory = true;
-            GameObject.Find("Menu").GetComponent<GraphicRaycaster>().enabled = true;
+        if (Timer <= 0.0f && Input.GetButton("Tab") && playerManager.MenuOpen == false) {
+            playerManager.MenuOpen = true;
+            menuManager.EnableGraphicRaycaster(true);
             color.a = 0.10f;
-            GameObject.Find("Drop_To_Floor").GetComponent<Image>().color = color;
+            menuManager.Menu.transform.GetChild(5).GetComponent<Image>().color = color;//5 is "Drop_To_Floor"
+            //GameObject.Find("Drop_To_Floor").GetComponent<Image>().color = color;
             Timer = 0.2f;
         }
-        else if (Timer <= 0.0f && Input.GetButton("Tab") && InInventory == true)
-        {
-            InInventory = false;
-            GameObject.Find("Menu").GetComponent<GraphicRaycaster>().enabled = false;
+        else if (Timer <= 0.0f && Input.GetButton("Tab") && playerManager.MenuOpen == true) {
+            playerManager.MenuOpen = false;
+            menuManager.EnableGraphicRaycaster(false);
             color.a = 0.0f;
-            GameObject.Find("Drop_To_Floor").GetComponent<Image>().color = color;
+            menuManager.Menu.transform.GetChild(5).GetComponent<Image>().color = color;//5 is "Drop_To_Floor"
+            //GameObject.Find("Drop_To_Floor").GetComponent<Image>().color = color;
             Timer = 0.2f;
         }
     }

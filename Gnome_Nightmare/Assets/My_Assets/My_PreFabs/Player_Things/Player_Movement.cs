@@ -32,8 +32,7 @@ public class Player_Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-        //if (EventSystem.current.IsPointerOverGameObject()) { return; }
+        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) { return; }
 
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed);

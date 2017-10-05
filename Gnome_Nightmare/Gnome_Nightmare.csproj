@@ -99,6 +99,8 @@
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\EnemyStats.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\ItemsManager.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\MenuManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\CameraFollow.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drag_Inventory.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drop_Inventory.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Assets\My_Assets\My_PreFabs\PlayerManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\PlayerStats.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Stat.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Crafting_Table.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_CharacterMotor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_FPSInputController.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CS_PlatformInputController.cs" />
@@ -121,9 +124,11 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Orbit_Objects.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\RandomUtils.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Resize_GUI_Image.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Rotate_Slowly.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\ShockWave.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Stay_In_Box.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\SwitchActive.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Wave_Spawners.cs" />
   </ItemGroup>
   <ItemGroup>

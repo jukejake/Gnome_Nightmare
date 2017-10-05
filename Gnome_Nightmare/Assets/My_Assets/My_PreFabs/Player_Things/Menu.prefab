@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 223493753259990600}
   - component: {fileID: 114364727358574086}
   - component: {fileID: 114255073587443482}
+  - component: {fileID: 114334334790631782}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -337,6 +338,18 @@ MonoBehaviour:
   NumberOfSlotsTotal: 4
   NumberOfSlotsFilled: 0
   typeOfItem: 2
+--- !u!114 &114334334790631782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161930821945686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5f9eb57ab062e40bca4a5836cbece2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu: {fileID: 1161930821945686}
 --- !u!114 &114364727358574086
 MonoBehaviour:
   m_ObjectHideFlags: 1

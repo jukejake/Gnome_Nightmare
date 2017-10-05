@@ -4,7 +4,7 @@ using UnityEngine.EventSystems; //used for drag and drop
 
 public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor };
+    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor, None };
     public Slot typeOfItem = Slot.Inventory;
 
 
@@ -54,16 +54,19 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         int newSiblingIndex = placeholderParent.childCount;
         for (int i = 0; i < placeholderParent.childCount; i++) {
             if (this.transform.position.x < placeholderParent.GetChild(i).position.x) {
+                if (this.transform.position.y < placeholderParent.GetChild(i).position.y + 50.0f) {
+                    if (this.transform.position.y > placeholderParent.GetChild(i).position.y - 50.0f) {
+                        newSiblingIndex = i;
+                        if (placeholder.transform.GetSiblingIndex() < newSiblingIndex) {
+                            newSiblingIndex--;
+                        }
+                        break;
+                    }
+                }
                 if (this.transform.position.x > placeholderParent.GetChild(i).position.x ) {
                     //- (placeholderParent.GetChild(i).GetComponent<RectTransform>().rect.width/2.0f)
                     Debug.Log("BOOM");
                 }
-                newSiblingIndex = i;
-                if (placeholder.transform.GetSiblingIndex() < newSiblingIndex) {
-                    newSiblingIndex--;
-                }
-               
-                break;
             }
         }
         placeholder.transform.SetSiblingIndex(newSiblingIndex);
