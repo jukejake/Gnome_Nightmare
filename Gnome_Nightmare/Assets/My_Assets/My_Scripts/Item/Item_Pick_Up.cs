@@ -6,7 +6,6 @@ public class Item_Pick_Up : MonoBehaviour {
     public GameObject InventorySlot;
     private bool ItemPickedUp = false;
     private float Timer = 0.0f;
-    private float TabTimer = 0.0f;
     private Color color = UnityEngine.Color.white;
 
     private PlayerManager playerManager;

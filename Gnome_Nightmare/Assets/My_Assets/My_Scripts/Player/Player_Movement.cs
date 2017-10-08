@@ -10,7 +10,7 @@ public class Player_Movement : MonoBehaviour {
 
     public GameObject Eyes;
     private Rigidbody m_Rigidbody;
-    private AudioSource m_audioSource;
+    //private AudioSource m_audioSource;
 
 	private Vector3 moveDirection = Vector3.zero;
 	private float rotX;
@@ -23,7 +23,7 @@ public class Player_Movement : MonoBehaviour {
     void Start () {
         m_Rigidbody = gameObject.GetComponent<Rigidbody>();
         m_IsGrounded = true;
-        m_audioSource = gameObject.GetComponent<AudioSource>();
+        //m_audioSource = gameObject.GetComponent<AudioSource>();
         moveSpeed = 10.0f;
         SensitivityXAxis = 15.0f;
         SensitivityYAxis = 5.0f;

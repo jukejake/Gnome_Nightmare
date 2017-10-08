@@ -298,7 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b81fd7df1402154aa6d534084361780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InInventory: 0
   InventorySlot: {fileID: 0}
 --- !u!114 &114453863326805222
 MonoBehaviour:
@@ -364,11 +363,15 @@ MonoBehaviour:
   MaxHealth: 100
   Damage:
     baseValue: 1
+    modifiers: []
   Armor:
     baseValue: 0
+    modifiers: []
   PlayerLevel: 1
   PlayerExperience: 0
   MaxExperienceForLevel: 10
+  PlayerDamage: 0
+  PlayerArmor: 0
 --- !u!114 &114905972238024772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1340097901226250}
+  MenuOpen: 0
 --- !u!136 &136999085676596002
 CapsuleCollider:
   m_ObjectHideFlags: 1

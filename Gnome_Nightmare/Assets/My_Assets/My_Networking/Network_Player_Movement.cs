@@ -11,7 +11,7 @@ public class Network_Player_Movement : NetworkBehaviour {
     public Vector3 Jump = new Vector3(3.0f, 0.0f, 10.0f); //MinJump,JumpPressure, MaxJumpPressure
 
     private Rigidbody m_Rigidbody;
-    private AudioSource m_audioSource;
+    //private AudioSource m_audioSource;
 
 	private Vector3 moveDirection = Vector3.zero;
 	private float rotX;
@@ -23,7 +23,7 @@ public class Network_Player_Movement : NetworkBehaviour {
     public override void OnStartLocalPlayer() {
         m_Rigidbody = gameObject.GetComponent<Rigidbody>();
         m_IsGrounded = true;
-        m_audioSource = gameObject.GetComponent<AudioSource>();
+        //m_audioSource = gameObject.GetComponent<AudioSource>();
         moveSpeed = 10.0f;
         SensitivityXAxis = 20.0f;
         SensitivityYAxis = 5.0f;

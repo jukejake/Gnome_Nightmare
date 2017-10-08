@@ -82,23 +82,23 @@
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>Library\FacebookSDK\Facebook.Unity.Settings.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities.Editor">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Utilities">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
+    <Reference Include="Sirenix.Utilities">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Utilities.Editor">
+      <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -110,46 +110,45 @@
   <ItemGroup>
     <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\CharacterStats.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\CraftingManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\EnemyStats.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\ItemsManager.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\ItemStats.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\MenuManager.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\CameraFollow.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drag_Inventory.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Drop_Inventory.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\If_Under_Floor.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Item_Pick_Up.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Item_To_Pick_Up.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Load_Menu.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\MiniMap_Zoom.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Player_Things\Player_Movement.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\PlayerManager.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\PlayerStats.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Stat.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Crafting_Table.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\CS_CharacterMotor.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\CS_FPSInputController.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\CS_PlatformInputController.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Enemies_Prefs.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Eyes_Follow_Cursor.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Movement_001.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Orbit_Objects.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Random.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\RandomUtils.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Resize_GUI_Image.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Rotate_Slowly.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\ShockWave.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Stay_In_Box.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\SwitchActive.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Wave_Spawners.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\UI\Load_Menu.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\CharacterStats.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Crafting_Table.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Crafting\CraftingManager.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Crafting\SwitchActive.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\EnemyStats.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_Pick_Up.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_To_Pick_Up.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemsManager.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemStats.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Movement.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\CS_CharacterMotor.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\CS_FPSInputController.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\CS_PlatformInputController.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Enemies_Prefs.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Eyes_Follow_Cursor.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Orbit_Objects.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Random.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\RandomUtils.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\ShockWave.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Stay_In_Box.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\Wave_Spawners.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Stat.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\CameraFollow.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\Drag_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\Drop_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\MenuManager.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\MiniMap.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\MiniMap_Zoom.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\Resize_GUI_Image.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\Rotate_Slowly.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />
