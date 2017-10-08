@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114732393441817068}
   - component: {fileID: 114015699055873502}
   - component: {fileID: 225158640127647530}
+  - component: {fileID: 114066409270944200}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -101,6 +102,26 @@ MonoBehaviour:
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &114066409270944200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510137864369798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 0
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114086521822497016
 MonoBehaviour:
   m_ObjectHideFlags: 1

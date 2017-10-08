@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114554095095024090}
   - component: {fileID: 114818623152234268}
   - component: {fileID: 225015932274675828}
+  - component: {fileID: 114805210421800612}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -185,6 +186,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114805210421800612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321964243185932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 0
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114818623152234268
 MonoBehaviour:
   m_ObjectHideFlags: 1

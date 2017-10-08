@@ -178,6 +178,8 @@ GameObject:
   - component: {fileID: 33208020938078756}
   - component: {fileID: 135915105592786986}
   - component: {fileID: 23549969530610446}
+  - component: {fileID: 114027058054110538}
+  - component: {fileID: 114249031822773906}
   m_Layer: 0
   m_Name: Crafting_Table
   m_TagString: Crafting_Table
@@ -405,7 +407,6 @@ GameObject:
   - component: {fileID: 223421069783572898}
   - component: {fileID: 114566751355192550}
   - component: {fileID: 114804441258896846}
-  - component: {fileID: 114635033382260764}
   m_Layer: 0
   m_Name: Crafting_UI
   m_TagString: Untagged
@@ -736,6 +737,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114027058054110538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403494429329034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b596fd10a0693458fc9f8f7705bf86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Output_Slot: {fileID: 1557382409343476}
+  Modifier_Slot: {fileID: 1220206787443326}
+  Combined_First_Slot: {fileID: 1814458913681160}
+  Combined_Second_Slot: {fileID: 1325819732113360}
+  Disassemble_First_Slot: {fileID: 1598967472877514}
+  Disassemble_Second_Slot: {fileID: 1514963233219098}
 --- !u!114 &114051071270335370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,7 +866,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114015455008219886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114249031822773906}
+        m_MethodName: CheckCombinations
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114134376473046270
@@ -889,7 +918,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114889816187418398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114249031822773906}
+        m_MethodName: CheckDisassemble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114159034447910356
@@ -1007,6 +1047,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd4edfbc06b2b147a15722092dc0998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114249031822773906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403494429329034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d97b3bf8c250442ae3bc180224a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
+    - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
+    - {fileID: 1813944035144450, guid: 9ec456e276d4af748aad151e0bb850d9, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: CombinedTable
+      Entry: 7
+      Data: 0|UnityEngine.GameObject[,], UnityEngine
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: ranks
+      Entry: 1
+      Data: 3|1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!114 &114283076138345110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1045,7 +1132,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114662345919825070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114249031822773906}
+        m_MethodName: CheckModifiers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114285913381107898
@@ -1502,23 +1600,6 @@ MonoBehaviour:
   NumberOfSlotsTotal: 1
   NumberOfSlotsFilled: 0
   typeOfItem: 7
---- !u!114 &114635033382260764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1804714916429570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b596fd10a0693458fc9f8f7705bf86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Output_Slot: {fileID: 1557382409343476}
-  Modifier_Slot: {fileID: 1220206787443326}
-  Combined_First_Slot: {fileID: 1814458913681160}
-  Combined_Second_Slot: {fileID: 1325819732113360}
-  Disassemble_First_Slot: {fileID: 1598967472877514}
-  Disassemble_Second_Slot: {fileID: 1514963233219098}
 --- !u!114 &114662345919825070
 MonoBehaviour:
   m_ObjectHideFlags: 1

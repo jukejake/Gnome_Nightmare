@@ -31,6 +31,7 @@ public class Item_Pick_Up : MonoBehaviour {
                 ItemPickedUp = true;
                 Timer = 0.1f;
                 GameObject Item = (GameObject)Instantiate(ItemPickUp);
+                Item.name = ItemPickUp.name;
                 Item.transform.SetParent(DropI.transform);
                 Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 InventorySlot.GetComponent<Drop_Inventory>().NumberOfSlotsFilled++;

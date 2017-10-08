@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114536321683930612}
   - component: {fileID: 114667010548135612}
   - component: {fileID: 225109256994763688}
+  - component: {fileID: 114303376337289256}
   m_Layer: 0
   m_Name: Lighter
   m_TagString: Untagged
@@ -115,6 +116,26 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Lighter
+--- !u!114 &114303376337289256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706530768490810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 1
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114387441910478758
 MonoBehaviour:
   m_ObjectHideFlags: 1

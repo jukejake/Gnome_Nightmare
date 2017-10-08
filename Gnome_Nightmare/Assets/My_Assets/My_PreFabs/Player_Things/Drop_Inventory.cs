@@ -24,7 +24,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                 GameObject Item = (GameObject)Instantiate(DI.ItemOnDrop);
                 Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
                 Vector3 temp = GameObject.FindWithTag("Player").transform.position;
-                Item.transform.position = new Vector3(temp.x, temp.y + 1.0f, temp.z);
+                Item.transform.position = new Vector3(temp.x, temp.y - 0.50f, temp.z);
 
                 //Drop Item to floor
                 Destroy(DI.gameObject);

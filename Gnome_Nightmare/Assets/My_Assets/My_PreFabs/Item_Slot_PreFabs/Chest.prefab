@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114574905328802254}
   - component: {fileID: 114511305551952290}
   - component: {fileID: 225688928003822338}
+  - component: {fileID: 114066626971961800}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -82,6 +83,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114066626971961800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112009130260882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 0
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114511305551952290
 MonoBehaviour:
   m_ObjectHideFlags: 1

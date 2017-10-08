@@ -19,16 +19,5 @@ public class CraftingManager : MonoBehaviour {
     //Disassemble
     public GameObject Disassemble_First_Slot;
     public GameObject Disassemble_Second_Slot;
-    [Space]
-    private bool hello;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

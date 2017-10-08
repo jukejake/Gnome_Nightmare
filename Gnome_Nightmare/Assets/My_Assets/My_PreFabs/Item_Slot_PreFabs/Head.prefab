@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114069371290406004}
   - component: {fileID: 114482755414245196}
   - component: {fileID: 225213783957470738}
+  - component: {fileID: 114151421988836910}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -98,6 +99,26 @@ MonoBehaviour:
   placeholderParent: {fileID: 0}
   placeholder: {fileID: 0}
   ItemOnDrop: {fileID: 1911633312650646, guid: ec22fe0632c436a4f9c14368ccf28b6b, type: 2}
+--- !u!114 &114151421988836910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471965658873426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 0
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114178368275555622
 MonoBehaviour:
   m_ObjectHideFlags: 1

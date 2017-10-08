@@ -40,7 +40,7 @@ public class Gun_Behaviour : MonoBehaviour {
         if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, Range)) {
             EnemyStats EnemyStat = hit.transform.GetComponent<EnemyStats>();
             if (EnemyStat != null) {
-                if (EnemyStat.KillEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.getValue())) {
+                if (EnemyStat.KillEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
                     playerManager.GetComponent<PlayerStats>().addExperience(EnemyStat.Experience);
                     EnemyStat.OnDeath();
                 }

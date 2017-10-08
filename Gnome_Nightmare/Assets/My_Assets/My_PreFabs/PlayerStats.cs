@@ -25,7 +25,7 @@ public class PlayerStats : CharacterStats {
 
         if (PlayerExperience >= MaxExperienceForLevel) { PlayerLevelUp(); }
 
-        PlayerDamage = Damage.getValue();
-        PlayerArmor = Armor.getValue();
+        PlayerDamage = Damage.GetValue();
+        PlayerArmor = Armor.GetValue();
     }
 }

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114666311918764356}
   - component: {fileID: 114499626429429912}
   - component: {fileID: 225481505528787660}
+  - component: {fileID: 114885428447717798}
   m_Layer: 0
   m_Name: Flame_Can
   m_TagString: Untagged
@@ -204,6 +205,26 @@ MonoBehaviour:
   placeholderParent: {fileID: 0}
   placeholder: {fileID: 0}
   ItemOnDrop: {fileID: 1902338955726660, guid: 648d54eb7be161c4b9fa4f758175681a, type: 2}
+--- !u!114 &114885428447717798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813944035144450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc721661eb70544295d39a5e2a12810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    baseValue: 5
+    modifiers: []
+  Armor:
+    baseValue: 0
+    modifiers: []
+  FireRate:
+    baseValue: 0
+    modifiers: []
 --- !u!114 &114994585898645198
 MonoBehaviour:
   m_ObjectHideFlags: 1
