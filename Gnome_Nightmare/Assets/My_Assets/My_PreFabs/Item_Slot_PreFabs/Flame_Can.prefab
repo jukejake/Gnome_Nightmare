@@ -218,13 +218,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage:
     baseValue: 5
-    modifiers: []
-  Armor:
-    baseValue: 0
-    modifiers: []
+    modifiers:
+    - 1
+  Armour:
+    baseValue: 1
+    modifiers:
+    - 1
   FireRate:
-    baseValue: 0
-    modifiers: []
+    baseValue: 1
+    modifiers:
+    - 1
 --- !u!114 &114994585898645198
 MonoBehaviour:
   m_ObjectHideFlags: 1

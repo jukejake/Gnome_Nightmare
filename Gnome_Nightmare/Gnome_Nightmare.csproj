@@ -119,12 +119,13 @@
     <Compile Include="Assets\My_Assets\My_Scripts\CharacterStats.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Crafting_Table.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Crafting\CraftingManager.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Resize_GUI_Image.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Crafting\SwitchActive.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\EnemyStats.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_Pick_Up.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_To_Pick_Up.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemsManager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemStats.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\Rotate_Slowly.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerManager.cs" />
@@ -143,12 +144,11 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Stat.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\CameraFollow.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\Drag_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\Drag_UI.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\Drop_Inventory.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\MiniMap.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\MiniMap_Zoom.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\UI\Resize_GUI_Image.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\UI\Rotate_Slowly.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />

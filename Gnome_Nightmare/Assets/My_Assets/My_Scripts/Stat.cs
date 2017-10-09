@@ -27,11 +27,18 @@ public class Stat {
         return finalValue;
     }
 
-    public void SquishValue() {
-        float finalValue = baseValue;
+    public void SquishModifierValue() {
+        float finalValue = 0.0f;
         modifiers.ForEach(x => finalValue += x);
         modifiers.ForEach(x => RemoveModifier(x));
         AddModifier(finalValue);
+    }
+
+    public void SquishValueToBase() {
+        float finalValue = baseValue;
+        modifiers.ForEach(x => finalValue += x);
+        modifiers.ForEach(x => RemoveModifier(x));
+        baseValue = finalValue;
     }
 
     public void AddModifier(float modifier) {

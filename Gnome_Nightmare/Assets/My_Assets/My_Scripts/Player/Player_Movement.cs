@@ -8,7 +8,7 @@ public class Player_Movement : MonoBehaviour {
     public float SensitivityYAxis;
     public Vector3 Jump = new Vector3(3.0f, 0.0f, 10.0f); //MinJump,JumpPressure, MaxJumpPressure
 
-    public GameObject Eyes;
+    //public GameObject Eyes;
     private Rigidbody m_Rigidbody;
     //private AudioSource m_audioSource;
 
@@ -39,7 +39,7 @@ public class Player_Movement : MonoBehaviour {
         rotX = Input.GetAxis("Mouse X") * SensitivityXAxis;
         rotY -= Input.GetAxis("Mouse Y") * SensitivityYAxis;
         rotY = Mathf.Clamp(rotY, -60f, 50f);
-        Eyes.transform.localRotation = Quaternion.Euler(rotY, 0, 0);
+        //Eyes.transform.localRotation = Quaternion.Euler(rotY, 0, 0);
         //holding jump button
         if (Input.GetButton("Jump") && m_IsGrounded) {
             if (Jump.y < Jump.z) { Jump.y += moveSpeed * Time.deltaTime; }

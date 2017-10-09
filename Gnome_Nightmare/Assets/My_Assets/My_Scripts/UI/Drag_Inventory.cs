@@ -20,6 +20,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         //Create a placeholder
         placeholder = new GameObject();
+        placeholder.name = "placeholder";
         placeholder.transform.SetParent(this.transform.parent);
         LayoutElement placeholder_layoutElement = placeholder.AddComponent<LayoutElement>();
         placeholder_layoutElement.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
@@ -29,7 +30,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
 
         //Find where the user clicked on the Item
-        MouseDifference = eventData.position - new Vector2(transform.position.x, transform.position.y);
+        MouseDifference = eventData.position - new Vector2(this.transform.position.x, this.transform.position.y);
 
         //set the parent(inventory) of the item
         parentToReturnTo = this.transform.parent;

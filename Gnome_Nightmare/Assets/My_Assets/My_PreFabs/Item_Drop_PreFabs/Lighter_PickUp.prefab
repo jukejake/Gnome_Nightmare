@@ -36,7 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4701913053482092}
-  - component: {fileID: 114646228192510346}
   m_Layer: 0
   m_Name: Lighter
   m_TagString: Untagged
@@ -56,6 +55,7 @@ GameObject:
   - component: {fileID: 135903206428933848}
   - component: {fileID: 23030061600461940}
   - component: {fileID: 114193919389434296}
+  - component: {fileID: 114785485884245736}
   m_Layer: 0
   m_Name: Lighter_PickUp
   m_TagString: Items
@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 1696605160986344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4701913053482092}
   m_Father: {fileID: 0}
@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1457339720603292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4491187207412068}
   m_Father: {fileID: 4052037763531706}
@@ -194,12 +194,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
---- !u!114 &114646228192510346
+--- !u!114 &114785485884245736
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457339720603292}
+  m_GameObject: {fileID: 1696605160986344}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}

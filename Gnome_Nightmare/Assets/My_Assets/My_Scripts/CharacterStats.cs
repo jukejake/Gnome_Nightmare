@@ -7,7 +7,7 @@ public class CharacterStats : MonoBehaviour
     public float CurrentHealth { get; private set; }
 
     public Stat Damage;
-    public Stat Armor;
+    public Stat Armour;
 
     void Start() {
         CurrentHealth = MaxHealth;
@@ -25,7 +25,7 @@ public class CharacterStats : MonoBehaviour
 
     public void TakeDamage(float DamageTaken) {
 
-        DamageTaken -= Armor.GetValue();
+        DamageTaken -= Armour.GetValue();
         DamageTaken = Mathf.Clamp(DamageTaken, 0, float.MaxValue);
 
         CurrentHealth -= DamageTaken;

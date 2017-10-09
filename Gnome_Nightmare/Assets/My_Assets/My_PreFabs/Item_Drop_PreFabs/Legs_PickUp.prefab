@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 135730904827790470}
   - component: {fileID: 23330671163592510}
   - component: {fileID: 114017753405964582}
+  - component: {fileID: 114323778774620230}
   m_Layer: 0
   m_Name: Legs_PickUp
   m_TagString: Items
@@ -164,6 +165,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1161255031048162, guid: d93b7b5421bfb594ebef40aa5d680a4d, type: 2}
+--- !u!114 &114323778774620230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496795096908860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 1
 --- !u!135 &135730904827790470
 SphereCollider:
   m_ObjectHideFlags: 1

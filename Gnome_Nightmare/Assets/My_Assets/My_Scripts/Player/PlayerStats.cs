@@ -17,7 +17,7 @@ public class PlayerStats : CharacterStats {
 
     void PlayerLevelUp() {
         Damage.AddModifier(0.50f);
-        Armor.AddModifier(0.50f);
+        Armour.AddModifier(0.50f);
 
         PlayerLevel += 1;
         PlayerExperience -= MaxExperienceForLevel;
@@ -26,6 +26,6 @@ public class PlayerStats : CharacterStats {
         if (PlayerExperience >= MaxExperienceForLevel) { PlayerLevelUp(); }
 
         PlayerDamage = Damage.GetValue();
-        PlayerArmor = Armor.GetValue();
+        PlayerArmor = Armour.GetValue();
     }
 }

@@ -10,13 +10,14 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
     void FixedUpdate() {
         NumberOfSlotsFilled = this.transform.childCount;
+        if (this.transform.Find("placeholder") == true) { NumberOfSlotsFilled--; }
     }
 
     void IDropHandler.OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null && NumberOfSlotsFilled <= NumberOfSlotsTotal) {
-            if (typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) {
+            if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
                 DI.parentToReturnTo = this.transform;
             }
             if (typeOfItem == Drag_Inventory.Slot.Drop_To_Floor) {

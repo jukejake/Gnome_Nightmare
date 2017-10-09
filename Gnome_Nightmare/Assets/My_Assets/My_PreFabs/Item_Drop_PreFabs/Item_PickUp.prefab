@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 135442791196701458}
   - component: {fileID: 23662871728720894}
   - component: {fileID: 114125330811101466}
+  - component: {fileID: 114255031087155960}
   m_Layer: 0
   m_Name: Item_PickUp
   m_TagString: Items
@@ -164,6 +165,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1510137864369798, guid: 4dec240ebe00a5f41becd98648811952, type: 2}
+--- !u!114 &114255031087155960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113078868453692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 1
 --- !u!135 &135442791196701458
 SphereCollider:
   m_ObjectHideFlags: 1

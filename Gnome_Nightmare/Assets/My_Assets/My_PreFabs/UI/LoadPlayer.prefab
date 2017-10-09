@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu_Prefab: {fileID: 1161930821945686, guid: edcde4f9f4a0b244a93c9a3c50ff83e1,
     type: 2}
-  Items_Prefab: {fileID: 1304024116460298, guid: a5e2d7ad3f7cea340b0455e5b40a673e,
+  Items_Prefab: {fileID: 1688100711802394, guid: a5e2d7ad3f7cea340b0455e5b40a673e,
     type: 2}
-  Player_Prefab: {fileID: 1340097901226250, guid: 611c7db145750b345bc06fd6b7d39832,
+  Player_Prefab: {fileID: 1230236950010094, guid: 611c7db145750b345bc06fd6b7d39832,
     type: 2}
