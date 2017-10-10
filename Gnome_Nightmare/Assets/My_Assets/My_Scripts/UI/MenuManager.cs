@@ -38,7 +38,9 @@ public class MenuManager : MonoBehaviour {
         if (Weapon_Slot.transform.GetChild(0).name == "placeholder") { return; }
         WeaponEquiped = true;
         weapon = (GameObject)Instantiate(Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject);
-        weapon.name = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject.name;
+        weapon.name = "weapon";
+        weapon.GetComponent<Gun_Behaviour>().enabled = true;
+        weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true;
         weapon.transform.SetParent(player.transform);
         weapon.transform.localPosition = new Vector3(0.5f,0.0f,0.6f);
         weapon.transform.rotation = player.transform.rotation;

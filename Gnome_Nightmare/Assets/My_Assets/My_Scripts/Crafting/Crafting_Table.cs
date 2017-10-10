@@ -31,7 +31,7 @@ public class Crafting_Table : SerializedMonoBehaviour {
 
     public void CheckModifiers() {
         if (craftingManager.Output_Slot.transform.childCount == 1 && craftingManager.Modifier_Slot.transform.childCount == 1) {
-            Debug.Log("hi");
+            Debug.Log("Modified");
             for (int i = 0; i < YAxis2; i++) {
                 if (ModifierTable[0, i] == null) { return; }
 
