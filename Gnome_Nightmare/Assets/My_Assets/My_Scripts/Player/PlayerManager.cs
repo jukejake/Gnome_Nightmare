@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour {
         craftingManager = CraftingManager.instance;
 
         InventorySlot = menuManager.Menu.transform.GetChild(0).gameObject; //0 is "Item_Inventory"
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update() {
@@ -30,10 +32,12 @@ public class PlayerManager : MonoBehaviour {
             Mathf.Clamp(MenuTimer, 0.0f, 30.0f);
         }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
+
         if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
             if (MenuOpen) { ExitMenus(); }
         }
         if (Input.GetButton("Tab") && MenuTimer == 0.0f) {
+            Cursor.lockState = CursorLockMode.None;
             MenuOpen = true;
             menuManager.EnableGraphicRaycaster(true);
             color.a = 0.20f;
@@ -54,7 +58,6 @@ public class PlayerManager : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
 
         if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
-
             if (other.tag == "Crafting_Table" && Input.GetButton("E")) { CraftingMenu(other); }
             else if (other.tag == "Items" && Input.GetButton("E")) { ItemPickUp(other); }
             else if (other.tag == "NPC") { }
@@ -65,11 +68,12 @@ public class PlayerManager : MonoBehaviour {
 
     private void CraftingMenu(Collider other) {
         MenuTimer = 0.3f;
-        
+        Cursor.lockState = CursorLockMode.None;
         if (other.gameObject.transform.GetChild(0).gameObject.activeSelf) {
             MenuOpen = false;
             menuManager.EnableGraphicRaycaster(false);
             other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            ExitMenus();
         } else {
             MenuOpen = true;
             menuManager.EnableGraphicRaycaster(true);
@@ -107,6 +111,6 @@ public class PlayerManager : MonoBehaviour {
             color.a = 0.0f;
             menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
         }
+        Cursor.lockState = CursorLockMode.Locked;
     }
-
 }

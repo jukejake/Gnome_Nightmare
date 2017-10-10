@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
+
     public static MenuManager instance;
     void Awake() { instance = this; }
     public GameObject Menu;
@@ -37,7 +38,7 @@ public class MenuManager : MonoBehaviour {
         if (Weapon_Slot.transform.GetChild(0).name == "placeholder") { return; }
         WeaponEquiped = true;
         weapon = (GameObject)Instantiate(Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject);
-        weapon.name = "weapon";
+        weapon.name = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject.name;
         weapon.transform.SetParent(player.transform);
         weapon.transform.localPosition = new Vector3(0.5f,0.0f,0.6f);
         weapon.transform.rotation = player.transform.rotation;

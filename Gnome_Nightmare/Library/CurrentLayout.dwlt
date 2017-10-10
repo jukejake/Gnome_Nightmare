@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 3}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
     y: 0
     width: 2102
     height: 855
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &4
 MonoBehaviour:
@@ -131,10 +131,10 @@ MonoBehaviour:
     y: 30
     width: 2102
     height: 805
-  m_MinSize: {x: 847, y: 492}
-  m_MaxSize: {x: 28012, y: 14042}
+  m_MinSize: {x: 845, y: 492}
+  m_MaxSize: {x: 28010, y: 14042}
   vertical: 0
-  controlID: 32
+  controlID: 175
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,8 +155,8 @@ MonoBehaviour:
     y: 0
     width: 1718
     height: 805
-  m_MinSize: {x: 570, y: 492}
-  m_MaxSize: {x: 24010, y: 14042}
+  m_MinSize: {x: 568, y: 492}
+  m_MaxSize: {x: 24008, y: 14042}
   vertical: 1
   controlID: 176
 --- !u!114 &8
@@ -201,8 +201,8 @@ MonoBehaviour:
     y: 0
     width: 917
     height: 534
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 19}
@@ -227,8 +227,8 @@ MonoBehaviour:
     y: 0
     width: 801
     height: 534
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -255,10 +255,10 @@ MonoBehaviour:
     y: 534
     width: 1718
     height: 271
-  m_MinSize: {x: 570, y: 271}
-  m_MaxSize: {x: 24010, y: 10021}
+  m_MinSize: {x: 568, y: 271}
+  m_MaxSize: {x: 24008, y: 10021}
   vertical: 0
-  controlID: 71
+  controlID: 202
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 0
     width: 597
     height: 271
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.2408492, y: -0.38522694, z: 0.10488054, w: 0.8846627}
     speed: 2
-    m_Value: {x: 0.24084486, y: -0.38522, z: 0.10487866, w: 0.8846468}
+    m_Value: {x: -0.2408492, y: 0.38522696, z: -0.10488054, w: -0.8846627}
   m_Size:
     m_Target: 22.73366
     speed: 2
@@ -616,8 +616,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 19
+    x: 226
+    y: 680
     width: 595
     height: 250
 --- !u!114 &22
@@ -658,19 +658,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/My_Assets/My_PreFabs/Item_Drop_PreFabs
+    - Assets/My_Assets/My_Scripts/Crafting
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/My_Assets/My_PreFabs/Item_Drop_PreFabs
+  - Assets/My_Assets/My_Scripts/Crafting
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Crisp\Documents\GitHub\Project\Gnome_Nightmare
   m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 180}
-    m_SelectedIDs: ee2b0000
-    m_LastClickedID: 11246
-    m_ExpandedIDs: 00000000ec2700003a280000c0290000022a0000162b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 267}
+    m_SelectedIDs: a02b0000
+    m_LastClickedID: 11168
+    m_ExpandedIDs: 00000000e427000032280000b6290000fa2900000e2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -698,7 +698,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ee440000
     m_LastClickedID: 17646
-    m_ExpandedIDs: 00000000ec2700003a280000c0290000022a0000162b0000
+    m_ExpandedIDs: 00000000e427000032280000b6290000fa2900000e2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -729,18 +729,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300004e390000be420000fcedfeff7e3c0000e21affff00000000d80600007e9ff6ffcc2600001c270000762800005a28000004edfdff7e87fbff4062fcff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Eyes_Follow_Cursor
-      m_OriginalName: Eyes_Follow_Cursor
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 2202
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -775,8 +775,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1105
-    y: 19
+    x: 1331
+    y: 680
     width: 611
     height: 250
   m_SearchFilter:
@@ -800,10 +800,10 @@ MonoBehaviour:
   m_LastProjectPath: C:\Users\Crisp\Documents\GitHub\Project\Gnome_Nightmare
   m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 187}
-    m_SelectedIDs: fe290000
-    m_LastClickedID: 10750
-    m_ExpandedIDs: 00000000ec2700003a280000c0290000022a0000162b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 199}
+    m_SelectedIDs: f6290000
+    m_LastClickedID: 10742
+    m_ExpandedIDs: 00000000e427000032280000b6290000fa2900000e2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -831,7 +831,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ec2700003a280000c0290000022a0000162b0000
+    m_ExpandedIDs: 00000000e427000032280000b6290000fa2900000e2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 0000000072270000222c0000ba2600000c67fefff629000004edfdff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -914,9 +914,9 @@ MonoBehaviour:
     height: 322
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 525afbff425bfbff6aabfcffc2b3fcff0cc5fcffeac5fcff764bfdff544cfdffa25cfdff7c5dfdff805dfdff987afdff767bfdff2ea7fdff0ca8fdff7a43feffeeaefeff04b0feffc02dffffc62dffff3a2effffca66ffffe6a9ffff18caffff1acaffff0cfcffff00000000
+    m_SelectedIDs: d09dffff
+    m_LastClickedID: -25136
+    m_ExpandedIDs: 00a1ffff0ca1ffff10a1ffff18e3ffff08e4ffff16fcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
