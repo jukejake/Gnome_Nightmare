@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour {
     private GameObject InventorySlot;
     private Color color = UnityEngine.Color.white;
 
+    private int OnSlot = 0;
+
     private void Start() {
         menuManager = MenuManager.instance;
         craftingManager = CraftingManager.instance;
@@ -79,6 +81,57 @@ public class PlayerManager : MonoBehaviour {
             menuManager.EnableGraphicRaycaster(true);
             other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             other.gameObject.transform.GetChild(0).transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+
+            if (Input.GetAxis("D-pad Y") >= 00.2f) {
+                if (OnSlot == 0) { OnSlot = 1; }
+                else if (OnSlot == 1) { }
+                else if (OnSlot == 2) { }
+                else if (OnSlot == 3) { }
+                else if (OnSlot == 4) { }
+                else if (OnSlot == 5) { }
+                else if (OnSlot == 6) { }
+            }
+            if (Input.GetAxis("D-pad Y") <= -0.2f) {
+                if (OnSlot == 0) { }
+                else if (OnSlot == 1) { }
+                else if (OnSlot == 2) { }
+                else if (OnSlot == 3) { }
+                else if (OnSlot == 4) { }
+                else if (OnSlot == 5) { }
+                else if (OnSlot == 6) { }
+            }
+
+
+            if (Input.GetButton("Fire3")) {
+                if (OnSlot == 0) { //inventory
+                    if (InventorySlot.transform.GetChild(menuManager.CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon) {
+                        if (craftingManager.Output_Slot.transform.childCount != 0) {
+                            MenuTimer = 0.2f;
+                            craftingManager.Output_Slot.transform.GetChild(0).SetParent(InventorySlot.transform);
+                            InventorySlot.transform.GetChild(menuManager.CurrentSlot).SetParent(craftingManager.Output_Slot.transform);
+                            Debug.Log("I1");
+                        }
+                        else {
+                            MenuTimer = 0.2f;
+                            InventorySlot.transform.GetChild(menuManager.CurrentSlot).SetParent(craftingManager.Output_Slot.transform);
+                            Debug.Log("I2");
+                        }
+                    }
+                } else if (OnSlot == 1) { //Output slot
+
+                } else if (OnSlot == 2) { //Modifier slot
+
+                } else if (OnSlot == 3) { //Combined First Slot
+
+                } else if (OnSlot == 4) { //Combined Second Slot
+
+                } else if (OnSlot == 5) { //Disassemble First Slot
+
+                } else if (OnSlot == 6) { //Disassemble Second Slot
+
+                }
+                
+            }
         }
     }
 

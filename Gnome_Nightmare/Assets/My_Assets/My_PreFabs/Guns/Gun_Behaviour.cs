@@ -25,7 +25,7 @@ public class Gun_Behaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire1") && Time.time >= NextTimeToFire) {
+        if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + 1.0f / FireRate;
             Shoot();
         }
@@ -46,7 +46,7 @@ public class Gun_Behaviour : MonoBehaviour {
                 }
             }
             if (hit.rigidbody != null) {
-                hit.rigidbody.AddForce(-hit.normal * ImpactForce);
+                //hit.rigidbody.AddForce(-hit.normal * ImpactForce);
             }
 
             GameObject ImpactAtHit = Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));

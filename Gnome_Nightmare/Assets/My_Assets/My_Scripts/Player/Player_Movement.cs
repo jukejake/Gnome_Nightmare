@@ -33,12 +33,15 @@ public class Player_Movement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) { return; }
-
-
+        
         moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed);
-        rotX = Input.GetAxis("Mouse X") * SensitivityXAxis;
-        rotY -= Input.GetAxis("Mouse Y") * SensitivityYAxis;
-        rotY = Mathf.Clamp(rotY, -60f, 50f);
+
+        if (Input.GetAxis("Right Joystick X") != 0.0f) { rotX = Input.GetAxis("Right Joystick X") * SensitivityXAxis; }
+        else { rotX = Input.GetAxis("Mouse X") * SensitivityXAxis; }
+        if (Input.GetAxis("Right Joystick X") != 0.0f) { rotY += Input.GetAxis("Right Joystick Y") * SensitivityYAxis; }
+        else { rotY -= Input.GetAxis("Mouse Y") * SensitivityYAxis; }
+
+        rotY = Mathf.Clamp(rotY, -60f, 70f);  //high, low
         //Eyes.transform.localRotation = Quaternion.Euler(rotY, 0, 0);
         //holding jump button
         if (Input.GetButton("Jump") && m_IsGrounded) {

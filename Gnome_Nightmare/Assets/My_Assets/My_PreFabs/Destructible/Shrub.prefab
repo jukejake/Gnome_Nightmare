@@ -364,8 +364,10 @@ MonoBehaviour:
   MaxHealth: 2
   Damage:
     baseValue: 0
-  Armor:
+    modifiers: []
+  Armour:
     baseValue: 0
+    modifiers: []
   Experience: 1
 --- !u!114 &114611411872572654
 MonoBehaviour:
@@ -380,4 +382,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 1966963901341298, guid: 43be4d983a53d5d4b895c1168c735f8e,
     type: 2}
-  MaxVelocity: 10
+  MaxVelocity: 100
