@@ -57,4 +57,11 @@ public class Gun_Behaviour : MonoBehaviour {
     void Reload() {
 
     }
+
+    void raycast() {
+        RaycastHit hit;
+        Debug.Log("I'm here!");
+        if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, 100.0f)){ Debug.Log(hit.transform.name); }
+        else { Debug.Log("Out of range."); }
+    }
 }
