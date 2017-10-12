@@ -8,23 +8,19 @@ public class CameraFollow : MonoBehaviour {
     public float depth = 0.0f;
 
     // Update is called once per frame
-    void Update()
-    {
-        if (playerTransform != null)
-        {
+    void Update() {
+        //If player is active, set the camera position and rotation
+        if (playerTransform != null) {
             this.transform.position = playerTransform.position + new Vector3(0, height, 0) + playerTransform.transform.forward * depth;
-            //this.transform.rotation = Quaternion.Euler(playerRotation.y, this.transform.rotation.x, 0.0f);
-            //this.transform.Rotate(0, playerRotation.x*100.0f, 0);
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
         }
     }
-
-    public void setPosition(Transform m_transform)
-    {
+    //Set position of camera
+    public void setPosition(Transform m_transform) {
         playerTransform = m_transform;
     }
-    public void setRotation(Vector2 m_rotation)
-    {
+    //Set rotation of camera
+    public void setRotation(Vector2 m_rotation) {
         playerRotation = m_rotation;
     }
 }

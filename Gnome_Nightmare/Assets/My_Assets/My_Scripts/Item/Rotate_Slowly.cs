@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Rotate_Slowly : MonoBehaviour {
 
-    public float RotationSpeed = 1.0f;
+    //The speed the object will rotate at
+    public Vector3 RotationSpeed = new Vector3(0.0f, 1.0f, 0.0f);
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 rot = new Vector3(0.0f, RotationSpeed, 0.0f);
-        this.transform.Rotate(rot);
+        //Will rotate the object this script is attached to
+        this.transform.Rotate(RotationSpeed);
 	}
 }

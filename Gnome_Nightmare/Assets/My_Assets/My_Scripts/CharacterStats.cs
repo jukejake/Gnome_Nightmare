@@ -17,12 +17,14 @@ public class CharacterStats : MonoBehaviour
         HealOverTime(0.0001f);
     }
 
+    //Adds health to character over time
     public void HealOverTime(float HealthHealed) {
         if (CurrentHealth + HealthHealed < MaxHealth) {
             CurrentHealth += HealthHealed;
         }
     }
 
+    //Applys damage to character
     public void TakeDamage(float DamageTaken) {
 
         DamageTaken -= Armour.GetValue();

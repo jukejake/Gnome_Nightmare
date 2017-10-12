@@ -15,18 +15,21 @@ public class Stat {
     [SerializeField]
     private List<float> modifiers = new List<float>();
 
+    //Get all modifiers plus the base value as one value
     public float GetValue() {
         float finalValue = baseValue;
         modifiers.ForEach(x => finalValue += x);
         return finalValue;
     }
 
+    //Get all modifiers as one value
     public float GetModifierValue() {
         float finalValue = 0.0f;
         modifiers.ForEach(x => finalValue += x);
         return finalValue;
     }
 
+    //Add all modifiers into one value
     public void SquishModifierValue() {
         float finalValue = 0.0f;
         modifiers.ForEach(x => finalValue += x);
@@ -34,6 +37,7 @@ public class Stat {
         AddModifier(finalValue);
     }
 
+    //Add all modifiers to the base value
     public void SquishValueToBase() {
         float finalValue = baseValue;
         modifiers.ForEach(x => finalValue += x);
@@ -41,10 +45,12 @@ public class Stat {
         baseValue = finalValue;
     }
 
+    //Add a modifier to an object
     public void AddModifier(float modifier) {
         if (modifier != 0.0f) { modifiers.Add(modifier); }
     }
 
+    //Remove a modifier of an object
     public void RemoveModifier(float modifier) {
         if (modifier != 0.0f) { modifiers.Remove(modifier); }
     }

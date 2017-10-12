@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  SensitivityXAxis: 1
-  SensitivityYAxis: 1
+  SensitivityXAxis: 15
+  SensitivityYAxis: 10
   Jump: {x: 3, y: 0, z: 10}
 --- !u!136 &136722336064726656
 CapsuleCollider:

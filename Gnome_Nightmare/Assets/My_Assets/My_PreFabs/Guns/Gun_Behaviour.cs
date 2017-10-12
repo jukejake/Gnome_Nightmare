@@ -11,7 +11,7 @@ public class Gun_Behaviour : MonoBehaviour {
     public float FireRate = 3.0f;
     private float NextTimeToFire = 0.0f;
     public float ImpactForce = 100.0f;
-    public Camera FpsCamera;
+    public Camera PlayerCamera;
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
 
@@ -19,36 +19,49 @@ public class Gun_Behaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        FpsCamera = Camera.main;
+        Invoke("DelayedStart", 0.1f);
+    }
+    //Used so that everything gets a chance to load before trying to accsess it
+    private void DelayedStart() {
+        PlayerCamera = Camera.main;
         playerManager = PlayerManager.instance;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+        //If the player presses LeftClick or Right Triggger
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + 1.0f / FireRate;
             Shoot();
         }
+        //If the player presses Right Click 
         if (Input.GetButtonDown("Fire2")) { Reload(); }
     }
 
     void Shoot() {
+        //If the player is in a Menu than return
         if (playerManager.MenuOpen) { return; }
 
-        MuzzleFlash.Play();
+        //Play a Particle System at end to the gun
+        if (MuzzleFlash != null) { MuzzleFlash.Play(); }
         RaycastHit hit;
-        if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, Range)) {
+        //Fires a Raycast to find something to hit
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, Range)) {
+            //Get enemies stats
             EnemyStats EnemyStat = hit.transform.GetComponent<EnemyStats>();
+            //If what was hit has an EnemyStat
             if (EnemyStat != null) {
-                if (EnemyStat.KillEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
-                    playerManager.GetComponent<PlayerStats>().addExperience(EnemyStat.Experience);
+                //Applys damage to the enemy and if it kills it, destroy the enemie
+                if (EnemyStat.DamageEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
+                    playerManager.GetComponent<PlayerStats>().AddExperience(EnemyStat.Experience);
+                    //Destroys the enemy
                     EnemyStat.OnDeath();
                 }
             }
-            if (hit.rigidbody != null) {
-                //hit.rigidbody.AddForce(-hit.normal * ImpactForce);
-            }
+            //Apply force to the rigidbody 
+            //if (hit.rigidbody != null) { hit.rigidbody.AddForce(-hit.normal * ImpactForce); }
 
+            //Spawn a Particle System at where the Raycast hit
             GameObject ImpactAtHit = Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(ImpactAtHit, 2.0f);
         }
@@ -60,8 +73,7 @@ public class Gun_Behaviour : MonoBehaviour {
 
     void raycast() {
         RaycastHit hit;
-        Debug.Log("I'm here!");
-        if (Physics.Raycast(FpsCamera.transform.position, FpsCamera.transform.forward, out hit, 100.0f)){ Debug.Log(hit.transform.name); }
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, 100.0f)) { Debug.Log(hit.transform.name); }
         else { Debug.Log("Out of range."); }
     }
 }

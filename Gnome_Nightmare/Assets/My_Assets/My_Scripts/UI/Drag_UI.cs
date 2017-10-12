@@ -5,17 +5,6 @@ using UnityEngine.EventSystems; //used for drag and drop
 
 public class Drag_UI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    
     private Vector2 MouseDifference;
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {

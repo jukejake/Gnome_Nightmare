@@ -12,11 +12,11 @@ public class ItemsManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        Invoke("DelayedStart", 0.1f);
+    }
+
+    //Used so that everything gets a chance to load before trying to accsess it
+    private void DelayedStart(){
+
+    }
 }

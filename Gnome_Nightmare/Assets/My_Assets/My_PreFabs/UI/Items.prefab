@@ -208,9 +208,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4965289484465008}
-  - component: {fileID: 65951954655220246}
-  - component: {fileID: 114104193222250208}
-  - component: {fileID: 114232533871285404}
   m_Layer: 0
   m_Name: Items
   m_TagString: Items_Spawn_Here
@@ -748,18 +745,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65951954655220246
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1798115939036580}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108546605377937560
 Light:
   m_ObjectHideFlags: 1
@@ -807,19 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
---- !u!114 &114104193222250208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1798115939036580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 680da91fe1d60594bb2bcafba23c4f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PickUpItem: {fileID: 1270954091167144, guid: beeaab2ba386f2f4dae459654120738c, type: 2}
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!114 &114191010695089900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -843,18 +816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114232533871285404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1798115939036580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: 0
 --- !u!114 &114307163446688946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -870,7 +831,7 @@ MonoBehaviour:
   Range: 50
   FireRate: 2
   ImpactForce: 100
-  FpsCamera: {fileID: 0}
+  PlayerCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198504273168136274}
   ImpactEffect: {fileID: 1465461403202474, guid: 0438351a6e6422d43a09930e9be00ee9,
     type: 2}
@@ -897,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!114 &114589784077191178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -909,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!114 &114720765840944300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -945,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!135 &135300530798213104
 SphereCollider:
   m_ObjectHideFlags: 1
