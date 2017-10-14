@@ -158,6 +158,7 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\Talk_To_Me.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />
+     <None Include="Assets\My_Assets\CommentsToDue.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\My_Assets\My_Log\GameObject\GameObject (UnityEngine.Transform).txt" />
      <None Include="Assets\My_Assets\My_Dialogue\NPC\testing.txt" />
