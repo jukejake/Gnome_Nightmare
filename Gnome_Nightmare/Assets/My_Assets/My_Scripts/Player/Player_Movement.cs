@@ -26,9 +26,10 @@ public class Player_Movement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         //If the player is in a menu they wont move
         if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) { return; }
+        if (this.gameObject.GetComponent<PlayerStats>().isDead) { return; }
         
         //Get movement
         moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed);

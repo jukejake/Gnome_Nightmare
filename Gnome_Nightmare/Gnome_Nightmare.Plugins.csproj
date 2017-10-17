@@ -192,6 +192,7 @@
     <Compile Include="Assets\Standard Assets\ParticleSystems\Scripts\WaterHoseParticles.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\My_Assets\CommentsToDue.txt" />
     <None Include="Assets\My_Assets\My_Dialogue\NPC\Hello.txt" />
     <None Include="Assets\My_Assets\My_Dialogue\NPC\Q_001.txt" />
     <None Include="Assets\My_Assets\My_Dialogue\NPC\Q_002.txt" />

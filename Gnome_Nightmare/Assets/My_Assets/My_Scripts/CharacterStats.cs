@@ -14,7 +14,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     void FixedUpdate () {
-        HealOverTime(0.0001f);
+        //HealOverTime(0.0001f);
     }
 
     //Adds health to character over time
@@ -32,5 +32,8 @@ public class CharacterStats : MonoBehaviour
 
         CurrentHealth -= DamageTaken;
     }
-    
+
+    public void FullHealth() {
+        CurrentHealth = MaxHealth;
+    }
 }

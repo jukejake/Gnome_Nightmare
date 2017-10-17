@@ -13,6 +13,8 @@ public class Wave_Spawners : MonoBehaviour {
     public int RoundNumber = 0;
     public int NumberOfRounds = 5;
     public Vector3 BetweenRandomPosition = new Vector3(0,0,0);
+    private GameObject WorldEnenies;
+
 
     [System.Serializable]
     public class WaveComponent {
@@ -27,7 +29,22 @@ public class Wave_Spawners : MonoBehaviour {
     public WaveComponent[] waveComps;
 
     // Use this for initialization
-    void Start() { }
+    void Start () {
+        Invoke("DelayedStart", 0.11f);
+    }
+
+    //Used so that everything gets a chance to load before trying to accsess it
+    private void DelayedStart() {
+        if (GameObject.Find("World").transform.Find("Enemies")) {
+            WorldEnenies = GameObject.Find("World").transform.Find("Enemies").gameObject;
+        }
+        else {
+            WorldEnenies = new GameObject("Enemies");
+            WorldEnenies.transform.SetParent(GameObject.Find("World").transform);
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update() {
@@ -49,7 +66,7 @@ public class Wave_Spawners : MonoBehaviour {
                 Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-BetweenRandomPosition.x, 0.0f, -BetweenRandomPosition.z), new Vector3(BetweenRandomPosition.x, BetweenRandomPosition.y, BetweenRandomPosition.z));
                 wc.NumberSpawned++;
                 GameObject temp = Instantiate(wc.enemyPrefab, this.transform.position + RandomPosition, this.transform.rotation);
-                temp.transform.SetParent(this.transform);
+                temp.transform.SetParent(WorldEnenies.transform);
                 SpawnedAMob = true;
                 break;
             }
@@ -66,6 +83,7 @@ public class Wave_Spawners : MonoBehaviour {
                     }
                 } else {
                     DefeatedSpawner = true;
+                    Spawner_Manager.instance.CheckAllSpawners();
                     foreach (WaveComponent wc in waveComps) {
                         wc.NumberSpawned = 0;
                         wc.EndOfWaveComp = false;
@@ -76,23 +94,38 @@ public class Wave_Spawners : MonoBehaviour {
     }
 
 
+    public int TotalEnemyCount() {
+        int totalEnemyCount = 0;
+        foreach (WaveComponent wc in waveComps) {
+            totalEnemyCount += wc.NumberOfMobs;
+        }
+        return totalEnemyCount;
+    }
+
+    //Amount, MaxHealth, Armour, Damage, Experience
     public void AddStats(string name, int amount) {
-        if (name == "MaxHealth") {
+
+        if (name == "Amount") {
+            foreach (WaveComponent wc in waveComps) {
+                wc.NumberOfMobs += amount;
+            }
+        }
+        else if (name == "MaxHealth") {
             foreach (WaveComponent wc in waveComps) {
                 wc.enemyPrefab.GetComponent<EnemyStats>().MaxHealth += amount;
             }
         }
-        if (name == "Armour") {
+        else if (name == "Armour") {
             foreach (WaveComponent wc in waveComps) {
                 wc.enemyPrefab.GetComponent<EnemyStats>().Armour.AddModifier(amount);
             }
         }
-        if (name == "Damage") {
+        else if (name == "Damage") {
             foreach (WaveComponent wc in waveComps) {
                 wc.enemyPrefab.GetComponent<EnemyStats>().Damage.AddModifier(amount);
             }
         }
-        if (name == "Experience") {
+        else if (name == "Experience") {
             foreach (WaveComponent wc in waveComps) {
                 wc.enemyPrefab.GetComponent<EnemyStats>().Experience += amount;
             }

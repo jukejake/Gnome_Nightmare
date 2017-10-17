@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Dialogue.unity
+- path: Assets/Gnome_Nightmare.unity
   isLoaded: 1
   isActive: 1

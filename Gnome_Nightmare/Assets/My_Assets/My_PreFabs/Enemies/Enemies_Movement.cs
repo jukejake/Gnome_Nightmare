@@ -11,7 +11,8 @@ public class Enemies_Movement : MonoBehaviour {
     NavMeshAgent navMeshAgent;
     GameObject[] players;
 
-    public float MaxFollowDistance = 1000.0f;
+    public float MaxFollowDistance = 100.0f;
+    public float MaxAttackDistance = 1.0f;
     public float timerDelay = 0.50f;
     private float timer = 0.0f;
 
@@ -27,7 +28,7 @@ public class Enemies_Movement : MonoBehaviour {
     }
 
 
-    private void Update() {
+    private void FixedUpdate() {
         //Will only update enemies seeking position at certain intervals
         if (timer > 0.0f) { timer -= Time.deltaTime; }
         else {
@@ -47,18 +48,23 @@ public class Enemies_Movement : MonoBehaviour {
                 //Distance between player and enemy
                 float tempDistance = Vector3.Distance(players[i].transform.position, this.transform.position);
                 //Finds closes player
-                if (tempDistance <= checkDistance) {
+                if (tempDistance <= checkDistance && !players[i].GetComponent<PlayerStats>().isDead) {
                     checkDistance = tempDistance;
                     playerNum = i;
                 }
             }
+            if (checkDistance < MaxAttackDistance) {
+                AttackPlayer(playerNum);
+                return;
+            }
             //If the player is withen MaxFollowDistance
-            if (checkDistance < MaxFollowDistance) {
+            else if (checkDistance < MaxFollowDistance) {
                 destination = players[playerNum].transform;
                 SetDestination();
+                return;
             }
             //The enemy will wonder
-            else { Wonder(); }
+            else { Wonder(); return; }
         }
         else { return; }
     }
@@ -70,8 +76,13 @@ public class Enemies_Movement : MonoBehaviour {
         }
     }
 
-    private void Wonder() {
+    private void AttackPlayer(int playerNum) {
+        players[playerNum].GetComponent<PlayerStats>().TakeDamage(this.gameObject.GetComponent<EnemyStats>().Damage.GetValue());
+    }
 
+    private void Wonder() {
+        timer = 2.0f;
+        navMeshAgent.SetDestination(this.transform.position + RandomUtils.RandomVector3InBox(new Vector3(-10.0f, 1.0f, -10.0f),new Vector3(10.0f, 1.0f, 10.0f)));
     }
 
 }
