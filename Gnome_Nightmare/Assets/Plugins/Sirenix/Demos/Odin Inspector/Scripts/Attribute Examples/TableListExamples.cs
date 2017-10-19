@@ -16,7 +16,7 @@
         [TableColumnWidth(50)]
         public bool Toggle;
 
-        public string Message;
+        public GameObject Message;
 
         [TableColumnWidth(160)]
         [HorizontalGroup("Actions")]

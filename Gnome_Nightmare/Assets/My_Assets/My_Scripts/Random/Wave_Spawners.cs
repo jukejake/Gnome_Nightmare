@@ -10,8 +10,8 @@ public class Wave_Spawners : MonoBehaviour {
     public float IntervalBetweenSpawns = 1.25f;
     public float IntervalBetweenRounds = 5.0f;
     public float spawnCoolDownRemaining = 5.0f;
-    public int RoundNumber = 0;
-    public int NumberOfRounds = 5;
+    public int WaveNumber = 0;
+    public int NumberOfWaves = 1;
     public Vector3 BetweenRandomPosition = new Vector3(0,0,0);
     private GameObject WorldEnenies;
 
@@ -44,8 +44,6 @@ public class Wave_Spawners : MonoBehaviour {
         }
     }
 
-
-
     // Update is called once per frame
     void Update() {
         if (DefeatedSpawner) { return; }
@@ -73,22 +71,22 @@ public class Wave_Spawners : MonoBehaviour {
             else if (wc.NumberSpawned >= wc.NumberOfMobs) { wc.EndOfWaveComp = true; }
         }
         if (waveComps[waveComps.Length-1].EndOfWaveComp) {
-            RoundNumber++;
-            spawnCoolDownRemaining = IntervalBetweenRounds;
+            WaveNumber++;
             if (SpawnedAMob == false) {
-                if (RoundNumber < NumberOfRounds) {
+                if (WaveNumber < NumberOfWaves) {
                     foreach (WaveComponent wc in waveComps) {
                         wc.NumberSpawned = 0;
                         wc.EndOfWaveComp = false;
                     }
                 } else {
                     DefeatedSpawner = true;
+                    spawnCoolDownRemaining = IntervalBetweenRounds;
                     Spawner_Manager.instance.CheckAllSpawners();
                     foreach (WaveComponent wc in waveComps) {
                         wc.NumberSpawned = 0;
                         wc.EndOfWaveComp = false;
                     }
-                } //{ Destroy(gameObject); }
+                } 
             }
         }
     }

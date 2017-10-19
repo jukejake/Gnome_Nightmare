@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 
 public class Output : MonoBehaviour {
@@ -59,13 +59,13 @@ public class Output : MonoBehaviour {
     }
 }
 
-[CustomEditor(typeof(Output))]
-public class OutputEditor : Editor {
-    public override void OnInspectorGUI() {
-        DrawDefaultInspector();
-        Output myScript = (Output)target;
-        if (GUILayout.Button("Save Text file")) {
-            myScript.SaveText();
-        }
-    }
-}
+//[CustomEditor(typeof(Output))]
+//public class OutputEditor : Editor {
+//    public override void OnInspectorGUI() {
+//        DrawDefaultInspector();
+//        Output myScript = (Output)target;
+//        if (GUILayout.Button("Save Text file")) {
+//            myScript.SaveText();
+//        }
+//    }
+//}

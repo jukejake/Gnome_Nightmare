@@ -22,7 +22,7 @@ public class Player_Movement : MonoBehaviour {
     void Start () {
         m_Rigidbody = gameObject.GetComponent<Rigidbody>();
         //m_audioSource = gameObject.GetComponent<AudioSource>();
-        Camera.main.GetComponent<CameraFollow>().setPosition(this.gameObject.transform);
+        Camera.main.GetComponent<CameraFollow>().SetPosition(this.gameObject.transform);
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class Player_Movement : MonoBehaviour {
         m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * Time.deltaTime);
         //Rotate camera
         RotationNeededForCamera += rotX;
-        Camera.main.GetComponent<CameraFollow>().setRotation(new Vector2(RotationNeededForCamera, rotY));
+        Camera.main.GetComponent<CameraFollow>().SetRotation(new Vector2(RotationNeededForCamera, rotY));
     }
 
     void OnCollisionEnter(Collision collision) {

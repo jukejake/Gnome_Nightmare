@@ -38,13 +38,7 @@ public class PlayerManager : MonoBehaviour {
             if (MenuOpen) { ExitMenus(); return; }
 
             //Enter drop menu
-            ExitMenus();
-            Cursor.lockState = CursorLockMode.None;
-            MenuOpen = true;
-            menuManager.EnableGraphicRaycaster(true);
-            color.a = 0.20f;
-            menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
-            MenuTimer = 0.3f;
+            OpenDropMenu();
         }
     }
 
@@ -62,25 +56,18 @@ public class PlayerManager : MonoBehaviour {
             if (other.tag == "Crafting_Table" && Input.GetButton("E")) { CraftingMenu(other); }
             //If player interacts with a NPC
             else if (other.tag == "NPC") { }
-            
         }
+    }
+    private void OnTriggerExit(Collider other) {
+        //If player interacts with a crafting table
+        if (other.tag == "Crafting_Table") { Crafting_Table.instance.CloseCraftingTable(); }
     }
 
     private void CraftingMenu(Collider other) {
         MenuTimer = 0.3f;
-        //Lock the cursor
-        Cursor.lockState = CursorLockMode.None;
         //If already in the crafting menu then exit it
-        if (other.gameObject.transform.GetChild(0).gameObject.activeSelf) {
-            ExitMenus();
-        } else {
-            //Open crafting menu
-            MenuOpen = true;
-            menuManager.EnableGraphicRaycaster(true);
-            other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            other.gameObject.transform.GetChild(0).transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-            other.GetComponent<Crafting_Table>().IsCrafting = true;
-        }
+        if (other.gameObject.transform.GetChild(0).gameObject.activeSelf) { ExitMenus(); }
+        else { Crafting_Table.instance.OpenCraftingTable(); }
     }
 
     private void ItemPickUp(Collider other) {
@@ -103,20 +90,30 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    private void OpenDropMenu() {
+        Cursor.lockState = CursorLockMode.None;
+        MenuOpen = true;
+        menuManager.EnableGraphicRaycaster(true);
+        color.a = 0.20f;
+        menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
+        MenuTimer = 0.3f;
+    }
+    private void CloseDropMenu() {
+        Cursor.lockState = CursorLockMode.Locked;
+        MenuOpen = false;
+        menuManager.EnableGraphicRaycaster(false);
+        color.a = 0.0f;
+        menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
+        MenuTimer = 0.3f;
+    }
+
+
     private void ExitMenus() {
         MenuTimer = 0.3f;
         //If a menu is open, close it
         if (MenuOpen) {
-            MenuOpen = false;
-            menuManager.EnableGraphicRaycaster(false);
-            //Deactivate crafting table menu
-            craftingManager.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            craftingManager.gameObject.GetComponent<Crafting_Table>().IsCrafting = false;
-            //Hide Drop_To_Floor menu
-            color.a = 0.0f;
-            menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
+            Crafting_Table.instance.CloseCraftingTable();
+            CloseDropMenu();
         }
-        //Lock cursor 
-        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -29,7 +29,7 @@ public class Network_Player_Movement : NetworkBehaviour {
         SensitivityYAxis = 5.0f;
 
         this.GetComponent<MeshRenderer>().material.color = Color.blue;
-        Camera.main.GetComponent<CameraFollow>().setPosition(this.gameObject.transform);
+        Camera.main.GetComponent<CameraFollow>().SetPosition(this.gameObject.transform);
         
     }
 
@@ -66,7 +66,7 @@ public class Network_Player_Movement : NetworkBehaviour {
         moveDirection = transform.rotation * moveDirection;
         m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * Time.deltaTime);
         RotationNeeded += rotX;
-        Camera.main.GetComponent<CameraFollow>().setRotation(new Vector2(RotationNeeded, rotY));
+        Camera.main.GetComponent<CameraFollow>().SetRotation(new Vector2(RotationNeeded, rotY));
 
     }
 	
