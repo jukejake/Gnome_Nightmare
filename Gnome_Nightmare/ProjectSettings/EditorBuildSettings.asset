@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Menu_Start.unity
+    guid: fba527a9f3eeb8443ba93dd7b5e643f7
+  - enabled: 1
+    path: Assets/Gnome_Nightmare.unity
+    guid: 539e0427765fd10408ecb2f99f96dbb0

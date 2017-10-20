@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
       Data: 1|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
-      Data: true
+      Data: false
     - Name: Spawner
       Entry: 10
       Data: 0
@@ -1438,7 +1438,7 @@ MonoBehaviour:
       Data: 2|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
-      Data: true
+      Data: false
     - Name: Spawner
       Entry: 10
       Data: 1
@@ -1459,7 +1459,7 @@ MonoBehaviour:
       Data: 3|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
-      Data: true
+      Data: false
     - Name: Spawner
       Entry: 10
       Data: 2
@@ -1480,7 +1480,7 @@ MonoBehaviour:
       Data: 4|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
-      Data: true
+      Data: false
     - Name: Spawner
       Entry: 10
       Data: 3
@@ -6075,7 +6075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1204343039
 Light:
   m_ObjectHideFlags: 0
@@ -6086,7 +6086,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -8822,15 +8822,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.003926
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.579015
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8867,6 +8867,42 @@ Prefab:
     - target: {fileID: 400006, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
       propertyPath: m_LocalScale.z
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400028, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400028, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400028, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 502869461beeb5d4f962b4665acb68d2, type: 3}
