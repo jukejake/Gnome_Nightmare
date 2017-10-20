@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Menu_Assets\ButtonManager.cs" />
+    <Compile Include="Assets\Menu_Assets\LoadScenes.cs" />
     <Compile Include="Assets\Menu_Assets\SetText.cs" />
     <Compile Include="Assets\Menu_Assets\ToggleMultipleButtons.cs" />
     <Compile Include="Assets\Menu_Assets\UnHide.cs" />
