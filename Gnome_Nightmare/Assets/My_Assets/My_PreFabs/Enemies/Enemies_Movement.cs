@@ -28,7 +28,7 @@ public class Enemies_Movement : MonoBehaviour {
     }
 
 
-    private void FixedUpdate() {
+    private void Update() {
         //Will only update enemies seeking position at certain intervals
         if (timer > 0.0f) { timer -= Time.deltaTime; }
         else {

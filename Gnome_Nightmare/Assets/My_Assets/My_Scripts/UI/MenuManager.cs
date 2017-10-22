@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour {
     [Space]
     //Combined
     public GameObject DTF_Slot; //drop to floor
-    public GameObject Armour_Equip_Slots; //contains 3 gameobjects
+    public GameObject Ammo_Slot; //contains 3 gameobjects
 
     private bool WeaponEquiped = false;
     private float timer = 0.0f;
@@ -38,8 +38,6 @@ public class MenuManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Weapon_Slot.transform.childCount != 0 && !WeaponEquiped) { EquipWeapon(); }
-        if (Weapon_Slot.transform.childCount == 0 && WeaponEquiped) { UnEquipWeapon(); }
 
         if (timer > 0.0f) {
             timer -= Time.deltaTime;
@@ -47,6 +45,9 @@ public class MenuManager : MonoBehaviour {
         }
         else if (timer <= 0.0f) { ScrollThroughInventory(); }
 
+        if (Weapon_Slot == null) { return; }
+        else if (Weapon_Slot.transform.childCount != 0 && !WeaponEquiped) { EquipWeapon(); }
+        else if (Weapon_Slot.transform.childCount == 0 && WeaponEquiped) { UnEquipWeapon(); }
     }
 
     public void EquipWeapon() {
@@ -68,7 +69,7 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void ScrollThroughInventory() {
-
+        if (Inventory_Slot == null) { return; }
         int InvSpace = Inventory_Slot.GetComponent<Drop_Inventory>().NumberOfSlotsFilled;
         if (InvSpace == 0) { return; }
         // InvSpace/2;

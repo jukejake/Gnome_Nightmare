@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23021185471567216}
   - component: {fileID: 114704794401075914}
   - component: {fileID: 114499002441150764}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Weapon_PickUp
   m_TagString: Items
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!114 &114704794401075914
 MonoBehaviour:
   m_ObjectHideFlags: 1

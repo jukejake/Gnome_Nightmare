@@ -14,11 +14,11 @@ public class Crafting_Table : SerializedMonoBehaviour {
 
     [FoldoutGroup("Combined Table")]
     [TableList]
-    public List<Table3x5> CombinedTable = new List<Table3x5>();
+    public List<OdinTables.Table3x5> CombinedTable = new List<OdinTables.Table3x5>();
 
     [FoldoutGroup("Modifier Table")]
     [TableList]
-    public List<Table2x5> ModifierTable = new List<Table2x5>();
+    public List<OdinTables.Table2x5> ModifierTable = new List<OdinTables.Table2x5>();
     
 
 
@@ -39,6 +39,7 @@ public class Crafting_Table : SerializedMonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (menuManager == null) { menuManager = MenuManager.instance; }
         if (IsCrafting) {
             if (timer > 0.0f) { timer -= Time.deltaTime; }
             LeftJoystickPlacement();
@@ -293,13 +294,4 @@ public class Crafting_Table : SerializedMonoBehaviour {
             else if (OnSlot == 6) { craftingManager.Disassemble_Second_Slot.GetComponent<Image>().color = color; }
         }
     }
-}
-
-public class Table3x5 {
-    [TableMatrix(HorizontalTitle = "Combined", VerticalTitle = "Items")]
-    public GameObject[,] table3x5 = new GameObject[3, 5];
-}
-public class Table2x5 {
-    [TableMatrix(HorizontalTitle = "Modifiers", VerticalTitle = "Modifiers")]
-    public GameObject[,] table2x5 = new GameObject[2, 5];
 }

@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour {
             //If player interacts with an item
             if (other.tag == "Items" && Input.GetButton("E")) { ItemPickUp(other); }
             //If player interacts with a crafting table
-            if (other.tag == "Crafting_Table" && Input.GetButton("E")) { CraftingMenu(other); }
+            else if (other.tag == "Crafting_Table" && Input.GetButton("E")) { CraftingMenu(other); }
             //If player interacts with a NPC
             else if (other.tag == "NPC") { }
         }
@@ -73,8 +73,28 @@ public class PlayerManager : MonoBehaviour {
     private void ItemPickUp(Collider other) {
         GameObject ItemPickUp = other.GetComponent<Item_To_Pick_Up>().PickUpItem;
         Drop_Inventory DropI = InventorySlot.GetComponent<Drop_Inventory>();
+
+        if (ItemPickUp.GetComponent<Drag_Inventory>() && ItemPickUp.GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Ammo) {
+            Drop_Inventory DropA = menuManager.Ammo_Slot.GetComponent<Drop_Inventory>();
+            //If the player has room in their ammo inventory, pick up the item
+            if (DropA.NumberOfSlotsFilled < DropA.NumberOfSlotsTotal) {
+                MenuTimer = 0.1f;
+                //Spawn item
+                GameObject Item = (GameObject)Instantiate(ItemPickUp);
+                Item.name = ItemPickUp.name;
+                //Set its parent to the ammo inventory
+                Item.transform.SetParent(DropA.transform);
+                //Sets default scale
+                Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                //Incresses slots filled count
+                DropA.NumberOfSlotsFilled++;
+                menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks();
+                //Destroy item on ground
+                Destroy(other.gameObject);
+            }
+        }
         //If the player has room in their inventory, pick up the item
-        if (DropI.NumberOfSlotsFilled < DropI.NumberOfSlotsTotal) {
+        else if (DropI.NumberOfSlotsFilled < DropI.NumberOfSlotsTotal) {
             MenuTimer = 0.1f;
             //Spawn item
             GameObject Item = (GameObject)Instantiate(ItemPickUp);
@@ -84,7 +104,7 @@ public class PlayerManager : MonoBehaviour {
             //Sets default scale
             Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
             //Incresses slots filled count
-            InventorySlot.GetComponent<Drop_Inventory>().NumberOfSlotsFilled++;
+            DropI.NumberOfSlotsFilled++;
             //Destroy item on ground
             Destroy(other.gameObject);
         }

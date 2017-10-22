@@ -20,6 +20,7 @@ public class EnemyStats : CharacterStats {
 
     //On enemy death destory the enemy
     public void OnDeath() {
+        FindDropItem();
         //If the enemy is a Destructible object, destroy through destruction
         Destructible isDestructible = this.GetComponent<Destructible>();
         if (isDestructible != null) { isDestructible.Kill(); }
@@ -35,6 +36,20 @@ public class EnemyStats : CharacterStats {
             this.gameObject.transform.Find("HealthBar").GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
             Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
             this.gameObject.transform.Find("HealthBar").GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
+        }
+    }
+
+
+    private void FindDropItem() {
+        EnemyDropList dropList = GameObject.Find("World").transform.Find("Enemies").GetComponent<EnemyDropList>();
+        if (dropList != null) {
+            for (int i = 0; i < dropList.Enemies.Count; i++) {
+                if (dropList.Enemies[i].Enemy.name == this.gameObject.name) {
+                    List<int> ItemsToSpawn = dropList.SpawnRandormDrop(i);
+                    if (ItemsToSpawn == null) { return; }
+                    dropList.SpawnItem(i, ItemsToSpawn, this.gameObject.transform);
+                }
+            }
         }
     }
 }

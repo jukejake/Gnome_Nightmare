@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23330671163592510}
   - component: {fileID: 114017753405964582}
   - component: {fileID: 114323778774620230}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Legs_PickUp
   m_TagString: Items
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!135 &135730904827790470
 SphereCollider:
   m_ObjectHideFlags: 1

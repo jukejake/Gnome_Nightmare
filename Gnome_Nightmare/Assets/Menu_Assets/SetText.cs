@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SetText : MonoBehaviour {
-
-    public GameObject ToChange;
-
-    public void SliderToText() {
-        ToChange.GetComponent<Text>().text = this.GetComponent<Slider>().value.ToString();
+    
+    public void SliderToText(GameObject TextToChange) {
+        TextToChange.GetComponent<Text>().text = this.GetComponent<Slider>().value.ToString();
     }
-    public void SliderTimeLimit() {
-        ToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " MIN");
+    public void SliderTimeLimit(GameObject TextToChange) {
+        TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " MIN");
+        GameObject.Find("GameTimer").GetComponent<GameTimer>().SetTimeLimit(this.GetComponent<Slider>().value);
     }
-    public void SliderScoreLimit() {
-        ToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Points");
+    public void SliderScoreLimit(GameObject TextToChange) {
+        TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Points");
     }
-    public void SliderVolumeLimit() {
-        ToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Vol");
+    public void SliderVolumeLimit(GameObject TextToChange) {
+        TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Vol");
     }
 }

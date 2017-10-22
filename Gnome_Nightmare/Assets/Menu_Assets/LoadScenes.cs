@@ -11,6 +11,7 @@ public class LoadScenes : MonoBehaviour {
     public void LoadSceneFromDropDown(GameObject dropDown) {
         int SceneNum = dropDown.GetComponent<Dropdown>().value;
         //Debug.Log(dropDown.GetComponent<Dropdown>().options[SceneNum].text);
+        GameObject.Find("GameTimer").GetComponent<GameTimer>().TurnOn();
         SceneManager.LoadScene(dropDown.GetComponent<Dropdown>().options[SceneNum].text);
     }
 

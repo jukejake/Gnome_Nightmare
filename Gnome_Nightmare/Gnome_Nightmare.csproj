@@ -109,10 +109,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Menu_Assets\ButtonManager.cs" />
+    <Compile Include="Assets\Menu_Assets\GameTimer.cs" />
     <Compile Include="Assets\Menu_Assets\LoadScenes.cs" />
     <Compile Include="Assets\Menu_Assets\SetText.cs" />
     <Compile Include="Assets\Menu_Assets\ToggleMultipleButtons.cs" />
     <Compile Include="Assets\Menu_Assets\UnHide.cs" />
+    <Compile Include="Assets\My_Assets\My_Networking\Network_Enemies_Movement.cs" />
+    <Compile Include="Assets\My_Assets\My_Networking\Network_Gun_Behaviour.cs" />
     <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\ParticleInterface.cs" />
@@ -121,7 +124,10 @@
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Enemies_Movement.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\EnemyDropList.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Manager.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Inventory.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Types.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\UI\Load_Menu.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\CharacterStats.cs" />
@@ -134,6 +140,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemsManager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemStats.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\Rotate_Slowly.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\OdinTables.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerManager.cs" />
@@ -144,7 +151,6 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Enemies_Prefs.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Eyes_Follow_Cursor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Orbit_Objects.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Random\Random.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\RandomUtils.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\ShockWave.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Stay_In_Box.cs" />

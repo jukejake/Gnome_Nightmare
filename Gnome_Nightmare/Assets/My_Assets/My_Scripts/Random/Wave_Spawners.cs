@@ -65,6 +65,7 @@ public class Wave_Spawners : MonoBehaviour {
                 wc.NumberSpawned++;
                 GameObject temp = Instantiate(wc.enemyPrefab, this.transform.position + RandomPosition, this.transform.rotation);
                 temp.transform.SetParent(WorldEnenies.transform);
+                temp.name = wc.enemyPrefab.name;
                 SpawnedAMob = true;
                 break;
             }

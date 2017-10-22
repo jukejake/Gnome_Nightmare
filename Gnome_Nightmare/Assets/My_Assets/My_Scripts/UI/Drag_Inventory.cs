@@ -4,12 +4,14 @@ using UnityEngine.EventSystems; //used for drag and drop
 
 public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor, None };
+    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor, None, Ammo };
     public Slot typeOfItem = Slot.Inventory;
 
-
+    [HideInInspector]
     public Transform parentToReturnTo = null;
+    [HideInInspector]
     public Transform placeholderParent = null;
+    [HideInInspector]
     public GameObject placeholder = null;
     public GameObject ItemOnDrop = null;
 

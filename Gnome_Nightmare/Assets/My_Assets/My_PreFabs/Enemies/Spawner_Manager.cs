@@ -11,8 +11,9 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     public static Spawner_Manager instance;
     void Awake() { instance = this; }
 
+    [FoldoutGroup("Spawners Table")]
     [TableList]
-    public List<Spawners> SpawnersTable = new List<Spawners>();
+    public List<OdinTables.Spawners> SpawnersTable = new List<OdinTables.Spawners>();
 
     public float TimeBetweenRounds = 10.0f;
     private int CurrentLevel = 0;
@@ -35,14 +36,14 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     //Updates the UI and re-activates spawners at the end of the round
     public void UpdateUI() {
         //Finds and updates the UI
-        if (GameObject.Find("World").transform.Find("Menu").transform.Find("Enemy Info")) {
-            GameObject temp = GameObject.Find("World").transform.Find("Menu").transform.Find("Enemy Info").gameObject;
+        if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
+            GameObject temp = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;
             temp.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]");
         }
         //At the end of a round spawn a new round
         if (OldLevel == CurrentLevel && CheckAliveEnemyCount() == 0) {
             //Add an enemy to all the spawners in previous round
-            AddEnemyToAllSpawnersInCurrentRound(CurrentLevel-1, 1);
+            AddEnemyToAllSpawnersInCurrentRound(CurrentLevel, 1);
             //Activate all spawners
             ActivateAllSpawnersInCurrentRound();
         }
@@ -64,7 +65,8 @@ public class Spawner_Manager : SerializedMonoBehaviour {
         for (int i = 0; i < SpawnersTable.Count; i++) {
             //If spawner is not active or it does not have the component than return
             if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            else if ((CurrentLevel > SpawnersTable[i].StartAt && CurrentLevel == (SpawnersTable[i].LastAvtiveRound + SpawnersTable[i].ActiveEvery)) || (CurrentLevel == SpawnersTable[i].StartAt)) {
+            //SpawnersTable[i].LastAvtiveRound will be set as the current round... (only for this)
+            else if ((CurrentLevel >= SpawnersTable[i].StartAt && CurrentLevel == SpawnersTable[i].LastAvtiveRound) || (CurrentLevel == SpawnersTable[i].StartAt)) {
                 //counts amount of enemies to spawn multiplyed by number of waves in spawner
                 EnemyCount += (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().TotalEnemyCount() * SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().NumberOfWaves);
             }
@@ -99,7 +101,7 @@ public class Spawner_Manager : SerializedMonoBehaviour {
         for (int i = 0; i < SpawnersTable.Count; i++) {
             //If spawner is not active or it does not have the component than return
             if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            else if ((CurrentLevel > SpawnersTable[i].StartAt && CurrentLevel == (SpawnersTable[i].LastAvtiveRound + SpawnersTable[i].ActiveEvery)) || (CurrentLevel == SpawnersTable[i].StartAt)) {
+            else if ((CurrentLevel >= SpawnersTable[i].StartAt && CurrentLevel == (SpawnersTable[i].LastAvtiveRound + SpawnersTable[i].ActiveEvery)) || (CurrentLevel == SpawnersTable[i].StartAt)) {
                 SpawnersTable[i].LastAvtiveRound = CurrentLevel;
                 //If the spawner is deactive then active it
                 if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner) {
@@ -149,25 +151,11 @@ public class Spawner_Manager : SerializedMonoBehaviour {
         for (int i = 0; i < SpawnersTable.Count; i++) {
             //If spawner is not active or it does not have the component than return
             if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            else if ((RoundNumber > SpawnersTable[i].StartAt && RoundNumber == (SpawnersTable[i].LastAvtiveRound + SpawnersTable[i].ActiveEvery)) || (RoundNumber == SpawnersTable[i].StartAt)) {
+            //SpawnersTable[i].LastAvtiveRound will be set as the current round... (only for this)
+            else if ((RoundNumber >= SpawnersTable[i].StartAt && RoundNumber == SpawnersTable[i].LastAvtiveRound) || (RoundNumber == SpawnersTable[i].StartAt)) {
                 //Add an extra enemy to all spawners (all waves in the spawners)
                 SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().AddStats("Amount", AddAmount);
             }
         }
     }
-}
-
-public class Spawners {
-    [TableColumnWidth(50)]
-    public bool Toggle;
-
-    public GameObject Spawner;
-
-    [TableColumnWidth(50)]
-    public int StartAt = 1;
-    [TableColumnWidth(80)]
-    public int ActiveEvery = 1;
-    [HideInInspector]
-    [TableColumnWidth(1)]
-    public int LastAvtiveRound = 0;
 }

@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23328511089552616}
   - component: {fileID: 114367891091594120}
   - component: {fileID: 114786367444215356}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chest_PickUp
   m_TagString: Items
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 1
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!135 &135479463272466840
 SphereCollider:
   m_ObjectHideFlags: 1

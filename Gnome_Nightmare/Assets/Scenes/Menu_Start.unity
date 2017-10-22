@@ -508,10 +508,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 83592938}
         m_MethodName: SliderTimeLimit
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1910615720}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -530,7 +530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b7d1d91d3aeea45b91d63c78ce7d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToChange: {fileID: 1910615720}
 --- !u!1 &94961115
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +916,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284927342}
+--- !u!1 &389678606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 389678608}
+  - component: {fileID: 389678607}
+  m_Layer: 0
+  m_Name: GameTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389678607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389678606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2781eff16a8a1fc448c131bdb9fce93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &389678608
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389678606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &391699932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4240,10 +4279,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1839484034}
         m_MethodName: SliderVolumeLimit
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1810116920}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4262,7 +4301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b7d1d91d3aeea45b91d63c78ce7d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToChange: {fileID: 1810116920}
 --- !u!1 &1887118888
 GameObject:
   m_ObjectHideFlags: 0
