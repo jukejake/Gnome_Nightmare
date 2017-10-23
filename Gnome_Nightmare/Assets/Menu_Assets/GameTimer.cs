@@ -42,7 +42,7 @@ public class GameTimer : MonoBehaviour {
     public float GetTimeLeft() { return TimeLeft; }
 
     public void FindUIText() {
-        Timer_Text = GameObject.Find("Timer_Text").GetComponent<Text>();
+        if (GameObject.Find("Timer_Text")) { Timer_Text = GameObject.Find("Timer_Text").GetComponent<Text>(); }
     }
     public void UpdateUI() {
         if (Timer_Text == null) { return; }

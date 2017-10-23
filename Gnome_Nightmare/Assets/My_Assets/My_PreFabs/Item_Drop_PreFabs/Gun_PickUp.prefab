@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9a11febb527224b836138473fb2bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 1
   TypeOfAmmo: 1
   ClipSize: 5
   AmountCount: 0
@@ -323,6 +324,9 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 198113282999074578}
   ImpactEffect: {fileID: 1465461403202474, guid: 0438351a6e6422d43a09930e9be00ee9,
     type: 2}
+  s_Spawner: {fileID: 0}
+  s_bullet: {fileID: 0}
+  s_BulletSpeed: 100
 --- !u!135 &135784119782365718
 SphereCollider:
   m_ObjectHideFlags: 1
