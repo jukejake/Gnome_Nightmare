@@ -5,7 +5,6 @@ using Sirenix.OdinInspector;
 
 public class EnemyDropList : SerializedMonoBehaviour {
 
-
     public List<OdinTables.EnemyDropTable> Enemies = new List<OdinTables.EnemyDropTable>();
 
     public List<int> SpawnRandormDrop(int FromEnemy) {
@@ -35,7 +34,7 @@ public class EnemyDropList : SerializedMonoBehaviour {
                     for (int k = 0; k < Enemies[FromEnemy].Items[i].Amount; k++) {
                         GameObject TempItem = Instantiate<GameObject>(Enemies[FromEnemy].Items[i].Item);
                         TempItem.name = Enemies[FromEnemy].Items[i].Item.name;
-                        TempItem.transform.SetParent(GameObject.Find("World").transform.Find("Enemies").transform);
+                        TempItem.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
                         TempItem.transform.localPosition = AtPosition.localPosition;
                     }
                 }

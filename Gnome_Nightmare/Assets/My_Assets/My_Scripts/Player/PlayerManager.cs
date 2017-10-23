@@ -87,8 +87,8 @@ public class PlayerManager : MonoBehaviour {
                 //Sets default scale
                 Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 //Incresses slots filled count
-                DropA.NumberOfSlotsFilled++;
                 menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks();
+                DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount-1; //has a chance that and additional ammo can be added into the inventory
                 //Destroy item on ground
                 Destroy(other.gameObject);
             }
