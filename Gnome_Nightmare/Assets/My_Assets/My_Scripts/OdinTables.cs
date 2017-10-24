@@ -57,4 +57,26 @@
         [HorizontalGroup("Group 2"), LabelWidth(50)]
         public int Amount = 1;
     }
+
+    public class OnlineTable {
+        [TabGroup("Ammo", false, 0)]
+        public List<OnlineItemTable> Ammo = new List<OnlineItemTable>();
+        [TabGroup("Parts", false, 1)]
+        public List<OnlineItemTable> Parts = new List<OnlineItemTable>();
+        [TabGroup("Misc", false, 2)]
+        public List<OnlineItemTable> Misc = new List<OnlineItemTable>();
+    }
+
+    public class OnlineItemTable {
+        [LabelWidth(50)]
+        public GameObject Item;
+        [HorizontalGroup("Group 1"), LabelWidth(60)]
+        public string Summary;
+        [HorizontalGroup("Group 2"), LabelWidth(50)]
+        [MinValue(0)]
+        public float Price = 0;
+        [HorizontalGroup("Group 2"), LabelWidth(50)]
+        [MinValue(0)]
+        public int Amount = 1;
+    }
 }

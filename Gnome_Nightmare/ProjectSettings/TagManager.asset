@@ -4,14 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Drop_Inventory
   - NPC
   - Items_Spawn_Here
   - Items
-  - Weapon_Inventory
-  - Item_Inventory
   - MiniMap
   - Crafting_Table
+  - Drop_Inventory
+  - Item_Inventory
+  - Weapon_Inventory
+  - Check_Tag
   layers:
   - Default
   - TransparentFX

@@ -58,8 +58,10 @@ public class PlayerManager : MonoBehaviour {
         if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
             //If player interacts with an item
             if (other.tag == "Items" && Input.GetButton("E")) { ItemPickUp(other); }
+            //If player interacts with a Computer
+            else if (other.tag == "Check_Tag" && (Input.GetButton("E") || Input.GetButton("Tab"))) { CheckTag(other); }
             //If player interacts with a crafting table
-            else if (other.tag == "Crafting_Table" && Input.GetButton("E")) { CraftingMenu(other); }
+            else if (other.tag == "Crafting_Table" && (Input.GetButton("E") || Input.GetButton("Tab"))) { CraftingMenu(other); }
             //If player interacts with a NPC
             else if (other.tag == "NPC") { }
         }
@@ -67,6 +69,20 @@ public class PlayerManager : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         //If player interacts with a crafting table
         if (other.tag == "Crafting_Table") { Crafting_Table.instance.CloseCraftingTable(); }
+    }
+
+
+    private void CheckTag(Collider other) {
+        if (other.gameObject.name == "Computer" && !MenuOpen) {
+            Cursor.lockState = CursorLockMode.None;
+            MenuTimer = 0.3f;
+            MenuOpen = true;
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Locked;
+            MenuTimer = 0.3f;
+            MenuOpen = false;
+        }
     }
 
     private void CraftingMenu(Collider other) {

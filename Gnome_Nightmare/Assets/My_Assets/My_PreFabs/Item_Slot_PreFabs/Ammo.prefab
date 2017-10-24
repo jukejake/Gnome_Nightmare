@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfAmmo: 1
-  Amount: 25
+  Amount: 50
   Damage: 0
 --- !u!114 &114663932809018030
 MonoBehaviour:
