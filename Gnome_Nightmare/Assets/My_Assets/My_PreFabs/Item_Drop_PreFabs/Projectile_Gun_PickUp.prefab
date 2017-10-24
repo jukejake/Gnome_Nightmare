@@ -320,7 +320,7 @@ MonoBehaviour:
     type: 2}
   s_Spawner: {fileID: 1988841723471478}
   s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
-  s_BulletSpeed: 100
+  s_BulletSpeed: 25
 --- !u!114 &114312190393770350
 MonoBehaviour:
   m_ObjectHideFlags: 1

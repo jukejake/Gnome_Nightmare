@@ -40,6 +40,12 @@ public class PlayerManager : MonoBehaviour {
             //Enter drop menu
             OpenDropMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.F)){
+            if (this.transform.Find("Flash_Light")){
+                this.transform.Find("Flash_Light").GetComponent<SwitchActive>().Switch();
+            }
+        }
     }
 
     public void KillPlayer() {

@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
     void Start() { }
 
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
         if (is3rdPerson == Switch3rdPerson) { SwitchPerspective(); }
 
         //If player is active, set the camera position and rotation

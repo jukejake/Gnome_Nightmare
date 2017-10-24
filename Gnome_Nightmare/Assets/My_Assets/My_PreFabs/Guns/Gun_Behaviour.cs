@@ -119,6 +119,8 @@ public class Gun_Behaviour : MonoBehaviour {
         AmountCount--;
         //spawn bullet
         s_clone = (GameObject)Instantiate(s_bullet, s_Spawner.transform.position, s_Spawner.transform.rotation);
+        s_clone.GetComponent<Bullet_Benaviour>().SetPlayerManager(playerManager);
+        s_clone.GetComponent<Bullet_Benaviour>().SetDamage(Damage);
         if (CameraControl.isAiming) { ProjectileWeapons_RaycastProjectile(); }
         //shoot it
         else { s_clone.GetComponent<Rigidbody>().AddForce(s_Spawner.transform.forward * s_BulletSpeed, ForceMode.Impulse); }
