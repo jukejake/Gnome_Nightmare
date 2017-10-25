@@ -5,6 +5,7 @@ public class PlayerStats : CharacterStats {
     public int PlayerLevel = 1;
     public int PlayerExperience = 0;
     public int MaxExperienceForLevel = 10;
+    private int Points = 10;
 
     public bool isDead = false;
     [Space]
@@ -14,6 +15,13 @@ public class PlayerStats : CharacterStats {
 
     private void Update() {
         HealthBar();
+    }
+
+    public void AddPoints(int amount) { Points += amount; }
+    public void UsePoints(int amount) { Points -= amount; }
+    public bool CheckPoints(int amount) {
+        if (Points >= amount) { return true; }
+        else { return false; }
     }
 
     //Adds Experience to the player
@@ -26,9 +34,9 @@ public class PlayerStats : CharacterStats {
     //When the player levels up
     void PlayerLevelUp() {
         //Add player modifiers
-        Damage.AddModifier(0.50f);
-        FullHealth();
+        //Damage.AddModifier(0.50f);
         //Armour.AddModifier(0.50f);
+        FullHealth();
 
         //Incress player Level
         PlayerLevel += 1;

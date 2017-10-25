@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1831405895}
-  m_IndirectSpecularColor: {r: 1.1080369, g: 1.2299199, b: 1.4195528, a: 1}
+  m_IndirectSpecularColor: {r: 1.1080353, g: 1.229918, b: 1.419548, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2698,7 +2698,6 @@ MonoBehaviour:
     - {fileID: 1979556798606400, guid: c06e03c9f5303054ba31495afe3d2dd7, type: 2}
     - {fileID: 674693067}
     - {fileID: 591394534}
-    - {fileID: 788945438}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2715,7 +2714,7 @@ MonoBehaviour:
       Data: 1|System.Collections.Generic.List`1[[Spawners, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 3
     - Name: 
       Entry: 7
       Data: 2|Spawners, Assembly-CSharp
@@ -2968,103 +2967,6 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 13|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 5
-    - Name: StartAt
-      Entry: 3
-      Data: 4
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 3
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 15|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 16|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 17|SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 2
@@ -4038,7 +3940,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447271337}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4162,7 +4064,187 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 7|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: Summary
+      Entry: 1
+      Data: A item used in item crafting.
+    - Name: Price
+      Entry: 4
+      Data: 3
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 2
+    - Name: Summary
+      Entry: 1
+      Data: A item used in item crafting.
+    - Name: Price
+      Entry: 4
+      Data: 3
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
       Data: 0
+    - Name: Summary
+      Entry: 1
+      Data: Basic Ammo
+    - Name: Price
+      Entry: 4
+      Data: 5
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 0
+    - Name: Summary
+      Entry: 1
+      Data: Basic Ammo
+    - Name: Price
+      Entry: 4
+      Data: 5
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 2
+    - Name: Summary
+      Entry: 1
+      Data: A item used in item crafting.
+    - Name: Price
+      Entry: 4
+      Data: 3
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: Summary
+      Entry: 1
+      Data: A item used in item crafting.
+    - Name: Price
+      Entry: 4
+      Data: 3
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 2
+    - Name: Summary
+      Entry: 1
+      Data: 1
+    - Name: Price
+      Entry: 4
+      Data: 5
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 0
+    - Name: Summary
+      Entry: 1
+      Data: 2
+    - Name: Price
+      Entry: 4
+      Data: 4
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: Summary
+      Entry: 1
+      Data: 3
+    - Name: Price
+      Entry: 4
+      Data: 3
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 0
+    - Name: Summary
+      Entry: 1
+      Data: 4
+    - Name: Price
+      Entry: 4
+      Data: 2
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 

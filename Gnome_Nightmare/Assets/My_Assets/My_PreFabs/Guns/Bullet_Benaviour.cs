@@ -22,6 +22,7 @@ public class Bullet_Benaviour : MonoBehaviour {
             //Applys damage to the enemy and if it kills it, destroy the enemie
             if (EnemyStat.DamageEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
                 playerManager.GetComponent<PlayerStats>().AddExperience(EnemyStat.Experience);
+                playerManager.GetComponent<PlayerStats>().AddPoints(EnemyStat.Points);
                 //Destroys the enemy
                 EnemyStat.OnDeath();
             }

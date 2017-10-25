@@ -168,8 +168,8 @@ public class EnemySpawnTable : IFuckUnity {
     //Where enemies are set to spawn
     public GameObject WorldEnenies;
 
-    //[TabGroup("Spawners", false, 0)]
     //[TableList]
+    //[TabGroup("Spawners", false, 0)]
     public List<Spawners> spawners = new List<Spawners>();
 }
 public class Spawners : IFuckUnity {
@@ -187,7 +187,7 @@ public class Spawners : IFuckUnity {
     [HideInInspector]
     //[TableColumnWidth(1)]
     public int LastAvtiveRound = 0;
-
+    
     public SpawnerDetails spawnerDetails = new SpawnerDetails();
 
 }
