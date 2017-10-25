@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStats : CharacterStats {
 
     public int Experience = 1;
+    public int Points = 1;
 
     private void Update() {
        HealthBar();

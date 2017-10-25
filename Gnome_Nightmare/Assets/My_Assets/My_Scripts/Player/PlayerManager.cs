@@ -12,7 +12,6 @@ public class PlayerManager : MonoBehaviour {
     public bool MenuOpen = false;
     private float MenuTimer = 0.0f;
     private MenuManager menuManager;
-    private CraftingManager craftingManager;
 
     private GameObject InventorySlot;
     private Color color = UnityEngine.Color.white;
@@ -24,7 +23,6 @@ public class PlayerManager : MonoBehaviour {
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {
         menuManager = MenuManager.instance;
-        craftingManager = CraftingManager.instance;
         InventorySlot = menuManager.Menu.transform.GetChild(0).gameObject; //0 is "Item_Inventory"
         Cursor.lockState = CursorLockMode.Locked;
     }

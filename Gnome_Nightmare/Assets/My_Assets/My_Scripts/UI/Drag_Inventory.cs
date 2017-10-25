@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems; //used for drag and drop
 
-public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler {
 
-    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor, None, Ammo };
+    public enum Slot { Inventory, Miscellaneous, Weapon, Head, Chest, Legs, Drop_To_Floor, None, Ammo, Internet };
     public Slot typeOfItem = Slot.Inventory;
 
     [HideInInspector]
@@ -19,7 +19,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
-
+        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
         //Create a placeholder
         placeholder = new GameObject();
         placeholder.name = "placeholder";
@@ -45,6 +45,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IDragHandler.OnDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
+        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
 
         //Item being dragged will follow the pointer
         this.transform.position = eventData.position - MouseDifference;
@@ -66,7 +67,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         break;
                     }
                 }
-                if (this.transform.position.x > placeholderParent.GetChild(i).position.x ) {
+                if (this.transform.position.x > placeholderParent.GetChild(i).position.x) {
                     //- (placeholderParent.GetChild(i).GetComponent<RectTransform>().rect.width/2.0f)
                     Debug.Log("BOOM");
                 }
@@ -77,6 +78,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
+        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
 
         //Return to the correct place
         this.transform.SetParent(parentToReturnTo);
@@ -91,4 +93,9 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         //Apply Status boosts from equipment
         //Weapons and stuff
     }
+
+    void IPointerUpHandler.OnPointerUp(PointerEventData eventData) { }
+    void IPointerDownHandler.OnPointerDown(PointerEventData eventData) { }
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData) { Items_Manager.instance.SetInfo(this.transform.GetSiblingIndex()); }
+    
 }

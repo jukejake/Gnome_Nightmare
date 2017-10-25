@@ -1,49 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 
 public class Spawner_Manager : SerializedMonoBehaviour {
-
-
     public static Spawner_Manager instance;
     void Awake() { instance = this; }
 
-    [FoldoutGroup("Spawners Table")]
-    [TableList]
-    public List<OdinTables.Spawners> SpawnersTable = new List<OdinTables.Spawners>();
-
+    public bool ToggleAll = false;
     public float TimeBetweenRounds = 10.0f;
     private int CurrentLevel = 0;
     private int OldLevel = -1;
+    private GameObject EnemyInfoUI;
+
+    public EnemySpawnTable enemySpawnTable;
 
     // Use this for initialization
     void Start () {
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            enemySpawnTable.spawners[i].spawnerDetails.number = i;
+        }
         Invoke("DelayedStart", 0.1f);
     }
 
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {
+        if (enemySpawnTable == null) { return; }
         ActivateAllSpawnersInCurrentRound();
+        //Finds and updates the UI
+        if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
+            EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;
+            EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]");
+        }
     }
 
     private void Update() {
-        UpdateUI();
+        if (enemySpawnTable != null) {
+            UpdateUI();
+            for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+                if (!ToggleAll && !enemySpawnTable.spawners[i].Toggle && enemySpawnTable.spawners[i].SpawnerPosition != null) {
+                    enemySpawnTable.spawners[i].spawnerDetails.UpdateSpawners();
+                }
+            }
+        }
     }
 
     //Updates the UI and re-activates spawners at the end of the round
     public void UpdateUI() {
-        //Finds and updates the UI
-        if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
-            GameObject temp = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;
-            temp.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]");
-        }
+        if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]"); }
+        
         //At the end of a round spawn a new round
         if (OldLevel == CurrentLevel && CheckAliveEnemyCount() == 0) {
-            //Add an enemy to all the spawners in previous round
-            AddEnemyToAllSpawnersInCurrentRound(CurrentLevel, 1);
             //Activate all spawners
             ActivateAllSpawnersInCurrentRound();
         }
@@ -62,13 +69,13 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     private int CheckTotalEnemyCount() {
         int EnemyCount = 0;
         //Goes through each spawner and counts The amount of enemies it will spawn
-        for (int i = 0; i < SpawnersTable.Count; i++) {
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
             //If spawner is not active or it does not have the component than return
-            if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            //SpawnersTable[i].LastAvtiveRound will be set as the current round... (only for this)
-            else if ((CurrentLevel >= SpawnersTable[i].StartAt && CurrentLevel == SpawnersTable[i].LastAvtiveRound) || (CurrentLevel == SpawnersTable[i].StartAt)) {
+            if (ToggleAll || enemySpawnTable.spawners[i].Toggle || enemySpawnTable.spawners[i].SpawnerPosition == null) { }
+            //enemySpawnTable.spawners[i].LastAvtiveRound will be set as the current round... (only for this)
+            else if ((CurrentLevel >= enemySpawnTable.spawners[i].StartAt && CurrentLevel == enemySpawnTable.spawners[i].LastAvtiveRound) || (CurrentLevel == enemySpawnTable.spawners[i].StartAt)) {
                 //counts amount of enemies to spawn multiplyed by number of waves in spawner
-                EnemyCount += (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().TotalEnemyCount() * SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().NumberOfWaves);
+                EnemyCount += (enemySpawnTable.spawners[i].spawnerDetails.TotalEnemyCount() * enemySpawnTable.spawners[i].spawnerDetails.NumberOfWaves);
             }
         }
         return EnemyCount;
@@ -78,36 +85,33 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     public void CheckAllSpawners() {
         int countDeActive = 0;
         //Goes through each spawner and checks if they are de-active
-        for (int i = 0; i < SpawnersTable.Count; i++) {
-            //If spawner does not have the component than return
-            if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) {
-                if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner) {
-                    countDeActive += 1;
-                }
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            if (enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner) {
+                countDeActive += 1;
             }
         }
         //If all spawners are de-active than Allow it to go to the next level (ie. if(OldLevel == CurrentLevel){ActivateAllSpawners();})
-        if (countDeActive == SpawnersTable.Count) { OldLevel = CurrentLevel; } //Debug.Log("All are DeActive");
+        if (countDeActive == enemySpawnTable.spawners.Count) { OldLevel = CurrentLevel; } //Debug.Log("All are DeActive");
         //If some spawners are still active
-        else if (countDeActive < SpawnersTable.Count) { }//Debug.Log((spawners.Length - countDeActive) + " are still Active");
+        else if (countDeActive < enemySpawnTable.spawners.Count) { }//Debug.Log((spawners.Count - countDeActive) + " are still Active");
         //um... Somehow there are more de-active spawners than there are spawners
-        else { Debug.Log("Somehow there are " + (countDeActive - SpawnersTable.Count) + " more DeActive spawners than there are spawners."); }
+        else { Debug.Log("Somehow there are " + (countDeActive - enemySpawnTable.spawners.Count) + " more DeActive spawners than there are spawners."); }
     }
 
     //Activates all spawners in current round
     public void ActivateAllSpawnersInCurrentRound() {
         CurrentLevel += 1;
         //Goes through all spawners
-        for (int i = 0; i < SpawnersTable.Count; i++) {
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
             //If spawner is not active or it does not have the component than return
-            if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            else if ((CurrentLevel >= SpawnersTable[i].StartAt && CurrentLevel == (SpawnersTable[i].LastAvtiveRound + SpawnersTable[i].ActiveEvery)) || (CurrentLevel == SpawnersTable[i].StartAt)) {
-                SpawnersTable[i].LastAvtiveRound = CurrentLevel;
+            if (enemySpawnTable.spawners[i].Toggle) { }
+            else if ((CurrentLevel >= enemySpawnTable.spawners[i].StartAt && CurrentLevel == (enemySpawnTable.spawners[i].LastAvtiveRound + enemySpawnTable.spawners[i].ActiveEvery)) || (CurrentLevel == enemySpawnTable.spawners[i].StartAt)) {
+                enemySpawnTable.spawners[i].LastAvtiveRound = CurrentLevel;
                 //If the spawner is deactive then active it
-                if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner) {
-                    SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner = false;
-                    SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().IntervalBetweenRounds = TimeBetweenRounds;
-                    SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().spawnCoolDownRemaining = TimeBetweenRounds;
+                if (enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner) {
+                    enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner = false;
+                    enemySpawnTable.spawners[i].spawnerDetails.Round = TimeBetweenRounds;
+                    enemySpawnTable.spawners[i].spawnerDetails.spawnCoolDownRemaining = TimeBetweenRounds;
                 }
             }
         }
@@ -116,12 +120,9 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     //Sets all the spawners to Deactive
     public void DeActivateAllSpawners() {
         //Goes through all spawners
-        for (int i = 0; i < SpawnersTable.Count; i++) {
-            //If spawner does not have the component than return
-            if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) {
-                if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner == false) {
-                    SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().DefeatedSpawner = true;
-                }
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            if (enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner == false) {
+                enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner = true;
             }
         }
     }
@@ -129,33 +130,209 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     //Sets the amount of time between spawns
     public void SetAllIntervalBetweenSpawns(float amount) {
         //Goes through all spawners
-        for (int i = 0; i < SpawnersTable.Count; i++) {
-            if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) {
-                SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().IntervalBetweenSpawns = amount;
-            }
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            enemySpawnTable.spawners[i].spawnerDetails.Spawn = amount;
         }
     }
     //Sets the amount of time between rounds
     public void SetAllIntervalBetweenRounds(float amount) {
         //Goes through all spawners
-        for (int i = 0; i < SpawnersTable.Count; i++) {
-            if (SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) {
-                SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().IntervalBetweenRounds = amount;
-            }
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            enemySpawnTable.spawners[i].spawnerDetails.Round = amount;
         }
     }
 
     //Adds an enemy to all spawners in current round
-    public void AddEnemyToAllSpawnersInCurrentRound(int RoundNumber, int AddAmount) {
+    public void AddEnemyToAllSpawnersInCurrentRound(int RoundNumber) {
         //Goes through all spawners
-        for (int i = 0; i < SpawnersTable.Count; i++) {
-            //If spawner is not active or it does not have the component than return
-            if (SpawnersTable[i].Toggle || !SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>()) { }
-            //SpawnersTable[i].LastAvtiveRound will be set as the current round... (only for this)
-            else if ((RoundNumber >= SpawnersTable[i].StartAt && RoundNumber == SpawnersTable[i].LastAvtiveRound) || (RoundNumber == SpawnersTable[i].StartAt)) {
+        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
+            if ((RoundNumber >= enemySpawnTable.spawners[i].StartAt && RoundNumber == enemySpawnTable.spawners[i].LastAvtiveRound) || (RoundNumber == enemySpawnTable.spawners[i].StartAt)) {
                 //Add an extra enemy to all spawners (all waves in the spawners)
-                SpawnersTable[i].Spawner.GetComponent<Wave_Spawners>().AddStats("Amount", AddAmount);
+                enemySpawnTable.spawners[i].spawnerDetails.AddStats("Amount");
             }
         }
     }
+
+    public void SpawnGodDamnIt(GameObject Prefab, int number) {
+        GameObject tempObj = Instantiate(Prefab, enemySpawnTable.spawners[number].SpawnerPosition.transform.position, enemySpawnTable.spawners[number].SpawnerPosition.transform.rotation);
+        tempObj.transform.SetParent(Spawner_Manager.instance.enemySpawnTable.WorldEnenies.transform);
+        tempObj.name = Prefab.name;
+    }
+}
+
+public interface IFuckUnity { }
+
+public class EnemySpawnTable : IFuckUnity {
+    public static EnemySpawnTable instance;
+    void Awake() { instance = this; }
+    //Where enemies are set to spawn
+    public GameObject WorldEnenies;
+
+    //[TabGroup("Spawners", false, 0)]
+    //[TableList]
+    public List<Spawners> spawners = new List<Spawners>();
+}
+public class Spawners : IFuckUnity {
+    //[TableColumnWidth(50)]
+    [HorizontalGroup("Group 0", 0.1f), LabelWidth(50)]
+    public bool Toggle;
+
+    [HorizontalGroup("Group 0", 0.3f), LabelWidth(100)]
+    public GameObject SpawnerPosition;
+
+    [HorizontalGroup("Group 0", 0.0f), LabelWidth(50)]
+    public int StartAt = 1;
+    [HorizontalGroup("Group 0", 0.0f), LabelWidth(80)]
+    public int ActiveEvery = 1;
+    [HideInInspector]
+    //[TableColumnWidth(1)]
+    public int LastAvtiveRound = 0;
+
+    public SpawnerDetails spawnerDetails = new SpawnerDetails();
+
+}
+public class SpawnerDetails : IFuckUnity {
+
+    [HorizontalGroup("Group 1", 0.5f), LabelWidth(110)]
+    public bool DefeatedSpawner = false;
+    [HorizontalGroup("Group 1", 0.5f), LabelWidth(120)]
+    public int NumberOfWaves = 1;
+    private int WaveNumber = 0;
+    [FoldoutGroup("Interval Between")]
+    [HorizontalGroup("Interval Between/Split"), LabelWidth(50)]
+    [MinValue(0), MaxValue(10)]
+    public float Spawn = 1.25f;
+    [HorizontalGroup("Interval Between/Split"), LabelWidth(50)]
+    [MinValue(0), MaxValue(60)]
+    public float Round = 5.0f;
+    [System.NonSerialized]
+    public float spawnCoolDownRemaining = 5.0f;
+    [FoldoutGroup("Interval Between"), LabelWidth(100)]
+    public Vector3 SpawnPosition = new Vector3(0, 0, 0);
+
+    [System.NonSerialized]
+    public int number;
+
+    [TableList]
+    public List<SpawnerEnemies> spawnerEnemies = new List<SpawnerEnemies>();
+
+    // Update is called once per frame
+    public void UpdateSpawners() {
+        if (DefeatedSpawner) { return; }
+        spawnCoolDownRemaining -= Time.deltaTime;
+        if (spawnCoolDownRemaining < 0) {
+            spawnCoolDownRemaining = Spawn;
+            SpawnMob();
+        }
+    }
+
+    void SpawnMob() {
+        if (DefeatedSpawner) { return; }
+
+        bool SpawnedAMob = false;
+        // Go through all wave components until we find something to spawn
+        foreach (SpawnerEnemies wc in spawnerEnemies) {
+            if (wc.NumberSpawned < wc.Amount) {
+                Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-SpawnPosition.x, 0.0f, -SpawnPosition.z), new Vector3(SpawnPosition.x, SpawnPosition.y, SpawnPosition.z));
+                wc.NumberSpawned++;
+                //Transform tempTransform = EnemySpawnTable.instance.spawners[EnemySpawnTable.instance.spawnerDetails.IndexOf(this)].SpawnerPosition.transform;
+                Spawner_Manager.instance.SpawnGodDamnIt(wc.enemyPrefab, number);
+                SpawnedAMob = true;
+                break;
+            }
+            else if (wc.NumberSpawned >= wc.Amount) { wc.EndOfWaveComp = true; }
+        }
+        if (spawnerEnemies[spawnerEnemies.Count-1].EndOfWaveComp) {
+            WaveNumber++;
+            if (SpawnedAMob == false) {
+                if (WaveNumber < NumberOfWaves) {
+                    foreach (SpawnerEnemies wc in spawnerEnemies) {
+                        wc.NumberSpawned = 0;
+                        wc.EndOfWaveComp = false;
+                    }
+                } else {
+                    DefeatedSpawner = true;
+                    spawnCoolDownRemaining = Round;
+                    AddStats("MaxHealth");
+                    Spawner_Manager.instance.CheckAllSpawners();
+                    foreach (SpawnerEnemies wc in spawnerEnemies) {
+                        wc.NumberSpawned = 0;
+                        wc.EndOfWaveComp = false;
+                    }
+                } 
+            }
+        }
+    }
+
+    public int TotalEnemyCount() {
+        int totalEnemyCount = 0;
+        foreach (SpawnerEnemies wc in spawnerEnemies) {
+            totalEnemyCount += wc.Amount;
+        }
+        return totalEnemyCount;
+    }
+
+    //Amount, MaxHealth, Armour, Damage, Experience
+    public void AddStats(string name) {
+
+        if (name == "Amount") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.Amount += wc.Count;
+            }
+        }
+        else if (name == "MaxHealth") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.enemyPrefab.GetComponent<EnemyStats>().MaxHealth += wc.Health;
+            }
+        }
+        else if (name == "Armour") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.enemyPrefab.GetComponent<EnemyStats>().Armour.AddModifier(wc.Armour);
+            }
+        }
+        else if (name == "Damage") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.enemyPrefab.GetComponent<EnemyStats>().Damage.AddModifier(wc.Damage);
+            }
+        }
+        else if (name == "Experience") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.enemyPrefab.GetComponent<EnemyStats>().Experience += wc.Exp;
+            }
+        }
+        else if (name == "Points") {
+            foreach (SpawnerEnemies wc in spawnerEnemies) {
+                wc.enemyPrefab.GetComponent<EnemyStats>().Points += wc.Points;
+            }
+        }
+    }
+}
+public class SpawnerEnemies : IFuckUnity {
+    [TableColumnWidth(260)]
+    [VerticalGroup("Enemies"), LabelWidth(80)]
+    public GameObject enemyPrefab;
+    [VerticalGroup("Enemies"),LabelWidth(80)]
+    public int Amount;
+
+    [TableColumnWidth(90)]
+    [VerticalGroup("Increase By"), LabelWidth(40)]
+    public int Count;
+    [VerticalGroup("Increase By"), LabelWidth(40)]
+    public int Health;
+    [VerticalGroup("Increase By"), LabelWidth(40)]
+    public int Points;
+
+    [TableColumnWidth(100)]
+    [VerticalGroup("Increase Stats"), LabelWidth(50)]
+    public int Armour;
+    [VerticalGroup("Increase Stats"), LabelWidth(50)]
+    public int Damage;
+    [VerticalGroup("Increase Stats"), LabelWidth(50)]
+    public int Exp;
+
+    //[HorizontalGroup("Group 2", 0.8f), LabelWidth(90)]
+    [System.NonSerialized]
+    public int NumberSpawned = 0;
+    [System.NonSerialized]
+    public bool EndOfWaveComp = false;
 }

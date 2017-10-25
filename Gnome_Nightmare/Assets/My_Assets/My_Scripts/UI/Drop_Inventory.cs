@@ -15,6 +15,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
     void IDropHandler.OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
+        if (typeOfItem == Drag_Inventory.Slot.Internet) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null && NumberOfSlotsFilled <= NumberOfSlotsTotal) {
             if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
@@ -35,6 +36,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
     }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
+        if (typeOfItem == Drag_Inventory.Slot.Internet) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null) {
             if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
@@ -44,6 +46,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
     }
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
+        if (typeOfItem == Drag_Inventory.Slot.Internet) { return; }
         Drag_Inventory DI = eventData.pointerDrag.GetComponent<Drag_Inventory>();
         if (DI != null && DI.placeholderParent == this.transform) {
             if ((typeOfItem == DI.typeOfItem || typeOfItem == Drag_Inventory.Slot.Inventory) && (NumberOfSlotsFilled < NumberOfSlotsTotal)) {
