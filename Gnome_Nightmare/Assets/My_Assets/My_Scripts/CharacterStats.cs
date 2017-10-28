@@ -8,9 +8,13 @@ public class CharacterStats : MonoBehaviour {
     public Stat Damage;
     public Stat Armour;
 
+    private void Awake() {
+        CurrentHealth = MaxHealth;
+    }
     void Start() {
         CurrentHealth = MaxHealth;
     }
+
 
     void FixedUpdate () {
         //HealOverTime(0.0001f);
@@ -25,6 +29,7 @@ public class CharacterStats : MonoBehaviour {
 
     //Applys damage to character
     public void TakeDamage(float DamageTaken) {
+        Debug.Log("Damage");
 
         DamageTaken -= Armour.GetValue();
         DamageTaken = Mathf.Clamp(DamageTaken, 0, float.MaxValue);

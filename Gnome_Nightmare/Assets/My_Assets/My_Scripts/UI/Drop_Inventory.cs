@@ -25,8 +25,16 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                 DI.parentToReturnTo = null;
                 GameObject Item = (GameObject)Instantiate(DI.ItemOnDrop);
                 Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
+                Item.name = DI.ItemOnDrop.name + " Not Prefab";
                 Vector3 temp = GameObject.FindWithTag("Player").transform.position;
                 Item.transform.position = new Vector3(temp.x, temp.y - 0.50f, temp.z);
+
+                if (Item.transform.GetChild(0).GetComponent<Gun_Behaviour>() && DI.gameObject.GetComponent<ItemStats>()) {
+                    Debug.Log("Drop");
+                    //Debug.Log("Drop : Before " + Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats[4].baseValue + " After " + DI.gameObject.GetComponent<ItemStats>().itemStats[4].baseValue);
+                    Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = DI.gameObject.GetComponent<ItemStats>().itemStats;
+                }
+                
 
                 //Drop Item to floor
                 Destroy(DI.gameObject);

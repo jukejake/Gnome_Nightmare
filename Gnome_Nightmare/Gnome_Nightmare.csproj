@@ -120,6 +120,7 @@
     <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\ParticleInterface.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Computer\Items_Manager.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Computer\SwitchOn.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />

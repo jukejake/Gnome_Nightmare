@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
@@ -55,7 +53,13 @@ public class MenuManager : MonoBehaviour {
         WeaponEquiped = true;
         weapon = (GameObject)Instantiate(Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject);
         weapon.name = "weapon";
-        if (weapon.GetComponent<Gun_Behaviour>()) { weapon.GetComponent<Gun_Behaviour>().enabled = true; }
+        if (weapon.GetComponent<Gun_Behaviour>()) {
+            weapon.GetComponent<Gun_Behaviour>().enabled = true;
+            if (Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>()) {
+                weapon.GetComponent<Gun_Behaviour>().Stats = Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats;
+                //weapon.GetComponent<Gun_Behaviour>().GetStats();
+            }
+        }
         if (weapon.GetComponent<Eyes_Follow_Cursor>()) { weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true; }
         weapon.transform.SetParent(player.transform);
         weapon.transform.localPosition = new Vector3(0.5f, 0.0f, 0.6f);

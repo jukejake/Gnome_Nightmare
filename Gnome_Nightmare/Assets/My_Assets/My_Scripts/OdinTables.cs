@@ -5,7 +5,6 @@
     using System.Collections.Generic;
     using UnityEngine;
     using Sirenix.OdinInspector;
-    using Sirenix.Utilities;
 
     public class OdinTables : SerializedMonoBehaviour {
         public static OdinTables instance;
@@ -66,9 +65,99 @@
         public string Summary;
         [HorizontalGroup("Stats"), LabelWidth(50)]
         [MinValue(0)]
-        public float Price = 0;
+        public int Price = 0;
         [HorizontalGroup("Stats"), LabelWidth(50)]
         [MinValue(0)]
         public int Amount = 1;
     }
+
+    public class WeaponStatsTable {
+        public int NumberOfStatsInTable = 7;
+        public Stat Damage = new Stat(Stat.StatType.Damage);
+        public Stat Range = new Stat(Stat.StatType.Range);
+        public Stat ClipSize = new Stat(Stat.StatType.ClipSize);
+        public Stat AmountCount = new Stat(Stat.StatType.AmountCount);
+        public Stat FireRate = new Stat(Stat.StatType.FireRate);
+        public Stat ReloadTime = new Stat(Stat.StatType.ReloadTime);
+        public Stat ImpactForce = new Stat(Stat.StatType.ImpactForce);
+        //Damage
+        //Range
+        //ClipSize
+        //AmountCount
+        //FireRate
+        //ReloadTime
+        //ImpactForce
+
+        public void SetStats(WeaponStatsTable FromThis, WeaponStatsTable ToThis) {
+            //Clears all stats form [ToThis]
+            ToThis.Damage.RemoveAllModifiers();
+            ToThis.Range.RemoveAllModifiers();
+            ToThis.ClipSize.RemoveAllModifiers();
+            ToThis.AmountCount.RemoveAllModifiers();
+            ToThis.FireRate.RemoveAllModifiers();
+            ToThis.ReloadTime.RemoveAllModifiers();
+            ToThis.ImpactForce.RemoveAllModifiers();
+            //Sets all base values from [FromThis] to [ToThis]
+            ToThis.Damage.baseValue = FromThis.Damage.baseValue;
+            ToThis.Range.baseValue = FromThis.Range.baseValue;
+            ToThis.ClipSize.baseValue = FromThis.ClipSize.baseValue;
+            ToThis.AmountCount.baseValue = FromThis.AmountCount.baseValue;
+            ToThis.FireRate.baseValue = FromThis.FireRate.baseValue;
+            ToThis.ReloadTime.baseValue = FromThis.ReloadTime.baseValue;
+            ToThis.ImpactForce.baseValue = FromThis.ImpactForce.baseValue;
+            //Adds all ItemStats from [FromThis] to [ToThis] stats
+            ToThis.Damage.AddModifier(FromThis.Damage.GetModifierValue());
+            ToThis.Range.AddModifier(FromThis.Range.GetModifierValue());
+            ToThis.ClipSize.AddModifier(FromThis.ClipSize.GetModifierValue());
+            ToThis.AmountCount.AddModifier(FromThis.AmountCount.GetModifierValue());
+            ToThis.FireRate.AddModifier(FromThis.FireRate.GetModifierValue());
+            ToThis.ReloadTime.AddModifier(FromThis.ReloadTime.GetModifierValue());
+            ToThis.ImpactForce.AddModifier(FromThis.ImpactForce.GetModifierValue());
+
+        }
+
+        public void AddAllModifiers(WeaponStatsTable FromThis, WeaponStatsTable ToThis) {
+            //Adds all ItemStats from [FromThis] to [ToThis] stats
+            ToThis.Damage.AddModifier(FromThis.Damage.GetModifierValue());
+            ToThis.Range.AddModifier(FromThis.Range.GetModifierValue());
+            ToThis.ClipSize.AddModifier(FromThis.ClipSize.GetModifierValue());
+            ToThis.AmountCount.AddModifier(FromThis.AmountCount.GetModifierValue());
+            ToThis.FireRate.AddModifier(FromThis.FireRate.GetModifierValue());
+            ToThis.ReloadTime.AddModifier(FromThis.ReloadTime.GetModifierValue());
+            ToThis.ImpactForce.AddModifier(FromThis.ImpactForce.GetModifierValue());
+
+        }
+        public void AddAllModifiersByPercent(WeaponStatsTable FromThis, WeaponStatsTable ToThis, float percent) {
+            //Adds all ItemStats from [FromThis] to [ToThis] stats by a percent
+            ToThis.Damage.AddModifier(FromThis.Damage.GetModifierValue() * percent);
+            ToThis.Range.AddModifier(FromThis.Range.GetModifierValue() * percent);
+            ToThis.ClipSize.AddModifier(FromThis.ClipSize.GetModifierValue() * percent);
+            ToThis.AmountCount.AddModifier(FromThis.AmountCount.GetModifierValue() * percent);
+            ToThis.FireRate.AddModifier(FromThis.FireRate.GetModifierValue() * percent);
+            ToThis.ReloadTime.AddModifier(FromThis.ReloadTime.GetModifierValue() * percent);
+            ToThis.ImpactForce.AddModifier(FromThis.ImpactForce.GetModifierValue() * percent);
+        }
+
+        public void SquishAllModifierValues(WeaponStatsTable ToThis) {
+            //Turns all Modifier Values into one
+            ToThis.Damage.SquishModifierValue();
+            ToThis.Range.SquishModifierValue();
+            ToThis.ClipSize.SquishModifierValue();
+            ToThis.AmountCount.SquishModifierValue();
+            ToThis.FireRate.SquishModifierValue();
+            ToThis.ReloadTime.SquishModifierValue();
+            ToThis.ImpactForce.SquishModifierValue();
+        }
+        public void SquishAllValuesToBase(WeaponStatsTable ToThis) {
+            //Turns all Modifier Values into base
+            ToThis.Damage.SquishValueToBase();
+            ToThis.Range.SquishValueToBase();
+            ToThis.ClipSize.SquishValueToBase();
+            ToThis.AmountCount.SquishValueToBase();
+            ToThis.FireRate.SquishValueToBase();
+            ToThis.ReloadTime.SquishValueToBase();
+            ToThis.ImpactForce.SquishValueToBase();
+        }
+    }
+
 }

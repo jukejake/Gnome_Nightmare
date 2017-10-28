@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 // Require a character controller to be attached to the same game object
 [RequireComponent(typeof(CS_CharacterMotor))]

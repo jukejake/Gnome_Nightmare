@@ -19,7 +19,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
-        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
+        if (this.transform.parent.GetComponent<Drop_Inventory>() && this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
         //Create a placeholder
         placeholder = new GameObject();
         placeholder.name = "placeholder";
@@ -45,7 +45,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IDragHandler.OnDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
-        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
+        if (this.transform.parent.GetComponent<Drop_Inventory>() && this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
 
         //Item being dragged will follow the pointer
         this.transform.position = eventData.position - MouseDifference;
@@ -78,7 +78,7 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData) {
         if (eventData.pointerDrag == null) { return; }
-        if (this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
+        if (this.transform.parent.GetComponent<Drop_Inventory>() && this.transform.parent.GetComponent<Drop_Inventory>().typeOfItem == Slot.Internet) { return; }
 
         //Return to the correct place
         this.transform.SetParent(parentToReturnTo);
@@ -96,6 +96,9 @@ public class Drag_Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData) { }
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData) { }
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData) { Items_Manager.instance.SetInfo(this.transform.GetSiblingIndex()); }
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData) {
+        Items_Manager.instance.SetCurrentlySelectedItem(this.transform.GetSiblingIndex());
+        Items_Manager.instance.SetInfo(this.transform.GetSiblingIndex());
+    }
     
 }

@@ -13,7 +13,7 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     private int OldLevel = -1;
     private GameObject EnemyInfoUI;
 
-    public EnemySpawnTable enemySpawnTable;
+    public EnemySpawnTable enemySpawnTable = new EnemySpawnTable();
 
     // Use this for initialization
     void Start () {
@@ -187,7 +187,7 @@ public class Spawners : IFuckUnity {
     [HideInInspector]
     //[TableColumnWidth(1)]
     public int LastAvtiveRound = 0;
-    
+
     public SpawnerDetails spawnerDetails = new SpawnerDetails();
 
 }

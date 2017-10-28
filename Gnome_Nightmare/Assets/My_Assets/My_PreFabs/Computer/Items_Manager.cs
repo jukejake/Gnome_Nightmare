@@ -9,8 +9,10 @@ public class Items_Manager : SerializedMonoBehaviour  {
 
     [HorizontalGroup("Menus"), LabelWidth(100)]
     public GameObject DisplayContent;
-    [HorizontalGroup("Menus"), LabelWidth(100)]
+    [HorizontalGroup("Menus"), LabelWidth(50)]
     public GameObject Details;
+    [HorizontalGroup("Menus"), LabelWidth(80)]
+    public GameObject SpawnPoint;
 
     private int CurrentlySelectedTab = 0;
     private int CurrentlySelectedItem = 0;
@@ -88,6 +90,71 @@ public class Items_Manager : SerializedMonoBehaviour  {
             Details.transform.GetChild(0).GetComponent<Text>().text = OnlineTable.Misc[childIndex].Item.name;
             Details.transform.GetChild(1).GetComponent<Text>().text = OnlineTable.Misc[childIndex].Summary;
             Details.transform.GetChild(2).GetComponent<Text>().text = OnlineTable.Misc[childIndex].Price.ToString();
+            
+            if (OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0) &&
+                OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).GetComponent<Gun_Behaviour>())
+            {
+                Gun_Behaviour weapon = OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).GetComponent<Gun_Behaviour>();
+                ItemStats item = OnlineTable.Misc[childIndex].Item.GetComponent<ItemStats>();
+                if (weapon.WeaponTypeHitScan || weapon.WeaponTypeProjectile) {
+                    string Summary = OnlineTable.Misc[childIndex].Summary;
+                    Summary += "\n" + weapon.TypeOfAmmo.ToString() + " Ammo";
+                    Summary += "\n" + item.itemStats.Damage.baseValue.ToString() + " Damage";
+                    Summary += "\n" + item.itemStats.Range.baseValue.ToString() + " Range";
+                    Summary += "\n" + item.itemStats.FireRate.baseValue.ToString() + " Rate of Fire";
+                    Details.transform.GetChild(1).GetComponent<Text>().text = Summary;
+                }
+                else if (weapon.WeaponTypeMelee) {
+                    string Summary = OnlineTable.Misc[childIndex].Summary;
+                    Summary += "\n" + item.itemStats.Damage.baseValue.ToString() + " Damage";
+                    Summary += "\n" + item.itemStats.FireRate.baseValue.ToString() + " Rate of Fire";
+                    Details.transform.GetChild(1).GetComponent<Text>().text = Summary;
+                }
+            }
+        }
+    }
+
+
+    public void SpawnItem() {
+        if (GetCurrentlySelectedTab() == 0 && PlayerManager.instance.GetComponent<PlayerStats>().CheckPoints(OnlineTable.Ammo[CurrentlySelectedItem].Price)) {
+            PlayerManager.instance.GetComponent<PlayerStats>().UsePoints(OnlineTable.Ammo[CurrentlySelectedItem].Price);
+            GameObject Item = (GameObject)Instantiate(OnlineTable.Ammo[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop);
+            Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
+            Item.name = OnlineTable.Ammo[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop.name;
+            Vector3 tempPos = SpawnPoint.transform.position;
+            Item.transform.position = new Vector3(tempPos.x, tempPos.y + 0.50f, tempPos.z);
+            if (OnlineTable.Ammo[CurrentlySelectedItem].Item.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>())  {
+                OdinTables.WeaponStatsTable FromStats = OnlineTable.Ammo[CurrentlySelectedItem].Item.GetComponent<ItemStats>().itemStats;
+                OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
+                ToStats.SetStats(FromStats, ToStats);
+            }
+        }
+        else if (GetCurrentlySelectedTab() == 1 && PlayerManager.instance.GetComponent<PlayerStats>().CheckPoints(OnlineTable.Parts[CurrentlySelectedItem].Price)) {
+            PlayerManager.instance.GetComponent<PlayerStats>().UsePoints(OnlineTable.Parts[CurrentlySelectedItem].Price);
+            GameObject Item = (GameObject)Instantiate(OnlineTable.Parts[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop);
+            Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
+            Item.name = OnlineTable.Parts[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop.name;
+            Vector3 tempPos = SpawnPoint.transform.position;
+            Item.transform.position = new Vector3(tempPos.x, tempPos.y + 0.50f, tempPos.z);
+            if (OnlineTable.Parts[CurrentlySelectedItem].Item.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>())  {
+                OdinTables.WeaponStatsTable FromStats = OnlineTable.Parts[CurrentlySelectedItem].Item.GetComponent<ItemStats>().itemStats;
+                OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
+                ToStats.SetStats(FromStats, ToStats);
+            }
+        }
+        else if (GetCurrentlySelectedTab() == 2 && PlayerManager.instance.GetComponent<PlayerStats>().CheckPoints(OnlineTable.Misc[CurrentlySelectedItem].Price)) {
+            PlayerManager.instance.GetComponent<PlayerStats>().UsePoints(OnlineTable.Misc[CurrentlySelectedItem].Price);
+            GameObject Item = (GameObject)Instantiate(OnlineTable.Misc[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop);
+            Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
+            Item.name = OnlineTable.Misc[CurrentlySelectedItem].Item.GetComponent<Drag_Inventory>().ItemOnDrop.name;
+            Vector3 tempPos = SpawnPoint.transform.position;
+            Item.transform.position = new Vector3(tempPos.x, tempPos.y + 0.50f, tempPos.z);
+
+            if (OnlineTable.Misc[CurrentlySelectedItem].Item.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>())  {
+                OdinTables.WeaponStatsTable FromStats = OnlineTable.Misc[CurrentlySelectedItem].Item.GetComponent<ItemStats>().itemStats;
+                OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
+                ToStats.SetStats(FromStats, ToStats);
+            }
         }
     }
 }

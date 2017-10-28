@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -21,8 +20,9 @@ public class Crafting_Table : SerializedMonoBehaviour {
     public List<OdinTables.Table2x5> ModifierTable = new List<OdinTables.Table2x5>();
     
 
-
+    [System.NonSerialized]
     public bool IsCrafting = false;
+    [System.NonSerialized]
     public int OnSlot = 0;
     private float timer = 0.0f;
     private Color color = UnityEngine.Color.white;
@@ -72,19 +72,23 @@ public class Crafting_Table : SerializedMonoBehaviour {
             Debug.Log("Modified");
             for (int j = 0; j < CombinedTable.Count; j++) {
                 for (int i = 0; i < 5; i++) {
-                    if (ModifierTable[j].table2x5[0, i] == null) { return; }
+                    if (ModifierTable[j].table2x5[0, i] == null) {  }
                     else if (craftingManager.Modifier_Slot.transform.GetChild(0).name == ModifierTable[j].table2x5[0, i].name) {
-                        craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().AddAllModifiers(craftingManager.Modifier_Slot.transform.GetChild(0).GetComponent<ItemStats>());
-                        craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().SquishAllModifierValues();
+                        ItemStats ItemInOut = craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        ItemStats ItemInMod = craftingManager.Modifier_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        ItemInOut.itemStats.AddAllModifiers(ItemInMod.itemStats, ItemInOut.itemStats);
+                        ItemInOut.itemStats.SquishAllModifierValues(ItemInOut.itemStats);
 
-                        Destroy(craftingManager.Modifier_Slot.transform.GetChild(0).gameObject);
+                        Destroy(ItemInMod.gameObject);
                     }
-                    else if (ModifierTable[j].table2x5[1, i] == null) { return; }
+                    else if (ModifierTable[j].table2x5[1, i] == null) {  }
                     else if (craftingManager.Modifier_Slot.transform.GetChild(0).name == ModifierTable[j].table2x5[1, i].name) {
-                        craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().AddAllModifiers(craftingManager.Modifier_Slot.transform.GetChild(0).GetComponent<ItemStats>());
-                        craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().SquishAllModifierValues();
+                        ItemStats ItemInOut = craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        ItemStats ItemInMod = craftingManager.Modifier_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        ItemInOut.itemStats.AddAllModifiers(ItemInMod.itemStats, ItemInOut.itemStats);
+                        ItemInOut.itemStats.SquishAllModifierValues(ItemInOut.itemStats);
 
-                        Destroy(craftingManager.Modifier_Slot.transform.GetChild(0).gameObject);
+                        Destroy(ItemInMod.gameObject);
                     }
                 }
             }
@@ -105,13 +109,15 @@ public class Crafting_Table : SerializedMonoBehaviour {
                         Item.transform.SetParent(craftingManager.Output_Slot.transform);
                         Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
                         //Item.GetComponent<ItemStats>().Damage.AddModifier(craftingManager.Combined_First_Slot.transform.GetChild(0).GetComponent<ItemStats>().Damage.GetModifierValue() + craftingManager.Combined_Second_Slot.transform.GetChild(0).GetComponent<ItemStats>().Damage.GetModifierValue());
-                        Item.GetComponent<ItemStats>().AddAllModifiers(craftingManager.Combined_First_Slot.transform.GetChild(0).GetComponent<ItemStats>());
-                        Item.GetComponent<ItemStats>().AddAllModifiers(craftingManager.Combined_Second_Slot.transform.GetChild(0).GetComponent<ItemStats>());
-                        Item.GetComponent<ItemStats>().SquishAllModifierValues();
+                        ItemStats ItemCom1 = craftingManager.Combined_First_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        ItemStats ItemCom2 = craftingManager.Combined_Second_Slot.transform.GetChild(0).GetComponent<ItemStats>();
+                        Item.GetComponent<ItemStats>().itemStats.AddAllModifiers(ItemCom1.itemStats, Item.GetComponent<ItemStats>().itemStats);
+                        Item.GetComponent<ItemStats>().itemStats.AddAllModifiers(ItemCom2.itemStats, Item.GetComponent<ItemStats>().itemStats);
+                        Item.GetComponent<ItemStats>().itemStats.SquishAllModifierValues(Item.GetComponent<ItemStats>().itemStats);
 
 
-                        Destroy(craftingManager.Combined_First_Slot.transform.GetChild(0).gameObject);
-                        Destroy(craftingManager.Combined_Second_Slot.transform.GetChild(0).gameObject);
+                        Destroy(ItemCom1.gameObject);
+                        Destroy(ItemCom2.gameObject);
                     }
                 }
             }
@@ -132,15 +138,15 @@ public class Crafting_Table : SerializedMonoBehaviour {
                         Item1.name = CombinedTable[j].table3x5[0, i].name;
                         Item1.transform.SetParent(craftingManager.Disassemble_First_Slot.transform);
                         Item1.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                        Item1.GetComponent<ItemStats>().AddAllModifiersByPercent(craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>(), (1.0f - (RandomPercent * 0.1f)));
-                        Item1.GetComponent<ItemStats>().SquishAllModifierValues();
+                        Item1.GetComponent<ItemStats>().itemStats.AddAllModifiersByPercent(craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats, Item1.GetComponent<ItemStats>().itemStats, (1.0f - (RandomPercent * 0.1f)));
+                        Item1.GetComponent<ItemStats>().itemStats.SquishAllModifierValues(Item1.GetComponent<ItemStats>().itemStats);
 
                         GameObject Item2 = (GameObject)Instantiate(CombinedTable[j].table3x5[1, i]);
                         Item2.name = CombinedTable[j].table3x5[1, i].name;
                         Item2.transform.SetParent(craftingManager.Disassemble_Second_Slot.transform);
                         Item2.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                        Item2.GetComponent<ItemStats>().AddAllModifiersByPercent(craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>(), (RandomPercent * 0.1f));
-                        Item2.GetComponent<ItemStats>().SquishAllModifierValues();
+                        Item2.GetComponent<ItemStats>().itemStats.AddAllModifiersByPercent(craftingManager.Output_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats, Item1.GetComponent<ItemStats>().itemStats, (RandomPercent * 0.1f));
+                        Item2.GetComponent<ItemStats>().itemStats.SquishAllModifierValues(Item2.GetComponent<ItemStats>().itemStats);
 
 
                         Destroy(craftingManager.Output_Slot.transform.GetChild(0).gameObject);
