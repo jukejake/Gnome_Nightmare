@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactEffect: {fileID: 1465461403202474, guid: 0438351a6e6422d43a09930e9be00ee9,
     type: 2}
+  maxBulletHoleCount: 15
+  bulletHole: {fileID: 1559181322629672, guid: 2b085aa77ed755345b6f0d0a4f316d2c, type: 2}
 --- !u!135 &135324467989694042
 SphereCollider:
   m_ObjectHideFlags: 1

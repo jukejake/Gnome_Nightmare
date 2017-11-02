@@ -111,6 +111,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     #endregion
 
     #region ProjectileWeapons
+    public bool Testing = false;
     // Update is called once per frame
     [ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Update() {
@@ -121,6 +122,12 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         }
         //If the player presses Right Click 
         if (Input.GetButtonDown("Fire2") && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
+        if (Testing && Input.GetButtonDown("Fire2")) {
+            RaycastHit hit;
+            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, 1000.0f)) {
+                s_Spawner.transform.LookAt(hit.point);
+            }
+        }
     }
     [ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Shoot() {
@@ -145,7 +152,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         RaycastHit hit;
 
         if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, 1000.0f)) {
-            s_Spawner.transform.LookAt(hit.transform);
+            s_Spawner.transform.LookAt(hit.point);
             Debug.Log(hit.transform.name + " " + hit.point);
             Vector3 bulletDir = (hit.point - s_Spawner.transform.position).normalized;
             //shoot it
