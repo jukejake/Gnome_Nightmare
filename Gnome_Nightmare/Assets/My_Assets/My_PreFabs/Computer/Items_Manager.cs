@@ -21,11 +21,10 @@ public class Items_Manager : SerializedMonoBehaviour  {
 
     public OdinTables.OnlineTable OnlineTable = new OdinTables.OnlineTable();
 
-    // Update is called once per frame
-    void Update() { }
+    private void Start() { SetDisplayedContent(); SetInfo(0); }
 
     public int GetCurrentlySelectedTab() { return CurrentlySelectedTab; }
-    public void SetCurrentlySelectedTab(int currentlySelectedTab) { CurrentlySelectedTab = currentlySelectedTab; SetDisplayedContent(); }
+    public void SetCurrentlySelectedTab(int currentlySelectedTab) { CurrentlySelectedTab = currentlySelectedTab; SetDisplayedContent(); SetInfo(0); }
     public int GetCurrentlySelectedItem() { return CurrentlySelectedItem; }
     public void SetCurrentlySelectedItem(int currentlySelectedItem) { CurrentlySelectedItem = currentlySelectedItem; }
 

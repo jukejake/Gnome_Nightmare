@@ -32,15 +32,32 @@ public class PlayerManager : MonoBehaviour {
         if (MenuTimer > 0.0f) { MenuTimer -= Time.deltaTime; }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
 
-        if (Input.GetButton("Tab") && MenuTimer <= 0.0f) {
+        if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
+
+        if (Input.GetKey(KeyCode.Escape) && MenuTimer <= 0.0f) {
+            //If player is in a menu exit it
+            if (ExitAllMenus()){ return; }
+            MenuTimer = 0.1f;
+            MenuOpen = true;
+            //Enter pause menu
+            if (ButtonManager.instance) { ButtonManager.instance.OpenPauseMenu(); }
+        }
+        else if (Input.GetKey(KeyCode.BackQuote) && MenuTimer <= 0.0f) {
+            //If player is in a menu exit it
+            if (ExitAllMenus()) { return; }
+            MenuTimer = 0.3f;
+            MenuOpen = true;
+            //Enter pause menu
+            if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
+        }
+        else if (Input.GetButton("Tab") && MenuTimer <= 0.0f) {
             //If player is in a menu exit it
             if (MenuOpen) { ExitMenus(); return; }
 
             //Enter drop menu
             if (TriggerHit == 0) { OpenDropMenu(); }
         }
-
-        if (Input.GetKeyDown(KeyCode.F)){
+        else if (Input.GetKeyDown(KeyCode.F)){
             if (this.transform.Find("Flash_Light")){
                 this.transform.Find("Flash_Light").GetComponent<SwitchActive>().Switch();
             }
@@ -98,8 +115,8 @@ public class PlayerManager : MonoBehaviour {
     private void CraftingMenu(Collider other) {
         MenuTimer = 0.3f;
         //If already in the crafting menu then exit it
-        if (other.gameObject.transform.GetChild(0).gameObject.activeSelf) { ExitMenus(); }
-        else { Crafting_Table.instance.OpenCraftingTable(); }
+        if (other.gameObject.transform.GetChild(0) && other.gameObject.transform.GetChild(0).gameObject.activeSelf) { ExitMenus(); }
+        else { if (Crafting_Table.instance) { Crafting_Table.instance.OpenCraftingTable(); } }
     }
 
     private void ItemPickUp(Collider other) {
@@ -171,7 +188,24 @@ public class PlayerManager : MonoBehaviour {
         //If a menu is open, close it
         if (MenuOpen) {
             Crafting_Table.instance.CloseCraftingTable();
+            ButtonManager.instance.ClosePauseMenu();
+            ButtonManager.instance.CloseScoreMenu();
             CloseDropMenu();
+            Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+    private bool ExitAllMenus() {
+        if (MenuOpen) {
+            MenuTimer = 0.3f;
+            MenuOpen = false;
+            //If a menu is open, close it
+            if (Crafting_Table.instance) { Crafting_Table.instance.CloseCraftingTable(); }
+            if (ButtonManager.instance) { ButtonManager.instance.ClosePauseMenu(); }
+            if (ButtonManager.instance) { ButtonManager.instance.CloseScoreMenu(); }
+            CloseDropMenu();
+            Cursor.lockState = CursorLockMode.Locked;
+            return true;
+        }
+        else { return false; }
     }
 }

@@ -20,12 +20,14 @@ public class Spawner_Manager : SerializedMonoBehaviour {
         for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
             enemySpawnTable.spawners[i].spawnerDetails.number = i;
         }
+        DeActivateAllSpawners();
         Invoke("DelayedStart", 0.1f);
     }
 
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {
         if (enemySpawnTable == null) { return; }
+        
         ActivateAllSpawnersInCurrentRound();
         //Finds and updates the UI
         if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
@@ -49,7 +51,7 @@ public class Spawner_Manager : SerializedMonoBehaviour {
     public void UpdateUI() {
         if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]"); }
         
-        //At the end of a round spawn a new round
+        //At the end of a round, spawn a new round
         if (OldLevel == CurrentLevel && CheckAliveEnemyCount() == 0) {
             //Activate all spawners
             ActivateAllSpawnersInCurrentRound();
@@ -112,6 +114,7 @@ public class Spawner_Manager : SerializedMonoBehaviour {
                     enemySpawnTable.spawners[i].spawnerDetails.DefeatedSpawner = false;
                     enemySpawnTable.spawners[i].spawnerDetails.Round = TimeBetweenRounds;
                     enemySpawnTable.spawners[i].spawnerDetails.spawnCoolDownRemaining = TimeBetweenRounds;
+                    enemySpawnTable.spawners[i].spawnerDetails.IncreaseStats();
                 }
             }
         }
@@ -142,21 +145,12 @@ public class Spawner_Manager : SerializedMonoBehaviour {
         }
     }
 
-    //Adds an enemy to all spawners in current round
-    public void AddEnemyToAllSpawnersInCurrentRound(int RoundNumber) {
-        //Goes through all spawners
-        for (int i = 0; i < enemySpawnTable.spawners.Count; i++) {
-            if ((RoundNumber >= enemySpawnTable.spawners[i].StartAt && RoundNumber == enemySpawnTable.spawners[i].LastAvtiveRound) || (RoundNumber == enemySpawnTable.spawners[i].StartAt)) {
-                //Add an extra enemy to all spawners (all waves in the spawners)
-                enemySpawnTable.spawners[i].spawnerDetails.AddStats("Amount");
-            }
-        }
-    }
 
-    public void SpawnGodDamnIt(GameObject Prefab, int number) {
-        GameObject tempObj = Instantiate(Prefab, enemySpawnTable.spawners[number].SpawnerPosition.transform.position, enemySpawnTable.spawners[number].SpawnerPosition.transform.rotation);
+    public void SpawnGodDamnIt(SpawnerEnemies Prefab, int number, Vector3 randomPosition) {
+        GameObject tempObj = Instantiate(Prefab.enemyPrefab, enemySpawnTable.spawners[number].SpawnerPosition.transform.position + randomPosition, enemySpawnTable.spawners[number].SpawnerPosition.transform.rotation);
         tempObj.transform.SetParent(Spawner_Manager.instance.enemySpawnTable.WorldEnenies.transform);
-        tempObj.name = Prefab.name;
+        Prefab.IncreaseStats(tempObj);
+        tempObj.name = Prefab.enemyPrefab.name;
     }
 }
 
@@ -236,7 +230,7 @@ public class SpawnerDetails : IFuckUnity {
                 Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-SpawnPosition.x, 0.0f, -SpawnPosition.z), new Vector3(SpawnPosition.x, SpawnPosition.y, SpawnPosition.z));
                 wc.NumberSpawned++;
                 //Transform tempTransform = EnemySpawnTable.instance.spawners[EnemySpawnTable.instance.spawnerDetails.IndexOf(this)].SpawnerPosition.transform;
-                Spawner_Manager.instance.SpawnGodDamnIt(wc.enemyPrefab, number);
+                Spawner_Manager.instance.SpawnGodDamnIt(wc, number, RandomPosition);
                 SpawnedAMob = true;
                 break;
             }
@@ -253,15 +247,18 @@ public class SpawnerDetails : IFuckUnity {
                 } else {
                     DefeatedSpawner = true;
                     spawnCoolDownRemaining = Round;
-                    AddStats("MaxHealth");
                     Spawner_Manager.instance.CheckAllSpawners();
                     foreach (SpawnerEnemies wc in spawnerEnemies) {
+                        //wc.IncreaseStats();
                         wc.NumberSpawned = 0;
                         wc.EndOfWaveComp = false;
                     }
                 } 
             }
         }
+    }
+    public void IncreaseStats() {
+        foreach (SpawnerEnemies wc in spawnerEnemies){ wc.IncreaseStats(); }
     }
 
     public int TotalEnemyCount() {
@@ -272,40 +269,6 @@ public class SpawnerDetails : IFuckUnity {
         return totalEnemyCount;
     }
 
-    //Amount, MaxHealth, Armour, Damage, Experience
-    public void AddStats(string name) {
-
-        if (name == "Amount") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.Amount += wc.Count;
-            }
-        }
-        else if (name == "MaxHealth") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.enemyPrefab.GetComponent<EnemyStats>().MaxHealth += wc.Health;
-            }
-        }
-        else if (name == "Armour") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.enemyPrefab.GetComponent<EnemyStats>().Armour.AddModifier(wc.Armour);
-            }
-        }
-        else if (name == "Damage") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.enemyPrefab.GetComponent<EnemyStats>().Damage.AddModifier(wc.Damage);
-            }
-        }
-        else if (name == "Experience") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.enemyPrefab.GetComponent<EnemyStats>().Experience += wc.Exp;
-            }
-        }
-        else if (name == "Points") {
-            foreach (SpawnerEnemies wc in spawnerEnemies) {
-                wc.enemyPrefab.GetComponent<EnemyStats>().Points += wc.Points;
-            }
-        }
-    }
 }
 public class SpawnerEnemies : IFuckUnity {
     [TableColumnWidth(260)]
@@ -335,4 +298,28 @@ public class SpawnerEnemies : IFuckUnity {
     public int NumberSpawned = 0;
     [System.NonSerialized]
     public bool EndOfWaveComp = false;
+
+    
+    //private int IncreasedCount;
+    private int IncreasedHealth;
+    private int IncreasedPoints;
+    private int IncreasedArmour;
+    private int IncreasedDamage;
+    private int IncreasedExp;
+
+    public void IncreaseStats(){
+        Amount += Count;
+        IncreasedHealth += Health;
+        IncreasedArmour += Armour;
+        IncreasedDamage += Damage;
+        IncreasedExp    += Exp;
+        IncreasedPoints += Points;
+    }
+    public void IncreaseStats(GameObject ThisEnemy){
+        ThisEnemy.GetComponent<EnemyStats>().MaxHealth += IncreasedHealth;
+        ThisEnemy.GetComponent<EnemyStats>().Armour.baseValue += IncreasedArmour;
+        ThisEnemy.GetComponent<EnemyStats>().Damage.baseValue += IncreasedDamage;
+        ThisEnemy.GetComponent<EnemyStats>().Experience += IncreasedExp;
+        ThisEnemy.GetComponent<EnemyStats>().Points += IncreasedPoints;
+    }
 }

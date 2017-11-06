@@ -11,19 +11,20 @@ public class Bullet_Benaviour : MonoBehaviour {
     private PlayerManager playerManager;
     private float Damage = 0.0f;
 
-    public void SetDamage(float damage) { Damage = damage; }
+    public void SetDamage(float damage) { this.Damage = damage; }
     public void SetPlayerManager(PlayerManager v_PlayerManager) { playerManager = v_PlayerManager; }
 
     private void OnTriggerEnter(Collider other) {
-        if (playerManager == null) { return; }
+        if (this.playerManager == null) { return; }
 
         EnemyStats EnemyStat = other.transform.GetComponent<EnemyStats>();
         //If what was hit has an EnemyStat
         if (EnemyStat != null) {
             //Applys damage to the enemy and if it kills it, destroy the enemie
-            if (EnemyStat.DamageEnemy(Damage + playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
-                playerManager.GetComponent<PlayerStats>().AddExperience(EnemyStat.Experience);
-                playerManager.GetComponent<PlayerStats>().AddPoints(EnemyStat.Points);
+            if (EnemyStat.DamageEnemy(this.Damage + this.playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
+                this.playerManager.GetComponent<PlayerStats>().AddExperience(EnemyStat.Experience);
+                this.playerManager.GetComponent<PlayerStats>().AddPoints(EnemyStat.Points);
+                this.playerManager.GetComponent<PlayerStats>().AddKills(1);
                 //Destroys the enemy
                 EnemyStat.OnDeath();
             }

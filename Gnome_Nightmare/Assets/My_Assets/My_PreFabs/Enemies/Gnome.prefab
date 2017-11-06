@@ -570,12 +570,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c9963c4662cde49a8d401e4b3c0df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 70
+  MaxHealth: 10
   Damage:
-    stat: 0
+    stat: 1
     baseValue: 1
   Armour:
-    stat: 0
+    stat: 8
     baseValue: 0
   Experience: 3
   Points: 1

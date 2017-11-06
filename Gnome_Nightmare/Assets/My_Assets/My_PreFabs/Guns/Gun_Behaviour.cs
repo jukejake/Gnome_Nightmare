@@ -56,6 +56,8 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     private void DelayedStart() {  }
 
     private void Update() {
+        if (playerManager.player.GetComponent<PlayerStats>().isDead) { return; }
+
         if (WeaponTypeHitScan) { HitScanWeapons_Update(); }
         else if (WeaponTypeProjectile) { ProjectileWeapons_Update(); }
         else if (WeaponTypeMelee) { MeleeWeapons_Update(); }
@@ -93,6 +95,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
                 if (EnemyStat.DamageEnemy(this.Stats.Damage.GetValue() + this.playerManager.GetComponent<PlayerStats>().Damage.GetValue())) {
                     this.playerManager.GetComponent<PlayerStats>().AddExperience(EnemyStat.Experience);
                     this.playerManager.GetComponent<PlayerStats>().AddPoints(EnemyStat.Points);
+                    this.playerManager.GetComponent<PlayerStats>().AddKills(1);
                     //Destroys the enemy
                     EnemyStat.OnDeath();
                 }

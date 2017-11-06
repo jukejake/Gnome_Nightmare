@@ -153,13 +153,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Gnome_Nightmare.Plugins.csproj">
-      <Project>{DB08F816-5FEE-E2D7-3E3F-F654E37BDCF9}</Project>
-      <Name>Gnome_Nightmare.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="Gnome_Nightmare.csproj">
       <Project>{56E4101F-3E31-5807-A42E-858054BACE6A}</Project>
       <Name>Gnome_Nightmare</Name>
+    </ProjectReference>
+    <ProjectReference Include="Gnome_Nightmare.Plugins.csproj">
+      <Project>{DB08F816-5FEE-E2D7-3E3F-F654E37BDCF9}</Project>
+      <Name>Gnome_Nightmare.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +215,7 @@
     <None Include="Assets\My_Assets\My_Log\Main Camera\Main Camera (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Slant_Rock\Slant_Rock (UnityEngine.Transform).txt" />
+    <None Include="Assets\My_Assets\My_Shaders\Outline.shader" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Editor.xml" />
     <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />

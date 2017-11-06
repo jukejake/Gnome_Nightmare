@@ -8,7 +8,7 @@ public class SetText : MonoBehaviour {
     }
     public void SliderTimeLimit(GameObject TextToChange) {
         TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " MIN");
-        GameObject.Find("GameTimer").GetComponent<GameTimer>().SetTimeLimit(this.GetComponent<Slider>().value);
+        if (GameObject.Find("GameTimer")) { GameObject.Find("GameTimer").GetComponent<GameTimer>().SetTimeLimit(this.GetComponent<Slider>().value); }
     }
     public void SliderScoreLimit(GameObject TextToChange) {
         TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Points");

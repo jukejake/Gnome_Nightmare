@@ -2,10 +2,13 @@
 
 public class PlayerStats : CharacterStats {
 
+    public string PlayerName = "Player";
     private int PlayerLevel = 1;
     private int PlayerExperience = 0;
     private int MaxExperienceForLevel = 10;
-    public int Points = 10;
+    private int Points = 10;
+    private int Kills = 0;
+    private int Downs = 0;
 
     public bool isDead = false;
     [Space]
@@ -22,12 +25,26 @@ public class PlayerStats : CharacterStats {
         HealthBar();
     }
 
+    //Downs
+    public string GetPlayerName() { return PlayerName; }
+    public void SetPlayerName(string name) { PlayerName = name; }
+
+    //Points
+    public int GetPoints() { return Points; }
     public void AddPoints(int amount) { Points += amount; }
     public void UsePoints(int amount) { Points -= amount; }
     public bool CheckPoints(int amount) {
         if (Points >= amount) { return true; }
         else { return false; }
     }
+
+    //Kills
+    public int GetKills() { return Kills; }
+    public void AddKills(int amount) { Kills += amount; }
+
+    //Downs
+    public int GetDowns() { return Downs; }
+    public void AddDowns(int amount) { Downs += amount; }
 
     //Adds Experience to the player
     //If the player Experience is full, level up
@@ -37,7 +54,7 @@ public class PlayerStats : CharacterStats {
     }
 
     //When the player levels up
-    void PlayerLevelUp() {
+    private void PlayerLevelUp() {
         //Add player modifiers
         //Damage.AddModifier(0.50f);
         //Armour.AddModifier(0.50f);
@@ -57,7 +74,11 @@ public class PlayerStats : CharacterStats {
 
     private void HealthBar(){
         TotalHealth = CurrentHealth;
-        if (CurrentHealth <= 0.0f) { isDead = true; }
+        if (CurrentHealth <= 0.0f && !isDead) {
+            isDead = true;
+            Downs++;
+            return;
+        }
         if (this.gameObject.transform.Find("HealthBar")) {
             float v_Health = CurrentHealth / MaxHealth;
             v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);

@@ -13,7 +13,11 @@ public class EnemyStats : CharacterStats {
     //Applys damage to the enemy 
     //if it kills it return true
     public bool DamageEnemy(float amount) {
+        //Make sure the enemy has health
+        if (CurrentHealth <= 0.0f) { return false; }
+        //apply damage
         TakeDamage(amount);
+        //Check to see if the enemy died
         if (CurrentHealth <= 0.0f) { return true; }
         else { return false; }
     }
