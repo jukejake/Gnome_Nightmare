@@ -37,8 +37,8 @@ public class CameraFollow : MonoBehaviour {
         if (is3rdPerson) {
             is3rdPerson = false;
             Switch3rdPerson = true;
-            Height = 0.0f;
-            Depth = 0.5f;
+            Height = 0.5f;
+            Depth = 0.0f;
         }
         else {
             is3rdPerson = true;

@@ -7,16 +7,20 @@ public class ButtonManager : SerializedMonoBehaviour {
     public static ButtonManager instance;
     void Awake() { instance = this; HideAll(); }
 
-    [ToggleGroup("Pause_Menu", order: 0, groupTitle: "Pause Menu")]
+    [ToggleGroup("Settings_Menu", order: 0, groupTitle: "Settings Menu")]
+    public bool Settings_Menu;
+    [ToggleGroup("Settings_Menu")]
+    public GameObject LoadMenu;
+    [ToggleGroup("Settings_Menu")]
+    public GameObject SettingsMenu;
+    [ToggleGroup("Settings_Menu")]
+    public GameObject CreditMenu;
+
+
+    [ToggleGroup("Pause_Menu", order: 1, groupTitle: "Pause Menu")]
     public bool Pause_Menu;
     [ToggleGroup("Pause_Menu")]
     public GameObject PauseMenu;
-    [ToggleGroup("Pause_Menu")]
-    public GameObject LoadMenu;
-    [ToggleGroup("Pause_Menu")]
-    public GameObject SettingsMenu;
-    [ToggleGroup("Pause_Menu")]
-    public GameObject CreditMenu;
 
     public void OpenPauseMenu() {
         Time.timeScale = 0.1f;
@@ -33,7 +37,7 @@ public class ButtonManager : SerializedMonoBehaviour {
     }
 
 
-    [ToggleGroup("Death_Menu", order: 1, groupTitle: "Death Menu")]
+    [ToggleGroup("Death_Menu", order: 2, groupTitle: "Death Menu")]
     public bool Death_Menu;
     [ToggleGroup("Death_Menu")]
     public GameObject DeathMenu;
@@ -50,7 +54,7 @@ public class ButtonManager : SerializedMonoBehaviour {
     }
 
 
-    [ToggleGroup("Score_Menu", order: 2, groupTitle: "Score Menu")]
+    [ToggleGroup("Score_Menu", order: 3, groupTitle: "Score Menu")]
     public bool Score_Menu;
     [ToggleGroup("Score_Menu")]
     public GameObject ScoreMenu;

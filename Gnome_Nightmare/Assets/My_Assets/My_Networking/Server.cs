@@ -24,7 +24,7 @@ public class Server : MonoBehaviour {
             StartListening();
             serverStarted = true;
             StartListening();
-            Debug.Log("Server has been started on port " + port.ToString());
+            Debug.Log("Server [" + IPAddress.Any.ToString() + "] has been started on port [" + port.ToString() + "]");
         } catch (Exception e) { Debug.Log("Socket Error" + e.Message); }
     }
 
@@ -36,7 +36,7 @@ public class Server : MonoBehaviour {
                 disconnectList.Add(c);
                 continue; //don't have to do this
             } else {
-                Debug.Log(c.ClientName + " has connected");
+                //Debug.Log(c.ClientName + " has connected");
                 NetworkStream s = c.tcp.GetStream();
                 if (s.DataAvailable) {
                     StreamReader reader = new StreamReader(s, true);
@@ -45,9 +45,22 @@ public class Server : MonoBehaviour {
                 }
             }
         }
+        for(int i = 0; i < disconnectList.Count-1; i++) {
+            Broadcast("Server: " + disconnectList[i].ClientName + " has disconnected", clients);
+
+            clients.Remove(disconnectList[i]);
+            disconnectList.RemoveAt(i);
+        }
     }
 
     private void OnIncomingData(ServerClient c, string data) {
+        if (data.Contains("&NAME")) {
+            c.ClientName = data.Split('|')[1];
+            Broadcast("Server: " + c.ClientName + " has connected", clients);
+            return;
+        }
+        Broadcast(c.ClientName + ": " + data, clients);
+
         Debug.Log(c.ClientName + " sent [" + data + "]");
     }
 
@@ -69,10 +82,26 @@ public class Server : MonoBehaviour {
         server.BeginAcceptSocket(AcceptTcpClient, server);
     }
 
+    void Broadcast(string data, List<ServerClient> cl) {
+        foreach (ServerClient c in cl) {
+            try {
+                StreamWriter writer = new StreamWriter(c.tcp.GetStream());
+                writer.WriteLine(data);
+                writer.Flush();
+            }
+            catch (Exception e){
+                Debug.Log("Write Error: " + e.Message + " to client: " + c.ClientName);
+            }
+        }
+    }
+
     private void AcceptTcpClient(IAsyncResult ar) {
         TcpListener listener = (TcpListener)ar.AsyncState;
 
         clients.Add(new ServerClient(listener.EndAcceptTcpClient(ar)));
+        StartListening();
+
+        Broadcast("%NAME", new List<ServerClient>() { clients[clients.Count-1] });
     }
 }
 

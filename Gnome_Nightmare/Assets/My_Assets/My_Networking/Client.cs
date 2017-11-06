@@ -8,8 +8,10 @@ using System.Net.Sockets;
 using System.IO;
 
 public class Client : MonoBehaviour {
+    public GameObject chatContainer;
+    public GameObject messagePrefab;
 
-    public string cientName;
+    public string clientName;
     private bool socketReady = false;
     private TcpClient socket;
     private NetworkStream stream;
@@ -50,6 +52,49 @@ public class Client : MonoBehaviour {
     }
 
     private void OnIncomingData(string data){
+        if (data == "%NAME") {
+            Send("&NAME|" + clientName);
+            return;
+        }
+        chatContainer.GetComponent<RectTransform>().sizeDelta = new Vector2(chatContainer.GetComponent<RectTransform>().sizeDelta.x, chatContainer.GetComponent<RectTransform>().sizeDelta.y + 30.0f);
+
+        GameObject g = Instantiate(messagePrefab, chatContainer.transform) as GameObject;
+        g.GetComponentInChildren<Text>().text = data;
+
         Debug.Log("[" + data + "]");
+    }
+    private void Send(string data) {
+        if (data.Contains("?Heal")) {
+            PlayerManager.instance.GetComponent<PlayerStats>().FullHealth();
+            return;
+        }
+
+        if (!socketReady) { return; }
+        else {
+            writer.WriteLine(data);
+            writer.Flush();
+        }
+    }
+    public void OnSendButton() {
+        InputField input = GameObject.Find("ChatInput").GetComponent<InputField>();
+        if (!string.IsNullOrEmpty(input.text)) {
+            Send(input.text);
+            input.text = "";
+        }
+    }
+
+    private void CloseSocket() {
+        if (!socketReady) { return; }
+
+        writer.Close();
+        reader.Close();
+        socket.Close();
+        socketReady = false;
+    }
+    private void OnApplicationQuit() {
+        CloseSocket();
+    }
+    private void OnDisable() {
+        CloseSocket();
     }
 }
