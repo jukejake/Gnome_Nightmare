@@ -68,6 +68,9 @@
      <Compile Include="Assets\My_Assets\My_PreFabs\Computer\Items_Manager.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Computer\SwitchOn.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Enemies_Movement.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\EnemyDropList.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Manager.cs" />
@@ -77,9 +80,6 @@
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\GetDamageInfo.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\LaserSword.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Item_Slot_PreFabs\Dialogue\Dialogue.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Item_Slot_PreFabs\Dialogue\DialogueManager.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Item_Slot_PreFabs\Dialogue\DialogueTrigger.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\UI\Load_Menu.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\CharacterStats.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Crafting_Table.cs" />
