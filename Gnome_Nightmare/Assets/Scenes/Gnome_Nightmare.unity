@@ -302,6 +302,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15107242}
+--- !u!1 &15305424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 15305425}
+  m_Layer: 0
+  m_Name: ChatServer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &15305425
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 15305424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 445569697}
+  - {fileID: 757645017}
+  - {fileID: 1782527801}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &18283070 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1626502543387100, guid: d31839912ce6a3a43ac5f9371a16f81c,
@@ -880,12 +911,12 @@ RectTransform:
   - {fileID: 435022066}
   - {fileID: 1550325850}
   m_Father: {fileID: 817246210}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 13.6}
-  m_SizeDelta: {x: 80, y: 30}
+  m_AnchoredPosition: {x: -27.499989, y: -8}
+  m_SizeDelta: {x: 85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90639681
 MonoBehaviour:
@@ -2584,7 +2615,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 385428511}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277813780
 GameObject:
@@ -3772,7 +3803,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 385428511}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360771719
 GameObject:
@@ -3924,7 +3955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &366175725
 Transform:
   m_ObjectHideFlags: 0
@@ -3946,433 +3977,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 366175724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4be2395284e674c9ee1f7c98ec66b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bdc266b8f88f7f4582b6cdeec13495f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2114998455}
-    - {fileID: 1330047131}
-    - {fileID: 1979556798606400, guid: c06e03c9f5303054ba31495afe3d2dd7, type: 2}
-    - {fileID: 674693067}
-    - {fileID: 591394534}
-    - {fileID: 788945438}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: enemySpawnTable
-      Entry: 7
-      Data: 0|EnemySpawnTable, Assembly-CSharp
-    - Name: WorldEnenies
-      Entry: 10
-      Data: 0
-    - Name: spawners
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Spawners, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 2|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 1
-    - Name: StartAt
-      Entry: 3
-      Data: 1
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 1
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 3|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 5|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 6|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 3
-    - Name: StartAt
-      Entry: 3
-      Data: 2
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 2
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 7|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 9|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 10|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 4
-    - Name: StartAt
-      Entry: 3
-      Data: 3
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 3
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 11|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 13|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 5
-    - Name: StartAt
-      Entry: 3
-      Data: 1
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 2
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 15|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 20
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 20
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 16|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 17|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 2
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 3
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   ToggleAll: 0
   TimeBetweenRounds: 10
 --- !u!1 &368344900 stripped
@@ -4517,9 +4124,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1501296713}
-  - {fileID: 445569697}
-  - {fileID: 757645017}
-  - {fileID: 1782527801}
   - {fileID: 359013442}
   - {fileID: 275471810}
   - {fileID: 1959570353}
@@ -5220,12 +4824,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 445569696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.33527, y: 27.430023, z: -69.50038}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 746605727}
-  m_Father: {fileID: 385428511}
-  m_RootOrder: 1
+  m_Father: {fileID: 15305425}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451654491
 GameObject:
@@ -5303,7 +4907,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 884517407}
   m_Direction: 0
   m_Value: 0.5
-  m_Size: 0.99999994
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5531,6 +5135,140 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 479627144}
+--- !u!1 &493080480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 493080481}
+  - component: {fileID: 493080484}
+  - component: {fileID: 493080483}
+  - component: {fileID: 493080482}
+  m_Layer: 0
+  m_Name: IDInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &493080481
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493080480}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1256675765}
+  - {fileID: 751086474}
+  m_Father: {fileID: 817246210}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 140, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &493080482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493080480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 493080483}
+  m_TextComponent: {fileID: 751086475}
+  m_Placeholder: {fileID: 1256675766}
+  m_ContentType: 0
+  m_InputType: 0
+  m_AsteriskChar: 42
+  m_KeyboardType: 0
+  m_LineType: 0
+  m_HideMobileInput: 0
+  m_CharacterValidation: 0
+  m_CharacterLimit: 0
+  m_OnEndEdit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_CustomCaretColor: 0
+  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_Text: 
+  m_CaretBlinkRate: 0.85
+  m_CaretWidth: 1
+  m_ReadOnly: 0
+--- !u!114 &493080483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493080480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &493080484
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493080480}
 --- !u!1 &496418514 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1558824087489562, guid: d31839912ce6a3a43ac5f9371a16f81c,
@@ -8598,9 +8336,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 817246210}
-  - {fileID: 1571466508}
-  - {fileID: 797190992}
-  - {fileID: 1577285355}
+  - {fileID: 1595340168}
   m_Father: {fileID: 445569697}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8909,6 +8645,80 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 749797922}
+--- !u!1 &751086473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 751086474}
+  - component: {fileID: 751086476}
+  - component: {fileID: 751086475}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &751086474
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751086473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493080481}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: -20, y: -13}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &751086475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751086473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &751086476
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751086473}
 --- !u!1 &755440505 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1925286184163704, guid: d31839912ce6a3a43ac5f9371a16f81c,
@@ -8963,11 +8773,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757645015}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.33527, y: 27.430023, z: -69.50038}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 385428511}
-  m_RootOrder: 2
+  m_Father: {fileID: 15305425}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764689536 stripped
 GameObject:
@@ -9094,14 +8904,14 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 797190991}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 497490067}
   - {fileID: 1905301467}
-  m_Father: {fileID: 746605727}
-  m_RootOrder: 2
+  m_Father: {fileID: 1595340168}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9400,6 +9210,7 @@ GameObject:
   - component: {fileID: 817246210}
   - component: {fileID: 817246212}
   - component: {fileID: 817246211}
+  - component: {fileID: 817246213}
   m_Layer: 0
   m_Name: Login
   m_TagString: Untagged
@@ -9417,6 +9228,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 493080481}
   - {fileID: 90639680}
   - {fileID: 1642762716}
   - {fileID: 1638630038}
@@ -9461,6 +9273,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 817246209}
+--- !u!114 &817246213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 817246209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa14d504c2199c8439f0a7413b9ac9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &823002938 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1135317298129674, guid: d31839912ce6a3a43ac5f9371a16f81c,
@@ -9965,7 +9788,7 @@ RectTransform:
   m_Father: {fileID: 1944690399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.000000029802322, y: 0}
+  m_AnchorMin: {x: 0.00000008940697, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -13224,8 +13047,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1794489461}
   m_HandleRect: {fileID: 1794489460}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.60999995
+  m_Value: 1
+  m_Size: 0.6100001
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15992,6 +15815,80 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!1 &1256675764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1256675765}
+  - component: {fileID: 1256675767}
+  - component: {fileID: 1256675766}
+  m_Layer: 0
+  m_Name: Placeholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1256675765
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256675764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493080481}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: -20, y: -13}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1256675766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256675764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: User Name
+--- !u!222 &1256675767
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256675764}
 --- !u!1 &1258290218
 GameObject:
   m_ObjectHideFlags: 0
@@ -17348,7 +17245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Join
 --- !u!222 &1411631803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18501,15 +18398,15 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1571466507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1760907279}
   - {fileID: 451654492}
   - {fileID: 979902544}
-  m_Father: {fileID: 746605727}
-  m_RootOrder: 1
+  m_Father: {fileID: 1595340168}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18642,13 +18539,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1577285354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1763402057}
-  m_Father: {fileID: 746605727}
-  m_RootOrder: 3
+  m_Father: {fileID: 1595340168}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18740,6 +18637,54 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1577285354}
+--- !u!1 &1595340167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1595340168}
+  - component: {fileID: 1595340169}
+  m_Layer: 0
+  m_Name: Chat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1595340168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595340167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1571466508}
+  - {fileID: 797190992}
+  - {fileID: 1577285355}
+  m_Father: {fileID: 746605727}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1595340169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595340167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa14d504c2199c8439f0a7413b9ac9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597043761
 GameObject:
   m_ObjectHideFlags: 0
@@ -24747,12 +24692,12 @@ RectTransform:
   m_Children:
   - {fileID: 1411631801}
   m_Father: {fileID: 817246210}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -36.7}
-  m_SizeDelta: {x: 50, y: 20}
+  m_AnchoredPosition: {x: 0, y: -35}
+  m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1638630039
 MonoBehaviour:
@@ -24795,6 +24740,28 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1782527800}
         m_MethodName: ConnectToServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 817246213}
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1595340169}
+        m_MethodName: View
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24939,11 +24906,11 @@ RectTransform:
   - {fileID: 727115780}
   - {fileID: 597482383}
   m_Father: {fileID: 817246210}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.5, y: 13.599998}
+  m_AnchoredPosition: {x: 42.500015, y: -8}
   m_SizeDelta: {x: 55, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642762717
@@ -26111,11 +26078,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782527799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.33527, y: 27.430023, z: -69.50038}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 385428511}
-  m_RootOrder: 3
+  m_Father: {fileID: 15305425}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794489459
 GameObject:
@@ -26147,8 +26114,8 @@ RectTransform:
   m_Father: {fileID: 523159729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.38999996}
-  m_AnchorMax: {x: 1, y: 0.9999999}
+  m_AnchorMin: {x: 0, y: 0.38999993}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26237,10 +26204,8 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 2114998455}
     - {fileID: 1640474438}
-    - {fileID: 1979556798606400, guid: c06e03c9f5303054ba31495afe3d2dd7, type: 2}
     - {fileID: 1049760997}
     - {fileID: 1881564482}
-    - {fileID: 1794536943300516, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
     - {fileID: 2141689428}
     - {fileID: 553907877}
     - {fileID: 1868008558}
@@ -26285,81 +26250,80 @@ MonoBehaviour:
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
+    - Name: spawnersDetails
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 7
-      Data: 3|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
+      Data: 3|Spawners, Assembly-CSharp
+    - Name: Toggle
       Entry: 5
       Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 5|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
+    - Name: SpawnerPosition
       Entry: 10
       Data: 2
-    - Name: Amount
+    - Name: StartAt
       Entry: 3
       Data: 2
-    - Name: Count
+    - Name: ActiveEvery
       Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
+      Data: 4
+    - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 4|Spawners, Assembly-CSharp
+    - Name: Toggle
+      Entry: 5
+      Data: false
+    - Name: SpawnerPosition
+      Entry: 10
+      Data: 3
+    - Name: StartAt
+      Entry: 3
+      Data: 1
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 1
+    - Name: LastAvtiveRound
+      Entry: 3
+      Data: 0
+    - Name: spawnersDetails
+      Entry: 6
+      Data: 
+    - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Spawners, Assembly-CSharp
+    - Name: Toggle
+      Entry: 5
+      Data: false
+    - Name: SpawnerPosition
+      Entry: 10
+      Data: 4
+    - Name: StartAt
+      Entry: 3
+      Data: 1
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 6
+    - Name: LastAvtiveRound
+      Entry: 3
+      Data: 0
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -26372,91 +26336,90 @@ MonoBehaviour:
       Data: false
     - Name: SpawnerPosition
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: StartAt
       Entry: 3
-      Data: 2
+      Data: 4
     - Name: ActiveEvery
       Entry: 3
       Data: 4
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
+    - Name: spawnersDetails
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 7
-      Data: 7|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
+      Data: 7|Spawners, Assembly-CSharp
+    - Name: Toggle
       Entry: 5
       Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 9|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
+    - Name: SpawnerPosition
       Entry: 10
+      Data: 6
+    - Name: StartAt
+      Entry: 3
+      Data: 7
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 7
+    - Name: LastAvtiveRound
+      Entry: 3
+      Data: 0
+    - Name: spawnersDetails
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|Spawners, Assembly-CSharp
+    - Name: Toggle
+      Entry: 5
+      Data: false
+    - Name: SpawnerPosition
+      Entry: 10
+      Data: 7
+    - Name: StartAt
+      Entry: 3
+      Data: 5
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 5
+    - Name: LastAvtiveRound
+      Entry: 3
+      Data: 0
+    - Name: spawnersDetails
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|Spawners, Assembly-CSharp
+    - Name: Toggle
+      Entry: 5
+      Data: false
+    - Name: SpawnerPosition
+      Entry: 10
+      Data: 8
+    - Name: StartAt
+      Entry: 3
+      Data: 1
+    - Name: ActiveEvery
+      Entry: 3
       Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 2
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
+    - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -26469,486 +26432,25 @@ MonoBehaviour:
       Data: false
     - Name: SpawnerPosition
       Entry: 10
-      Data: 4
-    - Name: StartAt
-      Entry: 3
-      Data: 1
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 1
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 11|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 13|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 1
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 6
-    - Name: StartAt
-      Entry: 3
-      Data: 1
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 6
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 15|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 16|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 17|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 2
-    - Name: Count
-      Entry: 3
-      Data: 2
-    - Name: Health
-      Entry: 3
-      Data: 2
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 18|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 7
-    - Name: StartAt
-      Entry: 3
-      Data: 4
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 4
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 19|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 20|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 21|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 2
-    - Name: Health
-      Entry: 3
-      Data: 2
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 22|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 8
-    - Name: StartAt
-      Entry: 3
-      Data: 7
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 7
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 23|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 24|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 25|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 10
-    - Name: Count
-      Entry: 3
-      Data: 4
-    - Name: Health
-      Entry: 3
-      Data: 4
-    - Name: Points
-      Entry: 3
-      Data: 4
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 26|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
       Data: 9
     - Name: StartAt
       Entry: 3
-      Data: 5
+      Data: 1
     - Name: ActiveEvery
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 27|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 28|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 29|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 5
-    - Name: Count
-      Entry: 3
-      Data: 2
-    - Name: Health
-      Entry: 3
-      Data: 2
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 30|Spawners, Assembly-CSharp
+      Data: 11|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -26957,95 +26459,22 @@ MonoBehaviour:
       Data: 10
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: ActiveEvery
       Entry: 3
-      Data: 2
+      Data: 5
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 31|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 32|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 33|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 3
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 1
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 34|Spawners, Assembly-CSharp
+      Data: 12|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -27054,95 +26483,22 @@ MonoBehaviour:
       Data: 11
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 6
     - Name: ActiveEvery
       Entry: 3
-      Data: 3
+      Data: 6
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 35|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 36|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 37|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 2
-    - Name: Count
-      Entry: 3
-      Data: 2
-    - Name: Health
-      Entry: 3
-      Data: 2
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 38|Spawners, Assembly-CSharp
+      Data: 13|Spawners, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -27151,200 +26507,6 @@ MonoBehaviour:
       Data: 12
     - Name: StartAt
       Entry: 3
-      Data: 3
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 5
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 39|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 40|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 41|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 1
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 30
-    - Name: Points
-      Entry: 3
-      Data: 30
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 42|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 13
-    - Name: StartAt
-      Entry: 3
-      Data: 6
-    - Name: ActiveEvery
-      Entry: 3
-      Data: 6
-    - Name: LastAvtiveRound
-      Entry: 3
-      Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 43|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 44|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 45|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 5
-    - Name: Amount
-      Entry: 3
-      Data: 5
-    - Name: Count
-      Entry: 3
-      Data: 10
-    - Name: Health
-      Entry: 3
-      Data: 1
-    - Name: Points
-      Entry: 3
-      Data: 2
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 46|Spawners, Assembly-CSharp
-    - Name: Toggle
-      Entry: 5
-      Data: false
-    - Name: SpawnerPosition
-      Entry: 10
-      Data: 14
-    - Name: StartAt
-      Entry: 3
       Data: 8
     - Name: ActiveEvery
       Entry: 3
@@ -27352,81 +26514,8 @@ MonoBehaviour:
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
-    - Name: spawnerDetails
-      Entry: 7
-      Data: 47|SpawnerDetails, Assembly-CSharp
-    - Name: DefeatedSpawner
-      Entry: 5
-      Data: false
-    - Name: NumberOfWaves
-      Entry: 3
-      Data: 1
-    - Name: Spawn
-      Entry: 4
-      Data: 1.25
-    - Name: Round
-      Entry: 4
-      Data: 5
-    - Name: SpawnPosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: spawnerEnemies
-      Entry: 7
-      Data: 48|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 49|SpawnerEnemies, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 10
-      Data: 2
-    - Name: Amount
-      Entry: 3
-      Data: 5
-    - Name: Count
-      Entry: 3
-      Data: 1
-    - Name: Health
-      Entry: 3
-      Data: 40
-    - Name: Points
-      Entry: 3
-      Data: 40
-    - Name: Armour
-      Entry: 3
-      Data: 0
-    - Name: Damage
-      Entry: 3
-      Data: 0
-    - Name: Exp
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
+    - Name: spawnersDetails
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -27441,7 +26530,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
   ToggleAll: 0
-  TimeBetweenRounds: 10
 --- !u!4 &1821264454
 Transform:
   m_ObjectHideFlags: 0
@@ -28617,7 +27705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 385428511}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961991191 stripped
 GameObject:

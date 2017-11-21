@@ -64,6 +64,7 @@
      <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
      <Compile Include="Assets\My_Assets\My_Networking\Server.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
+     <Compile Include="Assets\My_Assets\My_Plugins\ParticleEmitterManaged.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\ParticleInterface.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Computer\Items_Manager.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Computer\SwitchOn.cs" />
@@ -73,7 +74,9 @@
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Enemies_Movement.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\EnemyDropList.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Interface_SpawnTable.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Manager.cs" />
+     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Settings.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Inventory.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Types.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Bullet_Benaviour.cs" />
@@ -253,6 +256,9 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="PEM">
+ <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/PEM.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
  <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>

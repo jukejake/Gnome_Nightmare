@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Net;
@@ -23,14 +21,20 @@ public class Client : MonoBehaviour {
 
         string host = "127.0.0.1";
         int port = 4321;
+        string name = "Player";
 
         string h;
         int p;
+        string n;
         h = GameObject.Find("IPInput").GetComponent<InputField>().text;
         if (h != "") { host = h; }
 
-        int.TryParse(GameObject.Find("IPInput").GetComponent<InputField>().text, out p);
+        int.TryParse(GameObject.Find("PortInput").GetComponent<InputField>().text, out p);
         if (p != 0) { port = p; }
+
+        n = GameObject.Find("IDInput").GetComponent<InputField>().text;
+        if (n != "") { name = n; }
+        clientName = name;
 
         try {
             socket = new TcpClient(host, port);

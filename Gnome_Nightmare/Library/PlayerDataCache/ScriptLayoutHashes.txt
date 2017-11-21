@@ -187,11 +187,12 @@ b35abd84deac0466a0d6a5e61617b42b Assembly-CSharp.dll:.Load_Menu
 e97ff9540a49b92b779792c195839d33 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.AfterburnerPhysicsForce
 91c1aa1e6a25c7f8e5762b603ea3f61c Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ReadOnlyExamples
 e5c9d170f6d79bfb1dbf6ea32b9f2026 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.OnInspectorGUIExamples
+ef703a275e31de7c55807d241169b2b3 Assembly-CSharp.dll:.ParticleEmitterManaged
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.FireLight
 0c04fac2365888ed4da0184cd77a05cc Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ObjectPlacer
 cc8f31e82b02d7648aefdbfe84c58f8d Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.HideReferenceObjectPickerExamples
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
-db834cff4133e07e628f21e96d7ba97d Assembly-CSharp.dll:.Spawner_Manager
+429a341fbbd3fb23543226e4bd0917da Assembly-CSharp.dll:.Spawner_Manager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ToggleMultipleButtons
 4dfe33d9090a45557c2c14e3b464ad87 Sirenix.Utilities.Editor.dll:Sirenix.Utilities.Editor.InstanceCreatorWindow
 869e5abc2271c3b618904edff22e38ef Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.ExplosionFireAndDebris
@@ -293,3 +294,5 @@ e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serial
 05524b8f659e7bfe5756d1335fec24ba Sirenix.Utilities.dll:Sirenix.Utilities.ProjectPathFinder
 cc8f31e82b02d7648aefdbfe84c58f8d Assembly-CSharp.dll:.EnemyDropList
 6e279e7acd065d4541e7b65ae41cef1b Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.TitleGroupExamples
+c5298f2e87cce5ea660d68d51c445f4e Assembly-CSharp.dll:.Spawner_Settings
+41fced57e52c90430e10864dc2fc209b Assembly-CSharp.dll:.Interface_SpawnTable
