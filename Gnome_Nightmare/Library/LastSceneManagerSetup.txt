@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/100581854/Desktop/Gnome_Nightmare/Assets/Scenes/Gnome_Nightmare.unity
+- path: Assets/Scenes/Gnome_Nightmare.unity
   isLoaded: 1
   isActive: 1

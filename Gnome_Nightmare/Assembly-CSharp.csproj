@@ -58,11 +58,10 @@
      <Compile Include="Assets\Menu_Assets\SetText.cs" />
      <Compile Include="Assets\Menu_Assets\ToggleMultipleButtons.cs" />
      <Compile Include="Assets\Menu_Assets\UnHide.cs" />
-     <Compile Include="Assets\My_Assets\My_Networking\Client.cs" />
      <Compile Include="Assets\My_Assets\My_Networking\Gun_Behaviour.cs" />
      <Compile Include="Assets\My_Assets\My_Networking\Network_Enemies_Movement.cs" />
      <Compile Include="Assets\My_Assets\My_Networking\Network_Player_Movement.cs" />
-     <Compile Include="Assets\My_Assets\My_Networking\Server.cs" />
+     <Compile Include="Assets\My_Assets\My_Plugins\Chat_Manager.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\Output.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\ParticleEmitterManaged.cs" />
      <Compile Include="Assets\My_Assets\My_Plugins\ParticleInterface.cs" />
@@ -72,24 +71,25 @@
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\Dialogue.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Enemies_Movement.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\EnemyDropList.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Interface_SpawnTable.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Manager.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Enemies\Spawner_Settings.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Inventory.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo_Types.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Bullet_Benaviour.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\GetDamageInfo.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Gun_Behaviour.cs" />
-     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\LaserSword.cs" />
      <Compile Include="Assets\My_Assets\My_PreFabs\UI\Load_Menu.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\CharacterStats.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Crafting_Table.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Crafting\CraftingManager.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Crafting\Resize_GUI_Image.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Crafting\SwitchActive.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Enemies_Movement.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\EnemyDropList.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Interface_SpawnTable.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Manager.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Settings.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\EnemyStats.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Ammo_Inventory.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Ammo_Types.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Bullet_Benaviour.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\GetDamageInfo.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Gun_Behaviour.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\LaserSword.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Melee_Behaviour.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_To_Pick_Up.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemStats.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Item\Rotate_Slowly.cs" />
@@ -97,6 +97,7 @@
      <Compile Include="Assets\My_Assets\My_Scripts\Player\CameraControl.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Movement.cs" />
+     <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Rotation.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\My_Assets\My_Scripts\Player\Shoot.cs" />
@@ -234,7 +235,7 @@
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -257,26 +258,29 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
+ <Reference Include="ChatSystem">
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/ChatSystem.dll</HintPath>
+ </Reference>
  <Reference Include="PEM">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/PEM.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/PEM.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization.Config">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

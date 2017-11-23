@@ -70,13 +70,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4605895347239920}
+  - component: {fileID: 114493903167969580}
   m_Layer: 0
   m_Name: ChatServerDll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1127882243488894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114493903167969580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067339520104678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9e20a7896130949b5023c5d55dbf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114510070640454592
 MonoBehaviour:
   m_ObjectHideFlags: 1
