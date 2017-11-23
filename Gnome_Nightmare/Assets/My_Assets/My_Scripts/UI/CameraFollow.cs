@@ -1,58 +1,28 @@
 ﻿using UnityEngine;
-using Sirenix.OdinInspector;
 
-public class CameraFollow : SerializedMonoBehaviour {
+public class CameraFollow : MonoBehaviour {
 
-    private float Height = 0.0f;
-    private float Depth = 0.0f;
-
-    [HorizontalGroup("1st Preson"), LabelWidth(60)]
-    public float Height1st = 0.50f;
-    [HorizontalGroup("1st Preson"), LabelWidth(60)]
-    public float Depth1st = 0.0f;
-
-    [HorizontalGroup("3rd Preson"), LabelWidth(60)]
-    public float Height3rd = 3.0f;
-    [HorizontalGroup("3rd Preson"), LabelWidth(60)]
-    public float Depth3rd = -4.0f;
-    [HorizontalGroup("3rd Preson"), LabelWidth(60)]
-    public float CameraFollowSpeed = 8.0f;
+    public Transform playerTransform;
+    public Vector2 playerRotation;
+    [Space]
     private bool is3rdPerson = false;
-
-    [HorizontalGroup("ADS"), LabelWidth(60)]
-    public Transform endPoint; // The point where the camera translates to for A.D.S.
-    [HorizontalGroup("ADS"), LabelWidth(60)]
-    public float AdsSpeed = 8.0f;
-    private bool isAiming = false;
-
     public bool Switch3rdPerson = false;
-<<<<<<< HEAD
     public float Height3rdPerson = 3.0f;
     public float Depth3rdPerson = -4.0f;
     public float Rot3rdPerson = 45.0f;
     public float CameraSpeed = 8.0f;
     public float Height = 0.50f;
     public float Depth = 0.0f;
-=======
-    private Transform playerTransform;
-    private Vector2 playerRotation;
->>>>>>> 6ba9fe694aa290e697ca44a02f498f79d576a0c5
 
     void Start() { }
 
     // Update is called once per frame
-    void Update() {
-        if (Input.GetButton("Fire2")) { isAiming = true; Debug.Log("Aiming"); }
-        else if (Input.GetButtonUp("Fire2")) { isAiming = false; }
-    }
-
     void LateUpdate() {
         if (is3rdPerson == Switch3rdPerson) { SwitchPerspective(); }
 
         //If player is active, set the camera position and rotation
-        if (isAiming && is3rdPerson) { AdsCamera(); }
-        else if (is3rdPerson && !isAiming) { LerpCamera(); }
-        else if (!is3rdPerson) { Camera1stPerson(); }
+        if (is3rdPerson) { LerpCamera(); }
+        else { WarpCamera(); }
     }
     //Set position of camera
     public void SetPosition(Transform m_transform) {
@@ -67,66 +37,38 @@ public class CameraFollow : SerializedMonoBehaviour {
         if (is3rdPerson) {
             is3rdPerson = false;
             Switch3rdPerson = true;
-            Height = Height1st;
-            Depth = Depth1st;
+            Height = 0.5f;
+            Depth = 0.0f;
         }
         else {
             is3rdPerson = true;
             Switch3rdPerson = false;
-            Height = Height3rd;
-            Depth  = Depth3rd;
-            Camera1stPerson();
+            Height = Height3rdPerson;
+            Depth = Depth3rdPerson;
+            WarpCamera();
         }
     }
 
-    public void Camera1stPerson() {
+    public void WarpCamera() {
         if (playerTransform != null) {
-            this.transform.position = playerTransform.position + new Vector3(0, Height1st, 0) + playerTransform.transform.forward * Depth1st;
+            this.transform.position = playerTransform.position + new Vector3(0, Height, 0) + playerTransform.transform.forward * Depth;
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
         }
     }
     public void LerpCamera() {
         if (playerTransform != null) {
             float tempFloatY;
-            if (playerRotation.y > -10.0f) { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rd * 0.9f), (Height3rd * 0.2f))-1.0f; }
-            else { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rd * 0.9f), (Height3rd * 0.5f)) - 1.0f; }
+            if (playerRotation.y > -10.0f) { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rdPerson * 0.9f), (Height3rdPerson * 0.2f))-1.0f; }
+            else { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rdPerson * 0.9f), (Height3rdPerson * 0.5f)) - 1.0f; }
             float tempFloatX;
-            if (playerRotation.y > 10.0f) { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rd * 0.75f), (-Depth3rd) - 1.0f) + 1.0f; }
-            else { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rd * 0.75f), 0.50f) + 1.0f; }
+            if (playerRotation.y > 10.0f) { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rdPerson * 0.75f), (-Depth3rdPerson) - 1.0f) + 1.0f; }
+            else { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rdPerson * 0.75f), 0.50f) + 1.0f; }
 
             if (tempFloatX > 0.0f) { tempFloatX  = -tempFloatX; }
             //Debug.Log("[" + playerRotation.y + "] [" + tempFloatY + "] [" + tempFloatX + "]");
-            this.transform.position = Vector3.Lerp(this.transform.position,  (playerTransform.position + new Vector3(0, (Height3rd + tempFloatY), 0) + playerTransform.transform.forward * (Depth3rd - tempFloatX)), Time.deltaTime * CameraFollowSpeed);
+            this.transform.position = Vector3.Lerp(this.transform.position,  (playerTransform.position + new Vector3(0, (Height + tempFloatY), 0) + playerTransform.transform.forward * (Depth-tempFloatX)), Time.deltaTime * CameraSpeed);
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
             //this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(playerRotation.y, playerRotation.x, 0), Time.deltaTime * CameraSpeed);
-        }
-    }
-
-    public void AdsCamera() {
-        float t = 0.0f;
-
-        if (playerTransform != null) { 
-            if (isAiming) {
-                //currentY += Input.GetAxis("Mouse Y");
-                //currentY = Mathf.Clamp(currentY, -72.0f, Y_ANGLE_MAX);
-
-                t = AdsSpeed * Time.deltaTime;
-
-                // set rotation and move to end position
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, endPoint.transform.rotation, t);
-                this.transform.position = Vector3.MoveTowards(this.transform.position, endPoint.transform.position, t);
-
-                //player.transform.rotation = Quaternion.Euler(-currentY, currentX, 0);
-            }
-            else {
-                t = AdsSpeed * Time.deltaTime;
-                Vector3 temp = (playerTransform.position + new Vector3(0, Height3rd, 0) + (playerTransform.transform.forward * Depth3rd));
-                this.transform.position = Vector3.MoveTowards(this.transform.position, temp, t);
-
-                //currentY -= Input.GetAxis("Mouse Y");
-                //currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
-            }
-            this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
         }
     }
 }

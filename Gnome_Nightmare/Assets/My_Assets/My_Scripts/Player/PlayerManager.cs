@@ -47,7 +47,7 @@ public class PlayerManager : MonoBehaviour {
             if (ExitAllMenus()) { return; }
             MenuTimer = 0.3f;
             MenuOpen = true;
-            //Enter score menu
+            //Enter pause menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
         }
         else if (Input.GetButton("Tab") && MenuTimer <= 0.0f) {
@@ -57,14 +57,9 @@ public class PlayerManager : MonoBehaviour {
             //Enter drop menu
             if (TriggerHit == 0) { OpenDropMenu(); }
         }
-        else if (Input.GetKeyDown(KeyCode.F)) {
+        else if (Input.GetKeyDown(KeyCode.F)){
             if (this.transform.Find("Flash_Light")){
                 this.transform.Find("Flash_Light").GetComponent<SwitchActive>().Switch();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.T)) {
-            if (GameObject.Find("Managers").transform.Find("ChatServerDll")){
-                GameObject.Find("Managers").transform.Find("ChatServerDll").GetComponent<SwitchActive>().Switch();
             }
         }
     }
