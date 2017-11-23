@@ -11,8 +11,8 @@ public class CameraFollow : MonoBehaviour {
     public float Depth3rdPerson = -4.0f;
     public float Rot3rdPerson = 45.0f;
     public float CameraSpeed = 8.0f;
-    private float Height = 0.50f;
-    private float Depth = 0.0f;
+    public float Height = 0.50f;
+    public float Depth = 0.0f;
 
     void Start() { }
 

@@ -234,7 +234,7 @@
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -258,25 +258,25 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="PEM">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/PEM.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/PEM.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization.Config">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+ <HintPath>C:/Users/100601589/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
