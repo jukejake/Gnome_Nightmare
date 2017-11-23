@@ -94,6 +94,7 @@ public class Items_Manager : SerializedMonoBehaviour  {
                 OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).GetComponent<Gun_Behaviour>())
             {
                 Gun_Behaviour weapon = OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).GetComponent<Gun_Behaviour>();
+                Melee_Behaviour melee = OnlineTable.Misc[childIndex].Item.GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).GetComponent<Melee_Behaviour>();
                 ItemStats item = OnlineTable.Misc[childIndex].Item.GetComponent<ItemStats>();
                 if (weapon.WeaponTypeHitScan || weapon.WeaponTypeProjectile) {
                     string Summary = OnlineTable.Misc[childIndex].Summary;
@@ -103,7 +104,7 @@ public class Items_Manager : SerializedMonoBehaviour  {
                     Summary += "\n" + item.itemStats.FireRate.baseValue.ToString() + " Rate of Fire";
                     Details.transform.GetChild(1).GetComponent<Text>().text = Summary;
                 }
-                else if (weapon.WeaponTypeMelee) {
+                else if (melee) {
                     string Summary = OnlineTable.Misc[childIndex].Summary;
                     Summary += "\n" + item.itemStats.Damage.baseValue.ToString() + " Damage";
                     Summary += "\n" + item.itemStats.FireRate.baseValue.ToString() + " Rate of Fire";
