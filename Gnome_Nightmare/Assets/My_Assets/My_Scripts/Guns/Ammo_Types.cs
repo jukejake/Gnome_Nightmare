@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Ammo_Types : MonoBehaviour {
 
-    public enum Ammo { None, Basic, Paintball, Staples, Arrow };
+    public enum Ammo { None, Basic, Paintball, Staples, Arrow, Potato, Scrap, Fuel };
     public Ammo TypeOfAmmo = Ammo.None;
 
     //[SerializeField]

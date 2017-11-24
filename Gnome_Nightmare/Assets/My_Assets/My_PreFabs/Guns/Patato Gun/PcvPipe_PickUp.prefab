@@ -37,9 +37,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4781712870943910}
   - component: {fileID: 114542931157168498}
-  m_Layer: 0
+  - component: {fileID: 114039476115376240}
+  - component: {fileID: 136645035983771258}
+  m_Layer: 2
   m_Name: PcvPipe_PickUp
-  m_TagString: Untagged
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +112,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1217439699953434}
   m_Mesh: {fileID: 4300000, guid: f11898c8b53e5584e95addaaf6a056ab, type: 3}
+--- !u!114 &114039476115376240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318553915874518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd602181f0cdd4746899e104d02ae31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: {x: 0, y: 1, z: 0}
 --- !u!114 &114542931157168498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,3 +136,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
+--- !u!136 &136645035983771258
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318553915874518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.15, z: 0}

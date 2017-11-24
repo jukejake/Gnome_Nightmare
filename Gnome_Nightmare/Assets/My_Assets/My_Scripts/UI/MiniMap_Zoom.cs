@@ -12,6 +12,7 @@ public class MiniMap_Zoom : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private void Start() {
         Camera MiniMap = (Camera)Instantiate(MiniMap_Camera);
         MiniMap.name = "MiniMap_Camera";
+        MiniMap.transform.SetParent(this.transform);
     }
 
 

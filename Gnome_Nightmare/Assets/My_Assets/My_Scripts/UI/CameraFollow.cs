@@ -33,8 +33,8 @@ public class CameraFollow : SerializedMonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetButton("Fire2")) { isAiming = true; Debug.Log("Aiming"); }
-        else if (Input.GetButtonUp("Fire2")) { isAiming = false; }
+        if (is3rdPerson || Input.GetButton("Fire2")) { isAiming = true; }
+        else if (is3rdPerson || Input.GetButtonUp("Fire2")) { isAiming = false; }
     }
 
     void LateUpdate() {

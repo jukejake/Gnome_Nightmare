@@ -116,19 +116,23 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     // Update is called once per frame
     [ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Update() {
+
+        if (AimingHitscan && Input.GetButtonDown("Fire1")) {
+            RaycastHit hit;
+            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, 10000.0f)) {
+                s_Spawner.transform.LookAt(hit.point);
+            }
+        }
+
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
             if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
             else { ProjectileWeapons_Shoot(); }
         }
+
         //If the player presses Right Click 
         if (Input.GetButtonDown("Fire2") && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
-        if (AimingHitscan && Input.GetButtonDown("Fire2")) {
-            RaycastHit hit;
-            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, 1000.0f)) {
-                s_Spawner.transform.LookAt(hit.point);
-            }
-        }
+        
     }
     [ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Shoot() {

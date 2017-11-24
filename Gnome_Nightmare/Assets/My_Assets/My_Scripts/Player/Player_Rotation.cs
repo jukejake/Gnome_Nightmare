@@ -9,6 +9,6 @@ public class Player_Rotation : MonoBehaviour {
 
     void LateUpdate()
     {
-        bone.transform.LookAt(cameraTarget.transform.forward);
+        bone.LookAt(cameraTarget);
     }
 }

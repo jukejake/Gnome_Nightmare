@@ -6,10 +6,10 @@ public class Spawner_Settings : SerializedMonoBehaviour {
     public static Spawner_Settings instance;
     void Awake() { instance = this; }
 
-    public Spawner spawner = new Spawner();
-
     //Where enemies are set to spawn
     public GameObject WorldEnenies;
+
+    public Spawner spawner = new Spawner();
 
     // Use this for initialization
     private void Start () { }

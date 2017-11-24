@@ -62,8 +62,13 @@ public class MenuManager : MonoBehaviour {
         }
         if (weapon.GetComponent<Eyes_Follow_Cursor>()) { weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true; }
         weapon.transform.SetParent(player.transform);
-        weapon.transform.localPosition = new Vector3(0.5f, 0.0f, 0.6f);
-        weapon.transform.rotation = player.transform.rotation;
+        GameObject temp = GameObject.Find("GUN:pCylinder387");
+        temp.GetComponent<MeshRenderer>().enabled = false;
+        weapon.transform.SetParent(temp.transform.parent);
+        weapon.transform.position = temp.transform.position; // new Vector3(0.5f, 0.0f, 0.6f);
+        weapon.transform.localPosition = temp.transform.localPosition;
+        weapon.transform.rotation = temp.transform.rotation; // player.transform.rotation;
+        weapon.transform.localRotation = temp.transform.localRotation;
         weapon.transform.localScale = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().ItemOnDrop.transform.GetChild(0).gameObject.transform.localScale;
     }
     public void UnEquipWeapon() {
@@ -112,7 +117,7 @@ public class MenuManager : MonoBehaviour {
         if (PlayerManager.instance.MenuOpen) { return; }
 
 
-        if (Input.GetButton("Fire2") || Input.GetButton("CB")) {
+        if (Input.GetButton("Fire3") || Input.GetButton("CB")) {
             if (CurrentSlot == -1) { return; }
             if (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon) {
                 if (Weapon_Slot.transform.childCount != 0) {
@@ -123,8 +128,10 @@ public class MenuManager : MonoBehaviour {
                     Weapon_Slot.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
                     Inventory_Slot.transform.GetChild(Inventory_Slot.transform.childCount-1).transform.SetSiblingIndex(CurrentSlot);
-                    Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
-
+                    //
+                    //Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
+                    CurrentSlot -= 1;
+                    
                     EquipWeapon();
                     //Debug.Log("Swap");
                 }

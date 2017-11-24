@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 114378609502997772}
   - component: {fileID: 114283166271426898}
   - component: {fileID: 114625818294965790}
-  - component: {fileID: 114371115077586730}
+  - component: {fileID: 114782121153854298}
   m_Layer: 0
   m_Name: Ammo_Inventory
   m_TagString: Item_Inventory
@@ -514,17 +514,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114371115077586730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919683922310848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89526589dc7d1c04188baf55728735e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114378609502997772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -851,6 +840,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114782121153854298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919683922310848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6aadfdfb50bd347a7f099bbd71cafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114821758351178336
 MonoBehaviour:
   m_ObjectHideFlags: 1
