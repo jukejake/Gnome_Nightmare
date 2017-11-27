@@ -14,7 +14,7 @@ public class Spawner_Settings : SerializedMonoBehaviour {
     // Use this for initialization
     private void Start () {
         if (WorldEnenies == null) { WorldEnenies = GameObject.Find("Enemies"); }
-        if (spawner.SpawnerPosition == null) { spawner.SpawnerPosition = this.gameObject; }
+        if (spawner.spawnerDetails.SpawnerPosition == null) { spawner.spawnerDetails.SpawnerPosition = this.gameObject; }
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Spawner_Settings : SerializedMonoBehaviour {
     }
 
     public void SpawnGodDamnIt(SpawnerEnemies Prefab, int number, Vector3 randomPosition) {
-        GameObject tempObj = Instantiate(Prefab.enemyPrefab, spawner.SpawnerPosition.transform.position + randomPosition, spawner.SpawnerPosition.transform.rotation);
+        GameObject tempObj = Instantiate(Prefab.enemyPrefab, this.transform.position + randomPosition, this.transform.rotation);
         tempObj.transform.SetParent(WorldEnenies.transform);
         Prefab.IncreaseStats(tempObj);
         tempObj.name = Prefab.enemyPrefab.name;
@@ -37,8 +37,8 @@ public class Spawner : ISpawnTables {
     [HorizontalGroup("Group 0", 0.1f), LabelWidth(50)]
     public bool Toggle;
 
-    [HorizontalGroup("Group 0", 0.3f), LabelWidth(100)]
-    public GameObject SpawnerPosition;
+    //[HorizontalGroup("Group 0", 0.3f), LabelWidth(100)]
+    //public GameObject SpawnerPosition;
 
     [HorizontalGroup("Group 0", 0.0f), LabelWidth(50)]
     public int StartAt = 1;
@@ -68,6 +68,8 @@ public class SpawnerDetails : ISpawnTables {
     public float spawnCoolDownRemaining = 5.0f;
     [FoldoutGroup("Interval Between"), LabelWidth(100)]
     public Vector3 SpawnPosition = new Vector3(0, 0, 0);
+    [HideInInspector]
+    public GameObject SpawnerPosition;
 
     [System.NonSerialized]
     public int number = 0;
@@ -95,7 +97,12 @@ public class SpawnerDetails : ISpawnTables {
                 Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-SpawnPosition.x, 0.0f, -SpawnPosition.z), new Vector3(SpawnPosition.x, SpawnPosition.y, SpawnPosition.z));
                 wc.NumberSpawned++;
                 //Transform tempTransform = EnemySpawnTable.instance.spawners[EnemySpawnTable.instance.spawnerDetails.IndexOf(this)].SpawnerPosition.transform;
-                Spawner_Settings.instance.SpawnGodDamnIt(wc, number, RandomPosition);
+                //Spawner_Settings.instance.SpawnGodDamnIt(wc, number, RandomPosition);
+                GameObject tempObj = UnityEngine.GameObject.Instantiate(wc.enemyPrefab, SpawnerPosition.transform.position + RandomPosition, SpawnerPosition.transform.rotation);
+                tempObj.transform.SetParent(Spawner_Settings.instance.WorldEnenies.transform);
+                wc.IncreaseStats(tempObj);
+                tempObj.name = wc.enemyPrefab.name;
+
                 SpawnedAMob = true;
                 break;
             }
@@ -111,7 +118,6 @@ public class SpawnerDetails : ISpawnTables {
                     }
                 }
                 else {
-                    Debug.Log("Defeated Spawner");
                     DefeatedSpawner = true;
                     spawnCoolDownRemaining = Round;
                     Interface_SpawnTable.instance.CheckAllSpawners();

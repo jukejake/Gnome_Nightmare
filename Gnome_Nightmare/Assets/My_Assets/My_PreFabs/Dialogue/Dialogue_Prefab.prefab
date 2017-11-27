@@ -335,8 +335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114660701714566544, guid: 611c7db145750b345bc06fd6b7d39832,
-          type: 2}
+      - m_Target: {fileID: 0}
         m_MethodName: ContinueDialogue
         m_Mode: 1
         m_Arguments:

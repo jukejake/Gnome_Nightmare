@@ -5,6 +5,7 @@ public class EnemyStats : CharacterStats {
 
     public int Experience = 1;
     public int Points = 1;
+    public GameObject ParticlesOnDeath;
 
     private void Update() {
        HealthBar();
@@ -29,7 +30,12 @@ public class EnemyStats : CharacterStats {
         Destructible isDestructible = this.GetComponent<Destructible>();
         if (isDestructible != null) { isDestructible.Kill(); }
         //Else just destroy the gameObject
-        else { Destroy(this.gameObject, 0.2f); }
+        else { Destroy(this.gameObject, 0.1f); }
+
+        if (ParticlesOnDeath != null) {
+            GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);
+            Destroy(v_ParticlesOnDeath, 3.0f);
+        }
     }
 
     private void HealthBar(){

@@ -85,9 +85,6 @@
     <Reference Include="ChatSystem">
       <HintPath>Assets\My_Assets\My_Plugins\ChatSystem.dll</HintPath>
     </Reference>
-    <Reference Include="PEM">
-      <HintPath>Assets\My_Assets\My_Plugins\PEM.dll</HintPath>
-    </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
@@ -105,6 +102,9 @@
     </Reference>
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Utilities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="ParticleEmitterPlugin">
+      <HintPath>Assets\My_Assets\My_Plugins\ParticleEmitterPlugin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

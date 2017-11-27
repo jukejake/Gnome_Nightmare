@@ -63,8 +63,16 @@ public class PlayerManager : MonoBehaviour {
             }
         }
         else if (Input.GetKeyDown(KeyCode.T)) {
-            if (GameObject.Find("Managers").transform.Find("ChatServerDll")){
-                GameObject.Find("Managers").transform.Find("ChatServerDll").GetComponent<SwitchActive>().Switch();
+            Transform temp = GameObject.Find("Managers").transform.Find("ChatServerDll");
+            if (temp){
+                temp.GetComponent<SwitchActive>().Switch();
+                if (temp.GetComponent<SwitchActive>().isActive) {
+                    Cursor.lockState = CursorLockMode.None;
+                    MenuOpen = true;
+                }
+                else {
+                    ExitAllMenus();
+                }
             }
         }
     }

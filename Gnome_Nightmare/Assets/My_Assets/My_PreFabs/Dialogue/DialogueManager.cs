@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour {
                 DistoryNpcDialogue();
             }
             else {
+                Cursor.lockState = CursorLockMode.None;
+                PlayerManager.instance.MenuOpen = true;
                 //Spawn a Dialogue Menu
                 GameObject Dialogue_Menu = (GameObject)Instantiate(Dialogue_Prefab);
                 //Set the Parent of the Dialogue Menu to the NPC
@@ -34,6 +36,7 @@ public class DialogueManager : MonoBehaviour {
                 LoadAllNpcDialogue(other);
                 //Set the UI to one of the Text files loaded
                 SetUIDialogue(TextNumber);
+                Dialogue_Menu.transform.Find("Dialogue_Box").transform.Find("Button").GetComponent<Button>().onClick.AddListener(ContinueDialogue);
             }
         }
     }
@@ -75,6 +78,8 @@ public class DialogueManager : MonoBehaviour {
     }
 
     private void DistoryNpcDialogue() {
+        Cursor.lockState = CursorLockMode.Locked;
+        PlayerManager.instance.MenuOpen = false;
         //Finds the Dialogue Menu and distroys it
         if (GameObject.Find("Dialogue_Menu") == true) {
             Destroy(GameObject.Find("Dialogue_Menu").gameObject);

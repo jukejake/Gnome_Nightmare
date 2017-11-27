@@ -6,9 +6,14 @@ public class CameraFollow : SerializedMonoBehaviour {
     private float Height = 0.0f;
     private float Depth = 0.0f;
 
+    [HorizontalGroup("Head"), LabelWidth(60)]
     public bool isFollowingThis;
+    [HorizontalGroup("Head"), LabelWidth(60)]
     public GameObject FollowThis;
-
+    [HorizontalGroup("Head"), LabelWidth(60)]
+    public float HeadHeight = 0.0f;
+    [HorizontalGroup("Head"), LabelWidth(60)]
+    public float HeadDepth = 0.0f;
 
     [HorizontalGroup("1st Preson"), LabelWidth(60)]
     public float Height1st = 0.50f;
@@ -45,7 +50,7 @@ public class CameraFollow : SerializedMonoBehaviour {
         if (is3rdPerson == Switch3rdPerson) { SwitchPerspective(); }
 
         if (isFollowingThis) {
-            this.transform.position = FollowThis.transform.position;
+            this.transform.position = (FollowThis.transform.position + (FollowThis.transform.up * HeadHeight) + (FollowThis.transform.forward * HeadDepth));
             //this.transform.rotation = FollowThis.transform.rotation;
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
             return;

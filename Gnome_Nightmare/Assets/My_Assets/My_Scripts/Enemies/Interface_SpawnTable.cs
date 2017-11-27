@@ -79,7 +79,7 @@ public class Interface_SpawnTable : MonoBehaviour {
         for (int i = 0; i < spawnerSettings.Length; i++) {
             //spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner = true;
             //If spawner is not active or it does not have the component than return
-            if (ToggleAll || spawnerSettings[i].spawner.Toggle || spawnerSettings[i].spawner.SpawnerPosition == null) { }
+            if (ToggleAll || spawnerSettings[i].spawner.Toggle) { }
             //enemySpawnTable.spawners[i].LastAvtiveRound will be set as the current round... (only for this)
             else if ((CurrentLevel >= spawnerSettings[i].spawner.StartAt && CurrentLevel == spawnerSettings[i].spawner.LastAvtiveRound) || (CurrentLevel == spawnerSettings[i].spawner.StartAt)) {
                 //counts amount of enemies to spawn multiplyed by number of waves in spawner
@@ -143,14 +143,11 @@ public class Interface_SpawnTable : MonoBehaviour {
         for (int i = 0; i < spawnerSettings.Length; i++) {
             //spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner = true;
             //If spawner is not active or it does not have the component than return
-            Debug.Log("["+CurrentLevel+ "][" + spawnerSettings[i].spawner.StartAt + "][" + (spawnerSettings[i].spawner.LastAvtiveRound + spawnerSettings[i].spawner.ActiveEvery) + "]");
             if (spawnerSettings[i].spawner.Toggle) { }
             else if ((CurrentLevel >= spawnerSettings[i].spawner.StartAt && CurrentLevel == (spawnerSettings[i].spawner.LastAvtiveRound + spawnerSettings[i].spawner.ActiveEvery)) || (CurrentLevel == spawnerSettings[i].spawner.StartAt)) {
-                Debug.Log("[Start Activation]");
                 spawnerSettings[i].spawner.LastAvtiveRound = CurrentLevel;
                 //If the spawner is deactive then active it
                 if (spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner) {
-                    Debug.Log("[Activate]");
                     spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner = false;
                     spawnerSettings[i].spawner.spawnerDetails.Round = TimeBetweenRounds;
                     spawnerSettings[i].spawner.spawnerDetails.spawnCoolDownRemaining = TimeBetweenRounds;

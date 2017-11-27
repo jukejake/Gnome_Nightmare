@@ -794,6 +794,48 @@ Transform:
   m_Father: {fileID: 2083691201}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &210161593
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &215253261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,24 +1907,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &296789794 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1333888178946622, guid: 53889b641bda74346b36874d98f704a6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1361479499}
---- !u!114 &296789795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 296789794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd81b6325f24304f8764897c28faf23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bone: {fileID: 1361479500}
-  cameraTarget: {fileID: 1353368687}
 --- !u!1 &302345829 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: f7f3db67a9457c444afcd055f85086dd, type: 3}
@@ -2025,9 +2049,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -2066,6 +2087,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -2309,6 +2333,8 @@ MonoBehaviour:
     SerializationNodes: []
   isFollowingThis: 1
   FollowThis: {fileID: 631234843}
+  HeadHeight: 0.12
+  HeadDepth: 0.1
   Height1st: 0.9
   Depth1st: 0
   Height3rd: 3
@@ -2715,7 +2741,7 @@ CanvasRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 4970113985200640, guid: 53889b641bda74346b36874d98f704a6,
     type: 2}
-  m_PrefabInternal: {fileID: 1361479499}
+  m_PrefabInternal: {fileID: 995452969}
 --- !u!1 &432596559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,9 +2839,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -2854,6 +2877,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -3475,9 +3501,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -3516,6 +3539,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -3671,7 +3697,7 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 1734854053589564, guid: 53889b641bda74346b36874d98f704a6,
     type: 2}
-  m_PrefabInternal: {fileID: 1361479499}
+  m_PrefabInternal: {fileID: 995452969}
 --- !u!1 &633287756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,7 +4177,7 @@ Transform:
   - {fileID: 1831405896}
   - {fileID: 235912755}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &672982730
 Prefab:
@@ -5204,6 +5230,53 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 971917756}
+--- !u!1001 &995452969
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114322951171868344, guid: 53889b641bda74346b36874d98f704a6,
+        type: 2}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 1353368687}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 53889b641bda74346b36874d98f704a6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &998357464
 Transform:
   m_ObjectHideFlags: 0
@@ -5421,9 +5494,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -5462,6 +5532,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -5808,9 +5881,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -5849,6 +5919,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -8857,7 +8930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f7f3db67a9457c444afcd055f85086dd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: f7f3db67a9457c444afcd055f85086dd, type: 3}
       propertyPath: m_Controller
@@ -9759,9 +9832,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -9800,6 +9870,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -9973,70 +10046,6 @@ Transform:
   m_Father: {fileID: 335379936}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1361479499
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4655492304443944, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333888178946622, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23561715653023458, guid: 53889b641bda74346b36874d98f704a6,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dbd488440948c6941af41e30b2507225, type: 2}
-    - target: {fileID: 4970113985200640, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.754
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970113985200640, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 53889b641bda74346b36874d98f704a6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1361479500 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4518586910747014, guid: 53889b641bda74346b36874d98f704a6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1361479499}
 --- !u!1 &1481283757
 GameObject:
   m_ObjectHideFlags: 0
@@ -16306,9 +16315,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -16347,6 +16353,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -16716,7 +16725,7 @@ Transform:
   - {fileID: 1011514264}
   - {fileID: 2139430225}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831405894
 GameObject:
@@ -16880,9 +16889,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -16921,6 +16927,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -17301,9 +17310,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -17342,6 +17348,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -17711,9 +17720,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -17752,6 +17758,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -19223,7 +19232,15 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1794536943300516, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
+    - {fileID: 1665220090724536, guid: 930f490e720b8334d910cf1626c49d09, type: 2}
+    - {fileID: 1051321533215820, guid: 184bee75eeb581f47b921d6337be856d, type: 2}
+    - {fileID: 1268874095769348, guid: 8f0f9994dbbef8749918ccbd88958aed, type: 2}
+    - {fileID: 1902338955726660, guid: 648d54eb7be161c4b9fa4f758175681a, type: 2}
+    - {fileID: 1979556798606400, guid: c06e03c9f5303054ba31495afe3d2dd7, type: 2}
+    - {fileID: 1126897304676958, guid: 6f0bd0fabd9b51e4c909ddecd01c6d35, type: 2}
+    - {fileID: 1319376517702440, guid: d6474908e3dd97d428baec62df085e6d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -19235,20 +19252,132 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|OdinTables.EnemyDropTable, Assembly-CSharp
     - Name: Enemy
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: Items
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[OdinTables.ItemDropTable, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 3|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: DropChance
+      Entry: 4
+      Data: 15
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 2
+    - Name: DropChance
+      Entry: 4
+      Data: 1
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 3
+    - Name: DropChance
+      Entry: 4
+      Data: 1
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 4
+    - Name: DropChance
+      Entry: 4
+      Data: 1
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|OdinTables.EnemyDropTable, Assembly-CSharp
+    - Name: Enemy
+      Entry: 10
+      Data: 5
+    - Name: Items
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[OdinTables.ItemDropTable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 9|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 6
+    - Name: DropChance
+      Entry: 4
+      Data: 2
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 7
+    - Name: DropChance
+      Entry: 4
+      Data: 2
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -19515,9 +19644,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -19556,6 +19682,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
@@ -19704,9 +19833,6 @@ MonoBehaviour:
     - Name: Toggle
       Entry: 5
       Data: false
-    - Name: SpawnerPosition
-      Entry: 6
-      Data: 
     - Name: StartAt
       Entry: 3
       Data: 1
@@ -19745,6 +19871,9 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 8
+      Data: 
+    - Name: SpawnerPosition
+      Entry: 6
       Data: 
     - Name: spawnerEnemies
       Entry: 7
