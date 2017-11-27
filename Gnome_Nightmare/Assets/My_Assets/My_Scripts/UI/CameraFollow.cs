@@ -6,6 +6,10 @@ public class CameraFollow : SerializedMonoBehaviour {
     private float Height = 0.0f;
     private float Depth = 0.0f;
 
+    public bool isFollowingThis;
+    public GameObject FollowThis;
+
+
     [HorizontalGroup("1st Preson"), LabelWidth(60)]
     public float Height1st = 0.50f;
     [HorizontalGroup("1st Preson"), LabelWidth(60)]
@@ -33,15 +37,22 @@ public class CameraFollow : SerializedMonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (is3rdPerson || Input.GetButton("Fire2")) { isAiming = true; }
-        else if (is3rdPerson || Input.GetButtonUp("Fire2")) { isAiming = false; }
+        if (is3rdPerson && Input.GetButton("Fire2")) { isAiming = true; }
+        else if (is3rdPerson && Input.GetButtonUp("Fire2")) { isAiming = false; }
     }
 
     void LateUpdate() {
         if (is3rdPerson == Switch3rdPerson) { SwitchPerspective(); }
 
+        if (isFollowingThis) {
+            this.transform.position = FollowThis.transform.position;
+            //this.transform.rotation = FollowThis.transform.rotation;
+            this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
+            return;
+        }
+
         //If player is active, set the camera position and rotation
-        if (isAiming && is3rdPerson) { AdsCamera(); }
+        if (is3rdPerson && isAiming) { AdsCamera(); }
         else if (is3rdPerson && !isAiming) { LerpCamera(); }
         else if (!is3rdPerson) { Camera1stPerson(); }
     }

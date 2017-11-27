@@ -12,11 +12,14 @@ public class Spawner_Settings : SerializedMonoBehaviour {
     public Spawner spawner = new Spawner();
 
     // Use this for initialization
-    private void Start () { }
+    private void Start () {
+        if (WorldEnenies == null) { WorldEnenies = GameObject.Find("Enemies"); }
+        if (spawner.SpawnerPosition == null) { spawner.SpawnerPosition = this.gameObject; }
+    }
 
     // Update is called once per frame
     private void Update () {
-        if (!spawner.Toggle && spawner.SpawnerPosition != null) { spawner.spawnerDetails.UpdateSpawners(); }
+        if (!spawner.Toggle) { spawner.spawnerDetails.UpdateSpawners(); }
     }
 
     public void SpawnGodDamnIt(SpawnerEnemies Prefab, int number, Vector3 randomPosition) {
@@ -108,6 +111,7 @@ public class SpawnerDetails : ISpawnTables {
                     }
                 }
                 else {
+                    Debug.Log("Defeated Spawner");
                     DefeatedSpawner = true;
                     spawnCoolDownRemaining = Round;
                     Interface_SpawnTable.instance.CheckAllSpawners();
