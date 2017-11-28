@@ -1026,11 +1026,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -21.4
       objectReference: {fileID: 0}
     - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2259,10 +2259,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -3191,7 +3191,7 @@ MonoBehaviour:
       Data: 0
     - Name: Amount
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Count
       Entry: 3
       Data: 1
@@ -3815,7 +3815,7 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ActiveEvery
       Entry: 3
       Data: 1
@@ -3870,7 +3870,7 @@ MonoBehaviour:
       Data: 0
     - Name: Amount
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Count
       Entry: 3
       Data: 1
@@ -5589,48 +5589,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907898996}
---- !u!1001 &916498044
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223982347159168, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &957505401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5788,16 @@ Prefab:
       propertyPath: anim
       value: 
       objectReference: {fileID: 298660889}
+    - target: {fileID: 114592929051416990, guid: 53889b641bda74346b36874d98f704a6,
+        type: 2}
+      propertyPath: SensitivityXAxis
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114592929051416990, guid: 53889b641bda74346b36874d98f704a6,
+        type: 2}
+      propertyPath: SensitivityYAxis
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53889b641bda74346b36874d98f704a6, type: 2}
   m_IsPrefabParent: 0
@@ -6052,10 +6020,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -6439,10 +6407,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -6494,16 +6462,16 @@ MonoBehaviour:
       Data: 0
     - Name: Amount
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: Count
       Entry: 3
       Data: 1
     - Name: Health
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: Points
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: Armour
       Entry: 3
       Data: 0
@@ -10344,7 +10312,7 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ActiveEvery
       Entry: 3
       Data: 1
@@ -17067,10 +17035,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -17122,16 +17090,16 @@ MonoBehaviour:
       Data: 0
     - Name: Amount
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: Count
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Health
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: Points
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Armour
       Entry: 3
       Data: 0
@@ -17692,7 +17660,7 @@ Transform:
   - {fileID: 1011514264}
   - {fileID: 2139430225}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831405894
 GameObject:
@@ -17858,10 +17826,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -18689,10 +18657,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
@@ -20737,10 +20705,10 @@ MonoBehaviour:
       Data: false
     - Name: StartAt
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ActiveEvery
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: LastAvtiveRound
       Entry: 3
       Data: 0
