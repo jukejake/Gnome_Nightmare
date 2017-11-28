@@ -8,6 +8,7 @@ public class Player_Movement : MonoBehaviour {
     public float SensitivityXAxis = 15.0f;
     public float SensitivityYAxis = 10.0f;
     public Vector3 Jump = new Vector3(3.0f, 0.0f, 10.0f); //MinJump,JumpPressure, MaxJumpPressure
+    public Animator anim;
     
     private Rigidbody m_Rigidbody;
     //private AudioSource m_audioSource;
@@ -15,6 +16,8 @@ public class Player_Movement : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 	private float rotX;
     private float rotY;
+    public float animPer_H;
+    public float animPer_V;
     private float RotationNeededForCamera;
 
     private bool m_IsGrounded = true;
@@ -91,8 +94,15 @@ public class Player_Movement : MonoBehaviour {
         else { moveDirection.y -= 30.0f * Time.deltaTime; }
 
         //Move player
-        moveDirection = transform.rotation * moveDirection;
+        moveDirection = transform.rotation * moveDirection * 0.65f;
         m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * Time.deltaTime);
+
+        //Update Animator Perameters
+        animPer_H = Input.GetAxis("Horizontal");
+        animPer_V = Input.GetAxis("Vertical");
+        anim.SetFloat("inputH", animPer_H);
+        anim.SetFloat("inputV", animPer_V);
+
     }
 
     void OnCollisionEnter(Collision collision) {
