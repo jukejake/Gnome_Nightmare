@@ -30,7 +30,10 @@ public class EnemyStats : CharacterStats {
         Destructible isDestructible = this.GetComponent<Destructible>();
         if (isDestructible != null) { isDestructible.Kill(); }
         //Else just destroy the gameObject
-        else { Destroy(this.gameObject, 0.1f); }
+        else { Destroy(this.gameObject, 0.9f); }
+
+        Animator TempAnim = this.gameObject.GetComponent<Enemies_Movement>().anim;
+        if (TempAnim) { TempAnim.Play("Gnome_Die", -1, 0f); }
 
         if (ParticlesOnDeath != null) {
             GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);

@@ -7,6 +7,7 @@ public class Enemies_Movement : MonoBehaviour {
     Transform destination;
     NavMeshAgent navMeshAgent;
     GameObject[] players;
+    public Animator anim;
 
     public float MaxFollowDistance = 100.0f;
     public float MaxAttackDistance = 1.0f;
@@ -16,6 +17,7 @@ public class Enemies_Movement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        anim = GetComponentInChildren<Animator>();
         Invoke("DelayedStart", 0.1f);
     }
 
@@ -75,6 +77,7 @@ public class Enemies_Movement : MonoBehaviour {
 
     private void AttackPlayer(int playerNum) {
         players[playerNum].GetComponent<PlayerStats>().TakeDamage(this.gameObject.GetComponent<EnemyStats>().Damage.GetValue());
+        anim.Play("Gnome_Hit", -1, 0f);
     }
 
     private void Wonder() {
