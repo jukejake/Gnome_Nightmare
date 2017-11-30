@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222573987739324270}
   - component: {fileID: 114878959957072304}
   - component: {fileID: 114893379760725596}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Apply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114825430252554868}
   - component: {fileID: 114631816416598204}
   - component: {fileID: 114548804320599538}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Add Modifier
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 224592751173053944}
   - component: {fileID: 222201267806530912}
   - component: {fileID: 114686069521931154}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 224804741701654280}
   - component: {fileID: 222977968443671730}
   - component: {fileID: 114045337327147392}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 114288568331868330}
   - component: {fileID: 114052470839425444}
   - component: {fileID: 114062660153078382}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OutPut
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224604772295633658}
   - component: {fileID: 114422293569836420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Disassemble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 114791069723106640}
   - component: {fileID: 114502079962679624}
   - component: {fileID: 114361572524517082}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Seperate_Second_Slot
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 222668135765793598}
   - component: {fileID: 114353883653346960}
   - component: {fileID: 114832508704543056}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 224161158892525568}
   - component: {fileID: 222728093216758322}
   - component: {fileID: 114566908746428456}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 224293335335811894}
   - component: {fileID: 222422599566825818}
   - component: {fileID: 114182364267586112}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 222727847338201690}
   - component: {fileID: 114292316248324962}
   - component: {fileID: 114000492743579582}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Apply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224772230082990552}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Modifier_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 222027215111433518}
   - component: {fileID: 114298966086044288}
   - component: {fileID: 114005514933324422}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Disassemble_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 114595496016858674}
   - component: {fileID: 114439095176710002}
   - component: {fileID: 114517339206648262}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Seperate_First_Slot
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224644362131615514}
   - component: {fileID: 114479302259177806}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Combined
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 222094237865295176}
   - component: {fileID: 114393994898590084}
   - component: {fileID: 114588292212276858}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Combined_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 223689187249908306}
   - component: {fileID: 114332359939956786}
   - component: {fileID: 114650941560576018}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Crafting_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 224882682941686714}
   - component: {fileID: 222534886442040210}
   - component: {fileID: 114846129231197478}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 114099294556104872}
   - component: {fileID: 114893270658119866}
   - component: {fileID: 114833776563516916}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Combined_First_Slot
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -357,12 +357,12 @@ GameObject:
   - component: {fileID: 33924017334109302}
   - component: {fileID: 65266067548573924}
   - component: {fileID: 23613052489807236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1651725620676566
 GameObject:
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 224604961953482646}
   - component: {fileID: 222883521595676422}
   - component: {fileID: 114166439409487934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 23740284299424876}
   - component: {fileID: 114911414603295792}
   - component: {fileID: 114395470461217810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Crafting_Table
   m_TagString: Crafting_Table
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 224567437279096872}
   - component: {fileID: 222111079198970232}
   - component: {fileID: 114501631639848968}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224961583461459910}
   - component: {fileID: 114046041909417182}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI_Crafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 222713042186056828}
   - component: {fileID: 114358853041766272}
   - component: {fileID: 114792412543262346}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Modify_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 114492504492300226}
   - component: {fileID: 114576106525010528}
   - component: {fileID: 114080320556595060}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Combined_Second_Slot
   m_TagString: Drop_Inventory
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 222114100675923920}
   - component: {fileID: 114487789149929272}
   - component: {fileID: 114768030218334872}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 224705581161123882}
   - component: {fileID: 222498302248532304}
   - component: {fileID: 114206809684566282}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 224345629079783568}
   - component: {fileID: 222582323328969414}
   - component: {fileID: 114200655627191036}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672285324575692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 25}
+  m_LocalPosition: {x: 17.6, y: -0.87, z: 23.9}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 224361560245678018}
@@ -1224,8 +1224,14 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
+    - {fileID: 1734769081431432, guid: b06daa9e2c02a8340a2f8e5e29cc7818, type: 2}
+    - {fileID: 1619705541799120, guid: 01bb54ef076d920459ae1fe6b8a2f6de, type: 2}
     - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
+    - {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
+    - {fileID: 1852295044341306, guid: 2a5ea530da53e0b428a5b039d8afe611, type: 2}
     - {fileID: 1813944035144450, guid: 9ec456e276d4af748aad151e0bb850d9, type: 2}
+    - {fileID: 1110811399918626, guid: b6b13d8d49ff0c846b55aa2a4d67ed4d, type: 2}
+    - {fileID: 1015350844037250, guid: 45c7bd021c57337478dab6c096b57ae4, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1233,16 +1239,14 @@ MonoBehaviour:
     SerializationNodes:
     - Name: CombinedTable
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Table3x5, Assembly-CSharp]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[OdinTables.Table3x5, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 6
-      Data: 
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 1|Table3x5, Assembly-CSharp
+      Data: 1|OdinTables.Table3x5, Assembly-CSharp
     - Name: table3x5
       Entry: 7
       Data: 2|UnityEngine.GameObject[,], UnityEngine
@@ -1256,32 +1260,8 @@ MonoBehaviour:
       Entry: 10
       Data: 0
     - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
       Entry: 10
       Data: 1
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 10
       Data: 2
@@ -1291,6 +1271,30 @@ MonoBehaviour:
     - Name: 
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
     - Name: 
       Entry: 6
       Data: 
@@ -1314,13 +1318,14 @@ MonoBehaviour:
       Data: 
     - Name: ModifierTable
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Table2x5, Assembly-CSharp]], mscorlib
+      Data: 3|System.Collections.Generic.List`1[[OdinTables.Table2x5, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 4|Table2x5, Assembly-CSharp
+      Data: 4|OdinTables.Table2x5, Assembly-CSharp
     - Name: table2x5
       Entry: 7
       Data: 5|UnityEngine.GameObject[,], UnityEngine
@@ -1347,7 +1352,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 6
       Data: 
@@ -1375,8 +1380,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  IsCrafting: 0
-  OnSlot: 0
 --- !u!114 &114422293569836420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1388,6 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e20a7896130949b5023c5d55dbf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!114 &114439095176710002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1421,6 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e20a7896130949b5023c5d55dbf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
 --- !u!114 &114487789149929272
 MonoBehaviour:
   m_ObjectHideFlags: 1
