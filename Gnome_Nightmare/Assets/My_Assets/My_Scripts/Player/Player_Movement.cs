@@ -95,7 +95,11 @@ public class Player_Movement : MonoBehaviour {
 
         //Move player
         moveDirection = transform.rotation * moveDirection * 0.65f;
-        m_Rigidbody.MovePosition(m_Rigidbody.position + moveDirection * Time.deltaTime);
+        Vector3 Temp = (m_Rigidbody.position + moveDirection * Time.deltaTime);
+        //Debug.Log("["+Temp.x+","+Temp.y+","+Temp.z+"]");
+        m_Rigidbody.MovePosition(Temp);
+        //m_Rigidbody.transform.Translate(Temp*0.1f);
+        //m_Rigidbody.AddForce(Temp);
 
         //Update Animator Perameters
         animPer_H = Input.GetAxis("Horizontal");

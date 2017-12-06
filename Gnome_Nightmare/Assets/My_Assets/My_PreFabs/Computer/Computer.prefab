@@ -720,7 +720,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831432858729466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.561421, y: -0.17, z: 24.211597}
+  m_LocalPosition: {x: 0, y: 0.4, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224443180792944460}
@@ -1192,7 +1192,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179461835527514}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1988,12 +1988,22 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1280102391718016, guid: 1145c4b0235569046908a2b7875d2c4c, type: 2}
+    - {fileID: 1245789737966292, guid: 9d0995ea333fce94d9b6a880b1d951e9, type: 2}
+    - {fileID: 1791673529116076, guid: 526a096284ae1214bae4542a41259e4e, type: 2}
+    - {fileID: 1578637232871108, guid: 6df1770ccda9541428e9b9f4747fa2fe, type: 2}
+    - {fileID: 1218382790596460, guid: 7a1680eb02498064d954202593909ca5, type: 2}
     - {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
     - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
+    - {fileID: 1619705541799120, guid: 01bb54ef076d920459ae1fe6b8a2f6de, type: 2}
+    - {fileID: 1852295044341306, guid: 2a5ea530da53e0b428a5b039d8afe611, type: 2}
+    - {fileID: 1734769081431432, guid: b06daa9e2c02a8340a2f8e5e29cc7818, type: 2}
+    - {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
     - {fileID: 1813944035144450, guid: 9ec456e276d4af748aad151e0bb850d9, type: 2}
     - {fileID: 1359884338415154, guid: fb1710a295c67154e87e83cac9a8113a, type: 2}
     - {fileID: 1270954091167144, guid: beeaab2ba386f2f4dae459654120738c, type: 2}
     - {fileID: 1143451905773696, guid: 793ef9930a8c0ea49b3220cc368f7eee, type: 2}
+    - {fileID: 1110811399918626, guid: b6b13d8d49ff0c846b55aa2a4d67ed4d, type: 2}
+    - {fileID: 1015350844037250, guid: 45c7bd021c57337478dab6c096b57ae4, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -2008,7 +2018,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 5
     - Name: 
       Entry: 7
       Data: 2|OdinTables.OnlineItemTable, Assembly-CSharp
@@ -2028,27 +2038,32 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parts
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[OdinTables.OnlineItemTable, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 4|OdinTables.OnlineItemTable, Assembly-CSharp
+      Data: 3|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
       Data: 1
     - Name: Summary
       Entry: 1
-      Data: A item used in item crafting.
+      Data: Fuel
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 2
+    - Name: Summary
+      Entry: 1
+      Data: Paint Balls
     - Name: Price
       Entry: 3
       Data: 0
@@ -2063,10 +2078,149 @@ MonoBehaviour:
       Data: 5|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: Summary
       Entry: 1
-      Data: A item used in item crafting.
+      Data: Potato
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 4
+    - Name: Summary
+      Entry: 1
+      Data: Scrap
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parts
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[OdinTables.OnlineItemTable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 8|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 5
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Flaming Can.
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 6
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Flaming Can.
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 7
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Shredder.
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 8
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Shredder.
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 9
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Potato Gun.
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 10
+    - Name: Summary
+      Entry: 1
+      Data: Used in crafting a Potato Gun.
     - Name: Price
       Entry: 3
       Data: 0
@@ -2084,17 +2238,17 @@ MonoBehaviour:
       Data: 
     - Name: Misc
       Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[OdinTables.OnlineItemTable, Assembly-CSharp]],
+      Data: 14|System.Collections.Generic.List`1[[OdinTables.OnlineItemTable, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 6
     - Name: 
       Entry: 7
-      Data: 7|OdinTables.OnlineItemTable, Assembly-CSharp
+      Data: 15|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 3
+      Data: 11
     - Name: Summary
       Entry: 1
       Data: Hight fire rate low damage
@@ -2109,10 +2263,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 8|OdinTables.OnlineItemTable, Assembly-CSharp
+      Data: 16|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 4
+      Data: 12
     - Name: Summary
       Entry: 1
       Data: Low fire rate high damage
@@ -2127,13 +2281,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|OdinTables.OnlineItemTable, Assembly-CSharp
+      Data: 17|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 5
+      Data: 13
     - Name: Summary
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Low fire rate high damage
     - Name: Price
       Entry: 3
       Data: 0
@@ -2145,13 +2299,49 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 10|OdinTables.OnlineItemTable, Assembly-CSharp
+      Data: 18|OdinTables.OnlineItemTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 6
+      Data: 14
     - Name: Summary
       Entry: 1
       Data: Juice
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 19|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 15
+    - Name: Summary
+      Entry: 1
+      Data: Low fire rate high damage
+    - Name: Price
+      Entry: 3
+      Data: 0
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 20|OdinTables.OnlineItemTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 16
+    - Name: Summary
+      Entry: 1
+      Data: High fire rate low damage
     - Name: Price
       Entry: 3
       Data: 0

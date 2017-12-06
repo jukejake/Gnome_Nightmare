@@ -51,8 +51,18 @@ public class DialogueManager : MonoBehaviour {
         //Will be used to find the Dialogue of the NPC
         NPCDialogue.NameOfNPC = other.name;
         int i = 0;
+
+        string Base;
+        if (System.Reflection.Assembly.GetExecutingAssembly().CodeBase != null) {
+            Base = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            if (Base.Remove(0, Base.Length - 44) == "Library/ScriptAssemblies/Assembly-CSharp.dll") { Base = Base.Remove(Base.Length - 44, 44); }
+            Base = Base.Remove(0, 8);
+        }
+        else { Base = ""; }
+        Debug.Log(Base + "Assets/My_Assets/My_Dialogue/" + NPCDialogue.NameOfNPC);
+
         //Loops through and finds all the files associated with the NPC
-        foreach (string file in System.IO.Directory.GetFiles("Assets/My_Assets/My_Dialogue/" + NPCDialogue.NameOfNPC)){
+        foreach (string file in System.IO.Directory.GetFiles(Base + "Assets/My_Assets/My_Dialogue/" + NPCDialogue.NameOfNPC)){
             //If the file is a .txt file then it will save the text in it
             if (file.Remove(0, file.Length - 4) == ".txt") {
                 //Removes [Assets/My_Assets/My_Dialogue/] Which is 29 characters 
@@ -68,6 +78,7 @@ public class DialogueManager : MonoBehaviour {
                 NPCDialogue.NumberOfSentences = i;
             }
         }
+
     }
 
     private void SetUIDialogue(int Number) {
