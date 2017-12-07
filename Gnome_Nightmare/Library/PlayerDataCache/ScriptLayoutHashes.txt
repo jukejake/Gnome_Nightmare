@@ -297,3 +297,4 @@ a290dfe17d83e7d3d732d2ff1f0caa80 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspe
 e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 05524b8f659e7bfe5756d1335fec24ba Sirenix.Utilities.dll:Sirenix.Utilities.ProjectPathFinder
 6e279e7acd065d4541e7b65ae41cef1b Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.TitleGroupExamples
+da80cd1be95d3c86569ef151ac634cbf Assembly-CSharp.dll:.SettingsMenu

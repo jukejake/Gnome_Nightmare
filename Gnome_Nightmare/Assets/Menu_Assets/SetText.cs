@@ -14,6 +14,6 @@ public class SetText : MonoBehaviour {
         TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Points");
     }
     public void SliderVolumeLimit(GameObject TextToChange) {
-        TextToChange.GetComponent<Text>().text = (this.GetComponent<Slider>().value.ToString() + " Vol");
+        TextToChange.GetComponent<Text>().text = (((int)((this.GetComponent<Slider>().value + 80.0f) * 1.25f)).ToString() + " Vol");
     }
 }

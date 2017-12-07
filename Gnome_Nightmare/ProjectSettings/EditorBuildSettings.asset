@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_Start.unity
     guid: fba527a9f3eeb8443ba93dd7b5e643f7
   - enabled: 1
-    path: Assets/Scenes/Test_Field.unity
-    guid: 6131374e77b890e45ba1b74df6b13da1
-  - enabled: 1
     path: Assets/Scenes/Gnome_Nightmare.unity
     guid: 539e0427765fd10408ecb2f99f96dbb0
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/Test_Field.unity
+    guid: 6131374e77b890e45ba1b74df6b13da1
+  - enabled: 0
     path: Assets/Scenes/Multiplayer.unity
     guid: 3f94b98074ea47647b6168ae1c0ff1c4
