@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Random_Utils;
+
 
 public class EnemyDropList : SerializedMonoBehaviour {
 

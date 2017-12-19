@@ -175,8 +175,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4494884724001268}
   - component: {fileID: 114216046614942644}
-  - component: {fileID: 195413235268439722}
   - component: {fileID: 114601104153899258}
+  - component: {fileID: 195413235268439722}
   - component: {fileID: 136310543085957620}
   m_Layer: 0
   m_Name: Gnome
@@ -525,12 +525,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1979556798606400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab6c416967d453428f0876693f5c841, type: 3}
+  m_Script: {fileID: 11500000, guid: eefed4f3d6877f5419f0eeb90390aa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  anim: {fileID: 0}
   MaxFollowDistance: 100
-  MaxAttackDistance: 1.5
+  MaxAttackDistance: 1
   timerDelay: 0.5
 --- !u!114 &114390404526100224
 MonoBehaviour:
@@ -579,6 +580,7 @@ MonoBehaviour:
     baseValue: 0
   Experience: 3
   Points: 1
+  ParticlesOnDeath: {fileID: 0}
 --- !u!114 &114602574806331464
 MonoBehaviour:
   m_ObjectHideFlags: 1

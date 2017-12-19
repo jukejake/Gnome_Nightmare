@@ -29,7 +29,7 @@ public class CharacterStats : MonoBehaviour {
 
     //Applys damage to character
     public void TakeDamage(float DamageTaken) {
-        Debug.Log("Damage");
+        //Debug.Log("Damage");
 
         DamageTaken -= Armour.GetValue();
         DamageTaken = Mathf.Clamp(DamageTaken, 0, float.MaxValue);

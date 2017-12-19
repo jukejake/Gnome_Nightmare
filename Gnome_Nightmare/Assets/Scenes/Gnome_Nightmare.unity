@@ -95,7 +95,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.1
+    agentRadius: 0.3
     agentHeight: 1
     agentSlope: 45
     agentClimb: 1
@@ -1055,6 +1055,327 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!1 &175029031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 175029033}
+  - component: {fileID: 175029032}
+  m_Layer: 0
+  m_Name: Spawner Hub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &175029032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175029031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a743a980beca13f488a57188a5ba284e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1794536943300516, guid: 817708d5e499bff4fb4f4bd384822a66, type: 2}
+    - {fileID: 1979556798606400, guid: c06e03c9f5303054ba31495afe3d2dd7, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: EnemiesToSpawn
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[EnemySpawners.Enemies, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|EnemySpawners.Enemies, Assembly-CSharp
+    - Name: Enemy
+      Entry: 10
+      Data: 0
+    - Name: StartingAmount
+      Entry: 3
+      Data: 1
+    - Name: StartAt
+      Entry: 3
+      Data: 1
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 1
+    - Name: RandomIncrease
+      Entry: 5
+      Data: false
+    - Name: IncreaseByRange
+      Entry: 7
+      Data: 2|EnemySpawners.EnemiesStatsRange, Assembly-CSharp
+    - Name: Amount
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Health
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Points
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Armour
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Damage
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Exp
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IncreaseByInt
+      Entry: 7
+      Data: 3|EnemySpawners.EnemiesStatsInt, Assembly-CSharp
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: Health
+      Entry: 3
+      Data: 0
+    - Name: Points
+      Entry: 3
+      Data: 0
+    - Name: Armour
+      Entry: 3
+      Data: 0
+    - Name: Damage
+      Entry: 3
+      Data: 0
+    - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|EnemySpawners.Enemies, Assembly-CSharp
+    - Name: Enemy
+      Entry: 10
+      Data: 1
+    - Name: StartingAmount
+      Entry: 3
+      Data: 1
+    - Name: StartAt
+      Entry: 3
+      Data: 2
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 2
+    - Name: RandomIncrease
+      Entry: 5
+      Data: false
+    - Name: IncreaseByRange
+      Entry: 7
+      Data: 5|EnemySpawners.EnemiesStatsRange, Assembly-CSharp
+    - Name: Amount
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Health
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Points
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Armour
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Damage
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Exp
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IncreaseByInt
+      Entry: 7
+      Data: 6|EnemySpawners.EnemiesStatsInt, Assembly-CSharp
+    - Name: Amount
+      Entry: 3
+      Data: 5
+    - Name: Health
+      Entry: 3
+      Data: 0
+    - Name: Points
+      Entry: 3
+      Data: 0
+    - Name: Armour
+      Entry: 3
+      Data: 0
+    - Name: Damage
+      Entry: 3
+      Data: 0
+    - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  WorldEnenies: {fileID: 2114998455}
+  SpawnPosRange: {x: 0, y: 0, z: 0}
+  SpawnInterval: 1.25
+  RoundInterval: 10
+  CoolDown: 1.25
+  NumberOfWavesCompleted: 0
+  SpawnPositions:
+  - {fileID: 1535568653}
+  - {fileID: 506402385}
+--- !u!4 &175029033
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175029031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1535568656}
+  - {fileID: 506402388}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195086675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,48 +1449,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 195086675}
   m_Mesh: {fileID: 4300002, guid: d8c6886759d0dc8449195ee1d8430cc8, type: 3}
---- !u!1001 &210161593
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -21.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527966721631684, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 45c3392ce064c5c409fa0616e50c05cb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &213747727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,1179 +1672,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 217535513}
---- !u!1001 &222924990
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1100007482}
-    m_Modifications:
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.size
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1245789737966292, guid: 9d0995ea333fce94d9b6a880b1d951e9,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 1791673529116076, guid: 526a096284ae1214bae4542a41259e4e,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1578637232871108, guid: 6df1770ccda9541428e9b9f4747fa2fe,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 1218382790596460, guid: 7a1680eb02498064d954202593909ca5,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 1110811399918626, guid: b6b13d8d49ff0c846b55aa2a4d67ed4d,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 1015350844037250, guid: 45c7bd021c57337478dab6c096b57ae4,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[6]
-      value: 
-      objectReference: {fileID: 1619705541799120, guid: 01bb54ef076d920459ae1fe6b8a2f6de,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[7]
-      value: 
-      objectReference: {fileID: 1852295044341306, guid: 2a5ea530da53e0b428a5b039d8afe611,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[8]
-      value: 
-      objectReference: {fileID: 1734769081431432, guid: b06daa9e2c02a8340a2f8e5e29cc7818,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[9]
-      value: 
-      objectReference: {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_OnCullStateChanged.m_TypeName
-      value: INVALID_UTF8_STRING
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_PreserveAspect
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_FillCenter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_FillClockwise
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: m_FillOrigin
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 1245789737966292, guid: 9d0995ea333fce94d9b6a880b1d951e9,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1791673529116076, guid: 526a096284ae1214bae4542a41259e4e,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 1578637232871108, guid: 6df1770ccda9541428e9b9f4747fa2fe,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 1218382790596460, guid: 7a1680eb02498064d954202593909ca5,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.ReferencedUnityObjects.Array.data[6]
-      value: 
-      objectReference: {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e,
-        type: 2}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"OnlineTable.Ammo","length":5'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"OnlineTable.Ammo.[1]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[2]
-      value: '"path":"OnlineTable.Ammo.[1].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[3]
-      value: '"path":"OnlineTable.Ammo.[1].Item","value":$eref:0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[4]
-      value: '"path":"OnlineTable.Ammo.[1].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[5]
-      value: '"path":"OnlineTable.Ammo.[1].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Fuel"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[6]
-      value: '"path":"OnlineTable.Ammo.[2]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[7]
-      value: '"path":"OnlineTable.Ammo.[2].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[8]
-      value: '"path":"OnlineTable.Ammo.[2].Item","value":$eref:1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[9]
-      value: '"path":"OnlineTable.Ammo.[2].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[10]
-      value: '"path":"OnlineTable.Ammo.[2].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Paint Balls"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[11]
-      value: '"path":"OnlineTable.Ammo.[3]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[12]
-      value: '"path":"OnlineTable.Ammo.[3].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[13]
-      value: '"path":"OnlineTable.Ammo.[3].Item","value":$eref:2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[14]
-      value: '"path":"OnlineTable.Ammo.[3].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[15]
-      value: '"path":"OnlineTable.Ammo.[3].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Potato"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[16]
-      value: '"path":"OnlineTable.Ammo.[4]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[17]
-      value: '"path":"OnlineTable.Ammo.[4].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[18]
-      value: '"path":"OnlineTable.Ammo.[4].Item","value":$eref:3'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[19]
-      value: '"path":"OnlineTable.Ammo.[4].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[20]
-      value: '"path":"OnlineTable.Ammo.[4].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Scrap"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[21]
-      value: '"path":"OnlineTable.Misc","length":6'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[22]
-      value: '"path":"OnlineTable.Misc.[2].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Low fire rate high damage"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[23]
-      value: '"path":"OnlineTable.Misc.[4]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[24]
-      value: '"path":"OnlineTable.Misc.[4].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[25]
-      value: '"path":"OnlineTable.Misc.[4].Item","value":$eref:4'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[26]
-      value: '"path":"OnlineTable.Misc.[4].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[27]
-      value: '"path":"OnlineTable.Misc.[4].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Low fire rate high damage"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[28]
-      value: '"path":"OnlineTable.Misc.[5]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[29]
-      value: '"path":"OnlineTable.Misc.[5].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[30]
-      value: '"path":"OnlineTable.Misc.[5].Item","value":$eref:5'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[31]
-      value: '"path":"OnlineTable.Misc.[5].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[32]
-      value: '"path":"OnlineTable.Misc.[5].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","High fire rate low damage"}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[33]
-      value: '"path":"OnlineTable.Parts","length":6'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[34]
-      value: '"path":"OnlineTable.Parts.[0].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Flaming Can."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[35]
-      value: '"path":"OnlineTable.Parts.[1].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Flaming Can."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[36]
-      value: '"path":"OnlineTable.Parts.[2]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[37]
-      value: '"path":"OnlineTable.Parts.[2].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[38]
-      value: '"path":"OnlineTable.Parts.[2].Item","value":$eref:6'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[39]
-      value: '"path":"OnlineTable.Parts.[2].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[40]
-      value: '"path":"OnlineTable.Parts.[2].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Shredder."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[41]
-      value: '"path":"OnlineTable.Parts.[3]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[42]
-      value: '"path":"OnlineTable.Parts.[3].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[43]
-      value: '"path":"OnlineTable.Parts.[3].Item","value":$eref:7'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[44]
-      value: '"path":"OnlineTable.Parts.[3].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[45]
-      value: '"path":"OnlineTable.Parts.[3].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Shredder."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[46]
-      value: '"path":"OnlineTable.Parts.[4]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[47]
-      value: '"path":"OnlineTable.Parts.[4].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[48]
-      value: '"path":"OnlineTable.Parts.[4].Item","value":$eref:8'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[49]
-      value: '"path":"OnlineTable.Parts.[4].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[50]
-      value: '"path":"OnlineTable.Parts.[4].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Potato Gun."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[51]
-      value: '"path":"OnlineTable.Parts.[5]","value":{"$id":0,"$type":"OdinTables.OnlineItemTable,
-        Assembly-CSharp","Item":null,"Summary":null,"Price":0,"Amount":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[52]
-      value: '"path":"OnlineTable.Parts.[5].Amount","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[53]
-      value: '"path":"OnlineTable.Parts.[5].Item","value":$eref:9'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[54]
-      value: '"path":"OnlineTable.Parts.[5].Price","value":{"$id":0,"$type":"System.Int32,
-        mscorlib",0}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.PrefabModifications.Array.data[55]
-      value: '"path":"OnlineTable.Parts.[5].Summary","value":{"$id":0,"$type":"System.String,
-        mscorlib","Used in crafting a Potato Gun."}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[2].Data
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[9].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[9].Data
-      value: 3|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[10].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[10].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[10].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[11].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[11].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[11].Data
-      value: Fuel
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[12].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[12].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[12].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[13].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[13].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[13].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[14].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[14].Entry
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[14].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[15].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[15].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[15].Data
-      value: 4|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[16].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[16].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[16].Data
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[17].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[17].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[17].Data
-      value: Paint Balls
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[18].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[18].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[18].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[19].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[19].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[19].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[20].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[20].Entry
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[20].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[21].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[21].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[21].Data
-      value: 5|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[22].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[22].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[22].Data
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[23].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[23].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[23].Data
-      value: Potato
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[24].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[24].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[24].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[25].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[25].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[25].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[27].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[27].Data
-      value: 6|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[28].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[28].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[29].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[29].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[29].Data
-      value: Scrap
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[30].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[30].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[30].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[31].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[31].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[31].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[32].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[32].Entry
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[32].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[33].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[33].Entry
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[33].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[35].Name
-      value: Parts
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[35].Data
-      value: 7|System.Collections.Generic.List`1[[OdinTables.OnlineItemTable, Assembly-CSharp]],
-        mscorlib
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[36].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[36].Entry
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[36].Data
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[37].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[37].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[37].Data
-      value: 8|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[38].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[38].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[38].Data
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[39].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[39].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[39].Data
-      value: Used in crafting a Flaming Can.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[40].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[40].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[40].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[41].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[41].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[41].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[42].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[42].Entry
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[42].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[43].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[43].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[43].Data
-      value: 9|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[44].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[44].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[44].Data
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[45].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[45].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[45].Data
-      value: Used in crafting a Flaming Can.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[46].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[46].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[46].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[47].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[47].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[47].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[48].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[48].Entry
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[48].Data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[49].Name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[49].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[49].Data
-      value: 10|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[50].Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[50].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[50].Data
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[51].Name
-      value: Summary
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[51].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[51].Data
-      value: Used in crafting a Shredder.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[52].Name
-      value: Price
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[52].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[52].Data
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[53].Name
-      value: Amount
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[53].Entry
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[53].Data
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[55].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
-        type: 2}
-      propertyPath: serializationData.SerializationNodes.Array.data[55].Data
-      value: 11|OdinTables.OnlineItemTable, Assembly-CSharp
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &222924991 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2,
     type: 2}
-  m_PrefabInternal: {fileID: 222924990}
+  m_PrefabInternal: {fileID: 1109906197}
 --- !u!1 &228048889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +2399,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -3303,7 +2414,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -3336,14 +2447,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -3791,6 +2902,7 @@ MonoBehaviour:
   OldLevel: -1
   spawnerManager: []
   spawnerSettings: []
+  spawnerHub: []
 --- !u!1 &373870463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4002,7 +3114,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -4017,7 +3129,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -4050,14 +3162,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -4451,6 +3563,75 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &506402385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 506402388}
+  - component: {fileID: 506402387}
+  - component: {fileID: 506402386}
+  m_Layer: 0
+  m_Name: SpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &506402386
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506402385}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 944463113244f4bf8b05c1757cd838a4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &506402387
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506402385}
+  m_Mesh: {fileID: 4300010, guid: 91abd7bf4afaaf441a3783f48d4c2516, type: 3}
+--- !u!4 &506402388
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506402385}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 175029033}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524438949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,7 +3983,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -4817,7 +3998,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -4850,14 +4031,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -5923,7 +5104,7 @@ Transform:
   - {fileID: 1831405896}
   - {fileID: 235912755}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &672982730
 Prefab:
@@ -5978,6 +5159,92 @@ Transform:
   m_PrefabParentObject: {fileID: 4605895347239920, guid: c720e26fc68e29947ae2a6993d18948f,
     type: 2}
   m_PrefabInternal: {fileID: 672982730}
+--- !u!4 &673352024 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+  m_PrefabInternal: {fileID: 853558959}
+--- !u!1 &676355699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 676355700}
+  - component: {fileID: 676355703}
+  - component: {fileID: 676355702}
+  - component: {fileID: 676355701}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &676355700
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676355699}
+  m_LocalRotation: {x: 0.21263108, y: 0.67437977, z: -0.21263108, w: 0.67437977}
+  m_LocalPosition: {x: 38.32, y: 0.45, z: -6.59}
+  m_LocalScale: {x: 4, y: 0.2, z: 9}
+  m_Children: []
+  m_Father: {fileID: 673352024}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 35, y: 90, z: 0}
+--- !u!23 &676355701
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676355699}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &676355702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676355699}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &676355703
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676355699}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &699669939
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,6 +6314,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &832796852 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+  m_PrefabInternal: {fileID: 853558959}
+--- !u!64 &832796856
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832796852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
 --- !u!1 &841640626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7134,6 +6419,92 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1001 &853558959
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f1ec379d6f3e1b1408e34a0c857c8c06, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &860143079
 GameObject:
   m_ObjectHideFlags: 0
@@ -8033,7 +7404,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -8048,7 +7419,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -8081,14 +7452,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -8420,7 +7791,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -8435,7 +7806,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -8468,14 +7839,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -8815,8 +8186,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2128451215}
-  - {fileID: 222924991}
   - {fileID: 130341785}
+  - {fileID: 222924991}
   - {fileID: 1680557913}
   m_Father: {fileID: 662238579}
   m_RootOrder: 0
@@ -8878,7 +8249,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4784027718056178, guid: 2b84bf6ba25907e4b951eaabd28e969d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114395470461217810, guid: 2b84bf6ba25907e4b951eaabd28e969d,
         type: 2}
@@ -9354,6 +8725,54 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b84bf6ba25907e4b951eaabd28e969d, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1109906197
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1100007482}
+    m_Modifications:
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668431971585088, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
+        type: 2}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 114845262381611144, guid: d67d23fc5484d464d89b6cf72926ecf2,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d67d23fc5484d464d89b6cf72926ecf2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1126198093
 GameObject:
@@ -10496,7 +9915,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -10511,7 +9930,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -10544,14 +9963,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -11719,6 +11138,75 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1531172467}
   m_Mesh: {fileID: 4300004, guid: d8c6886759d0dc8449195ee1d8430cc8, type: 3}
+--- !u!1 &1535568653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1535568656}
+  - component: {fileID: 1535568655}
+  - component: {fileID: 1535568654}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1535568654
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535568653}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 944463113244f4bf8b05c1757cd838a4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1535568655
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535568653}
+  m_Mesh: {fileID: 4300010, guid: 91abd7bf4afaaf441a3783f48d4c2516, type: 3}
+--- !u!4 &1535568656
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535568653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 175029033}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544447744
 GameObject:
   m_ObjectHideFlags: 0
@@ -17896,13 +17384,33 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1395146497620214, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23572961577100662, guid: a9f35a43202b2b24db86d7a0a98dcdd5,
         type: 2}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 26d97fa3561219f40b70406983f12d9e, type: 2}
+    - target: {fileID: 1423780274389344, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109750835020114, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599145553931998, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034842139307694, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912725024683724, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f35a43202b2b24db86d7a0a98dcdd5, type: 2}
   m_IsPrefabParent: 0
@@ -17999,7 +17507,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -18014,7 +17522,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -18047,14 +17555,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -18227,60 +17735,6 @@ RectTransform:
   m_AnchoredPosition: {x: -95, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &1665524618
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 95.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 12.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4889429182042388, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.18
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8550cfe68770aa04ab884c4247412508, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1671640012
 GameObject:
   m_ObjectHideFlags: 0
@@ -18908,7 +18362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1821264454
 Transform:
   m_ObjectHideFlags: 0
@@ -18932,7 +18386,7 @@ Transform:
   - {fileID: 1011514264}
   - {fileID: 2139430225}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1823151193
 GameObject:
@@ -19254,7 +18708,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -19269,7 +18723,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -19302,14 +18756,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -19747,7 +19201,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -19762,7 +19216,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -19795,14 +19249,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -20229,7 +19683,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -20244,7 +19698,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -20277,14 +19731,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -22077,7 +21531,7 @@ Transform:
   m_GameObject: {fileID: 2128451211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2022274, y: -3, z: 0}
-  m_LocalScale: {x: 1000, y: 3, z: 1000}
+  m_LocalScale: {x: 200, y: 3, z: 200}
   m_Children: []
   m_Father: {fileID: 1100007482}
   m_RootOrder: 0
@@ -22282,7 +21736,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -22297,7 +21751,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -22330,14 +21784,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0
@@ -22471,7 +21925,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: spawner
       Entry: 7
-      Data: 0|Spawner, Assembly-CSharp
+      Data: 0|EnemySpawners.Spawner, Assembly-CSharp
     - Name: Toggle
       Entry: 5
       Data: false
@@ -22486,7 +21940,7 @@ MonoBehaviour:
       Data: 0
     - Name: spawnerDetails
       Entry: 7
-      Data: 1|SpawnerDetails, Assembly-CSharp
+      Data: 1|EnemySpawners.SpawnerDetails, Assembly-CSharp
     - Name: DefeatedSpawner
       Entry: 5
       Data: false
@@ -22519,14 +21973,14 @@ MonoBehaviour:
       Data: 
     - Name: spawnerEnemies
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SpawnerEnemies, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[EnemySpawners.SpawnerEnemies, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SpawnerEnemies, Assembly-CSharp
+      Data: 3|EnemySpawners.SpawnerEnemies, Assembly-CSharp
     - Name: enemyPrefab
       Entry: 10
       Data: 0

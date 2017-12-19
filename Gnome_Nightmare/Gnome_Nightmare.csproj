@@ -145,6 +145,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Enemies_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\EnemyDropList.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Interface_SpawnTable.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Hub.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Settings.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\EnemyStats.cs" />

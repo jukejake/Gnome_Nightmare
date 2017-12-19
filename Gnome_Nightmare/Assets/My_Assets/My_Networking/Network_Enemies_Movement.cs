@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Networking;
+using Random_Utils;
 
 public class Network_Enemies_Movement : NetworkBehaviour {
 
