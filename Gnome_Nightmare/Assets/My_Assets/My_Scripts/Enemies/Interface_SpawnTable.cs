@@ -27,8 +27,8 @@ namespace EnemySpawners {
         }
         //Used so that everything gets a chance to load before trying to accsess it
         private void DelayedStart() {
-            
-            ActivateAllSpawnersInCurrentRound();
+            CurrentLevel = OldLevel = 0;
+            //ActivateAllSpawnersInCurrentRound();
             //Finds and updates the UI
             if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
                 EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;

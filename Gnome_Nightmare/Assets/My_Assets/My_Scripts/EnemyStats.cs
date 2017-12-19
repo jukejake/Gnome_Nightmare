@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStats : CharacterStats {
 
@@ -32,8 +33,16 @@ public class EnemyStats : CharacterStats {
         //Else just destroy the gameObject
         else { Destroy(this.gameObject, 0.9f); }
 
+        //Play Enemy death animation
         Animator TempAnim = this.gameObject.GetComponent<Enemies_Movement>().anim;
         if (TempAnim) { TempAnim.Play("Gnome_Die", -1, 0f); }
+        if (TempAnim) { this.gameObject.GetComponent<Enemies_Movement>().enabled = false; }
+        //Disable enemy movement
+        if (this.gameObject.GetComponent<NavMeshAgent>()) { this.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
+        //Disable enemy collision
+        if (this.gameObject.GetComponent<CapsuleCollider>()) { this.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
+        if (this.gameObject.GetComponent<BoxCollider>()) { this.gameObject.GetComponent<BoxCollider>().enabled = false; }
+        if (this.gameObject.GetComponent<MeshCollider>()) { this.gameObject.GetComponent<MeshCollider>().enabled = false; }
 
         if (ParticlesOnDeath != null) {
             GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);

@@ -169,6 +169,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshComponentsGUIUtility.cs" />
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshLinkEditor.cs" />
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshModifierEditor.cs" />
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshModifierVolumeEditor.cs" />
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshPrefabInstanceEditor.cs" />
+    <Compile Include="Assets\NavMesh Extended\Editor\NavMeshSurfaceEditor.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
