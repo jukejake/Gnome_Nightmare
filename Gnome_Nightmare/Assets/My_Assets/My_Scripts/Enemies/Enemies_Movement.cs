@@ -5,15 +5,19 @@ using Random_Utils;
 public class Enemies_Movement : MonoBehaviour {
 
     [SerializeField]
-    Transform destination;
+    Vector3 destination;
     NavMeshAgent navMeshAgent;
     GameObject[] players;
     public Animator anim;
 
     public float MaxFollowDistance = 100.0f;
     public float MaxAttackDistance = 1.0f;
-    public float timerDelay = 0.50f;
+    public float RangeDivisible = 10.0f;
+    public float TimerDelay = 0.50f;
+    public float AttackDelay = 0.90f;
+
     private float timer = 0.0f;
+    private float AttackTimer = 0.0f;
 
     // Use this for initialization
     void Start () {
@@ -29,10 +33,12 @@ public class Enemies_Movement : MonoBehaviour {
 
 
     private void Update() {
+        if (AttackTimer > 0.0f) { AttackTimer -= Time.deltaTime; }
+
         //Will only update enemies seeking position at certain intervals
         if (timer > 0.0f) { timer -= Time.deltaTime; }
         else {
-            timer = timerDelay;
+            timer = TimerDelay;
             if (navMeshAgent == null) { return; }
             else { FindDestination(); }
         }
@@ -53,13 +59,18 @@ public class Enemies_Movement : MonoBehaviour {
                     playerNum = i;
                 }
             }
-            if (checkDistance < MaxAttackDistance) {
+            if (checkDistance <= MaxAttackDistance && AttackTimer <= 0.0f) {
+                AttackTimer = AttackDelay;
                 AttackPlayer(playerNum);
                 return;
             }
             //If the player is withen MaxFollowDistance
             else if (checkDistance < MaxFollowDistance) {
-                destination = players[playerNum].transform;
+                TimerDelay = Mathf.Clamp((checkDistance / 30.0f), 0.1f, 1.0f);
+
+                float Range = (checkDistance / RangeDivisible);
+                Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-Range, 0.0f, -Range), new Vector3(Range, 0.0f, Range));
+                destination = players[playerNum].transform.position + RandomPosition;
                 SetDestination();
                 return;
             }
@@ -72,7 +83,7 @@ public class Enemies_Movement : MonoBehaviour {
     private void SetDestination() {
         //If there is a destination set the navMeshAgent to go to it
         if (destination != null) {
-            navMeshAgent.SetDestination(destination.transform.position);
+            navMeshAgent.SetDestination(destination);
         }
     }
 

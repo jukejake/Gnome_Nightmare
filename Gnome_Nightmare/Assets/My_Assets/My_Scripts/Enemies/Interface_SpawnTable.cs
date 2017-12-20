@@ -38,6 +38,7 @@ namespace EnemySpawners {
     
         // Update is called once per frame
         private void Update () {
+            if (ToggleAll) { return; }
             UpdateUI();
                     //At the end of a round, spawn a new round
             if (OldLevel == CurrentLevel && CheckAliveEnemyCount() == 0) {

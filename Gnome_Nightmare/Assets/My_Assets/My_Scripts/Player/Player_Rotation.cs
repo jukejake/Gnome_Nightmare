@@ -7,8 +7,9 @@ public class Player_Rotation : MonoBehaviour {
     public Transform bone;
     public Transform cameraTarget;
 
-    void LateUpdate()
-    {
+    public Transform HitBox;
+    void LateUpdate() {
         bone.LookAt(cameraTarget);
+        HitBox.LookAt(cameraTarget);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Random_Utils;
@@ -23,8 +24,9 @@ namespace EnemySpawners {
         public float RoundInterval = 10.0f;
         [HorizontalGroup("Group 1", 0.33f), LabelWidth(70)]
         public float CoolDown = 1.25f;
-        
-        public int NumberOfWavesCompleted = 0;
+
+
+        private int NumberOfWavesCompleted = 0;
 
 
         public List<GameObject> SpawnPositions = new List<GameObject>();
@@ -50,11 +52,13 @@ namespace EnemySpawners {
 
                     Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-SpawnPosRange.x, 0.0f, -SpawnPosRange.z), new Vector3(SpawnPosRange.x, SpawnPosRange.y, SpawnPosRange.z));
                     int number = RandomUtils.RandomInt(0, SpawnPositions.Count-1);
+                    float speed = RandomUtils.RandomFloat(et.SpeedRange.x, et.SpeedRange.y);
 
                     GameObject tempObj = Instantiate(et.Enemy, SpawnPositions[number].transform.position + RandomPosition, SpawnPositions[number].transform.rotation);
                     tempObj.transform.SetParent(WorldEnenies.transform);
                     et.IncreaseStats(tempObj);
                     tempObj.name = et.Enemy.name;
+                    tempObj.GetComponent<NavMeshAgent>().speed = speed;
                     break;
                 }
                 else if ((et.NumberSpawned >= (et.StartingAmount + et.IncreasedAmount) && et.isOff == false) || (et.NumberSpawned == 0 && et.isOff == true)) {
@@ -119,9 +123,13 @@ namespace EnemySpawners {
         [System.NonSerialized]
         public int LastAvtiveRound = 0;
 
+        [HorizontalGroup("Misc", 0.20f), LabelWidth(80)]
         public bool RandomIncrease = false;
         private bool NotRandomIncrease() { return !this.RandomIncrease; }
         private bool IsInEditMode() { return !Application.isPlaying; }
+        
+        [HorizontalGroup("Misc", 0.80f), MinMaxSlider(1, 20, true), LabelWidth(90)]
+        public Vector2 SpeedRange;
 
         [System.NonSerialized]
         public int NumberSpawned = 0;
