@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4556945869213508}
-  - component: {fileID: 114507280134105748}
+  - component: {fileID: 114708728371556446}
   - component: {fileID: 114071311754711974}
   m_Layer: 0
   m_Name: Potato Gun
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114507280134105748
+--- !u!114 &114708728371556446
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1804697662737648}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce77db35a697f9479fcd536d4535c3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 00aa02bebbaed184289bbc39f0126ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -414,8 +414,8 @@ MonoBehaviour:
     type: 2}
   s_Spawner: {fileID: 1319060074464766}
   s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
-  s_BulletSpeed: 25
-  AimingHitscan: 1
+  s_BulletSpeed: 50
+  AimingHitscan: 0
 --- !u!114 &114919140031324192
 MonoBehaviour:
   m_ObjectHideFlags: 1

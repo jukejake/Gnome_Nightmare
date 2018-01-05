@@ -76,12 +76,30 @@ public class MenuManager : MonoBehaviour {
         WeaponEquiped = false;
         Destroy(weapon.gameObject);
     }
+    public void DropItem() {
+        if (CurrentSlot == -1) { return; }
+
+        Drag_Inventory DI = (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>());
+        GameObject Item = (GameObject)Instantiate(DI.ItemOnDrop);
+        Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
+        Item.name = DI.ItemOnDrop.name;// + " Not Prefab";
+        Vector3 temp = GameObject.FindWithTag("Player").transform.position;
+        Item.transform.position = new Vector3(temp.x, temp.y - 0.50f, temp.z);
+
+        if (Item.transform.GetChild(0).GetComponent<Gun_Behaviour>() && DI.gameObject.GetComponent<ItemStats>())
+        { Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = DI.gameObject.GetComponent<ItemStats>().itemStats; }
+        
+        //Drop Item to floor
+        Destroy(DI.gameObject);
+        CurrentSlot -= 1;
+    }
 
     public void ScrollThroughInventory() {
         if (Inventory_Slot == null) { return; }
         int InvSpace = Inventory_Slot.GetComponent<Drop_Inventory>().NumberOfSlotsFilled;
         if (InvSpace == 0) { return; }
         // InvSpace/2;
+        if (InvSpace < CurrentSlot) { CurrentSlot = (InvSpace - 1); }
 
         if (Input.GetAxis("D-pad X") >= 00.2f || Input.GetAxis("Mouse ScrollWheel") >= 00.1f) { //right
             if (CurrentSlot == -1) { CurrentSlot = InvSpace/2; }
@@ -146,6 +164,9 @@ public class MenuManager : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown("u")){
+            DropItem();
+        }
     }
 
     public void EnableGraphicRaycaster(bool enable) {

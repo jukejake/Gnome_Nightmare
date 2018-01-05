@@ -32,12 +32,49 @@ public class EnemyDropList : SerializedMonoBehaviour {
         for (int j = 0; j < SpawnItem.Count; j++) {
             for (int i = 0; i < Enemies[FromEnemy].Items.Count; i++) {
                 if (i == SpawnItem[j]) {
+                    //for (int k = 0; k < Enemies[FromEnemy].Items[i].Amount; k++) {
+                    //    GameObject TempItem = Instantiate<GameObject>(Enemies[FromEnemy].Items[i].Item);
+                    //    TempItem.name = Enemies[FromEnemy].Items[i].Item.name;
+                    //    TempItem.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
+                    //    TempItem.transform.localPosition = AtPosition.localPosition;
+                    //}
+
                     for (int k = 0; k < Enemies[FromEnemy].Items[i].Amount; k++) {
-                        GameObject TempItem = Instantiate<GameObject>(Enemies[FromEnemy].Items[i].Item);
-                        TempItem.name = Enemies[FromEnemy].Items[i].Item.name;
-                        TempItem.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
-                        TempItem.transform.localPosition = AtPosition.localPosition;
+                        GameObject TempItem = (GameObject)Instantiate(Enemies[FromEnemy].Items[i].Item);
+                        GameObject Item = (GameObject)Instantiate(TempItem.GetComponent<Drag_Inventory>().ItemOnDrop);
+
+                        Item.name = TempItem.GetComponent<Drag_Inventory>().ItemOnDrop.name;
+                        Item.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
+                        Item.transform.localPosition = AtPosition.localPosition;
+
+                        if (TempItem.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>()) {
+                            OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<ItemStats>().itemStats;
+                            OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
+                            ToStats.SetStats(FromStats, ToStats);
+                            Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = ToStats;
+                        }
+                        else if (TempItem.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<ItemStats>()) {
+                            OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<ItemStats>().itemStats;
+                            OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<ItemStats>().itemStats;
+                            ToStats.SetStats(FromStats, ToStats);
+                            Item.transform.GetChild(0).GetComponent<ItemStats>().itemStats = ToStats;
+                        }
+                        else if (TempItem.GetComponent<Gun_Behaviour>() && Item.transform.GetChild(0).GetComponent<ItemStats>()) {
+                            OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<Gun_Behaviour>().Stats;
+                            OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<ItemStats>().itemStats;
+                            ToStats.SetStats(FromStats, ToStats);
+                            Item.transform.GetChild(0).GetComponent<ItemStats>().itemStats = ToStats;
+                        }
+                        else if (TempItem.GetComponent<Gun_Behaviour>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>()) {
+                            OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<Gun_Behaviour>().Stats;
+                            OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
+                            ToStats.SetStats(FromStats, ToStats);
+                            Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = ToStats;
+                        }
+                        Destroy(TempItem); 
                     }
+
+
                 }
             }
         }

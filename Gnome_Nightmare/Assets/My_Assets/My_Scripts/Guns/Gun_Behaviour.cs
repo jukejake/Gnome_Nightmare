@@ -8,7 +8,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     //public enum WeaponType { None, HitScan, Projectile, Melee };
     //public WeaponType weaponType;
 
-    [TableList, HideInInspector]
+    [TableList]//, HideInInspector]
     public OdinTables.WeaponStatsTable Stats = new OdinTables.WeaponStatsTable();
 
     [ToggleGroup("WeaponTypeHitScan", order: 1, groupTitle: "Hit Scan")]

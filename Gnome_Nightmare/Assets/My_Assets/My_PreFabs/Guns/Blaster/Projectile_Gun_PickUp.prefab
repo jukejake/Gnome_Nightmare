@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4849630179219750}
-  - component: {fileID: 114069589088031238}
+  - component: {fileID: 114129210241595938}
   - component: {fileID: 114168021825110476}
   m_Layer: 0
   m_Name: Blaster
@@ -310,7 +310,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114069589088031238
+--- !u!114 &114129210241595938
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1034727825124100}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce77db35a697f9479fcd536d4535c3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 00aa02bebbaed184289bbc39f0126ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -432,8 +432,8 @@ MonoBehaviour:
     type: 2}
   s_Spawner: {fileID: 1988841723471478}
   s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
-  s_BulletSpeed: 25
-  AimingHitscan: 1
+  s_BulletSpeed: 50
+  AimingHitscan: 0
 --- !u!114 &114168021825110476
 MonoBehaviour:
   m_ObjectHideFlags: 1

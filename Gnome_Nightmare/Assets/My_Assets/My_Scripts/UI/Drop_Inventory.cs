@@ -25,7 +25,7 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                 DI.parentToReturnTo = null;
                 GameObject Item = (GameObject)Instantiate(DI.ItemOnDrop);
                 Item.transform.SetParent(GameObject.FindWithTag("Items_Spawn_Here").transform);
-                Item.name = DI.ItemOnDrop.name + " Not Prefab";
+                Item.name = DI.ItemOnDrop.name;// + " Not Prefab";
                 Vector3 temp = GameObject.FindWithTag("Player").transform.position;
                 Item.transform.position = new Vector3(temp.x, temp.y - 0.50f, temp.z);
 

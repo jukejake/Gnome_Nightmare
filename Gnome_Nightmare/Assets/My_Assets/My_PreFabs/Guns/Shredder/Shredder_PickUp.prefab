@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4865283115860406}
-  - component: {fileID: 114052385231109504}
+  - component: {fileID: 114232037818974446}
   - component: {fileID: 114637122843373244}
   m_Layer: 0
   m_Name: Shredder
@@ -269,7 +269,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114052385231109504
+--- !u!114 &114232037818974446
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1231056793408486}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce77db35a697f9479fcd536d4535c3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 00aa02bebbaed184289bbc39f0126ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -390,9 +390,9 @@ MonoBehaviour:
   ImpactEffect: {fileID: 1465461403202474, guid: 0438351a6e6422d43a09930e9be00ee9,
     type: 2}
   s_Spawner: {fileID: 0}
-  s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
-  s_BulletSpeed: 25
-  AimingHitscan: 1
+  s_bullet: {fileID: 0}
+  s_BulletSpeed: 0
+  AimingHitscan: 0
 --- !u!114 &114322727513956056
 MonoBehaviour:
   m_ObjectHideFlags: 1
