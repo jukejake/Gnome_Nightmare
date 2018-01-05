@@ -81,8 +81,9 @@ public class PlayerManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnTriggerEnter(Collider other) { if (other.tag != "Items") { TriggerHit++; } }
+    private void OnTriggerEnter(Collider other) { if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit++; } }
     private void OnTriggerStay(Collider other) {
+        if (MenuOpen) { return; }
         //If player is selecting a 
         if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
             //If player interacts with an item
@@ -96,7 +97,7 @@ public class PlayerManager : MonoBehaviour {
         }
     }
     private void OnTriggerExit(Collider other) {
-        if (other.tag != "Items") { TriggerHit--; }
+        if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit--; }
         //If player interacts with a crafting table
         if (other.tag == "Crafting_Table") { Crafting_Table.instance.CloseCraftingTable(); }
         CloseCheckTag(other);

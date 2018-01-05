@@ -3435,7 +3435,7 @@ GameObject:
   - component: {fileID: 33099811503452014}
   - component: {fileID: 23950183250462010}
   - component: {fileID: 64010442338432576}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: House v3 Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18826,7 +18826,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265291502473446}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 100, z: -48.4}
+  m_LocalPosition: {x: 0, y: -50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4349232786951728}
@@ -19259,14 +19259,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.08823532, g: 0.20770784, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.03
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -35842,8 +35842,8 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_Flare: {fileID: 12100000, guid: 2ce3cb62386b5e2449a94a0d34402afc, type: 2}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -40683,6 +40683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e5eda7bec2ec946955558284471bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropDown: {fileID: 0}
+  ExcludedIfContains: []
 --- !u!114 &114474925871999732
 MonoBehaviour:
   m_ObjectHideFlags: 1

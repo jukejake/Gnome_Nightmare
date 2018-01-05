@@ -30,11 +30,12 @@ public class Bullet_Benaviour : MonoBehaviour {
             }
         }
         else if (bulletHoleCount < maxBulletHoleCount) {
+            if (other.gameObject.layer == 2 || other.gameObject.layer == 10) { return; }
             RaycastHit hit;
             if (Physics.Raycast((transform.position - (transform.forward * 1.0f )), transform.forward, out hit)) {
                 //Debug.Log("Point of contact: " + hit.point);
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                Vector3 bulletHoleSpawnPos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + (hit.normal * 0.05f);
+                Vector3 bulletHoleSpawnPos = hit.point + (hit.normal * 0.05f);
                 GameObject s_bulletHole = Instantiate(bulletHole, bulletHoleSpawnPos, rot);
                 bulletHoleCount++;
                 Destroy(s_bulletHole, 5.0f);

@@ -18,6 +18,7 @@ public class Enemies_Movement : MonoBehaviour {
 
     private float timer = 0.0f;
     private float AttackTimer = 0.0f;
+    private float ClosestPlayerDistance;
 
     // Use this for initialization
     void Start () {
@@ -48,30 +49,20 @@ public class Enemies_Movement : MonoBehaviour {
         //Makes sure there is players to seek
         if (players != null) {
             int playerNum = 0;
-            float checkDistance = MaxFollowDistance;
             //Goes through all players and checks their distance to the enemy
-            for (int i = 0; i < players.Length; i++) {
-                //Distance between player and enemy
-                float tempDistance = Vector3.Distance(players[i].transform.position, this.transform.position);
-                //Finds closes player
-                if (tempDistance <= checkDistance && !players[i].GetComponent<PlayerStats>().isDead) {
-                    checkDistance = tempDistance;
-                    playerNum = i;
-                }
-            }
-            if (checkDistance <= MaxAttackDistance && AttackTimer <= 0.0f) {
-                AttackTimer = AttackDelay;
+            playerNum = FindClosestPlayer();
+
+            //If the player is withen Attack Distance
+            if (ClosestPlayerDistance <= MaxAttackDistance && AttackTimer <= 0.0f) {
+                float MoE = AttackDelay * 0.1f;
+                AttackTimer = RandomUtils.RandomFloat(AttackDelay - MoE, AttackDelay + MoE); ;
                 AttackPlayer(playerNum);
                 return;
             }
-            //If the player is withen MaxFollowDistance
-            else if (checkDistance < MaxFollowDistance) {
-                TimerDelay = Mathf.Clamp((checkDistance / 30.0f), 0.1f, 1.0f);
-
-                float Range = (checkDistance / RangeDivisible);
-                Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-Range, 0.0f, -Range), new Vector3(Range, 0.0f, Range));
-                destination = players[playerNum].transform.position + RandomPosition;
-                SetDestination();
+            //If the player is withen Follow Distance but outside Attack Distance
+            else if (ClosestPlayerDistance < MaxFollowDistance) {
+                TimerDelay = Mathf.Clamp((ClosestPlayerDistance / 30.0f), 0.1f, 1.0f);
+                SetDestination(playerNum);
                 return;
             }
             //The enemy will wonder
@@ -80,11 +71,29 @@ public class Enemies_Movement : MonoBehaviour {
         else { return; }
     }
 
-    private void SetDestination() {
-        //If there is a destination set the navMeshAgent to go to it
-        if (destination != null) {
-            navMeshAgent.SetDestination(destination);
+    private int FindClosestPlayer() {
+        int playerNum = 0;
+        ClosestPlayerDistance = MaxFollowDistance;
+        //Goes through all players and checks their distance to the enemy
+        for (int i = 0; i < players.Length; i++) {
+            //Distance between player and enemy
+            float tempDistance = Vector3.Distance(players[i].transform.position, this.transform.position);
+            //Finds closes player
+            if (tempDistance <= ClosestPlayerDistance && !players[i].GetComponent<PlayerStats>().isDead) {
+                ClosestPlayerDistance = tempDistance;
+                playerNum = i;
+            }
         }
+        return playerNum;
+    }
+
+    private void SetDestination(int playerNum) {
+        //Random placement based on range
+        float Range = (ClosestPlayerDistance / RangeDivisible);
+        Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-Range, 0.0f, -Range), new Vector3(Range, 0.0f, Range));
+        destination = players[playerNum].transform.position + RandomPosition;
+        //If there is a destination, set the navMeshAgent to go to it
+        if (destination != null) { navMeshAgent.SetDestination(destination); }
     }
 
     private void AttackPlayer(int playerNum) {
@@ -93,7 +102,7 @@ public class Enemies_Movement : MonoBehaviour {
     }
 
     private void Wonder() {
-        timer = 2.0f;
+        timer = RandomUtils.RandomFloat(1.5f, 4.0f);
         navMeshAgent.SetDestination(this.transform.position + RandomUtils.RandomVector3InBox(new Vector3(-10.0f, 1.0f, -10.0f),new Vector3(10.0f, 1.0f, 10.0f)));
     }
 

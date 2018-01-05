@@ -69,32 +69,35 @@ public class Player_Movement : MonoBehaviour {
     
     void FixedUpdate() {
         //If the player is in a menu they wont move
-        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) { return; }
-        if (this.gameObject.GetComponent<PlayerStats>().isDead) { return; }
+        //if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) {}
+        if (this.gameObject.GetComponent<PlayerStats>().isDead) { m_Rigidbody.velocity = new Vector3(0,0,0); return; }
 
-        //Get movement
-        if (Input.GetButton("Run")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
-        else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed); }
+        if (!this.gameObject.GetComponent<PlayerManager>().MenuOpen) {
+            //Get movement
+            if (Input.GetButton("Run")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
+            else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed); }
 
-        //Debug.Log("["+ Jump.y + "]");
-        //Holding jump button
-        if (Input.GetButton("Jump") && m_IsGrounded && ChargingJump == false && Jump.y == 0.0f) { ChargingJump = true; Jump.y = Jump.x; }
-        else if(Input.GetButton("Jump") && ChargingJump == true) {
-            if (Jump.y < Jump.z) {
-                Jump.y += moveSpeed * Time.deltaTime;
-                moveDirection.y = Jump.y;
+            //Debug.Log("["+ Jump.y + "]");
+            //Holding jump button
+            if (Input.GetButton("Jump") && m_IsGrounded && ChargingJump == false && Jump.y == 0.0f) { ChargingJump = true; Jump.y = Jump.x; }
+            else if (Input.GetButton("Jump") && ChargingJump == true) {
+                if (Jump.y < Jump.z) {
+                    Jump.y += moveSpeed * Time.deltaTime;
+                    moveDirection.y = Jump.y;
+                }
+                else { Jump.y = Jump.z; ChargingJump = false; }
             }
-            else { Jump.y = Jump.z; ChargingJump = false; }
+            //Not holding jump button, Not Grounded, Not Charging Jump, Jump.y is grater then 0.0f
+            else {
+                if (Jump.y > 0.0f) { Jump.y -= Jump.x * 0.55f; moveDirection.y = Jump.y; }
+                else if (Jump.y < 0.0f) { Jump.y = 0.0f; }
+            }
         }
-        //Not holding jump button, Not Grounded, Not Charging Jump, Jump.y is grater then 0.0f
         else {
-            if (Jump.y > 0.0f) {
-                Jump.y -= Jump.x * 0.55f;
-                moveDirection.y = Jump.y;
-            }
-            else if (Jump.y < 0.0f) {
-                Jump.y = 0.0f;
-            }
+            moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+            if (Jump.y > 0.0f) { Jump.y -= Jump.x * 0.55f; moveDirection.y = Jump.y; }
+            else if (Jump.y < 0.0f) { Jump.y = 0.0f; }
+            ChargingJump = false;
         }
 
         //If the player is grounded do not apply additional gravity

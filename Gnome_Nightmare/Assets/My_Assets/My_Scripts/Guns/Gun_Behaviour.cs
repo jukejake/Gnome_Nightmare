@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
 public class Gun_Behaviour : SerializedMonoBehaviour {
+
     #region Variables
     //public enum WeaponType { None, HitScan, Projectile, Melee };
     //public WeaponType weaponType;
@@ -42,8 +43,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     protected MenuManager menuManager;
     protected GameObject AmountText;
     #endregion
-
-
+    
     // Use this for initialization
     private void Start() {
         Invoke("DelayedStart", 0.1f);
@@ -61,8 +61,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         if (WeaponTypeHitScan) { HitScanWeapons_Update(); }
         else if (WeaponTypeProjectile) { ProjectileWeapons_Update(); }
     }
-
-
+    
 
     #region HitScanWeapons
     [ToggleGroup("WeaponTypeHitScan")]
@@ -86,6 +85,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         RaycastHit hit;
         //Fires a Raycast to find something to hit
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue())) {
+            Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
             //Get enemies stats
             EnemyStats EnemyStat = hit.transform.GetComponent<EnemyStats>();
             //If what was hit has an EnemyStat
@@ -106,6 +106,9 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
             GameObject ImpactAtHit = Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(ImpactAtHit, 2.0f);
         }
+        else {
+            Debug.DrawLine(this.PlayerCamera.transform.position, this.PlayerCamera.transform.position + (this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()), Color.blue, 5.0f);
+        }
 
         SetTextToAmount();
     }
@@ -117,14 +120,17 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     [ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Update() {
 
-        if (AimingHitscan && Input.GetButtonDown("Fire1")) {
-            RaycastHit hit;
-            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, 10000.0f)) {
-                s_Spawner.transform.LookAt(hit.point);
-            }
-        }
-
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
+            RaycastHit hit;
+            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue())) {
+                s_Spawner.transform.LookAt(hit.point);
+                Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
+            }
+            else {
+                s_Spawner.transform.LookAt(this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()));
+                Debug.DrawLine(this.PlayerCamera.transform.position, this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()), Color.blue, 5.0f);
+            }
+
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
             if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
             else { ProjectileWeapons_Shoot(); }
@@ -171,7 +177,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         s_Spawner.transform.rotation = Quaternion.identity;
     }
     #endregion
-
+    
 
     private void Reload() {
         NextTimeToFire = Time.time + (this.Stats.ReloadTime.GetValue() / 1.0f);

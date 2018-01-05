@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Fire : MonoBehaviour {
+
+    public float Damage = 1.0f;
+
+    private void OnCollisionStay(Collision collision)  {
+        if (collision.gameObject.tag == "Player") { collision.gameObject.GetComponent<PlayerStats>().TakeDamage(Damage); }
+        else if (collision.gameObject.name == "HitBox" && collision.gameObject.transform.parent.gameObject.tag == "Player") {
+            collision.gameObject.transform.parent.gameObject.GetComponent<PlayerStats>().TakeDamage(Damage);
+        }
+    }
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.tag == "Player") { other.gameObject.GetComponent<PlayerStats>().TakeDamage(Damage); }
+        else if (other.gameObject.name == "HitBox" && other.gameObject.transform.parent.gameObject.tag == "Player") {
+            other.gameObject.transform.parent.gameObject.GetComponent<PlayerStats>().TakeDamage(Damage);
+        }
+    }
+}

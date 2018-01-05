@@ -88,22 +88,22 @@ public class CameraFollow : SerializedMonoBehaviour {
 
     public void Camera1stPerson() {
         if (playerTransform != null) {
-            this.transform.position = playerTransform.position + new Vector3(0, Height1st, 0) + playerTransform.transform.forward * Depth1st;
+            this.transform.position = playerTransform.position + new Vector3(0, Height, 0) + playerTransform.transform.forward * Depth;
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
         }
     }
     public void LerpCamera() {
         if (playerTransform != null) {
             float tempFloatY;
-            if (playerRotation.y > -10.0f) { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rd * 0.9f), (Height3rd * 0.2f))-1.0f; }
-            else { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height3rd * 0.9f), (Height3rd * 0.5f)) - 1.0f; }
+            if (playerRotation.y > -10.0f) { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height * 0.9f), (Height * 0.2f))-1.0f; }
+            else { tempFloatY = Mathf.Clamp(playerRotation.y * 0.1f, -(Height * 0.9f), (Height * 0.5f)) - 1.0f; }
             float tempFloatX;
-            if (playerRotation.y > 10.0f) { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rd * 0.75f), (-Depth3rd) - 1.0f) + 1.0f; }
-            else { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth3rd * 0.75f), 0.50f) + 1.0f; }
+            if (playerRotation.y > 10.0f) { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth * 0.75f), (-Depth) - 1.0f) + 1.0f; }
+            else { tempFloatX = Mathf.Clamp(playerRotation.y * 0.1f, (Depth * 0.75f), 0.50f) + 1.0f; }
 
             if (tempFloatX > 0.0f) { tempFloatX  = -tempFloatX; }
             //Debug.Log("[" + playerRotation.y + "] [" + tempFloatY + "] [" + tempFloatX + "]");
-            this.transform.position = Vector3.Lerp(this.transform.position,  (playerTransform.position + new Vector3(0, (Height3rd + tempFloatY), 0) + playerTransform.transform.forward * (Depth3rd - tempFloatX)), Time.deltaTime * CameraFollowSpeed);
+            this.transform.position = Vector3.Lerp(this.transform.position,  (playerTransform.position + new Vector3(0, (Height + tempFloatY), 0) + playerTransform.transform.forward * (Depth - tempFloatX)), Time.deltaTime * CameraFollowSpeed);
             this.transform.rotation = Quaternion.Euler(playerRotation.y, playerRotation.x, 0);
             //this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(playerRotation.y, playerRotation.x, 0), Time.deltaTime * CameraSpeed);
         }
@@ -127,7 +127,7 @@ public class CameraFollow : SerializedMonoBehaviour {
             }
             else {
                 t = AdsSpeed * Time.deltaTime;
-                Vector3 temp = (playerTransform.position + new Vector3(0, Height3rd, 0) + (playerTransform.transform.forward * Depth3rd));
+                Vector3 temp = (playerTransform.position + new Vector3(0, Height, 0) + (playerTransform.transform.forward * Depth));
                 this.transform.position = Vector3.MoveTowards(this.transform.position, temp, t);
 
                 //currentY -= Input.GetAxis("Mouse Y");
