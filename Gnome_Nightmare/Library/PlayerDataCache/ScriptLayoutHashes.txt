@@ -148,7 +148,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-6089d186622dd0cc21de6652a1519c16 Assembly-CSharp.dll:.Gun_Behaviour
+434b2d0b029221a4154181d16d7cc5af Assembly-CSharp.dll:.Network_Gun_Behaviour
 d0d64284c655bc210669458551c9471e Assembly-CSharp.dll:.Enemies_Prefs
 ead9fced28ace16eb66a7096535adf68 Assembly-CSharp.dll:.Enemies_Movement
 c83d7834675a65a3978c32025c3a88a2 Assembly-CSharp.dll:.MiniMap
@@ -234,6 +234,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 61ec76b087ac5bee964d922091516762 Assembly-CSharp.dll:.Items_Manager
 bdfca6896a2a86e62c10b8bd44869c7a Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.MinMaxValueValueExamples
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SetText
+200210ca9e3ab24dcd353d97804c7268 Assembly-CSharp.dll:.Fire
 d95605b3704da9102f6e34f0340ed7bc Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.LabelTextExamples
 d9b055fe5cbad3f4cfa1d3fb088f7545 Assembly-CSharp.dll:.MiniMap_Zoom
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Drag_UI
