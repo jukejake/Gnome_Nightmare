@@ -28,6 +28,10 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     public ParticleSystem MuzzleFlash;
     [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
     public GameObject ImpactEffect;
+    [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
+    public float HipFirePushback;
+    [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
+    public float PushbackSpread;
     [ToggleGroup("WeaponTypeProjectile")]
     public GameObject s_Spawner;
     [ToggleGroup("WeaponTypeProjectile")]
