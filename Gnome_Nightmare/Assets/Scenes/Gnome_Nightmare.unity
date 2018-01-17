@@ -4583,7 +4583,7 @@ Prefab:
     - target: {fileID: 114214766692137172, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
       propertyPath: ToggleAll
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114214766692137172, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
@@ -4595,6 +4595,11 @@ Prefab:
       propertyPath: spawnerHub.Array.data[0]
       value: 
       objectReference: {fileID: 2070504238}
+    - target: {fileID: 114214766692137172, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: CurrentLevel
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365e67ef86ca9c3448a30eea3c405cb4, type: 2}
   m_IsPrefabParent: 0
