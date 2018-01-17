@@ -162,6 +162,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Item\Rotate_Slowly.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\OdinTables.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\CameraControl.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Player\CheckCollider.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Player\Player_Rotation.cs" />

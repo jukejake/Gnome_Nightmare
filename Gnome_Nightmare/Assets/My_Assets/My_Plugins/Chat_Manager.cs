@@ -23,6 +23,14 @@ public class Chat_Manager : SerializedMonoBehaviour {
     [ToggleGroup("IsClient")]
     public GameObject messagePrefab;
 
+    [ToggleGroup("IsClient")]
+    public GameObject Chat;
+    [ToggleGroup("IsClient")]
+    public GameObject Login;
+
+
+    private bool ServerEnabled = false;
+    //private bool ClintEnabled = false;
 
 
 
@@ -31,16 +39,18 @@ public class Chat_Manager : SerializedMonoBehaviour {
         //GameObject Login = Instantiate<GameObject>(ServerLoginPrefab);
         //Login.name = ServerLoginPrefab.name;
 
-        if (IsServer) { ServerStart(); }
+        if (IsServer && ServerEnabled) { ServerStart(); }
         if (IsClient) { ClientStart(); }
     }
 
     // Update is called once per frame
     public void Update () {
-        if (IsServer) { ServerUpdate(); }
+        if (IsServer && ServerEnabled) { ServerUpdate(); }
         if (IsClient) { ClientUpdate(); }
     }
 
+    public void EnableServer() { ServerEnabled = true; ServerStart(); }
+    //public void EnableClint() { ClintEnabled = true; }
 
 
     [ToggleGroup("IsServer")]
@@ -66,17 +76,29 @@ public class Chat_Manager : SerializedMonoBehaviour {
         if (messagePrefab != null) { client.messagePrefab = messagePrefab; }
         //client.Update();
 
-        string temp = client.InstantiateData();
+        GameObject g = Instantiate(messagePrefab, chatContainer.transform) as GameObject;
+        string temp = client.InstantiateData(g);
+
+
+        //string temp = client.InstantiateData();
         if (temp != null && temp != "") {
-            GameObject g = Instantiate(messagePrefab, chatContainer.transform) as GameObject;
-            g.GetComponentInChildren<Text>().text = temp;
-            Debug.Log("[" + temp + "]");
+            //GameObject g = Instantiate(messagePrefab, chatContainer.transform) as GameObject;
+            //g.GetComponentInChildren<Text>().text = temp;
+            //Vector2 vec2 = g.GetComponent<RectTransform>().sizeDelta;
+            //vec2.y = (vec2.y * Mathf.Ceil((24 - client.clientName.Length + temp.Length) / 24));
+            //g.GetComponent<RectTransform>().sizeDelta = vec2;
+            Debug.Log(((24 - client.clientName.Length + temp.Length)) + "[" + temp + "]");
         }
+        else { Destroy(g); }
         
     }
     [ToggleGroup("IsClient")]
     public void ConnectToServer() {
-        client.ConnectToServer();
+        if (client.ConnectToServer()) {
+            Chat.GetComponent<UnHide>().View();
+            Login.GetComponent<UnHide>().Hide();
+        }
+        else { }
     }
     [ToggleGroup("IsClient")]
     public void OnSendButton() {
