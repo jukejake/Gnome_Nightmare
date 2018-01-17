@@ -98,7 +98,7 @@ public class Enemies_Movement : MonoBehaviour {
 
     private void AttackPlayer(int playerNum) {
         players[playerNum].GetComponent<PlayerStats>().TakeDamage(this.gameObject.GetComponent<EnemyStats>().Damage.GetValue());
-        if (anim != null) { anim.Play("Gnome_Hit", -1, 0f); }
+        if (anim != null) { anim.Play("Gnome_Hitd", -1, 0f); }
     }
 
     private void Wonder() {
