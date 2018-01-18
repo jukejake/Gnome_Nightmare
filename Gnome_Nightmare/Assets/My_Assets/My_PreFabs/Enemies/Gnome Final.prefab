@@ -466,7 +466,6 @@ GameObject:
   - component: {fileID: 114419841925847276}
   - component: {fileID: 195185390451542554}
   - component: {fileID: 136912394588347964}
-  - component: {fileID: 114735937101781500}
   m_Layer: 0
   m_Name: Gnome Final
   m_TagString: Untagged
@@ -1171,18 +1170,6 @@ MonoBehaviour:
   Points: 1
   ParticlesOnDeath: {fileID: 1479317777403278, guid: 7e1bc8fa375436c45aa0337b8fa5d364,
     type: 2}
---- !u!114 &114735937101781500
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1794536943300516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4956c10c2b1814244b8ad04084b1a650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 95102162406862202}
 --- !u!114 &114815876952268184
 MonoBehaviour:
   m_ObjectHideFlags: 1

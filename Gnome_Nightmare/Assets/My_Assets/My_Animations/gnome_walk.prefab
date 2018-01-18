@@ -1007,7 +1007,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391102828700730}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f7f3db67a9457c444afcd055f85086dd, type: 3}
+  m_Avatar: {fileID: 9000000, guid: be708bd8661d4ef4cb71e95b1d88e7b8, type: 3}
   m_Controller: {fileID: 9100000, guid: 1df83c52bb5517549907fb5803ccbba3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1028,7 +1028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95428286503969242}
-  hello: {fileID: 0}
 --- !u!137 &137409122595432194
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
