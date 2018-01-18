@@ -4,6 +4,7 @@ public class Player_Movement : MonoBehaviour {
 
     public GameObject Menu_Prefab;
 
+    public float jumpSpeed = 20.0f;
     public float moveSpeed = 10.0f;
     public float runSpeed = 20.0f;
     public float SensitivityXAxis = 15.0f;
@@ -13,6 +14,8 @@ public class Player_Movement : MonoBehaviour {
     public Animator anim;
 
     public Collider IsGroundedCollider;
+    public Collider l_IsGrounded;
+    public Collider r_IsGrounded;
     private Rigidbody m_Rigidbody;
     //private AudioSource m_audioSource;
 
@@ -82,11 +85,13 @@ public class Player_Movement : MonoBehaviour {
             if (Input.GetButton("Jump") && m_IsGrounded && ChargingJump == false && Jump.y == 0.0f) { ChargingJump = true; Jump.y = Jump.x; }
             else if (Input.GetButton("Jump") && ChargingJump == true) {
                 if (Jump.y < Jump.z) {
-                    Jump.y += moveSpeed * Time.deltaTime;
+                    //Jump.y += moveSpeed * Time.deltaTime;
+                    Jump.y += (((Jump.z - Jump.y) * (jumpSpeed * Time.deltaTime)) + 0.01f);
                     moveDirection.y = Jump.y;
                 }
                 else { Jump.y = Jump.z; ChargingJump = false; }
             }
+            else if (ChargingJump == true) { ChargingJump = false; }
             //Not holding jump button, Not Grounded, Not Charging Jump, Jump.y is grater then 0.0f
             else {
                 if (Jump.y > 0.0f) { Jump.y -= Jump.x * 0.55f; moveDirection.y = Jump.y; }
@@ -108,16 +113,18 @@ public class Player_Movement : MonoBehaviour {
         moveDirection = m_Rigidbody.rotation * moveDirection;
         m_Rigidbody.velocity = moveDirection;
 
-        //Debug.Log("[" + m_IsGrounded + "]");
+
         //Check if the player is grounded
-        RaycastHit hit;
-        if (Physics.Raycast(IsGroundedCollider.bounds.center, -Vector3.up,out hit, (IsGroundedCollider.bounds.size.x * 0.5f) + 0.1f)) {
-            if (Vector3.Dot(transform.up, hit.normal) > 0.5f) {
-                m_IsGrounded = true;
-            }
-        }
-        else if (Physics.CheckCapsule(IsGroundedCollider.bounds.center, new Vector3(IsGroundedCollider.bounds.center.x, IsGroundedCollider.bounds.min.y-0.1f, IsGroundedCollider.bounds.center.z), (IsGroundedCollider.bounds.size.x * 0.5f))) { m_IsGrounded = true; }
-        else if (m_IsGrounded != false) { m_IsGrounded = false; }
+        //RaycastHit hit;
+        //if (Physics.Raycast(IsGroundedCollider.bounds.center, -Vector3.up, out hit, (IsGroundedCollider.bounds.size.x * 0.5f) + 0.1f)) {
+        //    if (Vector3.Dot(transform.up, hit.normal) > 0.5f) {
+        //        m_IsGrounded = true;
+        //    }
+        //}
+        //else if (Physics.CheckCapsule(IsGroundedCollider.bounds.center, new Vector3(IsGroundedCollider.bounds.center.x, IsGroundedCollider.bounds.min.y - 0.1f, IsGroundedCollider.bounds.center.z), (IsGroundedCollider.bounds.size.x * 0.5f))) { m_IsGrounded = true; }
+
+        if (l_IsGrounded.GetComponent<CheckCollider>().IsTriggered || r_IsGrounded.GetComponent<CheckCollider>().IsTriggered || IsGroundedCollider.GetComponent<CheckCollider>().IsTriggered) { m_IsGrounded = true; }
+        else if (m_IsGrounded == true) { m_IsGrounded = false; }
 
         //Update Animator Perameters
         animPer_H = Input.GetAxis("Horizontal");

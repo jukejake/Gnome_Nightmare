@@ -310,7 +310,8 @@ aecf6a3f476b57a085e158b00de3bb5e Assembly-CSharp.dll:.CraftingManager
 014ee6926f71f5e95c74140b081d7993 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.FolderPathExamples
 ec8ad7157419d8ba196253369b3c5644 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.MultiLinePropertyExamples
 25024022a233fc22b11fabb8f0db4a6d Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ReflectionExample
-6089d186622dd0cc21de6652a1519c16 Assembly-CSharp.dll:.Gun_Behaviour
+6471862080f7e7b096eed42ff768cf3c Assembly-CSharp.dll:.Gun_Behaviour
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Event_Manager
 c0f05dd4d3b9c72c59e45fc04e6ccb9c Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.EnumToggleButtonsExamples
 a652e2d7f13e869e01d7f3efb2dc38a6 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ContextExample
 01c2978f1cb7d2e80b5d10cb4cef796f Assembly-CSharp.dll:.EnableIffSleeping
