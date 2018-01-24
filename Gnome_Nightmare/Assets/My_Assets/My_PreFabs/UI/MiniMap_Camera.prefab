@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4810684190463952, guid: 611c7db145750b345bc06fd6b7d39832, type: 2}
   CameraHight: 20
-  Rotate: 1
+  Rotate: 0

@@ -161,7 +161,7 @@ e93194319d6ff7643d3c30b3a36b4916 Assembly-CSharp.dll:.RandomWalk
 678a9af138df07100bd9598455d45ea2 Assembly-CSharp.dll:.CameraFollow
 19f7aba9ed35102220c61351f60f476e Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.PropertyTooltipExamples
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Random_Utils.RandomUtils
-d52f88b2c47ee36b970a957a069c2797 Assembly-CSharp.dll:.Player_Movement
+d97c21c390b2fca837a4c3ccaca13256 Assembly-CSharp.dll:.Player_Movement
 43c901f5733b48f61b53f52e6c2855dc Assembly-CSharp.dll:.CS_PlatformInputController
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -195,7 +195,7 @@ de5b27af844d020d92d84f1e50868df7 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspe
 e9f5af2f4effa7fde4e04d279f880c7b Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.MinMaxSliderExamples
 429a341fbbd3fb23543226e4bd0917da Assembly-CSharp.dll:EnemySpawners.Spawner_Manager
 a603292b6db6a664a288c5de0f7e9192 Assembly-CSharp.dll:.LoadScenes
-87473f89d6041cde2f04935a6078c32b Assembly-CSharp.dll:.Chat_Manager
+6bc631b1d653e619cd1718e3b6322032 Assembly-CSharp.dll:.Chat_Manager
 b35abd84deac0466a0d6a5e61617b42b Assembly-CSharp.dll:.Load_Menu
 1964183ea3577a57eea77574aa7d84ba Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.OnValueChangedExamples
 da80cd1be95d3c86569ef151ac634cbf Assembly-CSharp.dll:.SettingsMenu
@@ -211,6 +211,7 @@ ef703a275e31de7c55807d241169b2b3 Assembly-CSharp.dll:.ParticleEmitterManaged
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.FireLight
 0c04fac2365888ed4da0184cd77a05cc Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ObjectPlacer
 cc8f31e82b02d7648aefdbfe84c58f8d Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.HideReferenceObjectPickerExamples
+c05569b21d2e4233a08d7cf7c2c66e35 Assembly-CSharp.dll:.CheckCollider
 cc8f31e82b02d7648aefdbfe84c58f8d Assembly-CSharp.dll:.EnemyDropList
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 26c1a6681b89f11e7c1c0bdd6f4cb840 Assembly-CSharp.dll:.DungeonManager

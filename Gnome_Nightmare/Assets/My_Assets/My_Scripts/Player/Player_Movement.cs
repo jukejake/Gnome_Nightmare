@@ -75,7 +75,7 @@ public class Player_Movement : MonoBehaviour {
         //if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) {}
         if (this.gameObject.GetComponent<PlayerStats>().isDead) { m_Rigidbody.velocity = new Vector3(0,0,0); return; }
 
-        if (!this.gameObject.GetComponent<PlayerManager>().MenuOpen) {
+        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
             //Get movement
             if (Input.GetButton("Run")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
             else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed); }
@@ -114,23 +114,16 @@ public class Player_Movement : MonoBehaviour {
         m_Rigidbody.velocity = moveDirection;
 
 
-        //Check if the player is grounded
-        //RaycastHit hit;
-        //if (Physics.Raycast(IsGroundedCollider.bounds.center, -Vector3.up, out hit, (IsGroundedCollider.bounds.size.x * 0.5f) + 0.1f)) {
-        //    if (Vector3.Dot(transform.up, hit.normal) > 0.5f) {
-        //        m_IsGrounded = true;
-        //    }
-        //}
-        //else if (Physics.CheckCapsule(IsGroundedCollider.bounds.center, new Vector3(IsGroundedCollider.bounds.center.x, IsGroundedCollider.bounds.min.y - 0.1f, IsGroundedCollider.bounds.center.z), (IsGroundedCollider.bounds.size.x * 0.5f))) { m_IsGrounded = true; }
-
         if (l_IsGrounded.GetComponent<CheckCollider>().IsTriggered || r_IsGrounded.GetComponent<CheckCollider>().IsTriggered || IsGroundedCollider.GetComponent<CheckCollider>().IsTriggered) { m_IsGrounded = true; }
         else if (m_IsGrounded == true) { m_IsGrounded = false; }
 
-        //Update Animator Perameters
-        animPer_H = Input.GetAxis("Horizontal");
-        animPer_V = Input.GetAxis("Vertical");
-        anim.SetFloat("inputH", animPer_H);
-        anim.SetFloat("inputV", animPer_V);
+        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
+            //Update Animator Perameters
+            animPer_H = Input.GetAxis("Horizontal");
+            animPer_V = Input.GetAxis("Vertical");
+            anim.SetFloat("inputH", animPer_H);
+            anim.SetFloat("inputV", animPer_V);
+        }
 
     }
 

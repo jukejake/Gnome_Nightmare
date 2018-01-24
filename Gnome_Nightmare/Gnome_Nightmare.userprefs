@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="Gnome_Nightmare.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs">
+    <Files>
+      <File FileName="Assets\My_Assets\My_Scripts\Player\If_Under_Floor.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

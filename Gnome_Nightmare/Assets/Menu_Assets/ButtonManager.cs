@@ -44,7 +44,7 @@ public class ButtonManager : SerializedMonoBehaviour {
 
     public void OpenDeathMenu() {
         DeathMenu.GetComponent<UnHide>().View();
-        PlayerManager.instance.MenuOpen = true;
+        PlayerManager.instance.MenuOpen = false;
         Cursor.lockState = CursorLockMode.None;
     }
     public void CloseDeathMenu() {

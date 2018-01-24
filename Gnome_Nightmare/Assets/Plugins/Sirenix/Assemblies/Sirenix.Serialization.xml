@@ -3274,7 +3274,7 @@
         </member>
         <member name="M:Sirenix.Serialization.BaseFormatter`1.InvokeOnDeserializingCallbacks(`0,Sirenix.Serialization.DeserializationContext)">
             <summary>
-            Invokes all methods on the object with the [OnDeserialized] attribute.
+            Invokes all methods on the object with the [OnDeserializing] attribute.
             <para />
             WARNING: This method will not be called automatically if you override GetUninitializedObject and return null! You will have to call it manually after having created the object instance during deserialization.
             </summary>
@@ -3367,6 +3367,33 @@
             An uninitialized object of type <see cref="!:T" />.
             </returns>
         </member>
+        <member name="T:Sirenix.Serialization.DerivedDictionaryFormatter`3">
+            <summary>
+            Emergency hack class to support serialization of types derived from dictionary
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.DerivedDictionaryFormatter`3.GetUninitializedObject">
+            <summary>
+            Returns null.
+            </summary>
+            <returns>
+            A value of null.
+            </returns>
+        </member>
+        <member name="M:Sirenix.Serialization.DerivedDictionaryFormatter`3.DeserializeImplementation(`0@,Sirenix.Serialization.IDataReader)">
+            <summary>
+            Provides the actual implementation for deserializing a value of type <see cref="!:T" />.
+            </summary>
+            <param name="value">The uninitialized value to serialize into. This value will have been created earlier using <see cref="M:Sirenix.Serialization.BaseFormatter`1.GetUninitializedObject" />.</param>
+            <param name="reader">The reader to deserialize with.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.DerivedDictionaryFormatter`3.SerializeImplementation(`0@,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Provides the actual implementation for serializing a value of type <see cref="!:T" />.
+            </summary>
+            <param name="value">The value to serialize.</param>
+            <param name="writer">The writer to serialize with.</param>
+        </member>
         <member name="T:Sirenix.Serialization.DictionaryFormatter`2">
             <summary>
             Custom generic formatter for the generic type definition <see cref="T:System.Collections.Generic.Dictionary`2"/>.
@@ -3374,6 +3401,11 @@
             <typeparam name="TKey">The type of the dictionary key.</typeparam>
             <typeparam name="TValue">The type of the dictionary value.</typeparam>
             <seealso cref="!:Sirenix.Serialization.BaseFormatter&lt;System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;&gt;" />
+        </member>
+        <member name="M:Sirenix.Serialization.DictionaryFormatter`2.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Sirenix.Serialization.DictionaryFormatter`2"/>.
+            </summary>
         </member>
         <member name="M:Sirenix.Serialization.DictionaryFormatter`2.GetUninitializedObject">
             <summary>
@@ -3396,6 +3428,25 @@
             </summary>
             <param name="value">The value to serialize.</param>
             <param name="writer">The writer to serialize with.</param>
+        </member>
+        <member name="T:Sirenix.Serialization.Formatters.DoubleLookupDictionaryFormatter`3">
+            <summary>
+            Custom Odin serialization formatter for <see cref="T:Sirenix.Utilities.DoubleLookupDictionary`3"/>.
+            </summary>
+            <typeparam name="TPrimary">Type of primary key.</typeparam>
+            <typeparam name="TSecondary">Type of secondary key.</typeparam>
+            <typeparam name="TValue">Type of value.</typeparam>
+        </member>
+        <member name="M:Sirenix.Serialization.Formatters.DoubleLookupDictionaryFormatter`3.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Sirenix.Serialization.Formatters.DoubleLookupDictionaryFormatter`3"/>.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.Formatters.DoubleLookupDictionaryFormatter`3.GetUninitializedObject">
+            <summary>
+            Not yet documented.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Sirenix.Serialization.Formatters.DoubleLookupDictionaryFormatter`3.SerializeImplementation(Sirenix.Utilities.DoubleLookupDictionary{`0,`1,`2}@,Sirenix.Serialization.IDataWriter)">
             <summary>
@@ -3453,6 +3504,22 @@
             A formatter for empty types. It writes no data, and skips all data that is to be read, deserializing a "default" value.
             </summary>
         </member>
+        <member name="M:Sirenix.Serialization.EmptyTypeFormatter`1.ReadDataEntry(`0@,System.String,Sirenix.Serialization.EntryType,Sirenix.Serialization.IDataReader)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="value">Not yet documented.</param>
+            <param name="entryName">Not yet documented.</param>
+            <param name="entryType">Not yet documented.</param>
+            <param name="reader">Not yet documented.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.EmptyTypeFormatter`1.WriteDataEntries(`0@,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="value">Not yet documented.</param>
+            <param name="writer">Not yet documented.</param>
+        </member>
         <member name="T:Sirenix.Serialization.FormatterEmitter">
             <summary>
             Utility class for emitting formatters using the <see cref="N:System.Reflection.Emit"/> namespace.
@@ -3479,6 +3546,22 @@
             <summary>
             Shortcut class that makes it easier to emit empty AOT formatters.
             </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.FormatterEmitter.EmptyAOTEmittedFormatter`1.ReadDataEntry(`0@,System.String,Sirenix.Serialization.EntryType,Sirenix.Serialization.IDataReader)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="value">Not yet documented.</param>
+            <param name="entryName">Not yet documented.</param>
+            <param name="entryType">Not yet documented.</param>
+            <param name="reader">Not yet documented.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.FormatterEmitter.EmptyAOTEmittedFormatter`1.WriteDataEntries(`0@,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="value">Not yet documented.</param>
+            <param name="writer">Not yet documented.</param>
         </member>
         <member name="M:Sirenix.Serialization.FormatterEmitter.GetEmittedFormatter(System.Type,Sirenix.Serialization.ISerializationPolicy)">
             <summary>
@@ -3524,6 +3607,11 @@
             </summary>
             <typeparam name="TCollection">The type of the collection.</typeparam>
             <typeparam name="TElement">The type of the element.</typeparam>
+        </member>
+        <member name="M:Sirenix.Serialization.GenericCollectionFormatter`2.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Sirenix.Serialization.GenericCollectionFormatter`2"/>.
+            </summary>
         </member>
         <member name="M:Sirenix.Serialization.GenericCollectionFormatter`2.GetUninitializedObject">
             <summary>
@@ -3629,15 +3717,58 @@
             The deserialized value.
             </returns>
         </member>
+        <member name="T:Sirenix.Serialization.IndexedDictionaryFormatter`2">
+            <summary>
+            Custom Odin serialization formatter for <see cref="T:Sirenix.Utilities.IndexedDictionary`2"/>.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
         <member name="M:Sirenix.Serialization.IndexedDictionaryFormatter`2.#ctor">
             <summary>
-            Constructor.
+            Creates a new instance of <see cref="T:Sirenix.Serialization.IndexedDictionaryFormatter`2"/>.
             </summary>
         </member>
         <member name="M:Sirenix.Serialization.IndexedDictionaryFormatter`2.GetUninitializedObject">
             <summary>
             Returns null.
             </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.IndexedDictionaryFormatter`2.DeserializeImplementation(Sirenix.Utilities.IndexedDictionary{`0,`1}@,Sirenix.Serialization.IDataReader)">
+            <summary>
+            Deserialization implementation.
+            </summary>
+            <param name="value">The value to deserialize.</param>
+            <param name="reader">The reader to read from.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.IndexedDictionaryFormatter`2.SerializeImplementation(Sirenix.Utilities.IndexedDictionary{`0,`1}@,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Serialization implementation.
+            </summary>
+            <param name="value">The value to serialize.</param>
+            <param name="writer">The writer to write to.</param>
+        </member>
+        <member name="T:Sirenix.Serialization.KeyValuePairFormatter`2">
+            <summary>
+            Custom generic formatter for the generic type definition <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <seealso cref="!:Sirenix.Serialization.BaseFormatter&lt;System.Collections.Generic.KeyValuePair&lt;TKey, TValue&gt;&gt;" />
+        </member>
+        <member name="M:Sirenix.Serialization.KeyValuePairFormatter`2.SerializeImplementation(System.Collections.Generic.KeyValuePair{`0,`1}@,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Provides the actual implementation for serializing a value of type <see cref="!:T" />.
+            </summary>
+            <param name="value">The value to serialize.</param>
+            <param name="writer">The writer to serialize with.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.KeyValuePairFormatter`2.DeserializeImplementation(System.Collections.Generic.KeyValuePair{`0,`1}@,Sirenix.Serialization.IDataReader)">
+            <summary>
+            Provides the actual implementation for deserializing a value of type <see cref="!:T" />.
+            </summary>
+            <param name="value">The uninitialized value to serialize into. This value will have been created earlier using <see cref="M:Sirenix.Serialization.BaseFormatter`1.GetUninitializedObject" />.</param>
+            <param name="reader">The reader to deserialize with.</param>
         </member>
         <member name="T:Sirenix.Serialization.ListFormatter`1">
             <summary>
@@ -3781,6 +3912,11 @@
             </summary>
             <typeparam name="T">The type that is nullable.</typeparam>
             <seealso cref="!:Sirenix.Serialization.BaseFormatter&lt;T?&gt;" />
+        </member>
+        <member name="M:Sirenix.Serialization.NullableFormatter`1.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Sirenix.Serialization.NullableFormatter`1"/>.
+            </summary>
         </member>
         <member name="M:Sirenix.Serialization.NullableFormatter`1.DeserializeImplementation(System.Nullable{`0}@,Sirenix.Serialization.IDataReader)">
             <summary>
@@ -4297,25 +4433,12 @@
         </member>
         <member name="T:Sirenix.Serialization.ExcludeDataFromInspectorAttribute">
             <summary>
-            <para>Write 1 max 2 paragraphs in summery, they are supposed to be a breaf description and overview.</para>
-            <para>Remember to use the para tag, it is equivalent of writing a 'p' tag in html.</para>
+            <para>
+            Causes Odin's inspector to completely ignore a given member, preventing it from even being included in an Odin PropertyTree,
+            and such will not cause any performance hits in the inspector.
+            </para>
+            <para>Note that Odin can still serialize an excluded member - it is merely ignored in the inspector itself.</para>
             </summary>
-            <remarks>
-            <para>If more clarifycation is needed write it here</para>
-            <note type="note">Note that you can add notes!</note>
-            </remarks>
-            <example>
-            Write an example description
-            <code>
-            // And write the code within code tags.
-            </code>
-            </example>
-            <example>
-            Write multiple examples!
-            <code>
-            // More code
-            </code>
-            </example>
         </member>
         <member name="T:Sirenix.Serialization.IExternalGuidReferenceResolver">
             <summary>
@@ -4545,6 +4668,24 @@
             Not yet documented.
             </summary>
         </member>
+        <member name="T:Sirenix.Serialization.SerializationAbortException">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.SerializationAbortException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="!:SerializationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.SerializationAbortException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="!:SerializationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
         <member name="T:Sirenix.Serialization.SerializationConfig">
             <summary>
             Defines the configuration during serialization and deserialization. This class is thread-safe.
@@ -4610,24 +4751,6 @@
             <summary>
             Not yet documented.
             </summary>
-        </member>
-        <member name="T:Sirenix.Serialization.SerializationAbortException">
-            <summary>
-            Not yet documented.
-            </summary>
-        </member>
-        <member name="M:Sirenix.Serialization.SerializationAbortException.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="!:SerializationException"/> class.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Sirenix.Serialization.SerializationAbortException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the <see cref="!:SerializationException"/> class.
-            </summary>
-            <param name="message">The message.</param>
-            <param name="innerException">The inner exception.</param>
         </member>
         <member name="T:Sirenix.Serialization.SerializationContext">
             <summary>
@@ -4823,7 +4946,7 @@
             <summary>
             Public fields and fields or auto-properties marked with <see cref="T:UnityEngine.SerializeField"/> or <see cref="T:Sirenix.Serialization.OdinSerializeAttribute"/> and not marked with <see cref="T:System.NonSerializedAttribute"/> are serialized.
             <para />
-            There is one exception: all fields in private nested types marked as compiler generated (e.g. lambda capture classes) are also serialized.
+            There are two exceptions: all fields in tuples, as well as in private nested types marked as compiler generated (e.g. lambda capture classes) are also serialized.
             </summary>
         </member>
         <member name="P:Sirenix.Serialization.SerializationPolicies.Strict">
@@ -5145,6 +5268,16 @@
             To extend the serialization system, instead create custom formatters, which are used by the <see cref="T:Sirenix.Serialization.ComplexTypeSerializer`1"/> class.
             </summary>
         </member>
+        <member name="E:Sirenix.Serialization.Serializer.OnSerializedType">
+            <summary>
+            Editor-only event that fires whenever a serializer serializes a type.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.Serializer.FireOnSerializedType(System.Type)">
+            <summary>
+            Fires the <see cref="E:Sirenix.Serialization.Serializer.OnSerializedType"/> event.
+            </summary>
+        </member>
         <member name="M:Sirenix.Serialization.Serializer.GetForValue(System.Object)">
             <summary>
             Gets a <see cref="T:Sirenix.Serialization.Serializer"/> for the given value. If the value is null, it will be treated as a value of type <see cref="T:System.Object"/>.
@@ -5241,6 +5374,11 @@
             <param name="name">The name of the value to write.</param>
             <param name="value">The value to write.</param>
             <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Sirenix.Serialization.Serializer`1.FireOnSerializedType">
+            <summary>
+            Fires the <see cref="!:OnSerializedType"/> event with the T generic argument of the serializer.
+            </summary>
         </member>
         <member name="T:Sirenix.Serialization.SingleSerializer">
             <summary>
@@ -5488,6 +5626,82 @@
             <param name="value">The value to write from.</param>
             <param name="writer">The writer to use.</param>
         </member>
+        <member name="T:Sirenix.Serialization.CoroutineFormatter">
+            <summary>
+            <para>
+            Custom formatter for the <see cref="T:UnityEngine.Coroutine"/> type.
+            This serializes nothing and always deserializes null,
+            and only exists to ensure that no coroutine instances
+            are ever created by the serialization system, since they
+            will in almost all cases be invalid instances.
+            </para>
+            <para>
+            Invalid coroutine instances crash Unity instantly when
+            they are garbage collected.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Sirenix.Serialization.CoroutineFormatter.SerializedType">
+            <summary>
+            Gets the type that the formatter can serialize.
+            </summary>
+            <value>
+            The type that the formatter can serialize.
+            </value>
+        </member>
+        <member name="M:Sirenix.Serialization.CoroutineFormatter.Sirenix#Serialization#IFormatter#Deserialize(Sirenix.Serialization.IDataReader)">
+            <summary>
+            Returns null.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.CoroutineFormatter.Deserialize(Sirenix.Serialization.IDataReader)">
+            <summary>
+            Returns null.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.CoroutineFormatter.Serialize(System.Object,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Does nothing.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.CoroutineFormatter.Serialize(UnityEngine.Coroutine,Sirenix.Serialization.IDataWriter)">
+            <summary>
+            Does nothing.
+            </summary>
+        </member>
+        <member name="T:Sirenix.Serialization.BaseDictionaryKeyPathProvider`1">
+            <summary>
+            Not yet documented.
+            </summary>
+            <typeparam name="T">Not yet documented.</typeparam>
+        </member>
+        <member name="P:Sirenix.Serialization.BaseDictionaryKeyPathProvider`1.ProviderID">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.BaseDictionaryKeyPathProvider`1.GetKeyFromPathString(System.String)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="pathStr">Not yet documented.</param>
+            <returns>Not yet documented.</returns>
+        </member>
+        <member name="M:Sirenix.Serialization.BaseDictionaryKeyPathProvider`1.GetPathStringFromKey(`0)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="key">Not yet documented.</param>
+            <returns>Not yet documented.</returns>
+        </member>
+        <member name="M:Sirenix.Serialization.BaseDictionaryKeyPathProvider`1.Compare(`0,`0)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="x">Not yet documented.</param>
+            <param name="y">Not yet documented.</param>
+            <returns>Not yet documented.</returns>
+        </member>
         <member name="T:Sirenix.Serialization.IDictionaryKeyPathProvider">
             <summary>
             Not yet documented.
@@ -5540,6 +5754,36 @@
             </summary>
             <param name="x">The x.</param>
             <param name="y">The y.</param>
+        </member>
+        <member name="T:Sirenix.Serialization.Vector2DictionaryKeyPathProvider">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Serialization.Vector2DictionaryKeyPathProvider.ProviderID">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.Vector2DictionaryKeyPathProvider.Compare(UnityEngine.Vector2,UnityEngine.Vector2)">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.Vector2DictionaryKeyPathProvider.GetKeyFromPathString(System.String)">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="M:Sirenix.Serialization.Vector2DictionaryKeyPathProvider.GetPathStringFromKey(UnityEngine.Vector2)">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="T:Sirenix.Serialization.Vector3DictionaryKeyPathProvider">
+            <summary>
+            Dictionary key path provider for <see cref="T:UnityEngine.Vector3"/>
+            </summary>
         </member>
         <member name="T:Sirenix.Serialization.GradientAlphaKeyFormatter">
             <summary>
@@ -6136,6 +6380,14 @@
             A smart comparer for dictionary keys, that uses the most appropriate available comparison method for the given key types.
             </summary>
         </member>
+        <member name="M:Sirenix.Serialization.DictionaryKeyUtility.KeyComparer`1.Compare(`0,`0)">
+            <summary>
+            Not yet documented.
+            </summary>
+            <param name="x">Not yet documented.</param>
+            <param name="y">Not yet documented.</param>
+            <returns>Not yet documented.</returns>
+        </member>
         <member name="M:Sirenix.Serialization.DictionaryKeyUtility.GetPersistentPathKeyTypes">
             <summary>
             Not yet documented.
@@ -6680,6 +6932,11 @@
             <para />
             Note that setting the IndexReferenceResolver on contexts passed into methods on this class will have no effect, as it will always
             be set to a UnityReferenceResolver.
+            </summary>
+        </member>
+        <member name="P:Sirenix.Serialization.UnitySerializationUtility.ForceEditorModeSerialization">
+            <summary>
+            Whether to always force editor mode serialization. This member only exists in the editor.
             </summary>
         </member>
         <member name="M:Sirenix.Serialization.UnitySerializationUtility.GetRegisteredPrefabModifications(UnityEngine.Object)">

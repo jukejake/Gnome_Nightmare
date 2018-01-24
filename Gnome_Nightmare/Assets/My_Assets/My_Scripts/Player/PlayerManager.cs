@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
     void Awake() { instance = this; }
     public GameObject player;
 
+
     public bool MenuOpen = false;
     public int TriggerHit = 0;
     private float MenuTimer = 0.0f;
@@ -51,6 +52,7 @@ public class PlayerManager : MonoBehaviour {
             if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
         }
         else if (Input.GetButton("Tab") && MenuTimer <= 0.0f) {
+
             //If player is in a menu exit it
             if (MenuOpen) { ExitMenus(); return; }
 
@@ -187,37 +189,37 @@ public class PlayerManager : MonoBehaviour {
         menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
         MenuTimer = 0.3f;
     }
-    private void CloseDropMenu() {
+    public void CloseDropMenu() {
         Cursor.lockState = CursorLockMode.Locked;
         MenuOpen = false;
         menuManager.EnableGraphicRaycaster(false);
         color.a = 0.0f;
         menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
         MenuTimer = 0.3f;
+
     }
 
 
     private void ExitMenus() {
         MenuTimer = 0.3f;
         //If a menu is open, close it
-        if (MenuOpen) {
-            Crafting_Table.instance.CloseCraftingTable();
-            ButtonManager.instance.ClosePauseMenu();
-            ButtonManager.instance.CloseScoreMenu();
-            CloseDropMenu();
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        CloseDropMenu();
+        if (Crafting_Table.instance) { Crafting_Table.instance.CloseCraftingTable(); }
+        if (ButtonManager.instance) { ButtonManager.instance.ClosePauseMenu(); }
+        if (ButtonManager.instance) { ButtonManager.instance.CloseScoreMenu(); }
+        Cursor.lockState = CursorLockMode.Locked;
+        MenuOpen = false;
     }
     private bool ExitAllMenus() {
         if (MenuOpen) {
             MenuTimer = 0.3f;
-            MenuOpen = false;
             //If a menu is open, close it
+            CloseDropMenu();
             if (Crafting_Table.instance) { Crafting_Table.instance.CloseCraftingTable(); }
             if (ButtonManager.instance) { ButtonManager.instance.ClosePauseMenu(); }
             if (ButtonManager.instance) { ButtonManager.instance.CloseScoreMenu(); }
-            CloseDropMenu();
             Cursor.lockState = CursorLockMode.Locked;
+            MenuOpen = false;
             return true;
         }
         else { return false; }
