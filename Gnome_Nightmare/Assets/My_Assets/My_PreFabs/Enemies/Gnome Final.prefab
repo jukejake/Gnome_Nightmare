@@ -1093,7 +1093,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411228102761998}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f7f3db67a9457c444afcd055f85086dd, type: 3}
+  m_Avatar: {fileID: 9000000, guid: be708bd8661d4ef4cb71e95b1d88e7b8, type: 3}
   m_Controller: {fileID: 9100000, guid: 1df83c52bb5517549907fb5803ccbba3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1102,6 +1102,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114168582606974530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1267,9 +1268,11 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 6683357b22fa53c47b46996174d0d2f0, type: 2}
   m_StaticBatchInfo:
@@ -1282,6 +1285,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

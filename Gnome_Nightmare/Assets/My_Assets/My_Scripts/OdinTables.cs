@@ -23,7 +23,18 @@
         [TableMatrix(HorizontalTitle = "Row", VerticalTitle = "Col")]
         public GameObject[,] table3x5 = new GameObject[3, 5];
     }
-
+    
+    public class Table3x1 {
+        [HideLabel]
+        [HorizontalGroup("A"), LabelWidth(25)]
+        public GameObject A;
+        [HideLabel]
+        [HorizontalGroup("B"), LabelWidth(25)]
+        public GameObject B;
+        [HideLabel]
+        [HorizontalGroup("= C"), LabelWidth(25)]
+        public GameObject C;
+    }
 
 
 

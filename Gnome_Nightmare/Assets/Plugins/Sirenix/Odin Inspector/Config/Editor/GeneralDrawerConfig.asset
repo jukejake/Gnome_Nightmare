@@ -20,6 +20,9 @@ MonoBehaviour:
   hidePagingWhileCollapsed: 1
   hidePagingWhileOnlyOnePage: 1
   showExpandButton: 1
-  quaternionDrawMode: 0
+  quaternionDrawMode: 1
   showPrefabModificationsDisabledMessage: 1
   maxRecursiveDrawDepth: 10
+  showIndexLabels: 0
+  squareUnityObjectFieldHeight: 50
+  squareUnityObjectAlignment: 1
