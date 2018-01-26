@@ -549,8 +549,6 @@ GameObject:
   - component: {fileID: 65122222911768974}
   - component: {fileID: 136779402699431528}
   - component: {fileID: 114322951171868344}
-  - component: {fileID: 114290784194240774}
-  - component: {fileID: 114607273277313462}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -3271,7 +3269,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 1
   m_Range: 30
   m_SpotAngle: 60
   m_CookieSize: 10
@@ -3358,28 +3356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
---- !u!114 &114290784194240774
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333888178946622}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c939a80444709b42af72d3a6f30a5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCDialogue:
-    NumberOfSentences: 0
-    NameOfNPC: 
-    FileName:
-    - 
-    sentences:
-    - 
-  LoadText: {fileID: 0}
-  TextNumber: 0
-  Dialogue_Prefab: {fileID: 1688183183666556, guid: de0d9da39db354c4faa570a34e57e2fe,
-    type: 2}
 --- !u!114 &114303771414179168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3533,17 +3509,6 @@ MonoBehaviour:
   r_IsGrounded: {fileID: 136567880580534040}
   animPer_H: 0
   animPer_V: 0
---- !u!114 &114607273277313462
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333888178946622}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c4f3be2932fdf4f95b52253db315c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114767190808961908
 MonoBehaviour:
   m_ObjectHideFlags: 1
