@@ -6,7 +6,7 @@ public class EnemyStats : CharacterStats {
 
     public int Experience = 1;
     public int Points = 1;
-    public GameObject ParticlesOnDeath;
+    //public GameObject ParticlesOnDeath;
 
     private void Update() {
        HealthBar();
@@ -44,10 +44,10 @@ public class EnemyStats : CharacterStats {
         if (this.gameObject.GetComponent<BoxCollider>()) { this.gameObject.GetComponent<BoxCollider>().enabled = false; }
         if (this.gameObject.GetComponent<MeshCollider>()) { this.gameObject.GetComponent<MeshCollider>().enabled = false; }
 
-        if (ParticlesOnDeath != null) {
-            GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);
-            Destroy(v_ParticlesOnDeath, 3.0f);
-        }
+        //if (ParticlesOnDeath != null) {
+        //    GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);
+        //    Destroy(v_ParticlesOnDeath, 3.0f);
+        //}
     }
 
     private void HealthBar(){

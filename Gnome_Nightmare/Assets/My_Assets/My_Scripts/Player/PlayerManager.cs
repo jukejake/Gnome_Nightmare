@@ -87,13 +87,15 @@ public class PlayerManager : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         if (MenuOpen) { return; }
         //If player is selecting a 
-        if ((Input.GetButton("E") || Input.GetButton("Tab")) && MenuTimer == 0.0f) {
+        if ((Input.GetButton("E") || Input.GetButton("CB")) && MenuTimer == 0.0f) {
             //If player interacts with an item
-            if (other.tag == "Items" && Input.GetButton("E")) { ItemPickUp(other); }
+            if (other.tag == "Items") { ItemPickUp(other); }
+        }
+        else if (Input.GetButton("Tab") && MenuTimer == 0.0f) {
             //If player interacts with a Computer
-            else if (other.tag == "Check_Tag" && (Input.GetButton("Tab"))) { OpenCheckTag(other); }
+            if (other.tag == "Check_Tag") { OpenCheckTag(other); }
             //If player interacts with a crafting table
-            else if (other.tag == "Crafting_Table" && (Input.GetButton("Tab"))) { CraftingMenu(other); }
+            else if (other.tag == "Crafting_Table") { CraftingMenu(other); }
             //If player interacts with a NPC
             else if (other.tag == "NPC") { }
         }

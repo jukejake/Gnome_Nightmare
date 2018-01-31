@@ -77,7 +77,7 @@ public class Player_Movement : MonoBehaviour {
 
         if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
             //Get movement
-            if (Input.GetButton("Run")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
+            if (Input.GetButton("Run") || Input.GetButton("LeftStickDown")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
             else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed); }
 
             //Debug.Log("["+ Jump.y + "]");

@@ -119,56 +119,60 @@ public class MenuManager : MonoBehaviour {
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
         }
 
-        if (Input.GetAxis("D-pad Y") >= 00.2f) {
+        if (Input.GetAxis("D-pad Y") >= 00.2f || Input.GetButton("Fire3")) {
             if (CurrentSlot == -1) { return; }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            Switch();
             CurrentSlot = -1;
         }
 
         if (Input.GetAxis("D-pad Y") <= -0.2f) {
             if (CurrentSlot == -1) { return; }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            DropItem();
+            CurrentSlot = -1;
+        }
+        if (PlayerManager.instance.MenuOpen) { CurrentSlot = -1; return; }
+        //if (Input.GetButton("Fire3") || Input.GetButton("CA")) { Switch(); }
+
+        if (Input.GetButton("CA") || Input.GetButton("CB")|| Input.GetButton("CX")|| Input.GetButton("CY") || Input.GetButton("E") || Input.GetButton("Run")
+            || Input.GetAxis("Horizontal") >= 0.2f || Input.GetAxis("Vertical") >= 0.2f || Input.GetButton("Fire1") || Input.GetButton("Fire2")
+            || Input.GetButton("Tab") || Input.GetButton("Left Trigger") || Input.GetButton("Right Trigger"))
+        {
+            if (CurrentSlot == -1) { return; }
+            Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
             CurrentSlot = -1;
         }
 
 
-        if (PlayerManager.instance.MenuOpen) { return; }
+    }
+    private void Switch() {
+        if (CurrentSlot == -1) { return; }
+        if (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon) {
+            if (Weapon_Slot.transform.childCount != 0) {
+                timer = timerValue;
+                UnEquipWeapon();
+                Weapon_Slot.transform.GetChild(0).SetParent(Inventory_Slot.transform);
+                Inventory_Slot.transform.GetChild(CurrentSlot).SetParent(Weapon_Slot.transform);
+                Weapon_Slot.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-
-        if (Input.GetButton("Fire3") || Input.GetButton("CB")) {
-            if (CurrentSlot == -1) { return; }
-            if (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon) {
-                if (Weapon_Slot.transform.childCount != 0) {
-                    timer = timerValue;
-                    UnEquipWeapon();
-                    Weapon_Slot.transform.GetChild(0).SetParent(Inventory_Slot.transform);
-                    Inventory_Slot.transform.GetChild(CurrentSlot).SetParent(Weapon_Slot.transform);
-                    Weapon_Slot.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
-
-                    Inventory_Slot.transform.GetChild(Inventory_Slot.transform.childCount-1).transform.SetSiblingIndex(CurrentSlot);
-                    //
-                    //Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
-                    CurrentSlot -= 1;
-                    
-                    EquipWeapon();
-                    //Debug.Log("Swap");
-                }
-                else {
-                    timer = timerValue;
-                    Inventory_Slot.transform.GetChild(CurrentSlot).SetParent(Weapon_Slot.transform);
-                    Weapon_Slot.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    EquipWeapon();
-                    //Debug.Log("Push");
-                    CurrentSlot -= 1;
-                }
+                Inventory_Slot.transform.GetChild(Inventory_Slot.transform.childCount-1).transform.SetSiblingIndex(CurrentSlot);
+                //Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
+                CurrentSlot -= 1;
+                
+                EquipWeapon();
+                //Debug.Log("Swap");
+            }
+            else {
+                timer = timerValue;
+                Inventory_Slot.transform.GetChild(CurrentSlot).SetParent(Weapon_Slot.transform);
+                Weapon_Slot.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                EquipWeapon();
+                CurrentSlot -= 1;
+                //Debug.Log("Push");
             }
         }
-
-        if (Input.GetKeyDown("u")){
-            DropItem();
-        }
     }
-
     public void EnableGraphicRaycaster(bool enable) {
         Menu.GetComponent<GraphicRaycaster>().enabled = enable;
     }

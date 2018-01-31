@@ -77,7 +77,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
             else { HitScanWeapons_Shoot(); }
         }
         //If the player presses Right Click 
-        if (Input.GetButtonDown("Fire2") && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
+        if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
     }
     [ToggleGroup("WeaponTypeHitScan")]
     private void HitScanWeapons_Shoot() {
