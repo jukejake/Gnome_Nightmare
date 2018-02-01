@@ -130,7 +130,7 @@ public class Player_Movement : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         if (collision.contacts.Length > 0) {
             if (Vector3.Dot(transform.up, collision.contacts[0].normal) > 0.5f) {
-                m_IsGrounded = true;
+                //m_IsGrounded = true;
             }
         }
     }

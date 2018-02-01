@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 65686520610415860}
   - component: {fileID: 114299857556795920}
   - component: {fileID: 114671535914202298}
-  - component: {fileID: 208012992750441828}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -40,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1275628401842722}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,9 +53,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bbdad49b920a1224babb0ab6c47c4ac6, type: 2}
   m_StaticBatchInfo:
@@ -69,6 +70,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -121,26 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c9963c4662cde49a8d401e4b3c0df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 5
   Damage:
+    stat: 0
     baseValue: 0
-    modifiers: []
   Armour:
+    stat: 0
     baseValue: 0
-    modifiers: []
-  Experience: 1
---- !u!208 &208012992750441828
-NavMeshObstacle:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275628401842722}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  Experience: 0
+  Points: 0

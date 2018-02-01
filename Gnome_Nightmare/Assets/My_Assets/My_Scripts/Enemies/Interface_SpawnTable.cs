@@ -15,6 +15,7 @@ namespace EnemySpawners {
         public float TimeBetweenRounds = 10.0f;
         public int CurrentLevel = 0;
         public int OldLevel = -1;
+        public bool EverythingDead = false;
         private GameObject EnemyInfoUI;
         public Spawner_Manager[] spawnerManager;
         public Spawner_Settings[] spawnerSettings;
@@ -28,7 +29,6 @@ namespace EnemySpawners {
         //Used so that everything gets a chance to load before trying to accsess it
         private void DelayedStart() {
             CurrentLevel = OldLevel = 0;
-            //ActivateAllSpawnersInCurrentRound();
             //Finds and updates the UI
             if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
                 EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;
@@ -40,10 +40,12 @@ namespace EnemySpawners {
         private void Update () {
             if (ToggleAll) { return; }
             UpdateUI();
-                    //At the end of a round, spawn a new round
-            if (OldLevel == CurrentLevel && CheckAliveEnemyCount() == 0) {
+            if (CheckAliveEnemyCount() == 0) { EverythingDead = true; }
+            else { EverythingDead = false; }
+            //At the end of a round, spawn a new round
+            if (OldLevel == CurrentLevel && EverythingDead) {
                 //Activate all spawners
-                ActivateAllSpawnersInCurrentRound();
+                //ActivateAllSpawnersInCurrentRound();
             }
         }
         
