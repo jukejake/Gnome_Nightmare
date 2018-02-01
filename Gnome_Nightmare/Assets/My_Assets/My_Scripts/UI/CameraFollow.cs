@@ -62,13 +62,9 @@ public class CameraFollow : SerializedMonoBehaviour {
         else if (!is3rdPerson) { Camera1stPerson(); }
     }
     //Set position of camera
-    public void SetPosition(Transform m_transform) {
-        playerTransform = m_transform;
-    }
+    public void SetPosition(Transform m_transform) { playerTransform = m_transform; }
     //Set rotation of camera
-    public void SetRotation(Vector2 m_rotation) {
-        playerRotation = m_rotation;
-    }
+    public void SetRotation(Vector2 m_rotation) { playerRotation = m_rotation; }
 
     public void SwitchPerspective() {
         if (is3rdPerson) {

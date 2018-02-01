@@ -46,8 +46,9 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     protected PlayerManager playerManager;
     protected MenuManager menuManager;
     protected GameObject AmountText;
+    protected Transform EffectTab;
     #endregion
-    
+
     // Use this for initialization
     private void Start() {
         Invoke("DelayedStart", 0.1f);
@@ -55,6 +56,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         playerManager = PlayerManager.instance;
         menuManager = MenuManager.instance;
         SetTextToAmount();
+        EffectTab = GameObject.Find("EffectTab").transform;
     }
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {  }
@@ -108,6 +110,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
 
             //Spawn a Particle System at where the Raycast hit
             GameObject ImpactAtHit = Instantiate(ImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            ImpactAtHit.transform.SetParent(EffectTab.transform);
             Destroy(ImpactAtHit, 2.0f);
         }
         else {
@@ -141,7 +144,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         }
 
         //If the player presses Right Click 
-        if (Input.GetButtonDown("Fire2") && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
+        if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
         
     }
     [ToggleGroup("WeaponTypeProjectile")]
@@ -151,6 +154,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         this.Stats.AmountCount.baseValue--;
         //spawn bullet
         s_clone = (GameObject)Instantiate(s_bullet, s_Spawner.transform.position, s_Spawner.transform.rotation);
+        s_clone.transform.SetParent(EffectTab.transform);
         s_clone.GetComponent<Bullet_Benaviour>().SetPlayerManager(playerManager);
         s_clone.GetComponent<Bullet_Benaviour>().SetDamage(this.Stats.Damage.GetValue());
         if (CameraControl.isAiming) { ProjectileWeapons_RaycastProjectile(); }

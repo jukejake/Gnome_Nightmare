@@ -135,7 +135,7 @@ public class MenuManager : MonoBehaviour {
         if (PlayerManager.instance.MenuOpen) { CurrentSlot = -1; return; }
         //if (Input.GetButton("Fire3") || Input.GetButton("CA")) { Switch(); }
 
-        if (Input.GetButton("CA") || Input.GetButton("CB")|| Input.GetButton("CX")|| Input.GetButton("CY") || Input.GetButton("E") || Input.GetButton("Run")
+        if (Input.GetButton("CA") || Input.GetButton("CB")|| Input.GetButton("CX") || Input.GetButton("CY") || Input.GetButton("E") || Input.GetButton("Run")
             || Input.GetAxis("Horizontal") >= 0.2f || Input.GetAxis("Vertical") >= 0.2f || Input.GetButton("Fire1") || Input.GetButton("Fire2")
             || Input.GetButton("Tab") || Input.GetButton("Left Trigger") || Input.GetButton("Right Trigger"))
         {

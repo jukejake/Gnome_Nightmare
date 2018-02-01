@@ -35,7 +35,9 @@ public class PlayerManager : MonoBehaviour {
 
         if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
 
-        if (Input.GetKey(KeyCode.Escape) && MenuTimer <= 0.0f) {
+        if (MenuTimer > 0.0f) { return; }
+
+        if (Input.GetKey(KeyCode.Escape) || Input.GetButton("Start")) {
             //If player is in a menu exit it
             if (ExitAllMenus()){ return; }
             MenuTimer = 0.1f;
@@ -43,7 +45,7 @@ public class PlayerManager : MonoBehaviour {
             //Enter pause menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenPauseMenu(); }
         }
-        else if (Input.GetKey(KeyCode.BackQuote) && MenuTimer <= 0.0f) {
+        else if (Input.GetKey(KeyCode.BackQuote) || Input.GetButton("Back")) {
             //If player is in a menu exit it
             if (ExitAllMenus()) { return; }
             MenuTimer = 0.3f;
@@ -51,7 +53,7 @@ public class PlayerManager : MonoBehaviour {
             //Enter score menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
         }
-        else if (Input.GetButton("Tab") && MenuTimer <= 0.0f) {
+        else if (Input.GetButton("Tab")) {
 
             //If player is in a menu exit it
             if (MenuOpen) { ExitMenus(); return; }
@@ -59,7 +61,8 @@ public class PlayerManager : MonoBehaviour {
             //Enter drop menu
             if (TriggerHit == 0) { OpenDropMenu(); }
         }
-        else if (Input.GetKeyDown(KeyCode.F)) {
+        else if (Input.GetKeyDown(KeyCode.F) || Input.GetButton("RightStickDown")) {
+            MenuTimer = 0.3f;
             if (this.transform.Find("Flash_Light")){
                 this.transform.Find("Flash_Light").GetComponent<SwitchActive>().Switch();
             }
@@ -85,13 +88,13 @@ public class PlayerManager : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) { if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit++; } }
     private void OnTriggerStay(Collider other) {
-        if (MenuOpen) { return; }
+        if (MenuOpen || MenuTimer > 0.0f) { return; }
         //If player is selecting a 
-        if ((Input.GetButton("E") || Input.GetButton("CB")) && MenuTimer == 0.0f) {
+        if (Input.GetButton("E") || Input.GetButton("CB")) {
             //If player interacts with an item
             if (other.tag == "Items") { ItemPickUp(other); }
         }
-        else if (Input.GetButton("Tab") && MenuTimer == 0.0f) {
+        else if (Input.GetButton("Tab") || Input.GetButton("CY")) {
             //If player interacts with a Computer
             if (other.tag == "Check_Tag") { OpenCheckTag(other); }
             //If player interacts with a crafting table

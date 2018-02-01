@@ -12,28 +12,16 @@
     }
     
     public class Table1x5 {
-        [TableMatrix(HorizontalTitle = "Row", VerticalTitle = "Col")]
+        [TableMatrix(SquareCells = true, HideColumnIndices = true, HideRowIndices = true)]
         public GameObject[,] table1x5 = new GameObject[1, 5];
     }
     public class Table2x5 {
-        [TableMatrix(HorizontalTitle = "Row", VerticalTitle = "Col")]
+        [TableMatrix(SquareCells = true, HideColumnIndices = true, HideRowIndices = true)]
         public GameObject[,] table2x5 = new GameObject[2, 5];
     }
     public class Table3x5 {
-        [TableMatrix(HorizontalTitle = "Row", VerticalTitle = "Col")]
+        [TableMatrix(SquareCells = true, HideColumnIndices = true, HideRowIndices = true)]
         public GameObject[,] table3x5 = new GameObject[3, 5];
-    }
-    
-    public class Table3x1 {
-        [HideLabel]
-        [HorizontalGroup("A"), LabelWidth(25)]
-        public GameObject A;
-        [HideLabel]
-        [HorizontalGroup("B"), LabelWidth(25)]
-        public GameObject B;
-        [HideLabel]
-        [HorizontalGroup("= C"), LabelWidth(25)]
-        public GameObject C;
     }
 
 

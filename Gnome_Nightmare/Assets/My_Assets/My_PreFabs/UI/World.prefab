@@ -1332,26 +1332,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &1095473008828956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4759710005859344}
-  - component: {fileID: 20264439614069162}
-  - component: {fileID: 124889672414969434}
-  - component: {fileID: 81874964133096364}
-  - component: {fileID: 114474925871999732}
-  - component: {fileID: 114301624034984144}
-  m_Layer: 8
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1096598699716464
 GameObject:
   m_ObjectHideFlags: 1
@@ -3258,7 +3238,7 @@ GameObject:
   - component: {fileID: 4880630198605854}
   - component: {fileID: 135112671135293252}
   - component: {fileID: 114933423896791840}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Computer
   m_TagString: Check_Tag
   m_Icon: {fileID: 0}
@@ -5123,21 +5103,6 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!1 &1392986624371960
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4491035838480706}
-  m_Layer: 8
-  m_Name: CameraLookingAt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1395845159457830
 GameObject:
@@ -7029,6 +6994,21 @@ GameObject:
   - component: {fileID: 114083911802540866}
   m_Layer: 5
   m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1542550799628402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4928511396188414}
+  m_Layer: 0
+  m_Name: EffectTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15119,9 +15099,9 @@ Transform:
   - {fileID: 4805992169081562}
   - {fileID: 4424801255605462}
   - {fileID: 224502598900125060}
-  - {fileID: 4759710005859344}
   - {fileID: 4940851722441474}
   - {fileID: 4536156505013762}
+  - {fileID: 4928511396188414}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16247,19 +16227,6 @@ Transform:
   m_Father: {fileID: 4070684083611922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4491035838480706
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392986624371960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4759710005859344}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4491915366742166
 Transform:
   m_ObjectHideFlags: 1
@@ -16512,7 +16479,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4349232786951728}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4537852197439584
 Transform:
@@ -18320,20 +18287,6 @@ Transform:
   m_Father: {fileID: 4719073496082148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4759710005859344
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.55, z: -7.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4491035838480706}
-  m_Father: {fileID: 4349232786951728}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4760109208101696
 Transform:
   m_ObjectHideFlags: 1
@@ -19542,6 +19495,19 @@ Transform:
   m_Father: {fileID: 4393774093722888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4928511396188414
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542550799628402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4349232786951728}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4930490584898734
 Transform:
   m_ObjectHideFlags: 1
@@ -19633,7 +19599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4349232786951728}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 36.258003, y: 213.86299, z: 6.0920005}
 --- !u!4 &4941136434298102
 Transform:
@@ -20079,42 +20045,6 @@ Transform:
   m_Father: {fileID: 4015281889114136}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20264439614069162
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.08823532, g: 0.20770784, b: 1, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: 3
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!23 &23006862900365494
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -38224,13 +38154,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2.3, z: 0.5}
   m_Center: {x: -2.35, y: 1.05, z: 0}
---- !u!81 &81874964133096364
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_Enabled: 1
 --- !u!108 &108047222794571678
 Light:
   m_ObjectHideFlags: 1
@@ -41709,38 +41632,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114301624034984144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510976746d28f3442811e679fe5e31fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  isFollowingThis: 1
-  FollowThis: {fileID: 0}
-  HeadHeight: 0.12
-  HeadDepth: 0.1
-  Height1st: 0.9
-  Depth1st: 0
-  Height3rd: 3
-  Depth3rd: -4
-  CameraFollowSpeed: 8
-  endPoint: {fileID: 0}
-  AdsSpeed: 16
-  Switch3rdPerson: 1
 --- !u!114 &114302868256712776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43378,18 +43269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropDown: {fileID: 0}
   ExcludedIfContains: []
---- !u!114 &114474925871999732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 8cd50316fff878542b1a54a81256e9ff, type: 2}
 --- !u!114 &114483075501420884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -47262,12 +47141,12 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
-    - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
-    - {fileID: 1813944035144450, guid: 9ec456e276d4af748aad151e0bb850d9, type: 2}
     - {fileID: 1734769081431432, guid: b06daa9e2c02a8340a2f8e5e29cc7818, type: 2}
     - {fileID: 1619705541799120, guid: 01bb54ef076d920459ae1fe6b8a2f6de, type: 2}
+    - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
     - {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
     - {fileID: 1852295044341306, guid: 2a5ea530da53e0b428a5b039d8afe611, type: 2}
+    - {fileID: 1813944035144450, guid: 9ec456e276d4af748aad151e0bb850d9, type: 2}
     - {fileID: 1110811399918626, guid: b6b13d8d49ff0c846b55aa2a4d67ed4d, type: 2}
     - {fileID: 1015350844037250, guid: 45c7bd021c57337478dab6c096b57ae4, type: 2}
     SerializedBytesString: 
@@ -47275,62 +47154,19 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: TestingTable
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[OdinTables.Table3x1, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|OdinTables.Table3x1, Assembly-CSharp
-    - Name: A
-      Entry: 10
-      Data: 0
-    - Name: B
-      Entry: 10
-      Data: 1
-    - Name: C
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|OdinTables.Table3x1, Assembly-CSharp
-    - Name: A
-      Entry: 6
-      Data: 
-    - Name: B
-      Entry: 6
-      Data: 
-    - Name: C
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: CombinedTable
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[OdinTables.Table3x5, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.List`1[[OdinTables.Table3x5, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 4|OdinTables.Table3x5, Assembly-CSharp
+      Data: 1|OdinTables.Table3x5, Assembly-CSharp
     - Name: table3x5
       Entry: 7
-      Data: 5|UnityEngine.GameObject[,], UnityEngine.CoreModule
+      Data: 2|UnityEngine.GameObject[,], UnityEngine.CoreModule
     - Name: 
       Entry: 12
       Data: 15
@@ -47342,34 +47178,34 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 10
       Data: 3
     - Name: 
       Entry: 10
       Data: 4
     - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
       Entry: 10
       Data: 5
     - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
       Entry: 10
       Data: 6
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 10
-      Data: 2
     - Name: 
       Entry: 10
       Data: 7
@@ -47399,17 +47235,17 @@ MonoBehaviour:
       Data: 
     - Name: ModifierTable
       Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[OdinTables.Table2x5, Assembly-CSharp]],
+      Data: 3|System.Collections.Generic.List`1[[OdinTables.Table2x5, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 7|OdinTables.Table2x5, Assembly-CSharp
+      Data: 4|OdinTables.Table2x5, Assembly-CSharp
     - Name: table2x5
       Entry: 7
-      Data: 8|UnityEngine.GameObject[,], UnityEngine.CoreModule
+      Data: 5|UnityEngine.GameObject[,], UnityEngine.CoreModule
     - Name: 
       Entry: 12
       Data: 10
@@ -47433,7 +47269,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 6
       Data: 
@@ -48471,13 +48307,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!124 &124889672414969434
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095473008828956}
-  m_Enabled: 1
 --- !u!135 &135112671135293252
 SphereCollider:
   m_ObjectHideFlags: 1

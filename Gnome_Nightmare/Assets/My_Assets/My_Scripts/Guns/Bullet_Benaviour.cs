@@ -37,12 +37,14 @@ public class Bullet_Benaviour : MonoBehaviour {
                 Quaternion rot = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 Vector3 bulletHoleSpawnPos = hit.point + (hit.normal * 0.05f);
                 GameObject s_bulletHole = Instantiate(bulletHole, bulletHoleSpawnPos, rot);
+                s_bulletHole.transform.SetParent(GameObject.Find("EffectTab").transform);
                 bulletHoleCount++;
                 Destroy(s_bulletHole, 5.0f);
             }
         }
         //Spawn a Particle System at where the Raycast hit
         GameObject ImpactAtHit = Instantiate(ImpactEffect, this.transform.position, Quaternion.LookRotation(-this.transform.forward));
+        ImpactAtHit.transform.SetParent(GameObject.Find("EffectTab").transform);
         Destroy(ImpactAtHit, 2.0f);
         Destroy(this.gameObject);
     }

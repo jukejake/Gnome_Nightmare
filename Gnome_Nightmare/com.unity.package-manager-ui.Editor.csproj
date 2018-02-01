@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.1.0b4</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -300,11 +298,11 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ChatSystem">
-      <HintPath>Assets/My_Assets/My_Plugins/ChatSystem.dll</HintPath>
-    </Reference>
     <Reference Include="ParticleEmitterPlugin">
-      <HintPath>Assets/My_Assets/My_Plugins/ParticleEmitterPlugin.dll</HintPath>
+      <HintPath>Assets/My_Assets/My_Plugins/Particle/ParticleEmitterPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="ChatSystem">
+      <HintPath>Assets/My_Assets/My_Plugins/Server_Client_CS/ChatSystem.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
@@ -371,52 +369,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\AssemblyInfo.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\External\SemVersion.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\External\SemVersionExtension.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Common\OperationSignal.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Common\ThreadedDelay.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\IAddOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\IBaseOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\IListOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\IOperationFactory.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\IRemoveOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Interfaces\ISearchOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\OperationFactory.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\Package.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageCollection.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageFilter.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageGroupOrigins.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageInfo.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageInfoListExtensions.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageListExtensions.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Packages\PackageState.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmAddOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmBaseOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmListOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmOperationFactory.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmRemoveOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\Services\Upm\UpmSearchOperation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\Common\Alert.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\Common\Caret.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\Common\LoadingSpinner.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\Common\UIUtils.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageDetails.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageGroup.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageItem.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageList.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageManagerWindow.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Sources\UI\PackageSearchFilterTabs.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\IValidationTest.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\IValidationTestResult.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\UI\PackageValidationWindow.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\Utilities\Utilities.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationSuite.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationTests\AssemblyDefinitionValidation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationTests\BaseValidation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationTests\ChangeLogValidation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationTests\ManifestValidation.cs" />
-    <Compile Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\ValidationSuite\ValidationTests\MetaFilesValidation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\AssemblyInfo.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\External\SemVersion.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\External\SemVersionExtension.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\OperationSignal.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\ThreadedDelay.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IAddOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IBaseOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IListOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IOperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IRemoveOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\ISearchOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\OperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\Package.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageCollection.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageFilter.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageGroupOrigins.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageInfo.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageInfoListExtensions.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageListExtensions.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageState.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmAddOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmBaseOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmListOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmOperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmRemoveOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmSearchOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\Alert.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\Caret.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\LoadingSpinner.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\UIUtils.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageDetails.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageGroup.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageItem.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageList.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageManagerWindow.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageSearchFilterTabs.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\IValidationTest.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\IValidationTestResult.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\UI\PackageValidationWindow.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\Utilities\Utilities.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationSuite.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationTests\AssemblyDefinitionValidation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationTests\BaseValidation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationTests\ChangeLogValidation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationTests\ManifestValidation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\ValidationSuite\ValidationTests\MetaFilesValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\My_Assets\CommentsToDue.txt" />
@@ -486,19 +484,20 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Styles\Main_Dark.uss" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Styles\Main_Light.uss" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\Alert.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageDetails.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageGroup.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageItem.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageList.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageManagerWindow.uxml" />
-    <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageDetails.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageGroup.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageItem.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageList.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerWindow.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageSearchFilterTabs.uxml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

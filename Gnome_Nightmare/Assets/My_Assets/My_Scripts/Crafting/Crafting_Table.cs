@@ -13,9 +13,6 @@ public class Crafting_Table : SerializedMonoBehaviour {
     //[HideLabel]
     //[PreviewField(50, ObjectFieldAlignment.Left)]
     //public Object D;
-    [FoldoutGroup("Testing Table")]
-    [TableList]
-    public List<OdinTables.Table3x1> TestingTable = new List<OdinTables.Table3x1>();
 
     [FoldoutGroup("Combined Table")]
     [TableList]
