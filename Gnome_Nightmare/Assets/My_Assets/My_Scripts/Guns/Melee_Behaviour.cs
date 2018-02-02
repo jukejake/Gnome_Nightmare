@@ -26,8 +26,10 @@ public class Melee_Behaviour : SerializedMonoBehaviour {
     private void DelayedStart() { }
 
     // Update is called once per frame
-    void Update () {
-        if (playerManager.player.GetComponent<PlayerStats>().isDead) { return; }
+    void Update ()
+    {
+        if (this.playerManager.MenuOpen) { return; }
+        if (this.playerManager.player.GetComponent<PlayerStats>().isDead) { return; }
         MeleeWeapons_Update();
     }
 

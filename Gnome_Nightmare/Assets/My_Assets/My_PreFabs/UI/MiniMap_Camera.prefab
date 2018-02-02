@@ -72,11 +72,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!114 &114150032129133954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4810684190463952, guid: 611c7db145750b345bc06fd6b7d39832, type: 2}
   CameraHight: 20
-  Rotate: 0
+  Rotate: 1
