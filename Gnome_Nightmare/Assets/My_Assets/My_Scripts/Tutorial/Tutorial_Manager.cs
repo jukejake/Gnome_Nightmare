@@ -21,8 +21,12 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     [BoxGroup(group: "Managers")]
     public Interface_SpawnTable SpawnManager;
     private int OldLevel = 0;
-    [BoxGroup(group: "Barn Area")]
+    [BoxGroup(group: "Triggers")]
     public GameObject BarnArea;
+    [BoxGroup(group: "Triggers")]
+    public GameObject HouseArea;
+    [BoxGroup(group: "Triggers")]
+    public GameObject BunkerArea;
 
 
 
@@ -51,7 +55,9 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
 
                     T_BunkerFog = (GameObject)Instantiate(BunkerFog);
                     T_BunkerFog.name = BunkerFog.name;
-                break;
+
+                    SpawnManager.ToggleAll = true;
+                    break;
             }
             //In Barn
             case 0: {
@@ -72,6 +78,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Debug.Log("Round Start!");
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
+                        OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
                         Debug.Log("Round Over!");
                         Stage = 2;
@@ -81,6 +88,10 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             }
             //Unlock House
             case 2: {
+                    if (HouseArea.GetComponent<DidPlayerCollide>().IsTriggered) {
+                        HouseArea.SetActive(false);
+                        Stage = 3;
+                    }
                     break;
             }
             //Gnomes Attack House
@@ -93,6 +104,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Debug.Log("Round Start!");
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
+                        OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
                         Debug.Log("Round Over!");
                         Stage = 4;
