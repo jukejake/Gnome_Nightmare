@@ -18,6 +18,7 @@ ModelImporter:
     4300000: polySurface1248_MeshPart0
     4300002: polySurface1248_MeshPart1
     2186277476908879412: ImportLogs
+    2186277476908879414: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material

@@ -1214,8 +1214,6 @@ MonoBehaviour:
     baseValue: 0
   Experience: 3
   Points: 1
-  ParticlesOnDeath: {fileID: 1479317777403278, guid: 7e1bc8fa375436c45aa0337b8fa5d364,
-    type: 2}
 --- !u!114 &114947389887852396
 MonoBehaviour:
   m_ObjectHideFlags: 1
