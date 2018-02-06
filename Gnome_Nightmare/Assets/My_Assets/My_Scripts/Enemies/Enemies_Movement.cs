@@ -97,11 +97,13 @@ public class Enemies_Movement : MonoBehaviour {
     }
 
     private void AttackPlayer(int playerNum) {
+        //Enemies will deal damage to the player
         players[playerNum].GetComponent<PlayerStats>().TakeDamage(this.gameObject.GetComponent<EnemyStats>().Damage.GetValue());
         if (anim != null) { anim.Play("Gnome_Hit", -1, 0f); }
     }
 
     private void Wonder() {
+        //Enemies will move around randomly
         timer = RandomUtils.RandomFloat(1.5f, 4.0f);
         navMeshAgent.SetDestination(this.transform.position + RandomUtils.RandomVector3InBox(new Vector3(-10.0f, 1.0f, -10.0f),new Vector3(10.0f, 1.0f, 10.0f)));
     }

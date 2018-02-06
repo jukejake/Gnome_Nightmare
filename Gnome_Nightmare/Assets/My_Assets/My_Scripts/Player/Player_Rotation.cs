@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player_Rotation : MonoBehaviour {
 
-    public Transform bone;
-    public Transform cameraTarget;
-    public Transform HitBox;
+    public Transform bone; //Players Spine
+    public Transform cameraTarget; //A target 10 meters infron of the camera
+    public Transform HitBox; //Players Hitbox
 
 
     private void Start() {
@@ -14,7 +14,7 @@ public class Player_Rotation : MonoBehaviour {
     }
 
     void LateUpdate() {
-        bone.LookAt(cameraTarget);
-        HitBox.LookAt(cameraTarget);
+        bone.LookAt(cameraTarget); //Rotate the Players spine
+        HitBox.LookAt(cameraTarget); //Rotate the Players hit box
     }
 }

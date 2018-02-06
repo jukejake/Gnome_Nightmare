@@ -60,6 +60,7 @@ ModelImporter:
     13700000: jacky_bare:Body
     2186277476908879412: ImportLogs
     2186277476908879414: ImportLogs
+    2186277476908879416: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material

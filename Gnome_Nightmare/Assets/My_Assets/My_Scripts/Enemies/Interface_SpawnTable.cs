@@ -6,20 +6,23 @@ namespace EnemySpawners {
         public static Interface_SpawnTable instance;
         void Awake() {
             instance = this;
+            //Find all Spawner_Managers that are on the field
             spawnerManager = FindObjectsOfType(typeof(Spawner_Manager)) as Spawner_Manager[];
+            //Find all Spawner_Settings that are on the field
             spawnerSettings = FindObjectsOfType(typeof(Spawner_Settings)) as Spawner_Settings[];
+            //Find all Spawner_Hubs that are on the field
             spawnerHub = FindObjectsOfType(typeof(Spawner_Hub)) as Spawner_Hub[];
         }
     
-        public bool ToggleAll = false;
-        public float TimeBetweenRounds = 10.0f;
-        public int CurrentLevel = 0;
+        public bool ToggleAll = false; //Toggle the state of evey spawner on the field
+        public float TimeBetweenRounds = 10.0f; //Time Between Rounds
+        public int CurrentLevel = 0; 
         public int OldLevel = -1;
-        public bool EverythingDead = false;
+        public bool EverythingDead = false; //Is everything dead?
         private GameObject EnemyInfoUI;
-        public Spawner_Manager[] spawnerManager;
-        public Spawner_Settings[] spawnerSettings;
-        public Spawner_Hub[] spawnerHub;
+        public Spawner_Manager[] spawnerManager; //An array of all Spawner_Managers
+        public Spawner_Settings[] spawnerSettings; //An array of all Spawner_Settings
+        public Spawner_Hub[] spawnerHub; //An array of all Spawner_Hubs
 
         // Use this for initialization
         private void Start () {
@@ -38,9 +41,9 @@ namespace EnemySpawners {
     
         // Update is called once per frame
         private void Update () {
-            if (ToggleAll) { return; }
-            UpdateUI();
-            if (CheckAliveEnemyCount() == 0) { EverythingDead = true; }
+            if (ToggleAll) { return; } //If taggled off, don't do anything
+            UpdateUI(); //updated UI
+            if (CheckAliveEnemyCount() == 0) { EverythingDead = true; } //Check if eveything is dead
             else { EverythingDead = false; }
             //At the end of a round, spawn a new round
             if (OldLevel == CurrentLevel && EverythingDead) {
@@ -53,6 +56,7 @@ namespace EnemySpawners {
     
         //Updates the UI and re-activates spawners at the end of the round
         public void UpdateUI() {
+            //Update UI
             if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]"); }
         }
     
@@ -122,14 +126,15 @@ namespace EnemySpawners {
                     }
                 }
             }
-            
+
+            //Goes through each spawner and checks if they are de-active
             totalSpawnerCount += spawnerSettings.Length;
             for (int i = 0; i < spawnerSettings.Length; i++) {
                 if (spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner) {
                     countDeActive += 1;
                 }
             }
-
+            //Goes through each spawner and checks if they are de-active
             totalSpawnerCount += spawnerHub.Length;
             for (int i = 0; i < spawnerHub.Length; i++) {
                 if (spawnerHub[i].isOff) {
@@ -208,9 +213,11 @@ namespace EnemySpawners {
                     spawnerManager[i].enemySpawnTable.spawners[j].spawnersDetails.DefeatedSpawner = true;
                 }
             }
+            //Goes through each spawner and sets the them to deactive
             for (int i = 0; i < spawnerSettings.Length; i++) {
                 spawnerSettings[i].spawner.spawnerDetails.DefeatedSpawner = true;
             }
+            //Goes through each spawner and sets the them to deactive
             for (int i = 0; i < spawnerHub.Length; i++) {
                 spawnerHub[i].isOff = true;
                 for (int j = 0; j < spawnerHub[i].EnemiesToSpawn.Count; j++) {
@@ -227,9 +234,11 @@ namespace EnemySpawners {
                     spawnerManager[i].enemySpawnTable.spawners[j].spawnersDetails.Spawn = amount;
                 }
             }
+            //Goes through each spawner and sets the interval between spawns
             for (int i = 0; i < spawnerSettings.Length; i++) {
                 spawnerSettings[i].spawner.spawnerDetails.Spawn = amount;
             }
+            //Goes through each spawner and sets the interval between spawns
             for (int i = 0; i < spawnerHub.Length; i++) {
                 spawnerHub[i].SpawnInterval = amount;
             }
@@ -242,9 +251,11 @@ namespace EnemySpawners {
                     spawnerManager[i].enemySpawnTable.spawners[j].spawnersDetails.Round = amount;
                 }
             }
+            //Goes through each spawner and sets the interval between rounds
             for (int i = 0; i < spawnerSettings.Length; i++) {
                 spawnerSettings[i].spawner.spawnerDetails.Round = amount;
             }
+            //Goes through each spawner and sets the interval between rounds
             for (int i = 0; i < spawnerHub.Length; i++) {
                 spawnerHub[i].RoundInterval = amount;
             }

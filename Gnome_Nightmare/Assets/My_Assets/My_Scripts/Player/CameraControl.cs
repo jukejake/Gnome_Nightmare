@@ -23,22 +23,19 @@ public class CameraControl : MonoBehaviour
     //private bool lookForward = true;
    
 
-    void Start()
-    {
+    void Start() {
         camTransform = transform;
         originalPos = camTransform.position;
     }
 
     //current values
-    void Update()
-    {
+    void Update()  {
         float t = 0.0f;
 
         currentPos = transform.position;
 
         currentX += Input.GetAxis("Mouse X");
-        if (isAiming)
-        {
+        if (isAiming)  {
             
             currentY += Input.GetAxis("Mouse Y");
             currentY = Mathf.Clamp(currentY, -72.0f, Y_ANGLE_MAX);
@@ -52,8 +49,7 @@ public class CameraControl : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(-currentY, currentX, 0);
             player.transform.rotation = rotation;            
         }
-        else
-        {    
+        else {    
             t = adsSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, originalPos, t);
 
@@ -61,25 +57,21 @@ public class CameraControl : MonoBehaviour
             currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
+        if (Input.GetMouseButtonDown(1)) {
             originalPlayerRot = new Quaternion(0.0f, player.transform.rotation.y, player.transform.rotation.z, player.transform.rotation.w);
             Debug.Log(t);
             originalPos = transform.position;           
             isAiming = true;         
         }
-        else if (Input.GetMouseButtonUp(1))
-        {
+        else if (Input.GetMouseButtonUp(1)) {
             isAiming = false;
             player.transform.rotation = originalPlayerRot;
         }
     }
 
     //when the camera moves with player
-    void LateUpdate()
-    {
-        if (!isAiming)
-        {
+    void LateUpdate() {
+        if (!isAiming) {
             //put camera in the center then got angle where player is looking and throw camera behind that angle
             Vector3 dir = new Vector3(0, 0, -distance);
             Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
@@ -87,8 +79,7 @@ public class CameraControl : MonoBehaviour
             camTransform.LookAt(lookAt.position);
             originalPos = transform.position;
         }
-        else
-        {
+        else {
             camTransform.forward = player.transform.forward;
         }
     }

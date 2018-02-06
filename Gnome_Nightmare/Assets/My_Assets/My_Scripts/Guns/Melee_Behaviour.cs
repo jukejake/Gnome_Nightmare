@@ -26,8 +26,7 @@ public class Melee_Behaviour : SerializedMonoBehaviour {
     private void DelayedStart() { }
 
     // Update is called once per frame
-    void Update ()
-    {
+    void Update () {
         if (this.playerManager.MenuOpen) { return; }
         if (this.playerManager.player.GetComponent<PlayerStats>().isDead) { return; }
         MeleeWeapons_Update();
@@ -37,8 +36,7 @@ public class Melee_Behaviour : SerializedMonoBehaviour {
     private bool weaponSwung = false;
     private int swingAnimCount = 0;
     private bool DownSwing = true;
-    void MeleeWeapons_Update()
-    {
+    void MeleeWeapons_Update() {
         if (weaponSwung == false && (Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
             weaponSwung = true;
