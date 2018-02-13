@@ -114,6 +114,10 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             }
             //Unlock Bunker
             case 4: {
+                    if (BunkerArea.GetComponent<DidPlayerCollide>().IsTriggered) {
+                        BunkerArea.SetActive(false);
+                        Stage = 5;
+                    }
                     break;
             }
             //Gnomes Attack Bunker
@@ -126,9 +130,25 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Debug.Log("Round Start!");
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
+                        OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
                         Debug.Log("Round Over!");
                         Stage = 6;
+                    }
+                    break;
+            }
+            case 6: {
+                    if (OldLevel == SpawnManager.OldLevel && SpawnManager.OldLevel == SpawnManager.CurrentLevel && SpawnManager.EverythingDead) {
+                        OldLevel = SpawnManager.CurrentLevel;
+                        SpawnManager.ToggleAll = false;
+                        //Activate all spawners
+                        SpawnManager.ActivateAllSpawnersInCurrentRound();
+                        Debug.Log("Round Start!");
+                    }
+                    if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
+                        OldLevel = SpawnManager.CurrentLevel;
+                        SpawnManager.ToggleAll = true;
+                        Debug.Log("Round Over!");
                     }
                     break;
             }

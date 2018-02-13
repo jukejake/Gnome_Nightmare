@@ -1159,17 +1159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c9963c4662cde49a8d401e4b3c0df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 25
   Damage:
     stat: 1
-    baseValue: 1
+    baseValue: 5
   Armour:
     stat: 8
     baseValue: 0
   Experience: 3
   Points: 1
-  ParticlesOnDeath: {fileID: 1479317777403278, guid: 7e1bc8fa375436c45aa0337b8fa5d364,
-    type: 2}
 --- !u!114 &114551254736712338
 MonoBehaviour:
   m_ObjectHideFlags: 1

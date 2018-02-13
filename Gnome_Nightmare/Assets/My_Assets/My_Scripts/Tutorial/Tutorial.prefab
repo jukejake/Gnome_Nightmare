@@ -45,7 +45,24 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!1 &1965816589658586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4866015374193652}
+  - component: {fileID: 114464703070333276}
+  - component: {fileID: 65295809689173382}
+  m_Layer: 2
+  m_Name: House Tringer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1978289192306040
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +74,7 @@ GameObject:
   - component: {fileID: 114405539676966110}
   - component: {fileID: 65021069731305170}
   m_Layer: 2
-  m_Name: House Tringer
+  m_Name: Bunker Tringer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +99,19 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978289192306040}
+  m_LocalRotation: {x: 0, y: 0.30070576, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 32, y: 0.5, z: 59}
+  m_LocalScale: {x: 12, y: 10, z: 8}
+  m_Children: []
+  m_Father: {fileID: 4881728663877952}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
+--- !u!4 &4866015374193652
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965816589658586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.39, y: 0.5, z: -1.24}
   m_LocalScale: {x: 4, y: 3, z: 2}
@@ -100,6 +130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172517034121086}
+  - {fileID: 4866015374193652}
   - {fileID: 4835295555059110}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,6 +141,18 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978289192306040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65295809689173382
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965816589658586}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -176,6 +219,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsTriggered: 0
+--- !u!114 &114464703070333276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965816589658586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d160a73ae9ebcfe45a8e1a2a1861a59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsTriggered: 0
 --- !u!114 &114503221605676024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,5 +258,5 @@ MonoBehaviour:
   Fire: {fileID: 0}
   SpawnManager: {fileID: 0}
   BarnArea: {fileID: 1523659325305206}
-  HouseArea: {fileID: 1978289192306040}
-  BunkerArea: {fileID: 0}
+  HouseArea: {fileID: 1965816589658586}
+  BunkerArea: {fileID: 1978289192306040}

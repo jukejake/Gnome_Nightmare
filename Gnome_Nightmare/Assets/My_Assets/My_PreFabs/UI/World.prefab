@@ -590,6 +590,24 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1040007199468094
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4869830672541038}
+  - component: {fileID: 33619570290041470}
+  - component: {fileID: 23185892423048068}
+  - component: {fileID: 65473148232310920}
+  m_Layer: 8
+  m_Name: Frontdoor Step
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1040252710556510
 GameObject:
   m_ObjectHideFlags: 1
@@ -5430,7 +5448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1357388576272196
 GameObject:
   m_ObjectHideFlags: 1
@@ -13535,6 +13553,24 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1907228820038596
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4103130824618604}
+  - component: {fileID: 33311073135613080}
+  - component: {fileID: 23828763235241420}
+  - component: {fileID: 65060137784368012}
+  m_Layer: 8
+  m_Name: Backdoor Step
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1907443288648518
 GameObject:
   m_ObjectHideFlags: 1
@@ -14685,7 +14721,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4621514546520878}
-  - component: {fileID: 114070396927866800}
+  - component: {fileID: 114689101973866300}
   m_Layer: 0
   m_Name: Static
   m_TagString: Untagged
@@ -15866,6 +15902,19 @@ Transform:
   m_Father: {fileID: 4558505681464154}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0.254, y: 98.76, z: 8.607}
+--- !u!4 &4103130824618604
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907228820038596}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
+  m_LocalPosition: {x: -52.508, y: -2.032, z: -3.0500002}
+  m_LocalScale: {x: 0.7500003, y: 1, z: 2}
+  m_Children: []
+  m_Father: {fileID: 4612453363964472}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
 --- !u!4 &4104078960955414
 Transform:
   m_ObjectHideFlags: 1
@@ -20448,13 +20497,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879112434105942}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -16.1, y: 0.2, z: -17}
+  m_LocalPosition: {x: -16.1, y: 0.4, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4574028564540852}
   - {fileID: 4117966887125104}
   - {fileID: 4291288996948232}
   - {fileID: 4881248627317868}
+  - {fileID: 4869830672541038}
+  - {fileID: 4103130824618604}
   m_Father: {fileID: 4249533006508634}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -22817,6 +22868,19 @@ Transform:
   m_Father: {fileID: 4558505681464154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4869830672541038
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040007199468094}
+  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
+  m_LocalPosition: {x: -17.62, y: -2.032, z: -3.05}
+  m_LocalScale: {x: 0.75, y: 1, z: 3}
+  m_Children: []
+  m_Father: {fileID: 4612453363964472}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!4 &4873400232499492
 Transform:
   m_ObjectHideFlags: 1
@@ -26894,6 +26958,41 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 98f1cf39efafb634f8e6a7832377c4a4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23185892423048068
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040007199468094}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37798,6 +37897,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23828763235241420
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907228820038596}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23837182111733284
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -41123,6 +41257,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868148183247622}
   m_Mesh: {fileID: 4300004, guid: d8c6886759d0dc8449195ee1d8430cc8, type: 3}
+--- !u!33 &33311073135613080
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907228820038596}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33311248080128142
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -42110,6 +42251,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697788466844962}
   m_Mesh: {fileID: 0}
+--- !u!33 &33619570290041470
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040007199468094}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33625139993599854
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -43557,6 +43705,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65060137784368012
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907228820038596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65075993632643808
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -44841,6 +45001,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.6, y: 15.24, z: 1.43}
   m_Center: {x: -2.1, y: 7.575, z: -0.16889632}
+--- !u!65 &65473148232310920
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040007199468094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65473727613102246
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -46527,10 +46699,14 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 1706662511839796, guid: 6d74d20c51a04ac4aa8f0443121763ad, type: 2}
     - {fileID: 1280102391718016, guid: 1145c4b0235569046908a2b7875d2c4c, type: 2}
-    - {fileID: 1270954091167144, guid: beeaab2ba386f2f4dae459654120738c, type: 2}
-    - {fileID: 1359884338415154, guid: fb1710a295c67154e87e83cac9a8113a, type: 2}
-    - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
+    - {fileID: 1734769081431432, guid: b06daa9e2c02a8340a2f8e5e29cc7818, type: 2}
+    - {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
+    - {fileID: 1308388275865138, guid: b3358c2b61c43f14e92efe158e577726, type: 2}
+    - {fileID: 1619705541799120, guid: 01bb54ef076d920459ae1fe6b8a2f6de, type: 2}
+    - {fileID: 1852295044341306, guid: 2a5ea530da53e0b428a5b039d8afe611, type: 2}
+    - {fileID: 1793862551137356, guid: 98f4281e29d32aa4889b051e532880d4, type: 2}
     - {fileID: 1706530768490810, guid: 63654897787a90e468b0e88c9ab215f4, type: 2}
+    - {fileID: 1673016154800048, guid: 926f81109a2946745b1b4a7d4004cf7e, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -46542,7 +46718,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|OdinTables.EnemyDropTable, Assembly-CSharp
@@ -46555,7 +46731,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 3
     - Name: 
       Entry: 7
       Data: 3|OdinTables.ItemDropTable, Assembly-CSharp
@@ -46602,11 +46778,48 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 7
-      Data: 6|OdinTables.ItemDropTable, Assembly-CSharp
-    - Name: Item
+      Data: 6|OdinTables.EnemyDropTable, Assembly-CSharp
+    - Name: Enemy
       Entry: 10
       Data: 4
+    - Name: Items
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[OdinTables.ItemDropTable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 8|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: DropChance
+      Entry: 4
+      Data: 15
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 5
     - Name: DropChance
       Entry: 4
       Data: 1
@@ -46618,10 +46831,77 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 7|OdinTables.ItemDropTable, Assembly-CSharp
+      Data: 10|OdinTables.ItemDropTable, Assembly-CSharp
     - Name: Item
       Entry: 10
-      Data: 5
+      Data: 6
+    - Name: DropChance
+      Entry: 4
+      Data: 1
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|OdinTables.EnemyDropTable, Assembly-CSharp
+    - Name: Enemy
+      Entry: 10
+      Data: 7
+    - Name: Items
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[OdinTables.ItemDropTable, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 13|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 1
+    - Name: DropChance
+      Entry: 4
+      Data: 15
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 8
+    - Name: DropChance
+      Entry: 4
+      Data: 1
+    - Name: Amount
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|OdinTables.ItemDropTable, Assembly-CSharp
+    - Name: Item
+      Entry: 10
+      Data: 9
     - Name: DropChance
       Entry: 4
       Data: 1
@@ -47279,34 +47559,6 @@ MonoBehaviour:
   Size: 10
   GridSize: 6
   Filter: {fileID: 0}
---- !u!114 &114070396927866800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987686238743182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: -334000983
-  m_CollectObjects: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294965723
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4cfb6e2ba345dcd49b6bef6c591eeff8, type: 2}
 --- !u!114 &114075008006186660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48702,6 +48954,8 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1706662511839796, guid: 6d74d20c51a04ac4aa8f0443121763ad, type: 2}
+    - {fileID: 1308388275865138, guid: b3358c2b61c43f14e92efe158e577726, type: 2}
+    - {fileID: 1793862551137356, guid: 98f4281e29d32aa4889b051e532880d4, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -48713,7 +48967,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|EnemySpawners.Enemies, Assembly-CSharp
@@ -48740,7 +48994,7 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 4
-      Data: 6
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -48854,7 +49108,7 @@ MonoBehaviour:
       Data: 4|EnemySpawners.Enemies, Assembly-CSharp
     - Name: Enemy
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: StartingAmount
       Entry: 3
       Data: 1
@@ -48872,10 +49126,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 4
     - Name: 
       Entry: 4
-      Data: 6
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -48887,10 +49141,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 4
-      Data: 5
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -48902,7 +49156,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -48963,6 +49217,141 @@ MonoBehaviour:
     - Name: Amount
       Entry: 3
       Data: 5
+    - Name: Health
+      Entry: 3
+      Data: 0
+    - Name: Points
+      Entry: 3
+      Data: 0
+    - Name: Armour
+      Entry: 3
+      Data: 0
+    - Name: Damage
+      Entry: 3
+      Data: 0
+    - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|EnemySpawners.Enemies, Assembly-CSharp
+    - Name: Enemy
+      Entry: 10
+      Data: 2
+    - Name: StartingAmount
+      Entry: 3
+      Data: 1
+    - Name: StartAt
+      Entry: 3
+      Data: 3
+    - Name: ActiveEvery
+      Entry: 3
+      Data: 3
+    - Name: RandomIncrease
+      Entry: 5
+      Data: true
+    - Name: SpeedRange
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 4
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IncreaseByRange
+      Entry: 7
+      Data: 8|EnemySpawners.EnemiesStatsRange, Assembly-CSharp
+    - Name: Amount
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Health
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Points
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Armour
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Damage
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Exp
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IncreaseByInt
+      Entry: 7
+      Data: 9|EnemySpawners.EnemiesStatsInt, Assembly-CSharp
+    - Name: Amount
+      Entry: 3
+      Data: 0
     - Name: Health
       Entry: 3
       Data: 0
@@ -55351,6 +55740,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 0.6
   TimeScale: 0.3
+--- !u!114 &114689101973866300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987686238743182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294965723
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.06666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: e3c5a45941598854583e220fe2d31ae6, type: 2}
 --- !u!114 &114692828439495700
 MonoBehaviour:
   m_ObjectHideFlags: 1

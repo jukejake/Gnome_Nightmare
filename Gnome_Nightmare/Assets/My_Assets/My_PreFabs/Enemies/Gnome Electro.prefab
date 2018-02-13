@@ -1208,7 +1208,7 @@ MonoBehaviour:
   MaxHealth: 10
   Damage:
     stat: 1
-    baseValue: 1
+    baseValue: 2
   Armour:
     stat: 8
     baseValue: 0
