@@ -12,6 +12,8 @@ public class ButtonManager : SerializedMonoBehaviour {
     [ToggleGroup("Settings_Menu")]
     public GameObject LoadMenu;
     [ToggleGroup("Settings_Menu")]
+    public GameObject MultiplayerMenu;
+    [ToggleGroup("Settings_Menu")]
     public GameObject SettingsMenu;
     [ToggleGroup("Settings_Menu")]
     public GameObject CreditMenu;
@@ -74,20 +76,24 @@ public class ButtonManager : SerializedMonoBehaviour {
     public void SinglePlayerButton() {
         SettingsMenu.GetComponent<UnHide>().Hide();
         CreditMenu.GetComponent<UnHide>().Hide();
+        MultiplayerMenu.GetComponent<UnHide>().Hide();
         LoadMenu.GetComponent<UnHide>().HideUnHide();
     }
     public void MultiPlayerButton() {
         SettingsMenu.GetComponent<UnHide>().Hide();
         CreditMenu.GetComponent<UnHide>().Hide();
-        LoadMenu.GetComponent<UnHide>().HideUnHide();
+        LoadMenu.GetComponent<UnHide>().Hide();
+        MultiplayerMenu.GetComponent<UnHide>().HideUnHide();
     }
     public void SettingsButton() {
         LoadMenu.GetComponent<UnHide>().Hide();
+        MultiplayerMenu.GetComponent<UnHide>().Hide();
         CreditMenu.GetComponent<UnHide>().Hide();
         SettingsMenu.GetComponent<UnHide>().HideUnHide();
     }
     public void CreditButton() {
         LoadMenu.GetComponent<UnHide>().Hide();
+        MultiplayerMenu.GetComponent<UnHide>().Hide();
         SettingsMenu.GetComponent<UnHide>().Hide();
         CreditMenu.GetComponent<UnHide>().HideUnHide();
     }
@@ -111,6 +117,7 @@ public class ButtonManager : SerializedMonoBehaviour {
 
     private void HideAll() {
         if (LoadMenu) { LoadMenu.GetComponent<UnHide>().Hide(); }
+        if (MultiplayerMenu) { MultiplayerMenu.GetComponent<UnHide>().Hide(); }
         if (SettingsMenu) { SettingsMenu.GetComponent<UnHide>().Hide(); }
         if (CreditMenu) { CreditMenu.GetComponent<UnHide>().Hide(); }
         if (PauseMenu) { PauseMenu.GetComponent<UnHide>().Hide(); }
