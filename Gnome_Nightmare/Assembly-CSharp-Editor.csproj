@@ -92,7 +92,7 @@
      <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
      <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.0b6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -269,7 +269,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.0b6/Editor/Data/Managed/Unity.Locator.dll</HintPath>
  </Reference>
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.1.0b6/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -338,28 +338,28 @@
  <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
  </Reference>
  <Reference Include="ParticleEmitterPlugin">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/Particle/ParticleEmitterPlugin.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/Particle/ParticleEmitterPlugin.dll</HintPath>
  </Reference>
  <Reference Include="ChatSystem">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/Server_Client_CS/ChatSystem.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/My_Assets/My_Plugins/Server_Client_CS/ChatSystem.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization.Config">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Serialization">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.Utilities.Editor">
- <HintPath>C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
+ <HintPath>C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>

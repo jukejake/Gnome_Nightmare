@@ -330,6 +330,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Lobby_Assets\GetIP.cs" />
     <Compile Include="Assets\Menu_Assets\ButtonManager.cs" />
     <Compile Include="Assets\Menu_Assets\GameTimer.cs" />
     <Compile Include="Assets\Menu_Assets\LoadScenes.cs" />
