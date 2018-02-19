@@ -60,7 +60,7 @@ public class Sever_Manager : SerializedMonoBehaviour {
     private Thread Thread_TCP;
     //private Thread Thread_TCPListen;
     //private Thread Thread_TCPReceive;
-    private Thread Thread_UDPFunction;
+    private Thread Thread_UDP;
     private AutoResetEvent ResetEvent_TCP;
     //private AutoResetEvent ResetEvent_TCPL;
     //private AutoResetEvent ResetEvent_TCPR;
@@ -78,9 +78,7 @@ public class Sever_Manager : SerializedMonoBehaviour {
 
         if (Unity_Initialize()) {
             Initialized = true;
-            Run = true;
             Debug.Log("Initialized Server");
-
 
             Thread_TCP = new Thread(Run_TCP);
             Thread_TCP.IsBackground = true;
@@ -97,11 +95,12 @@ public class Sever_Manager : SerializedMonoBehaviour {
             //Thread_TCPReceive.Start();
             //ResetEvent_TCPR = new AutoResetEvent(false);
 
-            Thread_UDPFunction = new Thread(Run_UDP);
-            Thread_UDPFunction.IsBackground = true;
-            Thread_UDPFunction.Start();
+            Thread_UDP = new Thread(Run_UDP);
+            Thread_UDP.IsBackground = true;
+            Thread_UDP.Start();
             ResetEvent_UDP = new AutoResetEvent(false);
 
+            Run = true;
 
         }
 
@@ -124,10 +123,10 @@ public class Sever_Manager : SerializedMonoBehaviour {
             temp = Marshal.PtrToStringAnsi(Unity_TCPReceive());
             if (temp != null && temp != "") { TCPReceive_Message.Add(temp); }
 
+            
             ResetEvent_TCP.WaitOne();
         }
     }
-
     private void Run_TCPL() {
         while (Run) {
             //ResetEvent_TCPL.WaitOne();
@@ -156,15 +155,15 @@ public class Sever_Manager : SerializedMonoBehaviour {
         }
     }
 
-
+    private int ie = 0;
     private void FixedUpdate() {
-        //
         //if (Initialized){ isRunning = GetState(); }
         if (Run) {
-            ResetEvent_TCP.Set();
+            if (ie % 2 == 0) { ResetEvent_TCP.Set(); }
+            else { ResetEvent_UDP.Set(); }
+            ie += 1;
             //ResetEvent_TCPL.Set();
             //ResetEvent_TCPR.Set();
-            ResetEvent_UDP.Set();
         }
     }
 
@@ -173,18 +172,26 @@ public class Sever_Manager : SerializedMonoBehaviour {
 
     private void Clear() {
         if (Initialized) {
+            Run = false;
+            Initialized = false;
+
+            //Thread_TCP.Join();
+            ////Thread_TCPListen.Join();
+            ////Thread_TCPReceive.Join();
+            //Thread_UDP.Join();
+
             Thread_TCP.Abort();
             //Thread_TCPListen.Abort();
             //Thread_TCPReceive.Abort();
-            Thread_UDPFunction.Abort();
-            Unity_Shutdown();
-            Run = false;
-            Initialized = false;
+            Thread_UDP.Abort();
 
             TCPListen_Message.Clear();
             TCPReceive_Message.Clear();
             UDPFunction_Message.Clear();
+
             SetState(false);
+
+            Unity_Shutdown();
         }
     }
     private void OnApplicationQuit() { Clear(); }

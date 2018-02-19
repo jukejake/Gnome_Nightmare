@@ -4,6 +4,8 @@ public class Player_Movement : MonoBehaviour {
 
     public GameObject Menu_Prefab;
 
+    [HideInInspector]
+    public float SpeedModifier = 1.0f;
     public float jumpSpeed = 20.0f;
     public float moveSpeed = 10.0f;
     public float runSpeed = 20.0f;
@@ -77,16 +79,16 @@ public class Player_Movement : MonoBehaviour {
 
         if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
             //Get movement
-            if (Input.GetButton("Run") || Input.GetButton("LeftStickDown")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed); }
-            else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0.0f, Input.GetAxis("Vertical") * moveSpeed); }
+            if (Input.GetButton("Run") || Input.GetButton("LeftStickDown")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * (SpeedModifier*runSpeed), 0.0f, Input.GetAxis("Vertical") * (SpeedModifier*runSpeed)); }
+            else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * (SpeedModifier*moveSpeed), 0.0f, Input.GetAxis("Vertical") * (SpeedModifier*moveSpeed)); }
 
             //Debug.Log("["+ Jump.y + "]");
             //Holding jump button
             if (Input.GetButton("Jump") && m_IsGrounded && ChargingJump == false && Jump.y == 0.0f) { ChargingJump = true; Jump.y = Jump.x; }
             else if (Input.GetButton("Jump") && ChargingJump == true) {
                 if (Jump.y < Jump.z) {
-                    //Jump.y += moveSpeed * Time.deltaTime;
-                    Jump.y += (((Jump.z - Jump.y) * (jumpSpeed * Time.deltaTime)) + 0.01f);
+                    //Jump.y += (SpeedModifier*moveSpeed) * Time.deltaTime;
+                    Jump.y += (((Jump.z - Jump.y) * ((SpeedModifier*jumpSpeed) * Time.deltaTime)) + 0.01f);
                     moveDirection.y = Jump.y;
                 }
                 else { Jump.y = Jump.z; ChargingJump = false; }

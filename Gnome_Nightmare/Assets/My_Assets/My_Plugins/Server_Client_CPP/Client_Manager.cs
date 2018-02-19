@@ -76,7 +76,6 @@ public class Client_Manager : SerializedMonoBehaviour {
 
         if (Unity_Initialize()) {
             Initialized = true;
-            Run = true;
             Debug.Log("Initialized Client");
 
             Thread_TCPReceive = new Thread(Run_TCP); Thread_TCPReceive.Start();
@@ -87,6 +86,8 @@ public class Client_Manager : SerializedMonoBehaviour {
 
             ResetEvent_TCP = new AutoResetEvent(false);
             ResetEvent_UDP = new AutoResetEvent(false);
+
+            Run = true;
         }
         
     }
@@ -117,27 +118,36 @@ public class Client_Manager : SerializedMonoBehaviour {
         }
     }
 
+
+    private int ie = 0;
     private void FixedUpdate() {
         if (Initialized) { isRunning = GetState(); }
-        if (Run) { 
-            ResetEvent_TCP.Set();
-            ResetEvent_UDP.Set();
+        if (Run) {
+            if (ie % 2 == 0) { ResetEvent_TCP.Set(); }
+            else { ResetEvent_UDP.Set(); }
+            ie += 1;
         }
     }
 
 
 
-    private void Clear() { 
+    private void Clear() {
         if (Initialized) {
-            Thread_TCPReceive.Abort();
-            Thread_UDPReceive.Abort();
-            Unity_Shutdown();
             Run = false;
             Initialized = false;
 
+            //Thread_TCPReceive.Join();
+            //Thread_UDPReceive.Join();
+
+            Thread_TCPReceive.Abort();
+            Thread_UDPReceive.Abort();
+
             TCPReceive_Message.Clear();
             UDPReceive_Message.Clear();
+
             SetState(false);
+
+            Unity_Shutdown();
         }
     }
     private void OnApplicationQuit() { Clear(); }
