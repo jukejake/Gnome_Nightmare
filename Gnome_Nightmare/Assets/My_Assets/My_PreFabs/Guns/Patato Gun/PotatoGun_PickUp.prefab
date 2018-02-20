@@ -209,7 +209,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: fd2afa4642c9c9e4c8ba73539da82593, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -421,6 +421,27 @@ MonoBehaviour:
   s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
   s_BulletSpeed: 50
   AimingHitscan: 0
+  FireSound:
+    name: Gun shot
+    clip: {fileID: 8300000, guid: 8fec5ff633d88aa4e925ba297f430aff, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  ImpactSound:
+    name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  ReloadSound:
+    name: Reload
+    clip: {fileID: 8300000, guid: 6d7aaaecdfd046b43aa3b1eb1c227d0f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &114919140031324192
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public struct Sound {
 
     public string name;
     public AudioClip clip;
-    [Range(0.0f, 1.0f)]
+    [Range(0.0f, 2.0f)]
     public float volume;
     [Range(0.1f, 3.0f)]
     public float pitch;

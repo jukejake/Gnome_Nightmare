@@ -29,7 +29,13 @@ namespace EnemySpawners {
         private int NumberOfWavesCompleted = 0;
 
 
-        public List<GameObject> SpawnPositions = new List<GameObject>();
+        //public List<GameObject> SpawnPositions = new List<GameObject>();
+        public List<GameObject> Barn_SP = new List<GameObject>();
+        public bool SpawnAtBarn = true;
+        public List<GameObject> House_SP = new List<GameObject>();
+        public bool SpawnAtHouse = true;
+        public List<GameObject> Bunker_SP = new List<GameObject>();
+        public bool SpawnAtBunker = true;
         public List<Enemies> EnemiesToSpawn = new List<Enemies>(1);
 
 
@@ -48,17 +54,54 @@ namespace EnemySpawners {
             foreach (Enemies et in EnemiesToSpawn) {
                 //Debug.Log("["+et.NumberSpawned+"]/["+(et.StartingAmount + et.IncreasedAmount)+"] B["+et.isOff+"]");
                 if (et.NumberSpawned < (et.StartingAmount + et.IncreasedAmount) && et.isOff == false) {
-                    et.NumberSpawned++;
+                    
 
                     Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-SpawnPosRange.x, 0.0f, -SpawnPosRange.z), new Vector3(SpawnPosRange.x, SpawnPosRange.y, SpawnPosRange.z));
-                    int number = RandomUtils.RandomInt(0, SpawnPositions.Count-1);
-                    float speed = RandomUtils.RandomFloat(et.SpeedRange.x, et.SpeedRange.y);
 
-                    GameObject tempObj = Instantiate(et.Enemy, SpawnPositions[number].transform.position + RandomPosition, SpawnPositions[number].transform.rotation);
-                    tempObj.transform.SetParent(WorldEnenies.transform);
-                    et.IncreaseStats(tempObj);
-                    tempObj.name = et.Enemy.name;
-                    tempObj.GetComponent<NavMeshAgent>().speed = speed;
+                    int at = RandomUtils.RandomInt(1, 3);
+
+                    if (SpawnAtBarn && at == 1) {
+                        et.NumberSpawned++;
+                        int number = RandomUtils.RandomInt(0, Barn_SP.Count - 1);
+                        float speed = RandomUtils.RandomFloat(et.SpeedRange.x, et.SpeedRange.y);
+
+                        GameObject tempObj = Instantiate(et.Enemy, Barn_SP[number].transform.position + RandomPosition, Barn_SP[number].transform.rotation);
+                        tempObj.transform.SetParent(WorldEnenies.transform);
+                        et.IncreaseStats(tempObj);
+                        tempObj.name = et.Enemy.name;
+                        tempObj.GetComponent<NavMeshAgent>().speed = speed;
+                        break;
+                    }
+                    if (SpawnAtHouse && at == 2) {
+                        et.NumberSpawned++;
+                        int number = RandomUtils.RandomInt(0, House_SP.Count-1);
+                        float speed = RandomUtils.RandomFloat(et.SpeedRange.x, et.SpeedRange.y);
+
+                        GameObject tempObj = Instantiate(et.Enemy, House_SP[number].transform.position + RandomPosition, House_SP[number].transform.rotation);
+                        tempObj.transform.SetParent(WorldEnenies.transform);
+                        et.IncreaseStats(tempObj);
+                        tempObj.name = et.Enemy.name;
+                        tempObj.GetComponent<NavMeshAgent>().speed = speed;
+                        break;
+                    }
+                    if (SpawnAtBunker && at == 3) {
+                        et.NumberSpawned++;
+                        int number = RandomUtils.RandomInt(0, Bunker_SP.Count-1);
+                        float speed = RandomUtils.RandomFloat(et.SpeedRange.x, et.SpeedRange.y);
+
+                        GameObject tempObj = Instantiate(et.Enemy, Bunker_SP[number].transform.position + RandomPosition, Bunker_SP[number].transform.rotation);
+                        tempObj.transform.SetParent(WorldEnenies.transform);
+                        et.IncreaseStats(tempObj);
+                        tempObj.name = et.Enemy.name;
+                        tempObj.GetComponent<NavMeshAgent>().speed = speed;
+                        break;
+                    }
+                    
+                    if (!SpawnAtBarn && !SpawnAtHouse && !SpawnAtBunker) {
+                        SpawnAtBarn = true;
+                        SpawnAtHouse = true;
+                        SpawnAtBunker = true;
+                    }
                     break;
                 }
                 else if ((et.NumberSpawned >= (et.StartingAmount + et.IncreasedAmount) && et.isOff == false) || (et.NumberSpawned == 0 && et.isOff == true)) {

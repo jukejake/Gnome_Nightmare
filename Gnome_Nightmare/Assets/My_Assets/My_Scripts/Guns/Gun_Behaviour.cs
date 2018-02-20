@@ -8,7 +8,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     //public enum WeaponType { None, HitScan, Projectile, Melee };
     //public WeaponType weaponType;
 
-    [TableList]//, HideInInspector]
+    [TableList, HideInInspector]
     public OdinTables.WeaponStatsTable Stats = new OdinTables.WeaponStatsTable();
 
     [ToggleGroup("WeaponTypeHitScan", order: 1, groupTitle: "Hit Scan")]
@@ -19,10 +19,9 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
     public Ammo_Types.Ammo TypeOfAmmo = Ammo_Types.Ammo.Basic;
 
-
-
     
     protected float NextTimeToFire = 0.0f;
+    [HideInInspector]
     public Camera PlayerCamera;
     [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
     public ParticleSystem MuzzleFlash;
@@ -42,6 +41,13 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     public float s_BulletSpeed;
     [ToggleGroup("WeaponTypeProjectile")]
     public bool AimingHitscan = false;
+
+    [BoxGroup("Sound")]
+    public AudioSource FireSound;
+    [BoxGroup("Sound")]
+    public AudioSource ImpactSound;
+    [BoxGroup("Sound")]
+    public AudioSource ReloadSound;
 
     protected PlayerManager playerManager;
     protected MenuManager menuManager;
@@ -88,6 +94,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         this.Stats.AmountCount.baseValue--;
         //Play a Particle System at end to the gun
         if (MuzzleFlash != null) { MuzzleFlash.Play(); }
+        if (FireSound != null) { FireSound.Play(); }
         RaycastHit hit;
         //Fires a Raycast to find something to hit
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue())) {
@@ -151,6 +158,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     private void ProjectileWeapons_Shoot() {
         //If the player is in a Menu than return
         if (playerManager.MenuOpen) { return; }
+        if (FireSound != null) { FireSound.Play(); }
         this.Stats.AmountCount.baseValue--;
         //spawn bullet
         s_clone = (GameObject)Instantiate(s_bullet, s_Spawner.transform.position, s_Spawner.transform.rotation);
@@ -206,6 +214,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
                         }
                         this.Stats.AmountCount.baseValue += AmountGot;
                         SetTextToAmount();
+                        if (ReloadSound != null) { ReloadSound.Play(); }
                         return;
                     }
                 }

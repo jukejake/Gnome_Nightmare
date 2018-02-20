@@ -2217,7 +2217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522613135258350}
   m_LocalRotation: {x: 0.000059273087, y: 0.3087377, z: -0.000018072778, w: 0.95114726}
-  m_LocalPosition: {x: 0.15496303, y: -0.008208871, z: -0.23243394}
+  m_LocalPosition: {x: 0.118, y: -0.008208871, z: -0.195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4655492304443944}
@@ -2927,7 +2927,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464328417193280}
   m_LocalRotation: {x: 0.000037256625, y: -0.00000082701433, z: 0.0000031872182, w: 1}
-  m_LocalPosition: {x: -0.188, y: -0.009, z: 0.032}
+  m_LocalPosition: {x: -0.146, y: -0.009, z: 0.015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4655492304443944}
@@ -3601,6 +3601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu_Prefab: {fileID: 1656346808568398, guid: edcde4f9f4a0b244a93c9a3c50ff83e1,
     type: 2}
+  SpeedModifier: 1
   jumpSpeed: 20
   moveSpeed: 6
   runSpeed: 10
