@@ -535,6 +535,7 @@
     <None Include="Assets\My_Assets\My_Log\Main Camera\Main Camera (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Player\Player (UnityEngine.Transform).txt" />
     <None Include="Assets\My_Assets\My_Log\Slant_Rock\Slant_Rock (UnityEngine.Transform).txt" />
+    <None Include="Assets\My_Assets\My_Plugins\Event_Manager\Event_Manager_Patch_Notes.txt" />
     <None Include="Assets\My_Assets\My_Shaders\DepthMask.shader" />
     <None Include="Assets\My_Assets\My_Shaders\DrawFirst.shader" />
     <None Include="Assets\My_Assets\My_Shaders\Outline.shader" />

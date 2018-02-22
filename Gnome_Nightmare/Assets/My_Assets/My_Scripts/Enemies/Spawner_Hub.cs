@@ -29,13 +29,13 @@ namespace EnemySpawners {
         private int NumberOfWavesCompleted = 0;
 
 
+        public bool SpawnAtBarn = true;
+        public bool SpawnAtHouse = true;
+        public bool SpawnAtBunker = true;
         //public List<GameObject> SpawnPositions = new List<GameObject>();
         public List<GameObject> Barn_SP = new List<GameObject>();
-        public bool SpawnAtBarn = true;
         public List<GameObject> House_SP = new List<GameObject>();
-        public bool SpawnAtHouse = true;
         public List<GameObject> Bunker_SP = new List<GameObject>();
-        public bool SpawnAtBunker = true;
         public List<Enemies> EnemiesToSpawn = new List<Enemies>(1);
 
 
