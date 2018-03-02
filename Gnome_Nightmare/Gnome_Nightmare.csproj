@@ -331,6 +331,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Lobby_Assets\GetIP.cs" />
+    <Compile Include="Assets\Lobby_Assets\StartServer.cs" />
     <Compile Include="Assets\Menu_Assets\ButtonManager.cs" />
     <Compile Include="Assets\Menu_Assets\GameTimer.cs" />
     <Compile Include="Assets\Menu_Assets\LoadScenes.cs" />
@@ -394,6 +395,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Eyes_Follow_Cursor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Orbit_Objects.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\RandomUtils.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\ScaleMesh.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\ShockWave.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Stay_In_Box.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Sound.cs" />
