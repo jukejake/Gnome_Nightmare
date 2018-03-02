@@ -15,13 +15,17 @@ public class GetIP : MonoBehaviour {
     }
 
     public string GetIPAddress() {
-        string strHostName = "";
-        strHostName = System.Net.Dns.GetHostName();
-        IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
-        IPAddress []addr = ipEntry.AddressList;
-        return addr[addr.Length - 1].ToString();
+        return Network.player.ipAddress;
+        //string strHostName = "";
+        //strHostName = System.Net.Dns.GetHostName();
+        //IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
+        //IPAddress []addr = ipEntry.AddressList;
+        //return addr[addr.Length - 1].ToString();
     }
     public void SetText() {
         if (text) { text.text = IP; }
+    }
+    public void SetText(Text setTest) {
+        if (setTest) { setTest.text = IP; }
     }
 }

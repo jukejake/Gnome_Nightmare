@@ -7,6 +7,15 @@ public class EnemyStats : CharacterStats {
     public int Experience = 1;
     public int Points = 1;
     //public GameObject ParticlesOnDeath;
+    public Transform Health_Bar;
+
+    private void Awake() {
+        if (Health_Bar == null) {
+            Health_Bar = this.gameObject.transform.Find("HealthBar");
+        }
+    }
+
+
 
     private void Update() {
        HealthBar();
@@ -51,16 +60,18 @@ public class EnemyStats : CharacterStats {
         //    Destroy(v_ParticlesOnDeath, 3.0f);
         //}
     }
-
+    
     private void HealthBar(){
-        if (this.gameObject.transform.Find("HealthBar")) {
-            float v_Health = CurrentHealth / MaxHealth;
-            v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);
-            Vector3 Health = new Vector3(v_Health, 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBar").GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
-            Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBar").GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
-        }
+        if (Health_Bar == null) { return; }
+        if (CurrentHealth == MaxHealth) { return; }
+        else if (!Health_Bar.gameObject.activeSelf) { Health_Bar.gameObject.SetActive(true); }
+
+        float v_Health = CurrentHealth / MaxHealth;
+        v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);
+        Vector3 Health = new Vector3(v_Health, 1.0f, 1.0f);
+        Health_Bar.GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
+        Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
+        Health_Bar.GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
     }
 
 

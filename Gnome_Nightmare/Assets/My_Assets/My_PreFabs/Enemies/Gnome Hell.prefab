@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1410057514615326
 GameObject:
   m_ObjectHideFlags: 1
@@ -1168,6 +1168,7 @@ MonoBehaviour:
     baseValue: 0
   Experience: 3
   Points: 1
+  Health_Bar: {fileID: 224009981914934858}
 --- !u!114 &114551254736712338
 MonoBehaviour:
   m_ObjectHideFlags: 1

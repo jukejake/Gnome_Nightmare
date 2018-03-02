@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1362943276882950
 GameObject:
   m_ObjectHideFlags: 1
@@ -1169,8 +1169,7 @@ MonoBehaviour:
     baseValue: 0
   Experience: 3
   Points: 1
-  ParticlesOnDeath: {fileID: 1479317777403278, guid: 7e1bc8fa375436c45aa0337b8fa5d364,
-    type: 2}
+  Health_Bar: {fileID: 224061911610253592}
 --- !u!114 &114815876952268184
 MonoBehaviour:
   m_ObjectHideFlags: 1

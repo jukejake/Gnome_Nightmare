@@ -6,9 +6,7 @@ using ChatSystem;
 using Sirenix.OdinInspector;
 
 public class Chat_Manager : SerializedMonoBehaviour {
-
-    public GameObject ServerLoginPrefab;
-
+    
     [ToggleGroup("IsServer", order: 1, groupTitle: "Server")]
     public bool IsServer;
     [ToggleGroup("IsServer")]
@@ -30,17 +28,13 @@ public class Chat_Manager : SerializedMonoBehaviour {
 
 
     private bool ServerEnabled = false;
-    //private bool ClintEnabled = false;
 
 
 
     // Use this for initialization
     public void Start () {
-        //GameObject Login = Instantiate<GameObject>(ServerLoginPrefab);
-        //Login.name = ServerLoginPrefab.name;
-
-        if (IsServer && ServerEnabled) { ServerStart(); }
-        if (IsClient) { ClientStart(); }
+        //if (IsServer && ServerEnabled) { ServerStart(); }
+        //if (IsClient) { ClientStart(); }
     }
 
     // Update is called once per frame
@@ -49,15 +43,13 @@ public class Chat_Manager : SerializedMonoBehaviour {
         if (IsClient) { ClientUpdate(); }
     }
 
-    public void EnableServer() { ServerEnabled = true; ServerStart(); }
-    //public void EnableClint() { ClintEnabled = true; }
-
 
     [ToggleGroup("IsServer")]
+    public void EnableServer() { ServerEnabled = true; ServerStart(); }
+
     private void ServerStart() {
         server.Start();
     }
-    [ToggleGroup("IsServer")]
     private void ServerUpdate() {
         server.Update();
     }
@@ -69,7 +61,6 @@ public class Chat_Manager : SerializedMonoBehaviour {
         client.chatContainer = chatContainer;
         client.messagePrefab = messagePrefab;
     }
-    [ToggleGroup("IsClient")]
     private void ClientUpdate() {
         //if (chatContainer != null) { chatContainer = GameObject.Find("Content").gameObject; }
         if (chatContainer != null) { client.chatContainer = chatContainer; }
@@ -95,8 +86,8 @@ public class Chat_Manager : SerializedMonoBehaviour {
     [ToggleGroup("IsClient")]
     public void ConnectToServer() {
         if (client.ConnectToServer()) {
-            Chat.GetComponent<UnHide>().View();
-            Login.GetComponent<UnHide>().Hide();
+            if (Chat) { Chat.GetComponent<UnHide>().View(); }
+            if (Login) { Login.GetComponent<UnHide>().Hide(); }
         }
         else { }
     }
@@ -104,9 +95,10 @@ public class Chat_Manager : SerializedMonoBehaviour {
     public void OnSendButton() {
         client.OnSendButton();
     }
-    [ToggleGroup("IsClient")]
+
     public void OnApplicationQuit() {
-        client.OnApplicationQuit();
+        if (client != null) { client.OnApplicationQuit(); }
+        //if (server != null) { server.OnApplicationQuit(); }
     }
 }
 
