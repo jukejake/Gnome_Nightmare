@@ -17,12 +17,13 @@ ModelImporter:
     2186277476908879420: ImportLogs
     2186277476908879422: ImportLogs
     2186277476908879424: ImportLogs
+    2186277476908879426: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pCylinder375Mat
-    second: {fileID: 2100000, guid: 63879d65f8dea6a4db6779eb678901aa, type: 2}
+    second: {fileID: 2100000, guid: c306909d3b7308e41a98b2d649907fd1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
