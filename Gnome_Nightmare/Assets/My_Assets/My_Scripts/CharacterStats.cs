@@ -7,12 +7,16 @@ public class CharacterStats : MonoBehaviour {
 
     public Stat Damage;
     public Stat Armour;
+    
+    public AudioSource AudioOnDamage;
+    public AudioSource AudioOverTime;
 
     private void Awake() {
         CurrentHealth = MaxHealth;
     }
     void Start() {
         CurrentHealth = MaxHealth;
+        if (AudioOverTime != null) { AudioOverTime.Play(); }
     }
 
 
@@ -30,6 +34,8 @@ public class CharacterStats : MonoBehaviour {
     //Applys damage to character
     public void TakeDamage(float DamageTaken) {
         //Debug.Log("Damage");
+
+        if (AudioOnDamage != null) { AudioOnDamage.Play(); }
 
         DamageTaken -= Armour.GetValue();
         DamageTaken = Mathf.Clamp(DamageTaken, 0, float.MaxValue);

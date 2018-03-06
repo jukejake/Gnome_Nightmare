@@ -8,6 +8,7 @@ public class EnemyStats : CharacterStats {
     public int Points = 1;
     //public GameObject ParticlesOnDeath;
     public Transform Health_Bar;
+    
 
     private void Awake() {
         if (Health_Bar == null) {
@@ -15,7 +16,9 @@ public class EnemyStats : CharacterStats {
         }
     }
 
-
+    private void Start() {
+        
+    }
 
     private void Update() {
        HealthBar();
