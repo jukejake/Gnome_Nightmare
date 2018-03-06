@@ -1139,23 +1139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1857175165818682
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4536477133545086}
-  - component: {fileID: 114103117260121960}
-  - component: {fileID: 114922096040431658}
-  m_Layer: 0
-  m_Name: Client Server
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1874097745329478
 GameObject:
   m_ObjectHideFlags: 1
@@ -1299,22 +1282,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4536477133545086}
   - {fileID: 224468216800407958}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4536477133545086
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857175165818682}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4235045499152034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114021873579336872
@@ -1456,18 +1425,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &114103117260121960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857175165818682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430d4bf0a119a384583444d933bd63ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chat_Manager: {fileID: 114922096040431658}
 --- !u!114 &114105151390455542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2775,7 +2732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114922096040431658}
+      - m_Target: {fileID: 0}
         m_MethodName: ConnectToServer
         m_Mode: 1
         m_Arguments:
@@ -2860,7 +2817,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224591041372161638}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3779,8 +3736,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114606806425068238}
   m_HandleRect: {fileID: 224552290077875040}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.8937501
+  m_Value: 0
+  m_Size: 0.8937499
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3853,7 +3810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114922096040431658}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSendButton
         m_Mode: 1
         m_Arguments:
@@ -3866,33 +3823,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114922096040431658
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857175165818682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 201e72b767fc0714aa82dea51cfae4d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  IsServer: 1
-  IsClient: 1
-  chatContainer: {fileID: 1124027170570858}
-  messagePrefab: {fileID: 1148311129028354, guid: ee719740301afd447aca1d538df8f2d9,
-    type: 2}
-  Chat: {fileID: 0}
-  Login: {fileID: 0}
 --- !u!114 &114934019324754780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5035,7 +4965,7 @@ RectTransform:
   - {fileID: 224051696062857926}
   - {fileID: 224479014290312764}
   m_Father: {fileID: 4235045499152034}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5565,7 +5495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000014316626}
+  m_AnchoredPosition: {x: -0.00002309234, y: 17.000015}
   m_SizeDelta: {x: -10.000004, y: 160}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224788327081703176

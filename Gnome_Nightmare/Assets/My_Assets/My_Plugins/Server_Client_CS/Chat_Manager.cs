@@ -29,7 +29,7 @@ public class Chat_Manager : SerializedMonoBehaviour {
 
     private bool ServerEnabled = false;
 
-
+    
 
     // Use this for initialization
     public void Start () {

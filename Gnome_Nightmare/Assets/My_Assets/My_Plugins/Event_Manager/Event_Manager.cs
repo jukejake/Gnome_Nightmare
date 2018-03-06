@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 using System.Runtime.InteropServices;
+using Sirenix.OdinInspector;
 
 
-public class Event_Manager : MonoBehaviour
+public class Event_Manager : SerializedMonoBehaviour
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct Vec3
@@ -83,35 +85,42 @@ public class Event_Manager : MonoBehaviour
 	public static extern int getLastEvent();
 
 	Vec3 pos;
-	public GameObject fire;
-	public GameObject[] fireSpawns = new GameObject[5];
-	public int nextEventRound = 0;  //	0 just for initialization
-	public int fireCount = 10;	// current fire count for the barn fire
-	public bool extinguisherHeld = false;	//	does a player have a fire extinguisher
-	private int fireCountMax = 10;
-	private int active;
+	public Text prompt;
+	public MenuManager menu;
+	public GameObject firePrefab;
+	private static int fireCountMax = 10;
+	public static int fireCount = 0;   // current fire count for the barn fire
+	public static int nextEventRound = 0;  //	0 just for initialization
+	public static int active = 0;   // 100 for null (essentially, not literally)
+	public static int eventRoundProgress = 0;	// how many rounds passed since event started
+	public static int eventDuration = 2;	// max 2 rounds to complete and event
+	private static bool fireSpawned = false;
+	private GameObject fire;
 
 	// Use this for initialization
 	void Start()
 	{
 		createEvents();
+		Debug.Log("Events created successfully!");
 		createAchievements();
-		nextEventRound = genNextEventInfo(3, 4);
+		Debug.Log("Achievements created successfully!");
+		nextEventRound = 1;
 
-		Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
+		//Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		pos.x = this.transform.position.x;
-		pos.y = this.transform.position.y;
-		pos.z = this.transform.position.z;
+		Debug.Log("Next Event Round: " + nextEventRound);
+		Debug.Log("Current Event:0: " + ansiIt(getEventName(0, 0)));
+		Debug.Log("Num of events in set 1: " + getNumObjectives(0));
 
 		// check if the current round = anticpated event round
-		if (GetComponent<EnemySpawners.Interface_SpawnTable>().CurrentLevel == nextEventRound)
+		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound)
 		{
-			
+			nextEventRound = getNextEvent();
+			//active = getNextEvent();
 		}
 
 		// if fire event is active
@@ -125,6 +134,17 @@ public class Event_Manager : MonoBehaviour
 		{
 			outageEvent();
 		}
+
+        if (menu == null) {
+            menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
+        }
+	}
+
+	[Button]
+	public void GetSecond() {
+
+		Debug.Log("Current Event:1: " + ansiIt(getEventName(0, 0)));
+		Debug.Log("Current Event:2: " + ansiIt(getEventName(1, 0)));
 	}
 
 	private void OnDestroy()
@@ -148,7 +168,7 @@ public class Event_Manager : MonoBehaviour
 		setEventName(0, 0, "Find the fire extinguisher");
 		setParent(0, 0, -1);
 		newEvent(0);
-		setEventName(0, 1, "Put out the fire");
+		setEventName(0, 1, "Put out all the fires");
 		setParent(0, 1, 0);
 
 		// outage event
@@ -160,6 +180,9 @@ public class Event_Manager : MonoBehaviour
 		newEvent(1);
 		setEventName(1, 1, "Find the generator");
 		setParent(1, 1, 0);
+		newEvent(1);
+		setEventName(1, 2, "Turn on the generator");
+		setParent(1, 2, 1);
 	}
 
 	private void createAchievements()
@@ -177,21 +200,45 @@ public class Event_Manager : MonoBehaviour
 
 	private void fireEvent()	//	handles fire event while it is active
 	{
-		if (!getEventStatus(0, 0) && isEventActive(0, 0))
+		if (eventRoundProgress < 2)
 		{
-			// check if fire extinguisher is in any players' inventory
-			if (extinguisherHeld)
+			if (!fireSpawned)
 			{
-				moveOn(0, 0);
-			}
-		}
-		else
-		{
-			if (!getEventStatus(0, 1) && isEventActive(0, 1))
-			{
-				// check if all of the fires have been put out
-				if(fireCount == 0)
+				for (int i = 0; i < fireCountMax; i++)
 				{
+					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
+				}
+				setActiveEventSet(0, true);
+				fireSpawned = true;
+			}
+
+			if (!getEventStatus(0, 0) && isEventActive(0, 0))
+			{
+				//prompt.text = ansiIt(getEventName(0, 0));
+				prompt.text = "Find The Fire Extinguisher";
+
+                Component[] Slots;
+                if (menu != null) { 
+                    // check if fire extinguisher is in any players' inventory	
+                    Slots = menu.Inventory_Slot.GetComponentsInChildren<Drag_Inventory>();	
+                    foreach (Drag_Inventory slots in Slots) {
+                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) { moveOn(0, 0); }
+                    }
+                    // check if fire extinguisher is in any players' inventory		
+                    Slots = menu.Weapon_Slot.GetComponentsInChildren<Drag_Inventory>();
+                    foreach (Drag_Inventory slots in Slots) {
+                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) { moveOn(0, 0); }
+                    }
+                }
+			}
+			else if (!getEventStatus(0, 1) && isEventActive(0, 1))
+			{
+				prompt.text = ansiIt(getEventName(0, 1));
+
+				// check if all of the fires have been put out
+				if (fireCount < 1)
+				{
+					nextEventRound = genNextEventInfo(2, 5);
 					moveOn(0, 1);
 				}
 			}
@@ -200,16 +247,23 @@ public class Event_Manager : MonoBehaviour
 
 	private void outageEvent()	//	handles outage event while it is active
 	{
-		if (!getEventStatus(1, 0) && isEventActive(1, 0))
+		if (!getEventStatus(1, 0) && !isEventActive(1, 0))
 		{
+			setActiveEventSet(0, true);
+		}
+		else if (!getEventStatus(1, 0) && isEventActive(1, 0))
+		{
+			// check if a player is in the bunker space
 
 		}
-		else
+		else if (!getEventStatus(1, 1) && isEventActive(1, 1))
 		{
-			if (!getEventStatus(1, 1) && isEventActive(1, 1))
-			{
+			// check if a player has reached the generator room
 
-			}
+		}
+		else if (!getEventStatus(1, 2) && isEventActive(1,2)) { 
+			// check the generator status
+
 		}
 	}
 
@@ -220,6 +274,7 @@ public class Event_Manager : MonoBehaviour
 		{
 			return false;
 		}
+		fireSpawned = false;
 		return true;	// returns true if there are no errors
 	}
 

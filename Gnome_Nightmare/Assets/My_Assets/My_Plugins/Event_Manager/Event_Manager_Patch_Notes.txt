@@ -14,3 +14,6 @@ v1.3:
 - set active event function
 - reset event function. now returns if reset was successful
 - check if event is active function
+
+v1.4
+- fixed setEventSetName function bug
