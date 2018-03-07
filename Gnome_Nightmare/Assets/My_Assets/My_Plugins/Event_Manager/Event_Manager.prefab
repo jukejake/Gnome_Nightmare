@@ -380,5 +380,5 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   prompt: {fileID: 0}
-  menu: {fileID: 1656346808568398, guid: edcde4f9f4a0b244a93c9a3c50ff83e1, type: 2}
+  menu: {fileID: 0}
   firePrefab: {fileID: 1098150679525672, guid: 660d950ab8c56e6459260f55f72dd620, type: 2}

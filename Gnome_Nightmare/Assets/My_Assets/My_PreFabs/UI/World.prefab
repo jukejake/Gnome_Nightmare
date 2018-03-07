@@ -49804,6 +49804,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -51535,6 +51537,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -52214,6 +52218,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -52746,6 +52752,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -53239,6 +53247,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -54718,6 +54728,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -55481,6 +55493,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -55555,6 +55569,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -56221,6 +56237,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -56718,6 +56736,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -57557,6 +57577,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -57990,6 +58012,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -58899,6 +58923,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -59083,6 +59109,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -60032,6 +60060,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -60300,6 +60330,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -61025,6 +61057,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -61798,6 +61832,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}

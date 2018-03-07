@@ -17613,6 +17613,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -17955,6 +17957,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -22098,6 +22102,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1112552669}
+  - {fileID: 548683568}
   - {fileID: 761446640}
   m_Father: {fileID: 1270180279}
   m_RootOrder: 5
@@ -24145,6 +24150,126 @@ MonoBehaviour:
   m_Center: {x: -32.5, y: 0, z: 53.5}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!1001 &383405769
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 342373668}
+    m_Modifications:
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 68.61852
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -394
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -176
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.3205539
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.3205539
+      objectReference: {fileID: 0}
+    - target: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.3205539
+      objectReference: {fileID: 0}
+    - target: {fileID: 114391802317607298, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2303b50cfcc44e54aa61e76e8dc20bae, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &386378825
 GameObject:
   m_ObjectHideFlags: 0
@@ -27993,6 +28118,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -29021,6 +29148,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 1.8, z: 0.4}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!224 &548683568 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224558846166634996, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+    type: 2}
+  m_PrefabInternal: {fileID: 383405769}
+--- !u!114 &548683569 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114391802317607298, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
+    type: 2}
+  m_PrefabInternal: {fileID: 383405769}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &549477673
 GameObject:
   m_ObjectHideFlags: 0
@@ -31681,7 +31819,7 @@ Prefab:
       objectReference: {fileID: 2112851678}
     - target: {fileID: 1881150843599840, guid: d5228a47dd4d8ec4bbb90e0aa633e504, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114503221605676024, guid: d5228a47dd4d8ec4bbb90e0aa633e504,
         type: 2}
@@ -31750,6 +31888,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -35494,6 +35634,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -36247,7 +36389,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 342373668}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -38219,6 +38361,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -43417,6 +43561,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -44332,6 +44478,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -48048,6 +48196,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -48428,7 +48578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -49013,6 +49163,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -49681,6 +49833,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -60772,6 +60926,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -63313,8 +63469,7 @@ Prefab:
         type: 2}
       propertyPath: prompt
       value: 
-      objectReference: {fileID: 114391802317607298, guid: 2303b50cfcc44e54aa61e76e8dc20bae,
-        type: 2}
+      objectReference: {fileID: 548683569}
     - target: {fileID: 114346897488282066, guid: 612d5f98c17896143a6cfa8d8df34f9d,
         type: 2}
       propertyPath: serializationData.SerializedFormat
@@ -74972,6 +75127,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -77248,6 +77405,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -77710,6 +77869,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -78943,6 +79104,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -83159,6 +83322,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
@@ -87673,6 +87838,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 0
   Points: 0
   Health_Bar: {fileID: 0}
