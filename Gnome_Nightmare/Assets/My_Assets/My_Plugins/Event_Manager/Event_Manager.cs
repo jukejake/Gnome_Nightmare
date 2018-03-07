@@ -90,14 +90,17 @@ public class Event_Manager : SerializedMonoBehaviour
 	public Text prompt;
 	public MenuManager menu;
 	public GameObject firePrefab;
+	public GameObject barnBarrier;
 	private static int fireCountMax = 10;
 	public static int fireCount = 0;   // current fire count for the barn fire
-	public static int nextEventRound = 0;  //	0 just for initialization
+	public static int nextEventRound = 3;  //	0 just for initialization
 	public static int active = 0;   // 100 for null (essentially, not literally)
-	public static int eventRoundProgress = 0;	// how many rounds passed since event started
-	public static int eventDuration = 2;	// max 2 rounds to complete and event
+	public int eventRoundProgress = 0;	// how many rounds passed since event started
 	private static bool fireSpawned = false;
+	private static bool fireFailed = false;
+	private bool promptSpawned = false;
 	private GameObject fire;
+	private float KeepTime = 0.0f;
 
 	// Use this for initialization
 	void Start()
@@ -127,15 +130,30 @@ public class Event_Manager : SerializedMonoBehaviour
 		if (active == 0)
 		{
 			fireEvent();
-		}
-
-		// if outage event is active
-		if(active == 1)
+		}	
+		else if(active == 1)	// if outage event is active
 		{
 			outageEvent();
 		}
 
-        if (menu == null) {
+		if (fireFailed)
+		{
+			if (KeepTime == 0.0f)
+			{
+				prompt.text = "EVENT FAILED!";
+				KeepTime += Time.deltaTime;
+			}
+			else if (KeepTime < 10.0f) {
+				KeepTime += Time.deltaTime;
+			}
+			else if (KeepTime > 10.0f && KeepTime < 11.0f)
+			{
+				prompt.text = "";
+				KeepTime = 11.0f;
+			}
+		}
+
+		if (menu == null) {
             menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
         }
 	}
@@ -201,25 +219,26 @@ public class Event_Manager : SerializedMonoBehaviour
 
 	private void fireEvent()	//	handles fire event while it is active
 	{
-		if (eventRoundProgress < 2)
+		if (eventRoundProgress < 3)	// give 2 rounds to complete the event
 		{
 			if (!fireSpawned)
 			{
 				for (int i = 0; i < fireCountMax; i++)
 				{
 					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
+					fireCount++;
 				}
 				setActiveEventSet(0, true);
 				fireSpawned = true;
 			}
-			Debug.Log(getEventStatus(0, 0));
-			Debug.Log(getEventStatus(0, 1));
-			Debug.Log("Second part: " + isEventActive(0, 1));
 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0))
 			{
-				prompt.text = "Find The Fire Extinguisher";
-				Debug.Log("Find the Fire Extinguisher");
+				if (!promptSpawned)
+				{
+					prompt.text = "Find The Fire Extinguisher";
+					promptSpawned = true;
+				}
 
                 Component[] Slots;
                 if (menu != null) { 
@@ -228,6 +247,7 @@ public class Event_Manager : SerializedMonoBehaviour
                     foreach (Drag_Inventory slots in Slots) {
                         if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
 							moveOn(0, 0);
+							promptSpawned = false;
 						}
                     }
 		              // check if fire extinguisher is in any players' inventory		
@@ -235,27 +255,32 @@ public class Event_Manager : SerializedMonoBehaviour
 		              foreach (Drag_Inventory slots in Slots) {
 		                  if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
 							moveOn(0, 0);
+							promptSpawned = false;
 						}
 					}
                 }
 			}
 			else if (!getEventStatus(0, 1) && isEventActive(0, 1))
 			{
-				prompt.text = "Put Out All of the Fires";
-				Debug.Log("Put Out All of the Fires ");
+				if (!promptSpawned)
+				{
+					prompt.text = "Put Out All of the Fires";
+					promptSpawned = true;
+				}
 
 				// check if all of the fires have been put out
 				if (fireCount < 1)
 				{
-					//nextEventRound = genNextEventInfo(2, 5);
 					moveOn(0, 1);
+					promptSpawned = false;
 				}
 			}
 		}
-		else if(eventRoundProgress >= 2 && !getEventStatus(0, 1))	// event was not completed in time
+		else if(eventRoundProgress >= 3 && !getEventStatus(0, 1))	// event was not completed in time
 		{
-			prompt.text = "EVENT FAILED!";
-			fire.transform.localScale *= 3;
+			active = 100;
+			fireFailed = true;
+			barnBarrier.GetComponent<Collider>().isTrigger = false;
 		}
 	}
 

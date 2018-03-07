@@ -16,10 +16,6 @@ public class EnemyStats : CharacterStats {
         }
     }
 
-    private void Start() {
-        
-    }
-
     private void Update() {
        HealthBar();
     }
