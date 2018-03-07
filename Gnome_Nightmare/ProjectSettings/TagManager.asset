@@ -13,6 +13,7 @@ TagManager:
   - Item_Inventory
   - Weapon_Inventory
   - Check_Tag
+  - Fire_Spawn
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Static
   - Items
   - Ignore Default
-  - 
-  - 
+  - Ignore Bullets
+  - Ignore Invisible Walls
   - 
   - 
   - 

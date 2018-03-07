@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588539538571162}
   - component: {fileID: 65705104852919254}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HitBox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4864524842944732}
   - component: {fileID: 65408665355622724}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HitBox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4115865867214182}
   - component: {fileID: 65992182285108368}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HitBox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4260768867828338}
   - component: {fileID: 65978006605769520}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HitBox (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

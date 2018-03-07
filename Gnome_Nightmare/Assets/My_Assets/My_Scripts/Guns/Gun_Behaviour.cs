@@ -8,6 +8,8 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     //public enum WeaponType { None, HitScan, Projectile, Melee };
     //public WeaponType weaponType;
 
+    LayerMask layerMask;
+
     [TableList, HideInInspector]
     public OdinTables.WeaponStatsTable Stats = new OdinTables.WeaponStatsTable();
 
@@ -58,6 +60,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     // Use this for initialization
     private void Start() {
         Invoke("DelayedStart", 0.1f);
+        layerMask = ~(1 << LayerMask.NameToLayer("Ignore Bullets") | 1 << LayerMask.NameToLayer("Ignore Invisable Walls"));
         PlayerCamera = Camera.main;
         playerManager = PlayerManager.instance;
         menuManager = MenuManager.instance;
@@ -97,7 +100,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         if (FireSound != null) { FireSound.Play(); }
         RaycastHit hit;
         //Fires a Raycast to find something to hit
-        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue())) {
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue(), layerMask)) {
             Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
             //Get enemies stats
             EnemyStats EnemyStat = hit.transform.GetComponent<EnemyStats>();
@@ -135,15 +138,15 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     private void ProjectileWeapons_Update() {
 
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
-            RaycastHit hit;
-            if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue())) {
-                s_Spawner.transform.LookAt(hit.point);
-                Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
-            }
-            else {
+            //RaycastHit hit;
+            //if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue(), layerMask)) {
+            //    s_Spawner.transform.LookAt(hit.point);
+            //    Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
+            //}
+            //else {
                 s_Spawner.transform.LookAt(this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()));
                 Debug.DrawLine(this.PlayerCamera.transform.position, this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()), Color.blue, 5.0f);
-            }
+            //}
 
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
             if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
