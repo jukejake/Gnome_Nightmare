@@ -10,6 +10,8 @@ public class PlayerStats : CharacterStats {
     private int Kills = 0;
     private int Downs = 0;
 
+    private Transform HealthBarObj;
+
     public bool isDead = false;
     [Space]
     public float TotalHealth;
@@ -79,21 +81,23 @@ public class PlayerStats : CharacterStats {
             Downs++;
             return;
         }
-        if (this.gameObject.transform.Find("HealthBar")) {
+
+        if (!HealthBarObj) { HealthBarObj = GameObject.Find("HealthBar").transform; }
+        else {
             float v_Health = CurrentHealth / MaxHealth;
             v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);
             Vector3 Health = new Vector3(v_Health, 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBar").GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
-            Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBar").GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
+            HealthBarObj.GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
+            Health = new Vector3(1.0f - (v_Health), 1.0f, 1.0f);
+            HealthBarObj.GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
         }
-        if (this.gameObject.transform.Find("HealthBarTop")) {
-            float v_Health = CurrentHealth / MaxHealth;
-            v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);
-            Vector3 Health = new Vector3(v_Health, 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBarTop").GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
-            Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
-            this.gameObject.transform.Find("HealthBarTop").GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
-        }
+        //if (this.gameObject.transform.Find("HealthBarTop")) {
+        //    float v_Health = CurrentHealth / MaxHealth;
+        //    v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);
+        //    Vector3 Health = new Vector3(v_Health, 1.0f, 1.0f);
+        //    this.gameObject.transform.Find("HealthBarTop").GetChild(0).GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
+        //    Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
+        //    this.gameObject.transform.Find("HealthBarTop").GetChild(0).GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
+        //}
     }
 }

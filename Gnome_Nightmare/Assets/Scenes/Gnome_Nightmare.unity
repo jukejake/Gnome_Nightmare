@@ -3206,6 +3206,10 @@ Prefab:
       propertyPath: prompt
       value: 
       objectReference: {fileID: 548683569}
+    - target: {fileID: 1180266003875306, guid: 612d5f98c17896143a6cfa8d8df34f9d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 612d5f98c17896143a6cfa8d8df34f9d, type: 2}
   m_IsPrefabParent: 0
