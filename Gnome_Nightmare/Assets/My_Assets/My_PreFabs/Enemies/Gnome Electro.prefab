@@ -1212,6 +1212,8 @@ MonoBehaviour:
   Armour:
     stat: 8
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 3
   Points: 1
   Health_Bar: {fileID: 224784661393061214}

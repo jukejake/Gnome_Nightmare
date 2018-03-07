@@ -3558,6 +3558,8 @@ MonoBehaviour:
   Armour:
     stat: 0
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   PlayerName: Player
   isDead: 0
   TotalHealth: 0

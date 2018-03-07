@@ -47,6 +47,8 @@ public class Event_Manager : SerializedMonoBehaviour
 	[DllImport("EventManager")]
 	public static extern void setImmediateChild(int eventSetIndex, int eventIndex, int parentEventIndex);  // set the immediate (next) MyEvent in the hierarchy
 	[DllImport("EventManager")]
+	public static extern void setActiveEvent(int eventSetIndex, int eventIndex, bool stat);
+	[DllImport("EventManager")]
 	public static extern void setIconFilepath(int eventSetIndex, int eventIndex, char f);
 	[DllImport("EventManager")]
 	public static extern void setLast(int eventSetIndex, int eventIndex);  // sets the MyEvent given as the last in its hierarchy
@@ -113,8 +115,6 @@ public class Event_Manager : SerializedMonoBehaviour
 	void Update()
 	{
 		Debug.Log("Next Event Round: " + nextEventRound);
-		Debug.Log("Current Event:0: " + ansiIt(getEventName(0, 0)));
-		Debug.Log("Num of events in set 1: " + getNumObjectives(0));
 
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound)
@@ -169,7 +169,8 @@ public class Event_Manager : SerializedMonoBehaviour
 		setParent(0, 0, -1);
 		newEvent(0);
 		setEventName(0, 1, "Put out all the fires");
-		setParent(0, 1, 0);
+		setImmediateChild(0, 1, 0);
+		setLast(0, 1);
 
 		// outage event
 		createEventSet();
@@ -179,10 +180,10 @@ public class Event_Manager : SerializedMonoBehaviour
 		setParent(1, 0, -1);
 		newEvent(1);
 		setEventName(1, 1, "Find the generator");
-		setParent(1, 1, 0);
+		setImmediateChild(1, 1, 0);
 		newEvent(1);
 		setEventName(1, 2, "Turn on the generator");
-		setParent(1, 2, 1);
+		setImmediateChild(1, 2, 1);
 	}
 
 	private void createAchievements()
@@ -211,37 +212,52 @@ public class Event_Manager : SerializedMonoBehaviour
 				setActiveEventSet(0, true);
 				fireSpawned = true;
 			}
+			Debug.Log(getEventStatus(0, 0));
+			Debug.Log(getEventStatus(0, 1));
+			Debug.Log("Second part: " + isEventActive(0, 1));
 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0))
 			{
-				//prompt.text = ansiIt(getEventName(0, 0));
 				prompt.text = "Find The Fire Extinguisher";
+				Debug.Log("Find the Fire Extinguisher");
 
                 Component[] Slots;
                 if (menu != null) { 
                     // check if fire extinguisher is in any players' inventory	
                     Slots = menu.Inventory_Slot.GetComponentsInChildren<Drag_Inventory>();	
                     foreach (Drag_Inventory slots in Slots) {
-                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) { moveOn(0, 0); }
+                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
+							moveOn(0, 0);
+							setActiveEvent(0, 1, true);
+						}
                     }
-                    // check if fire extinguisher is in any players' inventory		
-                    Slots = menu.Weapon_Slot.GetComponentsInChildren<Drag_Inventory>();
-                    foreach (Drag_Inventory slots in Slots) {
-                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) { moveOn(0, 0); }
-                    }
+		              // check if fire extinguisher is in any players' inventory		
+		              Slots = menu.Weapon_Slot.GetComponentsInChildren<Drag_Inventory>();
+		              foreach (Drag_Inventory slots in Slots) {
+		                  if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
+							moveOn(0, 0);
+							setActiveEvent(0, 1, true);
+						}
+					}
                 }
 			}
 			else if (!getEventStatus(0, 1) && isEventActive(0, 1))
 			{
-				prompt.text = ansiIt(getEventName(0, 1));
+				prompt.text = "Put Out All of the Fires";
+				Debug.Log("Put Out All of the Fires ");
 
 				// check if all of the fires have been put out
 				if (fireCount < 1)
 				{
-					nextEventRound = genNextEventInfo(2, 5);
+					//nextEventRound = genNextEventInfo(2, 5);
 					moveOn(0, 1);
 				}
 			}
+		}
+		else if(eventRoundProgress >= 2 && !getEventStatus(0, 1))	// event was not completed in time
+		{
+			prompt.text = "EVENT FAILED!";
+			fire.transform.localScale *= 3;
 		}
 	}
 
