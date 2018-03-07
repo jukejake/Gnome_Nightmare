@@ -84,8 +84,11 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         //If the player presses LeftClick or Right Triggger
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
-            if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
-            else { HitScanWeapons_Shoot(); }
+            if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { HitScanWeapons_Shoot(); }
+            else {
+                if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
+                else { HitScanWeapons_Shoot(); }
+            }
         }
         //If the player presses Right Click 
         if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
@@ -149,8 +152,12 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
             //}
 
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
-            if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
-            else { ProjectileWeapons_Shoot(); }
+
+            if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { ProjectileWeapons_Shoot(); }
+            else {
+                if (this.Stats.AmountCount.GetValue() <= 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
+                else { ProjectileWeapons_Shoot(); }
+            }
         }
 
         //If the player presses Right Click 
@@ -166,6 +173,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         //spawn bullet
         s_clone = (GameObject)Instantiate(s_bullet, s_Spawner.transform.position, s_Spawner.transform.rotation);
         s_clone.transform.SetParent(EffectTab.transform);
+        s_clone.GetComponent<Bullet_Benaviour>().TypeOfAmmo = TypeOfAmmo;
         s_clone.GetComponent<Bullet_Benaviour>().SetPlayerManager(playerManager);
         s_clone.GetComponent<Bullet_Benaviour>().SetDamage(this.Stats.Damage.GetValue());
         if (CameraControl.isAiming) { ProjectileWeapons_RaycastProjectile(); }
@@ -199,6 +207,8 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     
 
     private void Reload() {
+        if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { return; }
+
         NextTimeToFire = Time.time + (this.Stats.ReloadTime.GetValue() / 1.0f);
         if (this.Stats.AmountCount.GetValue() >= this.Stats.ClipSize.GetValue()) { return; }
         else {
@@ -227,7 +237,15 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     }
 
     public void SetTextToAmount() {
-        if (menuManager.Weapon_Slot.transform.GetChild(0) && menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject) {
+
+        if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) {
+            if (menuManager.Weapon_Slot.transform.GetChild(0) && menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject) {
+                //need to change if Add a Swap function (Already have one with controllers)
+                if (AmountText == null) { AmountText = menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject; }
+                AmountText.GetComponent<Text>().text = " ";
+            }
+        }
+        else if (menuManager.Weapon_Slot.transform.GetChild(0) && menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject) {
             //need to change if Add a Swap function (Already have one with controllers)
             if (AmountText == null) { AmountText = menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject; }
             AmountText.GetComponent<Text>().text = Stats.AmountCount.GetValue().ToString();

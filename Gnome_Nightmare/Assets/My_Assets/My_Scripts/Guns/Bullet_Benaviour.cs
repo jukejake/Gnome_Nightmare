@@ -7,6 +7,7 @@ public class Bullet_Benaviour : MonoBehaviour {
     public int maxBulletHoleCount = 15;
     private static int bulletHoleCount = 0;
     public GameObject bulletHole;
+    public Ammo_Types.Ammo TypeOfAmmo = Ammo_Types.Ammo.Basic;
 
     private PlayerManager playerManager;
     private float Damage = 0.0f;

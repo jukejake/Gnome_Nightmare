@@ -5,6 +5,7 @@ using ServerDll;
 using Sirenix.OdinInspector;
 
 public class Client_Manager : SerializedMonoBehaviour {
+    public int PlayerNumber = -1;
     void Awake() { DontDestroyOnLoad(this.gameObject); }
     private void Start() { }
 
@@ -44,7 +45,14 @@ public class Client_Manager : SerializedMonoBehaviour {
         Vector3 rot = new Vector3(); ;
         int hp = -1;
 
+        //Set Player Number
+        if (data.Contains("!")) {
+            string t = data.Split('|')[0];
+            t = t.Substring(1);
+            PlayerNumber = int.Parse(t);
 
+            data = data.Substring(t.Length + 2);
+        }
         //Destroy an object
         if (data.Contains("~")) {
             //Distroy Code Here

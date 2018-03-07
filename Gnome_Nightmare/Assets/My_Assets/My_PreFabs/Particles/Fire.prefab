@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
+  health: 4
 --- !u!135 &135343352924845898
 SphereCollider:
   m_ObjectHideFlags: 1

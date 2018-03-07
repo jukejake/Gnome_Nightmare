@@ -55,10 +55,8 @@ public class MenuManager : MonoBehaviour {
         weapon.name = "weapon";
         if (weapon.GetComponent<Gun_Behaviour>()) {
             weapon.GetComponent<Gun_Behaviour>().enabled = true;
-            if (Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>()) {
-                weapon.GetComponent<Gun_Behaviour>().Stats = Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats;
-                //weapon.GetComponent<Gun_Behaviour>().GetStats();
-            }
+            if (Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>()) { weapon.GetComponent<Gun_Behaviour>().Stats = Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats; }
+            if (Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>()) { weapon.GetComponent<Gun_Behaviour>().TypeOfAmmo = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().typeOfAmmo; }
         }
         if (weapon.GetComponent<Eyes_Follow_Cursor>()) { weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true; }
         weapon.transform.SetParent(player.transform);
@@ -148,7 +146,10 @@ public class MenuManager : MonoBehaviour {
     }
     private void Switch() {
         if (CurrentSlot == -1) { return; }
-        if (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon) {
+        if ((Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Weapon_Slot.GetComponent<Drop_Inventory>().typeOfItem)
+            || (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Weapon)
+            || (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Extinguisher)
+            || (Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Healing)) {
             if (Weapon_Slot.transform.childCount != 0) {
                 timer = timerValue;
                 UnEquipWeapon();
