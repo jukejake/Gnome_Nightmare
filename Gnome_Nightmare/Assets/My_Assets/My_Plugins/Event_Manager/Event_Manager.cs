@@ -228,7 +228,6 @@ public class Event_Manager : SerializedMonoBehaviour
                     foreach (Drag_Inventory slots in Slots) {
                         if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
 							moveOn(0, 0);
-							setActiveEvent(0, 1, true);
 						}
                     }
 		              // check if fire extinguisher is in any players' inventory		
@@ -236,7 +235,6 @@ public class Event_Manager : SerializedMonoBehaviour
 		              foreach (Drag_Inventory slots in Slots) {
 		                  if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
 							moveOn(0, 0);
-							setActiveEvent(0, 1, true);
 						}
 					}
                 }
