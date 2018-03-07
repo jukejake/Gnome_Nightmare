@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1831405895}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0027984856, g: 0.0019825532, b: 0.0038967764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3209,6 +3209,21 @@ Prefab:
     - target: {fileID: 1180266003875306, guid: 612d5f98c17896143a6cfa8d8df34f9d, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346897488282066, guid: 612d5f98c17896143a6cfa8d8df34f9d,
+        type: 2}
+      propertyPath: serializationData.SerializedFormat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346897488282066, guid: 612d5f98c17896143a6cfa8d8df34f9d,
+        type: 2}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346897488282066, guid: 612d5f98c17896143a6cfa8d8df34f9d,
+        type: 2}
+      propertyPath: eventRoundProgress
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 612d5f98c17896143a6cfa8d8df34f9d, type: 2}

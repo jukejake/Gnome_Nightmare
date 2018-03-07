@@ -7,6 +7,15 @@ public class Fire : MonoBehaviour {
     public float Damage = 1.0f; //Amount of damage that will be applyed to the player
 	public float health = 20.0f;
 
+	private void Update()
+	{
+		if (health < 1.0f)
+		{
+			Event_Manager.fireCount--;
+			Destroy(gameObject);
+		}
+	}
+
 	private void OnCollisionEnter(Collision col)
 	{
 		if(col.gameObject.GetComponent<Ammo_Types>().TypeOfAmmo == Ammo_Types.Ammo.Extinguisher)
