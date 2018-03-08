@@ -5,9 +5,18 @@ using ServerDll;
 using Sirenix.OdinInspector;
 
 public class Client_Manager : SerializedMonoBehaviour {
+
+    public static Client_Manager instance;
+    private ID_Table IDTable;
+    private void Awake() {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+    private void Start() {
+        IDTable = ID_Table.instance;
+    }
+
     public int PlayerNumber = -1;
-    void Awake() { DontDestroyOnLoad(this.gameObject); }
-    private void Start() { }
 
 
     private ServerDll.Client client = new ServerDll.Client();
@@ -17,11 +26,13 @@ public class Client_Manager : SerializedMonoBehaviour {
     [Button]
     public void ConnectToServer() {
         if (client.TCP_ConnectToServer()) { ClientOn = true; }
-        else { Debug.Log("TCP Failed"); }
     }
     [Button]
     public void Send() {
         client.TCP_SendData(ClientMessage);
+    }
+    public void SendData(string data) {
+        client.TCP_SendData(data);
     }
 
 
@@ -104,11 +115,53 @@ public class Client_Manager : SerializedMonoBehaviour {
             data = data.Substring(t.Length + 4);
         }
 
-        if (destroy) { Debug.Log("Destroy: " + ID); }
-        if (instantiate != -1) { Debug.Log("Instantiate: " + instantiate + " | ID: " + ID); }
-        if (ID != -1 && pos != null) { Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")"); }
-        if (ID != -1 && rot != null) { Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")"); }
-        if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }
+        //Need to handle Events
+
+        if (ID != -1 && destroy) {
+            Debug.Log("Destroy: " + ID);
+            //Find Object with the same [ID] and Destroy it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) {
+                    Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
+                    Destroy(agent.gameObject);
+                }
+            }
+        }
+        else if (ID != -1 && instantiate != -1) {
+            //Instantiate and Object with [ID] from the ID_Table
+            Debug.Log("Instantiate: " + instantiate + " | ID: " + ID);
+            GameObject t;
+            if (IDTable.IDTable.TryGetValue(instantiate, out t)) {
+                GameObject temp = Instantiate(t, pos, Quaternion.Euler(rot));
+                temp.name = t.name;
+                if (temp.GetComponent<Agent>()) { temp.GetComponent<Agent>().AgentNumber = ID; }
+                else {
+                    temp.AddComponent<Agent>();
+                    temp.GetComponent<Agent>().AgentNumber = ID;
+                }
+                if (hp != -1) {
+                    if (temp.GetComponent<EnemyStats>())  { temp.GetComponent<EnemyStats>().MaxHealth = hp;  temp.GetComponent<EnemyStats>().CurrentHealth = hp; }
+                    if (temp.GetComponent<PlayerStats>()) { temp.GetComponent<PlayerStats>().MaxHealth = hp; temp.GetComponent<PlayerStats>().CurrentHealth = hp; }
+                }
+                if (temp.tag == "Items") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Items_Spawn_Here").transform); }
+                else if (temp.tag == "Enemy") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Enemies_Spawn_Here").transform); }
+            }
+        }
+        else if (ID != -1) {
+            //Find Object with the same [ID] and change it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) {
+                    agent.gameObject.transform.position = pos;
+                    agent.gameObject.transform.rotation = Quaternion.Euler(rot);
+                    Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")");
+                    Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")");
+                    if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }
+                }
+            }
+        }
+
     }
 
     public void Quit() {

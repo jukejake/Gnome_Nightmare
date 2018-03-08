@@ -5,8 +5,20 @@ using ServerDll;
 using Sirenix.OdinInspector;
 
 public class Server_Manager : SerializedMonoBehaviour {
-    private void Awake() { DontDestroyOnLoad(this.gameObject); }
-    private void Start() { ServerStart(); }
+
+    public static Server_Manager instance;
+    private ID_Table IDTable;
+    private void Awake() {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+    private void Start() { 
+        IDTable = ID_Table.instance;
+        ServerStart();
+    }
+
+    public int PlayerNumber = 0;
+
 
     private ServerDll.Server server = new ServerDll.Server();
     public bool ServerOn = false;
@@ -19,6 +31,9 @@ public class Server_Manager : SerializedMonoBehaviour {
     [Button]
     private void Send() {
         server.TCP_Send(ServerMessage);
+    }
+    public void SendData(string data) {
+        server.TCP_Send(data);
     }
 
 
@@ -95,6 +110,9 @@ public class Server_Manager : SerializedMonoBehaviour {
             hp = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
+
+        //Need to handle Events
+
 
         if (destroy) { Debug.Log("Destroy: " + ID); }
         if (instantiate != -1) { Debug.Log("Instantiate: " + instantiate + " | ID: " + ID); }

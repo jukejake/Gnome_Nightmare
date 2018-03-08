@@ -3,7 +3,7 @@
 public class CharacterStats : MonoBehaviour {
 
     public float MaxHealth = 100.0f;
-    public float CurrentHealth { get; private set; }
+    public float CurrentHealth;//{ get; private set; }
 
     public Stat Damage;
     public Stat Armour;

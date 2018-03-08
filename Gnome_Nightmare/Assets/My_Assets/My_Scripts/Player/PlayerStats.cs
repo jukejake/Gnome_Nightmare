@@ -13,14 +13,9 @@ public class PlayerStats : CharacterStats {
     private Transform HealthBarObj;
 
     public bool isDead = false;
-    [Space]
     public float TotalHealth;
-    public float TotalDamage;
-    public float TotalArmor;
 
     private void Start() {
-        TotalDamage = Damage.GetValue();
-        TotalArmor = Armour.GetValue();
     }
 
     private void Update() {
@@ -69,9 +64,7 @@ public class PlayerStats : CharacterStats {
 
         //If the player can still level up, do so
         if (PlayerExperience >= MaxExperienceForLevel) { PlayerLevelUp(); }
-
-        TotalDamage = Damage.GetValue();
-        TotalArmor = Armour.GetValue();
+        
     }
 
     private void HealthBar(){

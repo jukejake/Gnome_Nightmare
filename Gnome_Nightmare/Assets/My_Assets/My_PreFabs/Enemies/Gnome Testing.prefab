@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 136751589626608646}
   m_Layer: 0
   m_Name: Gnome Testing
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1411,12 +1411,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
+  CurrentHealth: 0
   Damage:
     stat: 1
     baseValue: 1
   Armour:
     stat: 8
     baseValue: 0
+  AudioOnDamage: {fileID: 0}
+  AudioOverTime: {fileID: 0}
   Experience: 3
   Points: 1
   Health_Bar: {fileID: 224314605480656634}
