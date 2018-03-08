@@ -176,6 +176,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         s_clone.GetComponent<Bullet_Benaviour>().TypeOfAmmo = TypeOfAmmo;
         s_clone.GetComponent<Bullet_Benaviour>().SetPlayerManager(playerManager);
         s_clone.GetComponent<Bullet_Benaviour>().SetDamage(this.Stats.Damage.GetValue());
+
         if (CameraControl.isAiming) { ProjectileWeapons_RaycastProjectile(); }
         //shoot it
         else { s_clone.GetComponent<Rigidbody>().AddForce(s_Spawner.transform.forward * s_BulletSpeed, ForceMode.Impulse); }

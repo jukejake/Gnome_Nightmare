@@ -18,14 +18,14 @@ public class Fire : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision col)
 	{
-		if(col.gameObject.GetComponent<Bullet_Benaviour>().TypeOfAmmo == Ammo_Types.Ammo.Extinguisher)
+		if(col.gameObject.GetComponent<Bullet_Benaviour>().TypeOfAmmo == Ammo_Types.Ammo.Extinguisher && !Event_Manager.getEventStatus(0, 1) && !Event_Manager.fireFailed)
 		{
 			health--;
 		}
 	}
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.GetComponent<Bullet_Benaviour>().TypeOfAmmo == Ammo_Types.Ammo.Extinguisher)
+        if (col.gameObject.GetComponent<Bullet_Benaviour>().TypeOfAmmo == Ammo_Types.Ammo.Extinguisher && !Event_Manager.getEventStatus(0, 1) && !Event_Manager.fireFailed)
         {
             health--;
         }

@@ -92,11 +92,11 @@ public class Event_Manager : SerializedMonoBehaviour
 	public GameObject firePrefab;
 	public GameObject barnBarrier;
 	public static int fireCount = 0;   // current fire count for the barn fire
-	public static int nextEventRound = 3;  //	0 just for initialization
-	public static int active = 0;   // 100 for null (essentially, not literally)
-	public int eventRoundProgress = 0;	// how many rounds passed since event started
+	public static int nextEventRound = 0;  //	0 just for initialization
+	public static int active = 100;   // 100 for null (essentially, not literally)
+	public int eventRoundProgress = 0;  // how many rounds passed since event started
+	public static bool fireFailed = false;
 	private static bool fireSpawned = false;
-	private static bool fireFailed = false;
 	private bool promptSpawned = false;
 	private GameObject fire;
 	private float KeepTime = 0.0f;
@@ -109,7 +109,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		Debug.Log("Events created successfully!");
 		createAchievements();
 		Debug.Log("Achievements created successfully!");
-		nextEventRound = 1;
+		nextEventRound = 3;
 
 		//Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
 	}
@@ -117,12 +117,14 @@ public class Event_Manager : SerializedMonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log("Next Event Round: " + nextEventRound);
+		//Debug.Log("Next Event Round: " + nextEventRound);
+		Debug.Log("Fire Count: " + fireCount);
 
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound)
 		{
 			nextEventRound = getNextEvent();
+			active = 0;
 			//active = getNextEvent();
 		}
 
@@ -142,6 +144,11 @@ public class Event_Manager : SerializedMonoBehaviour
 			{
 				prompt.text = "EVENT FAILED!";
 				KeepTime += Time.deltaTime;
+
+				for (int i = 11; i < 14; i++)
+				{
+					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
+				}
 			}
 			else if (KeepTime < 10.0f) {
 				KeepTime += Time.deltaTime;
@@ -262,11 +269,8 @@ public class Event_Manager : SerializedMonoBehaviour
 			}
 			else if (!getEventStatus(0, 1) && isEventActive(0, 1))
 			{
-				if (!promptSpawned)
-				{
-					prompt.text = "Put Out All of the Fires";
-					promptSpawned = true;
-				}
+				prompt.text = "Put Out All of the Fires. " + fireCount + "/" + fireCountMax + " Remaining";
+				promptSpawned = true;
 
 				// check if all of the fires have been put out
 				if (fireCount < 1)
@@ -275,29 +279,34 @@ public class Event_Manager : SerializedMonoBehaviour
 					promptSpawned = false;
 				}
 			}
+			else if (getEventStatus(0, 1) && fireCount == 0)
+			{
+				if (KeepTime == 0.0f)
+				{
+					prompt.text = "THE BARN IS SAFE!";
+					KeepTime += Time.deltaTime;
+				}
+				else if (KeepTime < 10.0f)
+				{
+					KeepTime += Time.deltaTime;
+				}
+				else if (KeepTime > 10.0f && KeepTime < 11.0f)
+				{
+					prompt.text = "";
+					KeepTime = 11.0f;
+					active = 100;
+					if (!resetFireEvent())
+					{
+						Debug.Log("Fire event failed to reset!");
+					}
+				}
+			}
 		}
 		else if(eventRoundProgress >= 3 && !getEventStatus(0, 1))	// event was not completed in time
 		{
 			active = 100;
 			fireFailed = true;
 			barnBarrier.GetComponent<Collider>().isTrigger = false;
-		}
-		else if (getEventStatus(0, 1))
-		{
-			if (KeepTime == 0.0f)
-			{
-				prompt.text = "THE BARN IS SAFE!";
-				KeepTime += Time.deltaTime;
-			}
-			else if (KeepTime < 10.0f)
-			{
-				KeepTime += Time.deltaTime;
-			}
-			else if (KeepTime > 10.0f && KeepTime < 11.0f)
-			{
-				prompt.text = "";
-				KeepTime = 11.0f;
-			}
 		}
 	}
 
