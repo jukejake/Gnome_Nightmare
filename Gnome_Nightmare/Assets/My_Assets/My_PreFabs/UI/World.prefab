@@ -53108,6 +53108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -54841,6 +54842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -55522,6 +55524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -56056,6 +56059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -56584,6 +56588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -58065,6 +58070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -58830,6 +58836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -58906,6 +58913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -59574,6 +59582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -60073,6 +60082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -60914,6 +60924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -61349,6 +61360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -62260,6 +62272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -62446,6 +62459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -63397,6 +63411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -63667,6 +63682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -64394,6 +64410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0
@@ -65169,6 +65186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 0

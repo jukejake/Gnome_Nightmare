@@ -3663,6 +3663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  CurrentHealth: 0
   Damage:
     stat: 0
     baseValue: 1
@@ -3674,8 +3675,6 @@ MonoBehaviour:
   PlayerName: Player
   isDead: 0
   TotalHealth: 0
-  TotalDamage: 0
-  TotalArmor: 0
 --- !u!114 &114473368193927812
 MonoBehaviour:
   m_ObjectHideFlags: 1
