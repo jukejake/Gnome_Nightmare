@@ -102,21 +102,27 @@ public class Event_Manager : SerializedMonoBehaviour
 	private float KeepTime = 0.0f;
 	private static int fireCountMax = 10;
 
-	// Use this for initialization
-	void Start()
-	{
+    [HorizontalGroup("Basic Info 1", 0.5f), LabelWidth(50)]
+    public float StartIn = 1.0f;
+    [HorizontalGroup("Basic Info 1", 0.5f), LabelWidth(90)]
+    public float RepeatEvery = 1.0f;
+
+    // Use this for initialization
+    private void Start() {
 		createEvents();
 		Debug.Log("Events created successfully!");
 		createAchievements();
 		Debug.Log("Achievements created successfully!");
 		nextEventRound = 3;
 
-		//Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
-	}
+        //Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
+        InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
+    }
 
-	// Update is called once per frame
-	void Update()
+    // Update is called once per frame
+    private void Update()
 	{
+        return;
 		//Debug.Log("Next Event Round: " + nextEventRound);
 		Debug.Log("Fire Count: " + fireCount);
 
@@ -163,6 +169,112 @@ public class Event_Manager : SerializedMonoBehaviour
 		if (menu == null) {
             menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
         }
+	}
+
+    //Update but with controlled timing
+    private void UpdateControlled() {
+		//Debug.Log("Next Event Round: " + nextEventRound);
+		Debug.Log("Fire Count: " + fireCount);
+
+		// check if the current round = anticpated event round
+		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
+			nextEventRound = getNextEvent();
+			active = 0;
+			//active = getNextEvent();
+		}
+
+		// if fire event is active
+		if (active == 0) { FireEventControlled(); }
+        // if outage event is active
+        else if (active == 1) { outageEvent(); }
+
+		if (fireFailed) {
+			if (KeepTime == 0.0f) {
+				prompt.text = "EVENT FAILED!";
+				KeepTime += RepeatEvery; 
+				for (int i = 11; i < 14; i++) { fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform); }
+			}
+			else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
+			else if (KeepTime > 10.0f && KeepTime < (20.0f + RepeatEvery)) {
+				prompt.text = "";
+				KeepTime = 20.0f + RepeatEvery;
+			}
+		}
+
+		if (menu == null) {
+            menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
+        }
+	}
+    //Fire Event but with controlled timing
+    private void FireEventControlled()	//	handles fire event while it is active
+	{
+        // give 2 rounds to complete the event
+        if (eventRoundProgress < 3)	 {
+			if (!fireSpawned) {
+				for (int i = 0; i < fireCountMax; i++) {
+					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
+					fireCount++;
+				}
+				setActiveEventSet(0, true);
+				fireSpawned = true;
+			}
+
+			if (!getEventStatus(0, 0) && isEventActive(0, 0)) {
+				if (!promptSpawned) {
+					prompt.text = "Find The Fire Extinguisher";
+					promptSpawned = true;
+				}
+
+                Component[] Slots;
+                if (menu != null) { 
+                    // check if fire extinguisher is in any players' inventory	
+                    Slots = menu.Inventory_Slot.GetComponentsInChildren<Drag_Inventory>();	
+                    foreach (Drag_Inventory slots in Slots) {
+                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
+							moveOn(0, 0);
+							promptSpawned = false;
+						}
+                    }
+		              // check if fire extinguisher is in any players' inventory		
+		              Slots = menu.Weapon_Slot.GetComponentsInChildren<Drag_Inventory>();
+		              foreach (Drag_Inventory slots in Slots) {
+		                  if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
+							moveOn(0, 0);
+							promptSpawned = false;
+						}
+					}
+                }
+			}
+			else if (!getEventStatus(0, 1) && isEventActive(0, 1)) {
+				prompt.text = "Put Out All of the Fires. " + fireCount + "/" + fireCountMax + " Remaining";
+				promptSpawned = true;
+
+				// check if all of the fires have been put out
+				if (fireCount < 1) {
+					moveOn(0, 1);
+					promptSpawned = false;
+				}
+			}
+			else if (getEventStatus(0, 1) && fireCount == 0) {
+				if (KeepTime == 0.0f) {
+					prompt.text = "THE BARN IS SAFE!";
+					KeepTime += RepeatEvery;
+				}
+				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
+				else if (KeepTime > 10.0f && KeepTime < (20.0f + RepeatEvery)) {
+					prompt.text = "";
+					KeepTime = 20.0f + RepeatEvery;
+					active = 100;
+					if (!resetFireEvent()) { Debug.Log("Fire event failed to reset!"); }
+				}
+			}
+		}
+        // event was not completed in time
+        else if (eventRoundProgress >= 3 && !getEventStatus(0, 1)) {
+			active = 100;
+			fireFailed = true;
+			barnBarrier.GetComponent<Collider>().isTrigger = false;
+		}
 	}
 
 	[Button]
