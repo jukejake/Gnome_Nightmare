@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfAmmo: 6
   Amount: 25
-  Damage: 5
+  AmountText: {fileID: 1595338006722426}
 --- !u!114 &114115594835897408
 MonoBehaviour:
   m_ObjectHideFlags: 1

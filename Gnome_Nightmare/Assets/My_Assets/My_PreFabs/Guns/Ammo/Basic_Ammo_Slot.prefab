@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345a7727bf66a504f9cbe654683f656a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfItem: 10
+  typeOfItem: 8
   typeOfAmmo: 1
   parentToReturnTo: {fileID: 0}
   placeholderParent: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfAmmo: 1
   Amount: 25
-  Damage: 5
+  AmountText: {fileID: 1448211224952578}
 --- !u!114 &114663932809018030
 MonoBehaviour:
   m_ObjectHideFlags: 1

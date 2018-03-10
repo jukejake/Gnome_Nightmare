@@ -16,7 +16,7 @@ public class Player_Spawn_Location : MonoBehaviour {
         //Spawn the Camera
         GameObject camera = (GameObject)Instantiate(CameraPrefab, this.transform.position, this.transform.rotation);
         camera.name = "Main Camera";
-        camera.GetComponent<CameraFollow>().FollowThis = player.transform.Find("HitBox").Find("Head").gameObject;
+        camera.GetComponent<CameraFollow>().FollowThis = player.transform.Find("HitBox").Find("Top").Find("Head").gameObject;
         camera.GetComponent<CameraFollow>().endPoint = player.transform.Find("Endpoint").transform;
     }
 }

@@ -12,21 +12,23 @@ public class Ammo_Inventory : MonoBehaviour {
             //CombindStacks();
         }
     }
-    public void CombindStacks(){
-        if (this.transform.childCount < 2) { return; }
+    public bool CombindStacks(){
+        if (this.transform.childCount < 2) { return false; }
+       
         for (int i = 0; i < this.transform.childCount; i++) {
             for (int j = 0; j < this.transform.childCount; j++) {
-                if (i != j) { 
+                if (i != j) {
                     if (this.transform.GetChild(i).GetComponent<Ammo_Types>() && this.transform.GetChild(j).GetComponent<Ammo_Types>()) {
                         if (this.transform.GetChild(i).GetComponent<Ammo_Types>().TypeOfAmmo == this.transform.GetChild(j).GetComponent<Ammo_Types>().TypeOfAmmo) {
                             this.transform.GetChild(i).GetComponent<Ammo_Types>().Amount += this.transform.GetChild(j).GetComponent<Ammo_Types>().Amount;
                             Destroy(this.transform.GetChild(j).gameObject);
-                            return;
+                            return true;
                         }
                     }
                 }
             }
         }
+        return false;
     }
     private void UpdateAmount() {
         for (int i = 0; i < this.transform.childCount; i++) {

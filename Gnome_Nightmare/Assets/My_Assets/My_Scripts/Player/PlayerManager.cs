@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour {
 
     private void Start() {
         Invoke("DelayedStart", 0.1f);
+        InvokeRepeating("UpdateSlow", 1.0f, 1.0f);
     }
 
     //Used so that everything gets a chance to load before trying to accsess it
@@ -30,12 +31,13 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (MenuTimer > 0.0f) { MenuTimer -= Time.deltaTime; }
+        if (MenuTimer > 0.0f) { MenuTimer -= Time.deltaTime; return; }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
 
         if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
+        isColliding = false;
 
-        if (MenuTimer > 0.0f) { return; }
+
 
         if (Input.GetKey(KeyCode.Escape) || Input.GetButton("Start")) {
             //If player is in a menu exit it
@@ -82,11 +84,50 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    private void UpdateSlow() {
+        if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
+
+
+        if (menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks()) {
+            menuManager.Ammo_Slot.GetComponent<Drop_Inventory>().NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount - 1; //has a chance that and additional ammo can be added into the inventory
+        }
+    }
+
     public void KillPlayer() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnTriggerEnter(Collider other) { if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit++; } }
+    private bool isColliding = false;
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit++; }
+        else if (other.tag == "Items" && other.GetComponent<Item_To_Pick_Up>()) {
+            if (isColliding) { return; }
+            else { isColliding = true; }
+
+            GameObject ItemPickUp = other.GetComponent<Item_To_Pick_Up>().PickUpItem;
+            if (ItemPickUp.GetComponent<Drag_Inventory>() && ItemPickUp.GetComponent<Drag_Inventory>().typeOfItem == Drag_Inventory.Slot.Ammo) {
+                Drop_Inventory DropA = menuManager.Ammo_Slot.GetComponent<Drop_Inventory>();
+                //If the player has room in their ammo inventory, pick up the item
+                if (DropA.NumberOfSlotsFilled < DropA.NumberOfSlotsTotal) {
+                    MenuTimer = 0.1f;
+                    //Spawn item
+                    GameObject Item = (GameObject)Instantiate(ItemPickUp);
+                    Item.name = ItemPickUp.name;
+                    Item.GetComponent<Ammo_Types>().Amount = other.GetComponent<Ammo_Types>().Amount;
+                    //Set its parent to the ammo inventory
+                    Item.transform.SetParent(DropA.transform);
+                    //Sets default scale
+                    Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    //Incresses slots filled count
+                    if (menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks()) {
+                        DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount - 1; //has a chance that and additional ammo can be added into the inventory
+                    }
+                    Destroy(other.gameObject);
+                }
+            }
+        }
+    }
     private void OnTriggerStay(Collider other) {
         if (MenuOpen || MenuTimer > 0.0f) { return; }
         //If player is selecting a 
@@ -152,19 +193,20 @@ public class PlayerManager : MonoBehaviour {
                 //Spawn item
                 GameObject Item = (GameObject)Instantiate(ItemPickUp);
                 Item.name = ItemPickUp.name;
+                Item.GetComponent<Ammo_Types>().Amount = other.GetComponent<Ammo_Types>().Amount;
                 //Set its parent to the ammo inventory
                 Item.transform.SetParent(DropA.transform);
                 //Sets default scale
                 Item.GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 //Incresses slots filled count
-                menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks();
-                DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount-1; //has a chance that and additional ammo can be added into the inventory
-                //Destroy item on ground
+                if (menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CombindStacks()) {
+                    DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount - 1; //has a chance that and additional ammo can be added into the inventory
+                }
                 Destroy(other.gameObject);
             }
         }
         //If the player has room in their inventory, pick up the item
-        else if (DropI.NumberOfSlotsFilled < DropI.NumberOfSlotsTotal) {
+        else if (DropI.NumberOfSlotsFilled < DropI.NumberOfSlotsTotal && ItemPickUp.GetComponent<Drag_Inventory>().typeOfItem != Drag_Inventory.Slot.Ammo) {
             MenuTimer = 0.1f;
             //Spawn item
             GameObject Item = (GameObject)Instantiate(ItemPickUp);

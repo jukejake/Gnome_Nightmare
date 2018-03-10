@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 135327450964330484}
   - component: {fileID: 23746403170069248}
   - component: {fileID: 114705088501177192}
+  - component: {fileID: 114780908282096436}
   - component: {fileID: 114942095528058616}
   m_Layer: 2
   m_Name: Basic_Ammo_PickUp
@@ -171,6 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1280102391718016, guid: 1145c4b0235569046908a2b7875d2c4c, type: 2}
+--- !u!114 &114780908282096436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665220090724536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a7f02760f6d9f4a8fcb1d1e099b93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TypeOfAmmo: 1
+  Amount: 25
 --- !u!114 &114942095528058616
 MonoBehaviour:
   m_ObjectHideFlags: 1

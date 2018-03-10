@@ -34,6 +34,9 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                     //Debug.Log("Drop : Before " + Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats[4].baseValue + " After " + DI.gameObject.GetComponent<ItemStats>().itemStats[4].baseValue);
                     Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = DI.gameObject.GetComponent<ItemStats>().itemStats;
                 }
+                if (Item.GetComponent<Ammo_Types>() && DI.gameObject.GetComponent<Ammo_Types>()) {
+                    Item.GetComponent<Ammo_Types>().Amount = DI.gameObject.GetComponent<Ammo_Types>().Amount;
+                }
                 
 
                 //Drop Item to floor

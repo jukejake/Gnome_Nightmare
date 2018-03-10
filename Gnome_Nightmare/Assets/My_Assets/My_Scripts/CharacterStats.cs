@@ -33,8 +33,6 @@ public class CharacterStats : MonoBehaviour {
 
     //Applys damage to character
     public void TakeDamage(float DamageTaken) {
-        //Debug.Log("Damage");
-
         if (AudioOnDamage != null) { AudioOnDamage.Play(); }
 
         DamageTaken -= Armour.GetValue();

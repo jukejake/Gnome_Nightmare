@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: rock_e:group_rock_e:pasted__pSolid1_rock_e:polySurface2_rock_e:polySurface3_rock_e:polySurface4_rock_e:polySurface1
     2100000: rock_e_lambert2SG
+    2100002: rock_e_group_rock_e_pasted__pSolid1_rock_e_polySurface2_rock_e_polySurface3_rock_e_polySurface4_rock_e_polySurface1Mat
     2300000: rock_e:group_rock_e:pasted__pSolid1_rock_e:polySurface2_rock_e:polySurface3_rock_e:polySurface4_rock_e:polySurface1
     3300000: rock_e:group_rock_e:pasted__pSolid1_rock_e:polySurface2_rock_e:polySurface3_rock_e:polySurface4_rock_e:polySurface1
     4300000: rock_e:group_rock_e:pasted__pSolid1_rock_e:polySurface2_rock_e:polySurface3_rock_e:polySurface4_rock_e:polySurface1
@@ -30,7 +31,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25697446, g: 0.71323526, b: 0.71323526, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -308,7 +308,7 @@ MonoBehaviour:
   parentToReturnTo: {fileID: 0}
   placeholderParent: {fileID: 0}
   placeholder: {fileID: 0}
-  ItemOnDrop: {fileID: 1802464367939670, guid: 4b3ef78736e68ea41947b0b105555483, type: 2}
+  ItemOnDrop: {fileID: 1907074840004976, guid: c403de8a3b243bf4b8d241da83e16f1b, type: 2}
 --- !u!114 &114586457039247316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Projectile Gun
+  m_Text: Fire Extinguisher
 --- !u!222 &222002859126933390
 CanvasRenderer:
   m_ObjectHideFlags: 1

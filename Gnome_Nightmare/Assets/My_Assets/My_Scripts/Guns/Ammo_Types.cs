@@ -8,16 +8,15 @@ public class Ammo_Types : MonoBehaviour {
 
     //[SerializeField]
     public int Amount;
-    private GameObject AmountText;
-    public float Damage;
+    public GameObject AmountText;
 
     private void Start() {
-        AmountText = this.transform.Find("Amount_Text").gameObject;
+        //if (AmountText != null && this.transform.Find("Amount_Text")) { AmountText = this.transform.Find("Amount_Text").gameObject; }
     }
 
     public void SetTextToAmount() {
         if (Amount <= 0) { Destroy(this.gameObject); }
-        AmountText.GetComponent<Text>().text = Amount.ToString();
+        if (AmountText != null) { AmountText.GetComponent<Text>().text = Amount.ToString(); }
     }
 
 }

@@ -79,7 +79,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     
 
     #region HitScanWeapons
-    [ToggleGroup("WeaponTypeHitScan")]
+    //[ToggleGroup("WeaponTypeHitScan")]
     private void HitScanWeapons_Update() {
         //If the player presses LeftClick or Right Triggger
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
@@ -93,7 +93,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         //If the player presses Right Click 
         if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
     }
-    [ToggleGroup("WeaponTypeHitScan")]
+    //[ToggleGroup("WeaponTypeHitScan")]
     private void HitScanWeapons_Shoot() {
         //If the player is in a Menu than return
         if (this.playerManager.MenuOpen) { return; }
@@ -137,7 +137,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
 
     #region ProjectileWeapons
     // Update is called once per frame
-    [ToggleGroup("WeaponTypeProjectile")]
+    //[ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Update() {
 
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
@@ -164,12 +164,13 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
         
     }
-    [ToggleGroup("WeaponTypeProjectile")]
+    //[ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Shoot() {
         //If the player is in a Menu than return
         if (playerManager.MenuOpen) { return; }
         if (FireSound != null) { FireSound.Play(); }
-        this.Stats.AmountCount.baseValue--;
+        if (TypeOfAmmo != Ammo_Types.Ammo.Extinguisher) { this.Stats.AmountCount.baseValue--; }
+        
         //spawn bullet
         s_clone = (GameObject)Instantiate(s_bullet, s_Spawner.transform.position, s_Spawner.transform.rotation);
         s_clone.transform.SetParent(EffectTab.transform);
@@ -186,7 +187,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     }
 
     // Shoots a raycast from the camera position and in the camera's forward direction then fires a bullet in the direction of the ray's hit point
-    [ToggleGroup("WeaponTypeProjectile")]
+    //[ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_RaycastProjectile() {
         RaycastHit hit;
 

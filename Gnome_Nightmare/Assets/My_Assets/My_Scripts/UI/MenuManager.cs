@@ -59,7 +59,7 @@ public class MenuManager : MonoBehaviour {
             if (Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>()) { weapon.GetComponent<Gun_Behaviour>().TypeOfAmmo = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().typeOfAmmo; }
         }
         if (weapon.GetComponent<Eyes_Follow_Cursor>()) { weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true; }
-        weapon.transform.SetParent(player.transform);
+        //weapon.transform.SetParent(player.transform);
         GameObject temp = GameObject.Find("GUN:pCylinder387");
         temp.GetComponent<MeshRenderer>().enabled = false;
         weapon.transform.SetParent(temp.transform.parent);
@@ -134,8 +134,8 @@ public class MenuManager : MonoBehaviour {
         //if (Input.GetButton("Fire3") || Input.GetButton("CA")) { Switch(); }
 
         if (Input.GetButton("CA") || Input.GetButton("CB")|| Input.GetButton("CX") || Input.GetButton("CY") || Input.GetButton("E") || Input.GetButton("Run")
-            || Input.GetAxis("Horizontal") >= 0.2f || Input.GetAxis("Vertical") >= 0.2f || Input.GetButton("Fire1") || Input.GetButton("Fire2")
-            || Input.GetButton("Tab") || Input.GetButton("Left Trigger") || Input.GetButton("Right Trigger"))
+           // || Input.GetAxis("Horizontal") >= 0.2f || Input.GetAxis("Vertical") >= 0.2f 
+           || Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Tab") || Input.GetButton("Left Trigger") || Input.GetButton("Right Trigger"))
         {
             if (CurrentSlot == -1) { return; }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
