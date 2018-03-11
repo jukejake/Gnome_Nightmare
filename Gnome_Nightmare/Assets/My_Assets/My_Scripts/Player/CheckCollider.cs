@@ -7,7 +7,9 @@ public class CheckCollider : MonoBehaviour {
     public bool IsTriggered = false;
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.layer == 10 || other.gameObject.layer == 2) { IsTriggered = false; }
+        if ((other.gameObject.layer == 10 || other.gameObject.layer == 2)
+            || (other.gameObject.layer == 11 || other.gameObject.layer == 12))
+        { IsTriggered = false; }
         else { IsTriggered = true; }
     }
     private void OnTriggerExit(Collider other) {

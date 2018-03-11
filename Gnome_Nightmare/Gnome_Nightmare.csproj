@@ -349,7 +349,6 @@
     <Compile Include="Assets\My_Assets\My_Plugins\Server_Client_CS\Client_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Server_Client_CS\ID_Table.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Server_Client_CS\Server_Manager.cs" />
-    <Compile Include="Assets\My_Assets\My_PreFabs\Computer\ActivateComputer.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Computer\Items_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Computer\SwitchOn.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Destructible\Destructible.cs" />
@@ -368,6 +367,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Enemies_Movement.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\EnemyDropList.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Interface_SpawnTable.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Enemies\PlayerInArea.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Hub.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Enemies\Spawner_Settings.cs" />

@@ -1395,7 +1395,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   MaxFollowDistance: 100
-  MaxAttackDistance: 1.3
+  MaxAttackDistance: 1.8
   RangeDivisible: 5
   TimerDelay: 0.5
   AttackDelay: 0.9
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c9963c4662cde49a8d401e4b3c0df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 3
   CurrentHealth: 0
   Damage:
     stat: 1

@@ -32,6 +32,10 @@ namespace EnemySpawners {
         public bool SpawnAtBarn = true;
         public bool SpawnAtHouse = true;
         public bool SpawnAtBunker = true;
+        public PlayerInArea BarnArea;
+        public PlayerInArea HouseArea;
+        public PlayerInArea BunkerArea;
+
         //public List<GameObject> SpawnPositions = new List<GameObject>();
         public List<GameObject> Barn_SP = new List<GameObject>();
         public List<GameObject> House_SP = new List<GameObject>();
@@ -41,11 +45,20 @@ namespace EnemySpawners {
 
         public void Update() {
             if (isOff) { return; }
+
+            if (BarnArea.PlayersInArea) { SpawnAtBarn = true; }
+            else { SpawnAtBarn = false; }
+            if (HouseArea.PlayersInArea) { SpawnAtHouse = true; }
+            else { SpawnAtHouse = false; }
+            if (BunkerArea.PlayersInArea) { SpawnAtBunker = true; }
+            else { SpawnAtBunker = false; }
+
             CoolDown -= Time.deltaTime;
             if (CoolDown < 0) {
                 CoolDown = SpawnInterval;
                 SpawnMob();
             }
+
         }
 
         void SpawnMob() {

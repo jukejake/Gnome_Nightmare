@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 136779402699431528}
   - component: {fileID: 114322951171868344}
   - component: {fileID: 82911057436326288}
+  - component: {fileID: 208160012886129824}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -3720,7 +3721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32554f8aa784130499018bf8d9543eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 25
   CurrentHealth: 0
   Damage:
     stat: 1
@@ -4695,6 +4696,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00622651, y: 0.4239328, z: 0.1165126}
     m_Extent: {x: 0.43541583, y: 0.43932724, z: 0.46914315}
   m_DirtyAABB: 0
+--- !u!208 &208160012886129824
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333888178946622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!222 &222170255446401556
 CanvasRenderer:
   m_ObjectHideFlags: 1

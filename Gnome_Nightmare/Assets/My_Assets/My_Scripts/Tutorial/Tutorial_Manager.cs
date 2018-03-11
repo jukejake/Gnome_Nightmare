@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using EnemySpawners;
 
@@ -8,6 +9,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
 
     public bool On = true;
     public int Stage = -1;
+    public Text EventPrompt;
 
     [BoxGroup(group:"Prefabs")]
     public GameObject HouseFog;
@@ -28,10 +30,13 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     [BoxGroup(group: "Triggers")]
     public GameObject BunkerArea;
 
+    private Spawner_Hub SP_Hub;
+
 
 
     // Use this for initialization
     void Start () {
+        if (SP_Hub == null) { SP_Hub = GameObject.FindObjectOfType(typeof(Spawner_Hub)) as Spawner_Hub; }
         if (On) {
             Stage = 0;
             T_HouseFog = (GameObject)Instantiate(HouseFog);
@@ -57,6 +62,8 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     T_BunkerFog.name = BunkerFog.name;
 
                     SpawnManager.ToggleAll = true;
+                    EventPrompt.text = "Look around the Barn.";
+
                     break;
             }
             //In Barn
@@ -64,6 +71,11 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (BarnArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         BarnArea.SetActive(false);
                         Stage = 1;
+                        if (SP_Hub != null) {
+                            SP_Hub.SpawnAtBarn = true;
+                            SP_Hub.SpawnAtHouse = false;
+                            SP_Hub.SpawnAtBunker = false;
+                        }
                     }
                     break;
             }
@@ -75,12 +87,12 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        Debug.Log("Round Start!");
+                        EventPrompt.text = "Gnomes are attacking the Barn.";
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        Debug.Log("Round Over!");
+                        EventPrompt.text = "Look through the House.";
                         Stage = 2;
                         T_HouseFog.SetActive(false);
                     }
@@ -91,6 +103,11 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (HouseArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         HouseArea.SetActive(false);
                         Stage = 3;
+                        if (SP_Hub != null) {
+                            SP_Hub.SpawnAtBarn = true;
+                            SP_Hub.SpawnAtHouse = true;
+                            SP_Hub.SpawnAtBunker = false;
+                        }
                     }
                     break;
             }
@@ -101,12 +118,12 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        Debug.Log("Round Start!");
+                        EventPrompt.text = "Gnomes are attacking the House.";
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        Debug.Log("Round Over!");
+                        EventPrompt.text = "Look for the power switch in the Bunker.";
                         Stage = 4;
                         T_BunkerFog.SetActive(false);
                     }
@@ -117,6 +134,11 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (BunkerArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         BunkerArea.SetActive(false);
                         Stage = 5;
+                        if (SP_Hub != null) {
+                            SP_Hub.SpawnAtBarn = true;
+                            SP_Hub.SpawnAtHouse = true;
+                            SP_Hub.SpawnAtBunker = true;
+                        }
                     }
                     break;
             }
@@ -127,12 +149,12 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        Debug.Log("Round Start!");
+                        EventPrompt.text = "Gnomes are attacking the Bunker.";
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        Debug.Log("Round Over!");
+                        EventPrompt.text = "";
                         Stage = 6;
                     }
                     break;
@@ -143,12 +165,12 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        Debug.Log("Round Start!");
+                        //Debug.Log("Round Start!");
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        Debug.Log("Round Over!");
+                        //Debug.Log("Round Over!");
                     }
                     break;
             }

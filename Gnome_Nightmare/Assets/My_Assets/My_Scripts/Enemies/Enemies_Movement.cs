@@ -57,6 +57,7 @@ public class Enemies_Movement : MonoBehaviour {
                 float MoE = AttackDelay * 0.1f;
                 AttackTimer = RandomUtils.RandomFloat(AttackDelay - MoE, AttackDelay + MoE); ;
                 AttackPlayer(playerNum);
+                navMeshAgent.SetDestination(this.transform.position);
                 return;
             }
             //If the player is withen Follow Distance but outside Attack Distance
@@ -66,7 +67,7 @@ public class Enemies_Movement : MonoBehaviour {
                 return;
             }
             //The enemy will wonder
-            else { Wonder(); return; }
+            else if (ClosestPlayerDistance > MaxAttackDistance) { Wonder(); return; }
         }
         else { return; }
     }
@@ -90,8 +91,8 @@ public class Enemies_Movement : MonoBehaviour {
     private void SetDestination(int playerNum) {
         //Random placement based on range
         float Range = (ClosestPlayerDistance / RangeDivisible);
-        Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-Range, 0.0f, -Range), new Vector3(Range, 0.0f, Range));
-        destination = players[playerNum].transform.position + RandomPosition;
+        Vector3 RandomPosition = RandomUtils.RandomVector3InBox(new Vector3(-Range, 0.0f, -Range), new Vector3(Range, 0.0f, Range));RandomPosition =
+        destination = players[playerNum].transform.position;// + RandomPosition;
         //If there is a destination, set the navMeshAgent to go to it
         if (destination != null) { navMeshAgent.SetDestination(destination); }
     }

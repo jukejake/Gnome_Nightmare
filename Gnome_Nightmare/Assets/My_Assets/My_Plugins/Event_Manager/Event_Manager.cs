@@ -174,7 +174,7 @@ public class Event_Manager : SerializedMonoBehaviour
     //Update but with controlled timing
     private void UpdateControlled() {
 		//Debug.Log("Next Event Round: " + nextEventRound);
-		Debug.Log("Fire Count: " + fireCount);
+		//Debug.Log("Fire Count: " + fireCount);
 
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
