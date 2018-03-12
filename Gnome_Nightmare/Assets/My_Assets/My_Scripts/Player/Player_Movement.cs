@@ -123,8 +123,14 @@ public class Player_Movement : MonoBehaviour {
             //Update Animator Perameters
             animPer_H = Input.GetAxis("Horizontal");
             animPer_V = Input.GetAxis("Vertical");
+            //Set Animator Perameters
             anim.SetFloat("inputH", animPer_H);
             anim.SetFloat("inputV", animPer_V);
+        }
+        else {
+            //Set Animator Perameters
+            anim.SetFloat("inputH", 0);
+            anim.SetFloat("inputV", 0);
         }
 
     }

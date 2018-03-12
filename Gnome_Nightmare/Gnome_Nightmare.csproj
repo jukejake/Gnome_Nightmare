@@ -526,6 +526,10 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\ScreenLogger\Example\Scripts\BouncingBall.cs" />
+    <Compile Include="Assets\ScreenLogger\Example\Scripts\Rotator.cs" />
+    <Compile Include="Assets\ScreenLogger\Example\Scripts\Test.cs" />
+    <Compile Include="Assets\ScreenLogger\ScreenLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\My_Assets\CommentsToDue.txt" />
@@ -670,6 +674,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\ScreenLogger\Readme.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
