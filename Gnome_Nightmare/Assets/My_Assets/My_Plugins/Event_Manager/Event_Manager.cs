@@ -119,7 +119,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		Debug.Log("Events created successfully!");
 		createAchievements();
 		Debug.Log("Achievements created successfully!");
-		nextEventRound = 3;
+		nextEventRound = 4;
 
         //Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
         InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
@@ -205,7 +205,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (KeepTime < 10.0f) {
 				KeepTime += RepeatEvery;
 			}
-			else if (KeepTime > 10.0f && KeepTime < (20.0f + RepeatEvery)) {
+			else if (KeepTime >= 10.0f && KeepTime < (20.0f + RepeatEvery)) {
 				prompt.text = "";
 				KeepTime = 20.0f + RepeatEvery;
 			}
@@ -270,8 +270,8 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "THE BARN IS SAFE!";
 					KeepTime += RepeatEvery;
 				}
-				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
-				else if (KeepTime > 10.0f && KeepTime < (20.0f + RepeatEvery)) {
+				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; Debug.Log(KeepTime); }
+				else if (KeepTime >= 10.0f && KeepTime < (20.0f + RepeatEvery)) {
 					prompt.text = "";
 					KeepTime = 20.0f + RepeatEvery;
 					active = 100;

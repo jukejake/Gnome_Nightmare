@@ -17,9 +17,6 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     [BoxGroup(group: "Prefabs")]
     public GameObject BunkerFog;
     private GameObject T_BunkerFog;
-    [BoxGroup(group: "Prefabs")]
-    public GameObject Fire;
-    private GameObject T_Fire;
     [BoxGroup(group: "Managers")]
     public Interface_SpawnTable SpawnManager;
     private int OldLevel = 0;
@@ -70,6 +67,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             case 0: {
                     if (BarnArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         BarnArea.SetActive(false);
+                        Destroy(BarnArea);
                         Stage = 1;
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
@@ -95,6 +93,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Look through the House.";
                         Stage = 2;
                         T_HouseFog.SetActive(false);
+                        Destroy(T_HouseFog);
                     }
                     break;
             }
@@ -102,6 +101,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             case 2: {
                     if (HouseArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         HouseArea.SetActive(false);
+                        Destroy(HouseArea);
                         Stage = 3;
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
@@ -126,6 +126,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Look for the power switch in the Bunker.";
                         Stage = 4;
                         T_BunkerFog.SetActive(false);
+                        Destroy(T_BunkerFog);
                     }
                     break;
             }
@@ -133,6 +134,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             case 4: {
                     if (BunkerArea.GetComponent<DidPlayerCollide>().IsTriggered) {
                         BunkerArea.SetActive(false);
+                        Destroy(BunkerArea);
                         Stage = 5;
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
@@ -159,6 +161,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     }
                     break;
             }
+            //Spawn Gnomes every round
             case 6: {
                     if (OldLevel == SpawnManager.OldLevel && SpawnManager.OldLevel == SpawnManager.CurrentLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
