@@ -115,6 +115,7 @@ public class Event_Manager : SerializedMonoBehaviour
 
     // Use this for initialization
     private void Start() {
+		GetComponent<ButtonPrompt>().prompt.text = "Hold 'E' To Turn On";
 		createEvents();
 		Debug.Log("Events created successfully!");
 		createAchievements();
@@ -488,6 +489,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			active = 100;
 			outageFailed = true;
 			//power is permanently off gotta figure out a way to shut everything off
+
 		}
 	}
 

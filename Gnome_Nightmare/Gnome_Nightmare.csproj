@@ -397,6 +397,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Random\CS_PlatformInputController.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Enemies_Prefs.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Eyes_Follow_Cursor.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\GeneratorScript.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Orbit_Objects.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\RandomUtils.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\ScaleMesh.cs" />
@@ -408,6 +409,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\DidPlayerCollide.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\Tutorial_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\BillboardScript.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\UI\ButtonPrompt.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\CameraFollow.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\Drag_Inventory.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\Drag_UI.cs" />
