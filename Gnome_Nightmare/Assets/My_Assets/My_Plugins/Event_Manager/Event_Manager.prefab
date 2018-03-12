@@ -11,6 +11,38 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1522521937827806}
   m_IsPrefabParent: 1
+--- !u!1 &1004495206350230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4891564231316766}
+  m_Layer: 0
+  m_Name: Bunker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!1 &1061611176100444
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4828129887062378}
+  - component: {fileID: 65872430957621292}
+  - component: {fileID: 114215968208694398}
+  m_Layer: 0
+  m_Name: Generator Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1069072808711288
 GameObject:
   m_ObjectHideFlags: 1
@@ -24,7 +56,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1074222670560082
 GameObject:
@@ -39,7 +71,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1137061125799220
 GameObject:
@@ -54,7 +86,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1168093993064414
 GameObject:
@@ -69,7 +101,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1180266003875306
 GameObject:
@@ -80,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999444763622550}
   - component: {fileID: 65962602449484874}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Barn_Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +132,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1421042230911892
 GameObject:
@@ -115,7 +147,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1522521937827806
 GameObject:
@@ -128,6 +160,23 @@ GameObject:
   - component: {fileID: 114346897488282066}
   m_Layer: 0
   m_Name: Event_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!1 &1526041039363424
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4109223030844478}
+  - component: {fileID: 65003078132215782}
+  - component: {fileID: 114153278127752196}
+  m_Layer: 0
+  m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +195,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1637292118848438
 GameObject:
@@ -161,7 +210,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1729056215131366
 GameObject:
@@ -176,7 +225,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1796257742708598
 GameObject:
@@ -191,7 +240,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1876458764658870
 GameObject:
@@ -206,7 +255,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1893547017908738
 GameObject:
@@ -221,7 +270,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1992103473141556
 GameObject:
@@ -236,7 +285,7 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1999998670591856
 GameObject:
@@ -251,8 +300,21 @@ GameObject:
   m_TagString: Fire_Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!4 &4109223030844478
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526041039363424}
+  m_LocalRotation: {x: -0, y: 0.32777104, z: -0, w: 0.9447572}
+  m_LocalPosition: {x: -4.26, y: -2.89, z: -22.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4891564231316766}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 38.267002, z: 0}
 --- !u!4 &4118745565017262
 Transform:
   m_ObjectHideFlags: 1
@@ -277,6 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4505170761658536}
+  - {fileID: 4891564231316766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -424,6 +487,19 @@ Transform:
   m_Father: {fileID: 4505170761658536}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4828129887062378
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061611176100444}
+  m_LocalRotation: {x: -0, y: 0.30792215, z: -0, w: 0.9514116}
+  m_LocalPosition: {x: -20.41, y: -8.96, z: 40.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4891564231316766}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 35.868, z: 0}
 --- !u!4 &4855276602582004
 Transform:
   m_ObjectHideFlags: 1
@@ -463,6 +539,21 @@ Transform:
   m_Father: {fileID: 4505170761658536}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4891564231316766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004495206350230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.61, y: 4.29, z: 78.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4109223030844478}
+  - {fileID: 4828129887062378}
+  m_Father: {fileID: 4120820513618338}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4999444763622550
 Transform:
   m_ObjectHideFlags: 1
@@ -476,6 +567,30 @@ Transform:
   m_Father: {fileID: 4505170761658536}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 20.841002, z: 0}
+--- !u!65 &65003078132215782
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526041039363424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.91, y: 6.22, z: 7.88}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65872430957621292
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061611176100444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 29.2, y: 10.2, z: 31.9}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65962602449484874
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -488,6 +603,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -16.16, y: 8.89, z: 21.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114153278127752196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526041039363424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addbb35b68c30ed409552a7341ecace6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaType: 1
+--- !u!114 &114215968208694398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061611176100444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addbb35b68c30ed409552a7341ecace6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaType: 2
 --- !u!114 &114346897488282066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,4 +651,8 @@ MonoBehaviour:
   menu: {fileID: 0}
   firePrefab: {fileID: 1098150679525672, guid: 660d950ab8c56e6459260f55f72dd620, type: 2}
   barnBarrier: {fileID: 1180266003875306}
+  bunkerEntrance: {fileID: 1526041039363424}
+  generatorRoom: {fileID: 1061611176100444}
   eventRoundProgress: 0
+  StartIn: 1
+  RepeatEvery: 1

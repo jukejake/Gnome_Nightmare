@@ -91,12 +91,18 @@ public class Event_Manager : SerializedMonoBehaviour
 	public MenuManager menu;
 	public GameObject firePrefab;
 	public GameObject barnBarrier;
+	public GameObject bunkerEntrance;
+	public GameObject generatorRoom;
+	public int eventRoundProgress = 0;  // how many rounds passed since event started
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
 	public static int active = 100;   // 100 for null (essentially, not literally)
-	public int eventRoundProgress = 0;  // how many rounds passed since event started
+	public static EmptyObjectBoundaryColliderCheck.Area boundaryType;
+	public static bool playerInBoundary = false;    //	used to track if a player has entered an empty gameobject boundary
 	public static bool fireFailed = false;
-	private static bool fireSpawned = false;
+	private bool fireSpawned = false;
+	private bool outageFailed = false;
+	private bool hasEventSetActive = false;	//	keeps track if the event set has been set to active or not just so we're not repeatedly setting it to true
 	private bool promptSpawned = false;
 	private GameObject fire;
 	private float KeepTime = 0.0f;
@@ -192,9 +198,13 @@ public class Event_Manager : SerializedMonoBehaviour
 			if (KeepTime == 0.0f) {
 				prompt.text = "EVENT FAILED!";
 				KeepTime += RepeatEvery; 
-				for (int i = 11; i < 14; i++) { fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform); }
+				for (int i = 11; i < 14; i++) {
+					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
+				}
 			}
-			else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
+			else if (KeepTime < 10.0f) {
+				KeepTime += RepeatEvery;
+			}
 			else if (KeepTime > 10.0f && KeepTime < (20.0f + RepeatEvery)) {
 				prompt.text = "";
 				KeepTime = 20.0f + RepeatEvery;
@@ -422,25 +432,62 @@ public class Event_Manager : SerializedMonoBehaviour
 		}
 	}
 
-	private void outageEvent()	//	handles outage event while it is active
+	private void outageEvent()  //	handles outage event while it is active
 	{
-		if (!getEventStatus(1, 0) && !isEventActive(1, 0))
+		if (eventRoundProgress < 3)
 		{
-			setActiveEventSet(0, true);
-		}
-		else if (!getEventStatus(1, 0) && isEventActive(1, 0))
-		{
-			// check if a player is in the bunker space
+			if (!hasEventSetActive)
+			{
+				setActiveEventSet(0, true);
+				hasEventSetActive = true;
+				promptSpawned = false;
+			}
 
-		}
-		else if (!getEventStatus(1, 1) && isEventActive(1, 1))
-		{
-			// check if a player has reached the generator room
+			if (!getEventStatus(1, 0) && isEventActive(1, 0))
+			{
+				// check if a player is in the bunker space
+				if (!promptSpawned)
+				{
+					prompt.text = "Get to the Bunker!";
+					promptSpawned = true;
+				}
 
-		}
-		else if (!getEventStatus(1, 2) && isEventActive(1,2)) { 
-			// check the generator status
+				if (playerInBoundary && boundaryType == EmptyObjectBoundaryColliderCheck.Area.BunkerEntrance)
+				{
+					moveOn(1, 0);
+					promptSpawned = false;
+				}
+			}
+			else if (!getEventStatus(1, 1) && isEventActive(1, 1))
+			{
+				// check if a player has reached the generator room
+				if (!promptSpawned)
+				{
+					prompt.text = "Find the Generator Room";
+					promptSpawned = true;
+				}
 
+				if (playerInBoundary && boundaryType == EmptyObjectBoundaryColliderCheck.Area.GeneratorRoom)
+				{
+					moveOn(1, 1);
+					promptSpawned = false;
+				}
+			}
+			else if (!getEventStatus(1, 2) && isEventActive(1, 2))
+			{
+				// check the generator status
+
+				//if (generatorActive == true)
+				//{
+				//	moveOn(1, 2);
+				//	promptSpawned = false;
+				//}
+			}
+		}
+		else if (eventRoundProgress >= 3 && !getEventStatus(1, 2)){
+			active = 100;
+			outageFailed = true;
+			//power is permanently off gotta figure out a way to shut everything off
 		}
 	}
 

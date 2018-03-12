@@ -340,6 +340,7 @@
     <Compile Include="Assets\Menu_Assets\SettingsMenu.cs" />
     <Compile Include="Assets\Menu_Assets\ToggleMultipleButtons.cs" />
     <Compile Include="Assets\Menu_Assets\UnHide.cs" />
+    <Compile Include="Assets\My_Assets\My_Plugins\Event_Manager\EmptyObjectBoundaryColliderCheck.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Event_Manager\Event_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Particle\ParticleEmitterManaged.cs" />
     <Compile Include="Assets\My_Assets\My_Plugins\Particle\ParticleInterface.cs" />
