@@ -115,7 +115,6 @@ public class Event_Manager : SerializedMonoBehaviour
 
     // Use this for initialization
     private void Start() {
-		GetComponent<ButtonPrompt>().prompt.text = "Hold 'E' To Turn On";
 		createEvents();
 		Debug.Log("Events created successfully!");
 		createAchievements();
@@ -439,6 +438,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		{
 			if (!hasEventSetActive)
 			{
+				GeneratorScript.isActive = false;
 				setActiveEventSet(0, true);
 				hasEventSetActive = true;
 				promptSpawned = false;
@@ -478,17 +478,16 @@ public class Event_Manager : SerializedMonoBehaviour
 			{
 				// check the generator status
 
-				//if (generatorActive == true)
-				//{
-				//	moveOn(1, 2);
-				//	promptSpawned = false;
-				//}
+				if (GeneratorScript.isActive == true)
+				{
+					moveOn(1, 2);
+					promptSpawned = false;
+				}
 			}
 		}
 		else if (eventRoundProgress >= 3 && !getEventStatus(1, 2)){
 			active = 100;
 			outageFailed = true;
-			//power is permanently off gotta figure out a way to shut everything off
 
 		}
 	}

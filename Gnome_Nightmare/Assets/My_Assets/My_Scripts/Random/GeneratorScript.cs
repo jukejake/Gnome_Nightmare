@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GeneratorScript : MonoBehaviour {
+	public Text bPrompt;
 	public GameObject lights;
 	public static bool isActive = true;
 	private float timer = 0.0f;
-	private bool promptActive = false;
+	private bool lightsAreOff = false;
 
 	private void Update()
 	{
-		if (!isActive)
+		if (!isActive && !lightsAreOff)
 		{
 			// turn off all lights in map
-
-		}	
+			lights.GetComponent<UnHide>().Hide();
+			lightsAreOff = true;
+		}
+		else if(isActive && lightsAreOff)
+		{
+			lights.GetComponent<UnHide>().View();
+			lightsAreOff = false;
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -23,10 +31,10 @@ public class GeneratorScript : MonoBehaviour {
 		{
 			if (Event_Manager.isEventActive(1, 2))
 			{
-				if (!promptActive)
+				if (!ButtonPrompt.promptActive)
 				{
-					GetComponent<ButtonPrompt>().prompt.text = "Hold 'E' To Turn On";
-					promptActive = true;
+					bPrompt.text = "Hold 'E' To Turn On";
+					ButtonPrompt.promptActive = true;
 				}
 			}
 		}
@@ -61,7 +69,7 @@ public class GeneratorScript : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (Event_Manager.isEventActive(1, 2) && promptActive)
+			if (Event_Manager.isEventActive(1, 2) && ButtonPrompt.promptActive)
 			{
 				GetComponent<ButtonPrompt>().prompt.text = "";
 			}
