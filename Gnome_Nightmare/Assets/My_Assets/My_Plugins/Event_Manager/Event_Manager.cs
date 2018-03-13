@@ -97,8 +97,8 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
 	public static int active = 100;   // 100 for null (essentially, not literally)
-	public static EmptyObjectBoundaryColliderCheck.Area boundaryType;
-	public static bool playerInBoundary = false;    //	used to track if a player has entered an empty gameobject boundary
+	public static bool playerInEntranceBoundary = false;
+	public static bool playerInGRBoundary = false;
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
 	private bool outageFailed = false;
@@ -185,7 +185,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 			nextEventRound = getNextEvent();
-			active = 0;
+			active = 1;
 			//active = getNextEvent();
 		}
 
@@ -439,7 +439,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			if (!hasEventSetActive)
 			{
 				GeneratorScript.isActive = false;
-				setActiveEventSet(0, true);
+				setActiveEventSet(1, true);
 				hasEventSetActive = true;
 				promptSpawned = false;
 			}
@@ -452,8 +452,9 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "Get to the Bunker!";
 					promptSpawned = true;
 				}
+				Debug.Log("player is in boundary "+playerInEntranceBoundary);
 
-				if (playerInBoundary && boundaryType == EmptyObjectBoundaryColliderCheck.Area.BunkerEntrance)
+				if (playerInEntranceBoundary)
 				{
 					moveOn(1, 0);
 					promptSpawned = false;
@@ -468,7 +469,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					promptSpawned = true;
 				}
 
-				if (playerInBoundary && boundaryType == EmptyObjectBoundaryColliderCheck.Area.GeneratorRoom)
+				if (playerInGRBoundary)
 				{
 					moveOn(1, 1);
 					promptSpawned = false;

@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EmptyObjectBoundaryColliderCheck : MonoBehaviour {
-	public enum Area { None, BunkerEntrance, GeneratorRoom };
-	public Area areaType;
-
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(other.gameObject.name == "Player")
 		{
-			Event_Manager.playerInBoundary = true;
-			Event_Manager.boundaryType = areaType;
+			if (transform.name == "Entrance")
+			{
+				Event_Manager.playerInEntranceBoundary = true;
+			}
+			else if(transform.name == "Generator Room")
+			{
+				Event_Manager.playerInGRBoundary = true;
+			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.name == "Player")
 		{
-			Event_Manager.playerInBoundary = false;
-			Event_Manager.boundaryType = Area.None;
+			Event_Manager.playerInEntranceBoundary = false;
 		}
 	}
 }

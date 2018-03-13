@@ -154,7 +154,7 @@ namespace EnemySpawners {
         public void ActivateAllSpawnersInCurrentRound() {
             CurrentLevel += 1;
 
-			if (Event_Manager.active == 0)
+			if (Event_Manager.active == 0 || Event_Manager.active == 1)
 			{
 				Object.FindObjectOfType<Event_Manager>().eventRoundProgress++;
 			}
