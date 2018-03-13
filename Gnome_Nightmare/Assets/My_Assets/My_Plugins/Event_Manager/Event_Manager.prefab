@@ -665,5 +665,7 @@ MonoBehaviour:
   bunkerEntrance: {fileID: 1526041039363424}
   generatorRoom: {fileID: 1061611176100444}
   eventRoundProgress: 0
+  playerInEntranceBoundary: 0
+  playerInGRBoundary: 0
   StartIn: 1
   RepeatEvery: 1

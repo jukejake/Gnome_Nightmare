@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 195241847530160816}
   - component: {fileID: 136945530419480432}
   - component: {fileID: 82722578403333612}
+  - component: {fileID: 114765788426312380}
   m_Layer: 0
   m_Name: Gnome Default
   m_TagString: Enemy
@@ -1344,6 +1345,33 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114765788426312380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706662511839796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: -1
+  Position: 0
+  Rotation: 0
+  Health: 0
 --- !u!136 &136945530419480432
 CapsuleCollider:
   m_ObjectHideFlags: 1

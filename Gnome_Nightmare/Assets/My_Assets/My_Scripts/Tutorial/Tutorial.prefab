@@ -256,7 +256,6 @@ MonoBehaviour:
   EventPrompt: {fileID: 0}
   HouseFog: {fileID: 1190150055604090, guid: 37036f8c0363b804395234225bbf3380, type: 2}
   BunkerFog: {fileID: 1625310770137764, guid: 2e78b6c6134b7eb4da199341b3a36cdb, type: 2}
-  Fire: {fileID: 0}
   SpawnManager: {fileID: 0}
   BarnArea: {fileID: 1523659325305206}
   HouseArea: {fileID: 1965816589658586}
