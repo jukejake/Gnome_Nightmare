@@ -186,9 +186,10 @@ public class Event_Manager : SerializedMonoBehaviour
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 			nextEventRound = getNextEvent();
-			active = 1;
-			//active = getNextEvent();
-		}
+			active = 0;
+            eventRoundProgress = 0;
+            //active = getNextEvent();
+        }
 
 		// if fire event is active
 		if (active == 0) { FireEventControlled(); }

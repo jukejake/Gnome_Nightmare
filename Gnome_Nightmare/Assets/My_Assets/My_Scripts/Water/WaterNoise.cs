@@ -6,6 +6,7 @@ public class WaterNoise : MonoBehaviour {
     
     public float Power = 3; //How heigh the waves will go
     public float TimeScale = 1; //How fast the wave are
+    public float Speed = 0.05f; //Don't change (pairs with Scale)
 
     private float Scale = 0.3f; //Don't change (pairs with TileOffset)
     private float TileOffset = 15; //Don't change (pairs with Scale)

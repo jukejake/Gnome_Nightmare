@@ -1370,7 +1370,7 @@ NavMeshAgent:
   m_Height: 1.7
   m_BaseOffset: 0.58
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!222 &222308425273721792
 CanvasRenderer:
   m_ObjectHideFlags: 1
