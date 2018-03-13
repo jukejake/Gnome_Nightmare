@@ -9,11 +9,12 @@ using Sirenix.OdinInspector;
 
 public class Event_Manager : SerializedMonoBehaviour
 {
-	[StructLayout(LayoutKind.Sequential)]
-	public struct Vec3
-	{
-		public float x, y, z;
-	}
+    public static Event_Manager instance;
+    private void Awake() { instance = this; }
+
+    [StructLayout(LayoutKind.Sequential)]
+	public struct Vec3 { public float x, y, z; }
+
 	[DllImport("EventManager")]
 	public static extern void DestroyManager();
 	[DllImport("EventManager")]
@@ -97,8 +98,8 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
 	public static int active = 100;   // 100 for null (essentially, not literally)
-	public static bool playerInEntranceBoundary = false;
-	public static bool playerInGRBoundary = false;
+	public bool playerInEntranceBoundary = false;
+	public bool playerInGRBoundary = false;
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
 	private bool outageFailed = false;

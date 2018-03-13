@@ -27,7 +27,8 @@ namespace EnemySpawners {
 
 
         private int NumberOfWavesCompleted = 0;
-
+        public int IDStartAt = 100;
+        private int TotalSpawned = 0;
 
         public bool SpawnAtBarn = true;
         public bool SpawnAtHouse = true;
@@ -83,6 +84,15 @@ namespace EnemySpawners {
                         et.IncreaseStats(tempObj);
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
+
+                        Agent tempAgent = tempObj.GetComponent<Agent>();
+                        tempAgent.AgentNumber = (TotalSpawned + IDStartAt);
+                        tempAgent.Position = true;
+                        tempAgent.Rotation = true;
+                        tempAgent.Health = true;
+                        tempAgent.SendInstantiate();
+                        TotalSpawned += 1;
+
                         break;
                     }
                     if (SpawnAtHouse && at == 2) {
@@ -95,6 +105,15 @@ namespace EnemySpawners {
                         et.IncreaseStats(tempObj);
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
+
+                        Agent tempAgent = tempObj.GetComponent<Agent>();
+                        tempAgent.AgentNumber = (TotalSpawned + IDStartAt);
+                        tempAgent.Position = true;
+                        tempAgent.Rotation = true;
+                        tempAgent.Health = true;
+                        tempAgent.SendInstantiate();
+                        TotalSpawned += 1;
+
                         break;
                     }
                     if (SpawnAtBunker && at == 3) {
@@ -107,6 +126,15 @@ namespace EnemySpawners {
                         et.IncreaseStats(tempObj);
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
+
+                        Agent tempAgent = tempObj.GetComponent<Agent>();
+                        tempAgent.AgentNumber = (TotalSpawned + IDStartAt);
+                        tempAgent.Position = true;
+                        tempAgent.Rotation = true;
+                        tempAgent.Health = true;
+                        tempAgent.SendInstantiate();
+                        TotalSpawned += 1;
+
                         break;
                     }
                     
@@ -133,9 +161,11 @@ namespace EnemySpawners {
                     et.NumberSpawned = 0;
                     et.EndOfWaveComp = false;
                 }
+                TotalSpawned = 0;
                 isOff = true;
                 CoolDown = RoundInterval;
                 Interface_SpawnTable.instance.CheckAllSpawners();
+
             }
         }
 

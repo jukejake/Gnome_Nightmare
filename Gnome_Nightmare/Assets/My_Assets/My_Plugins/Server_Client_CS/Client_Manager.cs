@@ -39,6 +39,8 @@ public class Client_Manager : SerializedMonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
+        if (IDTable == null) { IDTable = ID_Table.instance; }
+
         if (ClientOn) {
             string TCP_Data = client.TCP_GetData();
             if (!string.IsNullOrEmpty(TCP_Data)) {
@@ -116,8 +118,9 @@ public class Client_Manager : SerializedMonoBehaviour {
         }
 
         //Need to handle Events
+        if (ID == -1) { return; }
 
-        if (ID != -1 && destroy) {
+        if (destroy) {
             Debug.Log("Destroy: " + ID);
             //Find Object with the same [ID] and Destroy it.
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
@@ -128,7 +131,7 @@ public class Client_Manager : SerializedMonoBehaviour {
                 }
             }
         }
-        else if (ID != -1 && instantiate != -1) {
+        else if (instantiate != -1) {
             //Instantiate and Object with [ID] from the ID_Table
             Debug.Log("Instantiate: " + instantiate + " | ID: " + ID);
             GameObject t;
@@ -148,13 +151,15 @@ public class Client_Manager : SerializedMonoBehaviour {
                 else if (temp.tag == "Enemy") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Enemies_Spawn_Here").transform); }
             }
         }
-        else if (ID != -1) {
+        else {
             //Find Object with the same [ID] and change it.
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
                     agent.gameObject.transform.position = pos;
                     agent.gameObject.transform.rotation = Quaternion.Euler(rot);
+                    if (hp != -1 && agent.GetComponentInParent<EnemyStats>())  { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
+                    if (hp != -1 && agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }
                     Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")");
                     Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")");
                     if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }

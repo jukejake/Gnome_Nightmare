@@ -22,7 +22,7 @@ public class Server_Manager : SerializedMonoBehaviour {
 
     private ServerDll.Server server = new ServerDll.Server();
     public bool ServerOn = false;
-    public string ServerMessage = "~@456|#123|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|&Hello";
+    public string ServerMessage = "~@4|#123|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|&Hello";
 
     [Button]
     private void ServerStart() {
@@ -39,6 +39,8 @@ public class Server_Manager : SerializedMonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
+        if (IDTable == null) { IDTable = ID_Table.instance; }
+
         if (ServerOn) {
             server.TCP_UpdateV2();
             foreach (ServerClient c in server.TCP_Clients) { 
@@ -112,13 +114,55 @@ public class Server_Manager : SerializedMonoBehaviour {
         }
 
         //Need to handle Events
+        if (ID == -1) { return; }
 
+        if (destroy) {
+            Debug.Log("Destroy: " + ID);
+            //Find Object with the same [ID] and Destroy it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) {
+                    Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
+                    Destroy(agent.gameObject);
+                }
+            }
+        }
+        else if (instantiate != -1) {
+            //Instantiate and Object with [ID] from the ID_Table
+            Debug.Log("Instantiate: " + instantiate + " | ID: " + ID);
+            GameObject t;
+            if (IDTable.IDTable.TryGetValue(instantiate, out t)) {
+                GameObject temp = Instantiate(t, pos, Quaternion.Euler(rot));
+                temp.name = t.name;
+                if (temp.GetComponent<Agent>()) { temp.GetComponent<Agent>().AgentNumber = ID; }
+                else {
+                    temp.AddComponent<Agent>();
+                    temp.GetComponent<Agent>().AgentNumber = ID;
+                }
+                if (hp != -1) {
+                    if (temp.GetComponent<EnemyStats>())  { temp.GetComponent<EnemyStats>().MaxHealth = hp;  temp.GetComponent<EnemyStats>().CurrentHealth = hp; }
+                    if (temp.GetComponent<PlayerStats>()) { temp.GetComponent<PlayerStats>().MaxHealth = hp; temp.GetComponent<PlayerStats>().CurrentHealth = hp; }
+                }
+                if (temp.tag == "Items") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Items_Spawn_Here").transform); }
+                else if (temp.tag == "Enemy") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Enemies_Spawn_Here").transform); }
+            }
+        }
+        else {
+            //Find Object with the same [ID] and change it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) {
+                    agent.gameObject.transform.position = pos;
+                    agent.gameObject.transform.rotation = Quaternion.Euler(rot);
+                    if (hp != -1 && agent.GetComponentInParent<EnemyStats>())  { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
+                    if (hp != -1 && agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }
 
-        if (destroy) { Debug.Log("Destroy: " + ID); }
-        if (instantiate != -1) { Debug.Log("Instantiate: " + instantiate + " | ID: " + ID); }
-        if (ID != -1 && pos != null) { Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")"); }
-        if (ID != -1 && rot != null) { Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")"); }
-        if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }
+                    Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")");
+                    Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")");
+                    if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }
+                }
+            }
+        }
     }
 
     public void Quit() {

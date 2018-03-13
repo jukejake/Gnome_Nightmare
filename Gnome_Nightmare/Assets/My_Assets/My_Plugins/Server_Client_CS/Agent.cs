@@ -11,6 +11,8 @@ public class Agent : SerializedMonoBehaviour {
     public float RepeatEvery = 1.0f;
     [HorizontalGroup("Basic Info 2", 0.5f), LabelWidth(90)]
     public int AgentNumber = -1;
+    [HorizontalGroup("Basic Info 2", 0.5f), LabelWidth(90)]
+    public int PrefabNumber = -1;
     private Server_Manager server;
     private Client_Manager client;
     private EnemyStats enemyHealth;
@@ -37,12 +39,16 @@ public class Agent : SerializedMonoBehaviour {
     [BoxGroup("Stuff To Send/3", false), LabelWidth(40)]
     public bool Health = false;
 
+    private Vector3 pos = new Vector3(0.0f,0.0f,0.0f);
+    private Quaternion rot = new Quaternion(0.0f,0.0f,0.0f,0.0f);
+    private float health = 0.0f;
 
 
-    private void ClientRepeatThis() {
-        Debug.Log("Client");
+    public void SendInstantiate() {
 
-        string temp = ("#" + AgentNumber.ToString() + "|");
+        if (PrefabNumber == -1 || AgentNumber == -1) { return; }
+
+        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         if (Position) {
             Vector3 pos = this.gameObject.transform.position;
             temp += ("&POS(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
@@ -55,10 +61,41 @@ public class Agent : SerializedMonoBehaviour {
             if (enemyHealth) { temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
             if (playerHealth) { temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
         }
+        if (client) { client.SendData(temp); }
+        if (server) { server.SendData(temp); }
+        
+    }
+
+    private void ClientRepeatThis() {
+
+        if (AgentNumber == -1) { return; }
+
+        Debug.Log("Client");
+
+        string temp = ("#" + AgentNumber.ToString() + "|");
+        if (Position) {
+            if (pos != this.gameObject.transform.position) {
+                pos = this.gameObject.transform.position;
+                temp += ("&POS(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
+            }
+        }
+        if (Rotation) {
+            if (rot != this.gameObject.transform.rotation) {
+                rot = this.gameObject.transform.rotation;
+                temp += ("&POS(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
+            }
+        }
+        if (Health) {
+            if (enemyHealth && health != enemyHealth.CurrentHealth) { health = enemyHealth.CurrentHealth; temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
+            if (playerHealth && health != enemyHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
+        }
         if (temp != ("#" + AgentNumber.ToString() + "|")) { client.SendData(temp); }
         
     }
     private void ServerRepeatThis() {
+
+        if (AgentNumber == -1) { return; }
+
         Debug.Log("Server");
 
         string temp = ("#" + AgentNumber.ToString() + "|");
@@ -76,4 +113,20 @@ public class Agent : SerializedMonoBehaviour {
         }
         if (temp != ("#" + AgentNumber.ToString() + "|")) { server.SendData(temp); }
     }
+
+    public void SendDestroy() {
+
+        if (AgentNumber == -1) { return; }
+
+        string temp = ("~#" + AgentNumber.ToString() + "|");
+
+        if (client) { client.SendData(temp); }
+        if (server) { server.SendData(temp); }
+
+    }
+
+    private void OnDestroy() { SendDestroy(); }
+
+
+
 }

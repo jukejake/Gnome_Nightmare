@@ -154,10 +154,7 @@ namespace EnemySpawners {
         public void ActivateAllSpawnersInCurrentRound() {
             CurrentLevel += 1;
 
-			if (Event_Manager.active == 0 || Event_Manager.active == 1)
-			{
-				Object.FindObjectOfType<Event_Manager>().eventRoundProgress++;
-			}
+            if (Event_Manager.instance != null) { Event_Manager.instance.eventRoundProgress++; }
 
             //Goes through each spawner and sets the them to deactive
             for (int i = 0; i < spawnerManager.Length; i++) {
