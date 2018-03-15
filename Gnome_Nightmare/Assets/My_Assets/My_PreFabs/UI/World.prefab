@@ -76416,7 +76416,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 4
       Data: 4
@@ -76443,10 +76443,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
@@ -76455,13 +76455,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.1
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap1
+      Entry: 3
+      Data: 150
+    - Name: Cap2
+      Entry: 3
+      Data: 10
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -76498,6 +76507,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -76513,6 +76531,15 @@ MonoBehaviour:
     - Name: Points
       Entry: 3
       Data: 0
+    - Name: Cap1
+      Entry: 3
+      Data: 0
+    - Name: Cap2
+      Entry: 3
+      Data: 0
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 3
       Data: 0
@@ -76520,6 +76547,15 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
       Entry: 3
       Data: 0
     - Name: 
@@ -76569,7 +76605,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -76578,10 +76614,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -76590,13 +76626,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap1
+      Entry: 3
+      Data: 10
+    - Name: Cap2
+      Entry: 3
+      Data: 25
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -76633,6 +76678,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -76648,6 +76702,15 @@ MonoBehaviour:
     - Name: Points
       Entry: 3
       Data: 0
+    - Name: Cap1
+      Entry: 3
+      Data: 0
+    - Name: Cap2
+      Entry: 3
+      Data: 0
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 3
       Data: 0
@@ -76655,6 +76718,15 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
       Entry: 3
       Data: 0
     - Name: 
@@ -76686,10 +76758,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 4
-      Data: 6
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -76713,10 +76785,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -76725,13 +76797,22 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap1
+      Entry: 3
+      Data: 5
+    - Name: Cap2
+      Entry: 3
+      Data: 100
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -76768,6 +76849,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -76783,6 +76873,15 @@ MonoBehaviour:
     - Name: Points
       Entry: 3
       Data: 0
+    - Name: Cap1
+      Entry: 3
+      Data: 0
+    - Name: Cap2
+      Entry: 3
+      Data: 0
+    - Name: Cap3
+      Entry: 3
+      Data: 0
     - Name: Armour
       Entry: 3
       Data: 0
@@ -76790,6 +76889,15 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: Exp
+      Entry: 3
+      Data: 0
+    - Name: Cap4
+      Entry: 3
+      Data: 0
+    - Name: Cap5
+      Entry: 3
+      Data: 0
+    - Name: Cap6
       Entry: 3
       Data: 0
     - Name: 
@@ -76807,9 +76915,10 @@ MonoBehaviour:
   WorldEnenies: {fileID: 1284153312727018}
   SpawnPosRange: {x: 0, y: 0, z: 0}
   SpawnInterval: 2
+  Increment: -0.1
+  CapMin: 1
   RoundInterval: 10
   CoolDown: 1.25
-  IDStartAt: 100
   SpawnAtBarn: 0
   SpawnAtHouse: 0
   SpawnAtBunker: 0

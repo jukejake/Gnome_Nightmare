@@ -545,6 +545,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4349232786951728, guid: 365e67ef86ca9c3448a30eea3c405cb4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -577,34 +587,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114579344515844496, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-      propertyPath: lights
-      value: 
-      objectReference: {fileID: 334459382}
-    - target: {fileID: 114892941488621878, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+    - target: {fileID: 114497411939114378, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 114892941488621878, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-    - target: {fileID: 114187097943780884, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 114187097943780884, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-    - target: {fileID: 114687025198085532, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 114687025198085532, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-    - target: {fileID: 114166522751915808, guid: 365e67ef86ca9c3448a30eea3c405cb4,
-        type: 2}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 114166522751915808, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+      objectReference: {fileID: 114497411939114378, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
     - target: {fileID: 114718355843202886, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
@@ -612,18 +599,86 @@ Prefab:
       value: 
       objectReference: {fileID: 114718355843202886, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
-    - target: {fileID: 114497411939114378, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+    - target: {fileID: 114166522751915808, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 114497411939114378, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+      objectReference: {fileID: 114166522751915808, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
+    - target: {fileID: 114687025198085532, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 114687025198085532, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+    - target: {fileID: 114187097943780884, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 114187097943780884, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+    - target: {fileID: 114892941488621878, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 114892941488621878, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+    - target: {fileID: 114579344515844496, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 334459382}
     - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
         type: 2}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_OnCullStateChanged.m_TypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1, guid: 00000000000000000000000000000000, type: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_Type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_FillCenter
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_FillMethod
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_FillClockwise
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007166342033472, guid: 365e67ef86ca9c3448a30eea3c405cb4,
+        type: 2}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365e67ef86ca9c3448a30eea3c405cb4, type: 2}
   m_IsPrefabParent: 0

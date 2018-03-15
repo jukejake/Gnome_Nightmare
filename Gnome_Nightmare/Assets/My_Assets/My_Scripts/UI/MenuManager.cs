@@ -99,7 +99,8 @@ public class MenuManager : MonoBehaviour {
         // InvSpace/2;
         if (InvSpace < CurrentSlot) { CurrentSlot = (InvSpace - 1); }
 
-        if (Input.GetAxis("D-pad X") >= 00.2f || Input.GetAxis("Mouse ScrollWheel") >= 00.1f) { //right
+        //Move Right in Hot-Bar
+        if (Input.GetAxis("D-pad X") >= 00.2f || Input.GetAxis("Mouse ScrollWheel") >= 00.1f) {
             if (CurrentSlot == -1) { CurrentSlot = InvSpace/2; }
             if (CurrentSlot >= 0 && CurrentSlot < InvSpace - 1) { CurrentSlot += 1; }
             else if (CurrentSlot == InvSpace-1) { CurrentSlot = 0; }
@@ -107,8 +108,8 @@ public class MenuManager : MonoBehaviour {
             for (int i = 0; i < InvSpace; i++) { Inventory_Slot.transform.GetChild(i).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f); }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
         }
-    
-        if (Input.GetAxis("D-pad X") <= -0.2f || Input.GetAxis("Mouse ScrollWheel") <= -0.1f) { //left
+        //Move Left in Hot-Bar
+        if (Input.GetAxis("D-pad X") <= -0.2f || Input.GetAxis("Mouse ScrollWheel") <= -0.1f) { 
             if (CurrentSlot == -1) { CurrentSlot = InvSpace/2; }
             if (CurrentSlot > 0 && CurrentSlot <= InvSpace) { CurrentSlot -= 1;}
             else if (CurrentSlot == 0) { CurrentSlot = InvSpace-1; }
@@ -117,22 +118,38 @@ public class MenuManager : MonoBehaviour {
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1.1f);
         }
 
+        //Select Item
         if (Input.GetAxis("D-pad Y") >= 00.2f || Input.GetButton("Fire3")) {
             if (CurrentSlot == -1) { return; }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
             Switch();
             CurrentSlot = -1;
         }
-
+        //Deselect Item
         if (Input.GetAxis("D-pad Y") <= -0.2f) {
             if (CurrentSlot == -1) { return; }
             Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
             DropItem();
             CurrentSlot = -1;
         }
-        if (PlayerManager.instance.MenuOpen) { CurrentSlot = -1; return; }
-        //if (Input.GetButton("Fire3") || Input.GetButton("CA")) { Switch(); }
 
+        //Select Item by Key [1,2,3,4,5,6]
+        for (int i = 0; i < 6; i++) {
+            if (Input.GetKeyDown(i.ToString())) {
+                if (Inventory_Slot.transform.childCount < i) { return; }
+                CurrentSlot = (i-1);
+                if (Inventory_Slot.transform.GetChild(CurrentSlot)) {
+                    Inventory_Slot.transform.GetChild(CurrentSlot).GetComponent<RectTransform>().localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    Switch();
+                }
+                CurrentSlot = -1;
+            }
+        }
+
+
+        if (PlayerManager.instance.MenuOpen) { CurrentSlot = -1; return; }
+
+        //Deselect when player does something else
         if (Input.GetButton("CA") || Input.GetButton("CB")|| Input.GetButton("CX") || Input.GetButton("CY") || Input.GetButton("E") || Input.GetButton("Run")
            // || Input.GetAxis("Horizontal") >= 0.2f || Input.GetAxis("Vertical") >= 0.2f 
            || Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Tab") || Input.GetButton("Left Trigger") || Input.GetButton("Right Trigger"))

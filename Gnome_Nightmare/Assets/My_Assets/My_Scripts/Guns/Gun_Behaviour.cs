@@ -81,6 +81,9 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     #region HitScanWeapons
     //[ToggleGroup("WeaponTypeHitScan")]
     private void HitScanWeapons_Update() {
+
+        if (this.Stats.AmountCount.GetValue() == 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
+
         //If the player presses LeftClick or Right Triggger
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
@@ -91,7 +94,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
             }
         }
         //If the player presses Right Click 
-        if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
+        if ((Input.GetKeyDown("r") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
     }
     //[ToggleGroup("WeaponTypeHitScan")]
     private void HitScanWeapons_Shoot() {
@@ -140,16 +143,17 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     //[ToggleGroup("WeaponTypeProjectile")]
     private void ProjectileWeapons_Update() {
 
+        if (this.Stats.AmountCount.GetValue() == 0) { Mathf.Clamp(this.Stats.AmountCount.GetValue(), 0, 100000); Reload(); }
+
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             //RaycastHit hit;
             //if (Physics.Raycast(this.PlayerCamera.transform.position, this.PlayerCamera.transform.forward, out hit, this.Stats.Range.GetValue(), layerMask)) {
             //    s_Spawner.transform.LookAt(hit.point);
             //    Debug.DrawLine(this.PlayerCamera.transform.position, hit.point, Color.red, 5.0f);
             //}
-            //else {
-                s_Spawner.transform.LookAt(this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()));
-                Debug.DrawLine(this.PlayerCamera.transform.position, this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()), Color.blue, 5.0f);
-            //}
+            //else { }
+            s_Spawner.transform.LookAt(this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()));
+            Debug.DrawLine(this.PlayerCamera.transform.position, this.PlayerCamera.transform.position+(this.PlayerCamera.transform.forward * this.Stats.Range.GetValue()), Color.blue, 5.0f);
 
             NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
 
@@ -161,7 +165,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         }
 
         //If the player presses Right Click 
-        if ((Input.GetButtonDown("Fire2") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
+        if ((Input.GetKeyDown("r") || Input.GetButton("CX")) && this.Stats.AmountCount.GetValue() < this.Stats.ClipSize.GetValue()) { Reload(); }
         
     }
     //[ToggleGroup("WeaponTypeProjectile")]

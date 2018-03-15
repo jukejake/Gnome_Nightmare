@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Random_Utils;
 
 namespace EnemySpawners { 
@@ -9,32 +10,45 @@ namespace EnemySpawners {
     public class Spawner_Hub : SerializedMonoBehaviour {
 
         [System.NonSerialized]
-        public bool Toggle = false;
+        public bool Toggle = false; // does not do anything
 
-        [HorizontalGroup("Group 0", 0.5f), LabelWidth(90)]
+        [BoxGroup("Spawner Data", true, true)]
+        [HorizontalGroup("Spawner Data/Group 0", 0.4f), LabelWidth(90)]
         public GameObject WorldEnenies;
-        [HorizontalGroup("Group 0", 0.5f), LabelWidth(110)]
+        [HorizontalGroup("Spawner Data/Group 0", 0.6f), LabelWidth(110)]
         public Vector3 SpawnPosRange = new Vector3(0, 0, 0);
 
         [System.NonSerialized]
         public bool isOff = true;
-        [HorizontalGroup("Group 1", 0.33f), LabelWidth(100)]
-        public float SpawnInterval = 1.25f;
-        [HorizontalGroup("Group 1", 0.33f), LabelWidth(100)]
+        [HorizontalGroup("Spawner Data/Group 1", 0.33f), LabelWidth(100)]
+        public float SpawnInterval = 2.0f;
+        [HorizontalGroup("Spawner Data/Group 1", 0.33f), LabelWidth(70)]
+        public float Increment = 1.0f;
+        [HorizontalGroup("Spawner Data/Group 1", 0.33f), HideLabel]
+        public float CapMin = 1.0f;
+
+        [HorizontalGroup("Spawner Data/Group 2", 0.33f), LabelWidth(100)]
         public float RoundInterval = 10.0f;
-        [HorizontalGroup("Group 1", 0.33f), LabelWidth(70)]
+        [HorizontalGroup("Spawner Data/Group 2", 0.33f), LabelWidth(70)]
         public float CoolDown = 1.25f;
 
 
         private int NumberOfWavesCompleted = 0;
-        public int IDStartAt = 100;
         private int TotalSpawned = 0;
+        private int IDStartAt = 100;
 
+        [BoxGroup("Player Check", true, true)]
+        [HorizontalGroup("Player Check/Barn", 0.02f), HideLabel]
         public bool SpawnAtBarn = true;
+        [HorizontalGroup("Player Check/House", 0.02f), HideLabel]
         public bool SpawnAtHouse = true;
+        [HorizontalGroup("Player Check/Bunker", 0.02f), HideLabel]
         public bool SpawnAtBunker = true;
+        [HorizontalGroup("Player Check/Barn", 0.9f), LabelWidth(70)]
         public PlayerInArea BarnArea;
+        [HorizontalGroup("Player Check/House", 0.9f), LabelWidth(70)]
         public PlayerInArea HouseArea;
+        [HorizontalGroup("Player Check/Bunker", 0.9f), LabelWidth(70)]
         public PlayerInArea BunkerArea;
 
         //public List<GameObject> SpawnPositions = new List<GameObject>();
@@ -164,6 +178,12 @@ namespace EnemySpawners {
                 TotalSpawned = 0;
                 isOff = true;
                 CoolDown = RoundInterval;
+                //Make the Gnomes spawn Faster
+                if (CapMin < SpawnInterval) {
+                    SpawnInterval -= Increment;
+                    if (CapMin > SpawnInterval) { SpawnInterval = CapMin; }
+                }
+                
                 Interface_SpawnTable.instance.CheckAllSpawners();
 
             }
@@ -191,6 +211,7 @@ namespace EnemySpawners {
     
     //public interface ISpawnTables { }
     public class Enemies : ISpawnTables{
+
         public Enemies() { }
         [System.NonSerialized]
         public bool isOff = true;
@@ -238,20 +259,62 @@ namespace EnemySpawners {
     
         public void IncreaseStats() {
             if (RandomIncrease) {
-                IncreasedAmount += RandomUtils.RandomInt(IncreaseByRange.Amount.x, IncreaseByRange.Amount.y);
-                IncreasedHealth += RandomUtils.RandomInt(IncreaseByRange.Health.x, IncreaseByRange.Health.y);
-                IncreasedArmour += RandomUtils.RandomInt(IncreaseByRange.Armour.x, IncreaseByRange.Armour.y);
-                IncreasedDamage += RandomUtils.RandomInt(IncreaseByRange.Damage.x, IncreaseByRange.Damage.y);
-                IncreasedExp    += RandomUtils.RandomInt(IncreaseByRange.Exp   .x, IncreaseByRange.Exp   .y);
-                IncreasedPoints += RandomUtils.RandomInt(IncreaseByRange.Points.x, IncreaseByRange.Points.y);
+                int IN = RandomUtils.RandomInt(IncreaseByRange.Amount.x, IncreaseByRange.Amount.y);
+                int IH = RandomUtils.RandomInt(IncreaseByRange.Health.x, IncreaseByRange.Health.y);
+                int IA = RandomUtils.RandomInt(IncreaseByRange.Armour.x, IncreaseByRange.Armour.y);
+                int ID = RandomUtils.RandomInt(IncreaseByRange.Damage.x, IncreaseByRange.Damage.y);
+                int IE = RandomUtils.RandomInt(IncreaseByRange.Exp   .x, IncreaseByRange.Exp   .y);
+                int IP = RandomUtils.RandomInt(IncreaseByRange.Points.x, IncreaseByRange.Points.y);
+                if (IncreaseByInt.Cap1 > IncreasedAmount) {
+                    IncreasedAmount += IN;
+                    if (IncreaseByInt.Cap1 < IncreasedAmount) { IncreasedAmount = IncreaseByInt.Cap1; }
+                }
+                if (IncreaseByInt.Cap2 > IncreasedHealth) {
+                    IncreasedHealth += IH;
+                    if (IncreaseByInt.Cap2 < IncreasedHealth) { IncreasedHealth = IncreaseByInt.Cap2; }
+                }
+                if (IncreaseByInt.Cap3 > IncreasedArmour) {
+                    IncreasedArmour += IA;
+                    if (IncreaseByInt.Cap3 < IncreasedArmour) { IncreasedArmour = IncreaseByInt.Cap3; }
+                }
+                if (IncreaseByInt.Cap4 > IncreasedDamage) {
+                    IncreasedDamage += ID;
+                    if (IncreaseByInt.Cap4 < IncreasedDamage) { IncreasedDamage = IncreaseByInt.Cap4; }
+                }
+                if (IncreaseByInt.Cap5 > IncreasedExp) {
+                    IncreasedExp += IE;
+                    if (IncreaseByInt.Cap5 < IncreasedExp) { IncreasedExp = IncreaseByInt.Cap5; }
+                }
+                if (IncreaseByInt.Cap6 > IncreasedPoints) {
+                    IncreasedPoints += IP;
+                    if (IncreaseByInt.Cap6 < IncreasedPoints) { IncreasedPoints = IncreaseByInt.Cap6; }
+                }
             }
             else {
-                IncreasedAmount += IncreaseByInt.Amount;
-                IncreasedHealth += IncreaseByInt.Health;
-                IncreasedArmour += IncreaseByInt.Armour;
-                IncreasedDamage += IncreaseByInt.Damage;
-                IncreasedExp    += IncreaseByInt.Exp   ;
-                IncreasedPoints += IncreaseByInt.Points;
+                if (IncreaseByInt.Cap1 > IncreasedAmount) {
+                    IncreasedAmount += IncreaseByInt.Amount;
+                    if (IncreaseByInt.Cap1 < IncreasedAmount) { IncreasedAmount = IncreaseByInt.Cap1; }
+                }
+                if (IncreaseByInt.Cap2 > IncreasedHealth) {
+                    IncreasedHealth += IncreaseByInt.Health;
+                    if (IncreaseByInt.Cap2 < IncreasedHealth) { IncreasedHealth = IncreaseByInt.Cap2; }
+                }
+                if (IncreaseByInt.Cap3 > IncreasedArmour) {
+                    IncreasedArmour += IncreaseByInt.Armour;
+                    if (IncreaseByInt.Cap3 < IncreasedArmour) { IncreasedArmour = IncreaseByInt.Cap3; }
+                }
+                if (IncreaseByInt.Cap4 > IncreasedDamage) {
+                    IncreasedDamage += IncreaseByInt.Damage;
+                    if (IncreaseByInt.Cap4 < IncreasedDamage) { IncreasedDamage = IncreaseByInt.Cap4; }
+                }
+                if (IncreaseByInt.Cap5 > IncreasedExp) {
+                    IncreasedExp += IncreaseByInt.Exp;
+                    if (IncreaseByInt.Cap5 < IncreasedExp) { IncreasedExp = IncreaseByInt.Cap5; }
+                }
+                if (IncreaseByInt.Cap6 > IncreasedPoints) {
+                    IncreasedPoints += IncreaseByInt.Points;
+                    if (IncreaseByInt.Cap6 < IncreasedPoints) { IncreasedPoints = IncreaseByInt.Cap6; }
+                }
             }
         }
         public void IncreaseStats(GameObject ThisEnemy) {
@@ -266,7 +329,7 @@ namespace EnemySpawners {
     public class EnemiesStatsInt : ISpawnTables {
         public EnemiesStatsInt() { }
     
-        [HorizontalGroup("Split", 0.5f)]
+        [HorizontalGroup("Split", 250)]
     
         [TableColumnWidth(90)]
         [VerticalGroup("Split/Stats 1"), LabelWidth(50)]
@@ -275,20 +338,42 @@ namespace EnemySpawners {
         public int Health;
         [VerticalGroup("Split/Stats 1"), LabelWidth(50)]
         public int Points;
-    
-        [TableColumnWidth(90)]
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50)]
+
+        [HorizontalGroup("Split", 20)]
+
+        [TableColumnWidth(10)]
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap1;
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap2;
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap3;
+
+        [HorizontalGroup("Split", 0)]
+
+        //[TableColumnWidth(90)]
+        [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
         public int Armour;
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50)]
+        [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
         public int Damage;
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50)]
+        [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
         public int Exp;
+
+        [HorizontalGroup("Split", 0)]
+
+        //[TableColumnWidth(10)]
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap4;
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap5;
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap6;
     }
     
     public class EnemiesStatsRange : ISpawnTables {
         public EnemiesStatsRange() { }
     
-        [HorizontalGroup("Split", 0.5f)]
+        [HorizontalGroup("Split", 250)]
     
         [TableColumnWidth(90)]
         [VerticalGroup("Split/Stats 1"), LabelWidth(50), MinMaxSlider(-10, 10, true)]
@@ -297,13 +382,35 @@ namespace EnemySpawners {
         public Vector2 Health;
         [VerticalGroup("Split/Stats 1"), LabelWidth(50), MinMaxSlider(-10, 10, true)]
         public Vector2 Points;
-    
-        [TableColumnWidth(90)]
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50), MinMaxSlider(-10, 10, true)]
+
+        [HorizontalGroup("Split", 20)]
+
+        [TableColumnWidth(10)]
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap1;                          
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap2;                          
+        [VerticalGroup("Split/Stats 2"), HideLabel, LabelWidth(10)]
+        public int Cap3;
+
+        [HorizontalGroup("Split", 0)]
+
+        //[TableColumnWidth(90)]
+        [VerticalGroup("Split/Stats 3"), LabelWidth(50), MinMaxSlider(-10, 10, true), HideInInspector]
         public Vector2 Armour;
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50), MinMaxSlider(-10, 10, true)]
+        [VerticalGroup("Split/Stats 3"), LabelWidth(50), MinMaxSlider(-10, 10, true), HideInInspector]
         public Vector2 Damage;
-        [VerticalGroup("Split/Stats 2"), LabelWidth(50), MinMaxSlider(-10, 10, true)]
+        [VerticalGroup("Split/Stats 3"), LabelWidth(50), MinMaxSlider(-10, 10, true), HideInInspector]
         public Vector2 Exp;
+
+        [HorizontalGroup("Split", 0)]
+
+        //[TableColumnWidth(10)]
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap4;
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap5;
+        [VerticalGroup("Split/Stats 4"), HideLabel, HideInInspector]
+        public int Cap6;
     }
 }
