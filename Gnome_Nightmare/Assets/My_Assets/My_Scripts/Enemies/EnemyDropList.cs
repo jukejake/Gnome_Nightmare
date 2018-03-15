@@ -57,7 +57,7 @@ public class EnemyDropList : SerializedMonoBehaviour {
 
                         Item.name = TempItem.GetComponent<Drag_Inventory>().ItemOnDrop.name;
                         Item.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
-                        Item.transform.localPosition = AtPosition.localPosition;
+                        Item.transform.localPosition = AtPosition.localPosition + new Vector3(0.0f, 0.5f, 0.0f);
 
                         if (TempItem.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>()) {
                             OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<ItemStats>().itemStats;

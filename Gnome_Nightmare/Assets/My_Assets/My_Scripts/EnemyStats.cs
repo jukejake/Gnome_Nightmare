@@ -43,8 +43,7 @@ public class EnemyStats : CharacterStats {
 
         //Play Enemy death animation
         if (this.gameObject.GetComponent<Enemies_Movement>()) {
-            if (this.gameObject.GetComponent<Enemies_Movement>().anim != null)
-            { this.gameObject.GetComponent<Enemies_Movement>().anim.Play("Die", -1, 0f); }
+            if (this.gameObject.GetComponent<Enemies_Movement>().anim != null) { this.gameObject.GetComponent<Enemies_Movement>().anim.Play("Die", -1, 0f); }
             this.gameObject.GetComponent<Enemies_Movement>().enabled = false;
         }
         //Disable enemy movement

@@ -272,7 +272,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "THE BARN IS SAFE!";
 					KeepTime += RepeatEvery;
 				}
-				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; Debug.Log(KeepTime); }
+				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
 				else if (KeepTime >= 10.0f && KeepTime < (20.0f + RepeatEvery)) {
 					prompt.text = "";
 					KeepTime = 20.0f + RepeatEvery;
