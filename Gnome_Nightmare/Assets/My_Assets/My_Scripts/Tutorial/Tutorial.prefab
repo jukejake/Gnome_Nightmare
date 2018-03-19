@@ -260,3 +260,5 @@ MonoBehaviour:
   BarnArea: {fileID: 1523659325305206}
   HouseArea: {fileID: 1965816589658586}
   BunkerArea: {fileID: 1978289192306040}
+  HouseDoor1: {fileID: 0}
+  HouseDoor2: {fileID: 0}

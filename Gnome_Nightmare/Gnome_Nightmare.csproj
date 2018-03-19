@@ -407,6 +407,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Stat.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\DeleteWhenHit.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\DidPlayerCollide.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\RotateDoor.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Tutorial\Tutorial_Manager.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\BillboardScript.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\UI\ButtonPrompt.cs" />

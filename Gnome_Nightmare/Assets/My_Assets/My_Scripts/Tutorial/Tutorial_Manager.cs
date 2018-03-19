@@ -27,8 +27,15 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     [BoxGroup(group: "Triggers")]
     public GameObject BunkerArea;
 
-    private Spawner_Hub SP_Hub;
 
+    [BoxGroup(group: "HouseDoors"), HideLabel]
+    public RotateDoor HouseDoor1;
+    [BoxGroup(group: "HouseDoors"), HideLabel]
+    public RotateDoor HouseDoor2;
+
+    private Spawner_Hub SP_Hub;
+    private int Counter = 0;
+    private int PromptTime = 10;
 
 
     // Use this for initialization
@@ -41,10 +48,11 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             T_BunkerFog = (GameObject)Instantiate(BunkerFog);
             T_BunkerFog.name = BunkerFog.name;
         }
-	}
+        InvokeRepeating("SlowUpdate", 0.50f, 1.0f); //Start In, Repeat Every
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void SlowUpdate () {
         if (!On) { return; }
 
         switch (Stage)
@@ -60,6 +68,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
 
                     SpawnManager.ToggleAll = true;
                     EventPrompt.text = "Look around the Barn.";
+                    Counter = 0;
 
                     break;
             }
@@ -75,6 +84,9 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                             SP_Hub.SpawnAtBunker = false;
                         }
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Gnomes Attack Barn
@@ -86,15 +98,23 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the Barn.";
+                        Counter = 0;
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
                         EventPrompt.text = "Look through the House.";
+                        Counter = 0;
                         Stage = 2;
                         T_HouseFog.SetActive(false);
                         Destroy(T_HouseFog);
+                        //Open the House Doors
+                        if (HouseDoor1 != null) { HouseDoor1.Activate = true; }
+                        if (HouseDoor2 != null) { HouseDoor2.Activate = true; }
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Unlock House
@@ -109,6 +129,9 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                             SP_Hub.SpawnAtBunker = false;
                         }
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Gnomes Attack House
@@ -119,15 +142,20 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the House.";
+                        Counter = 0;
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
                         EventPrompt.text = "Look for the power switch in the Bunker.";
+                        Counter = 0;
                         Stage = 4;
                         T_BunkerFog.SetActive(false);
                         Destroy(T_BunkerFog);
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Unlock Bunker
@@ -142,6 +170,9 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                             SP_Hub.SpawnAtBunker = true;
                         }
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Gnomes Attack Bunker
@@ -152,6 +183,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the Bunker.";
+                        Counter = 0;
                     }
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
@@ -159,6 +191,9 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "";
                         Stage = 6;
                     }
+                    if (Counter < PromptTime) { Counter += 1; }
+                    else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
+
                     break;
             }
             //Spawn Gnomes every round
