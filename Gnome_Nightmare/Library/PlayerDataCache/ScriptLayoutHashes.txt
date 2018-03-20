@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/100581854/Desktop/Things/Project/Gnome_Nightmare/EXE/Gnome Nightmare.exe
+C:/Users/Crisp/Documents/GitHub/Project/Gnome_Nightmare/EXE/Gnome Nightmare.exe
 SceneListBegin?
 Assets/Scenes/Menu_Start.unity
 Assets/Scenes/Gnome_Nightmare.unity
@@ -306,7 +306,7 @@ dd5f554da8fa9bb51245fea02eb26d69 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinIn
 05524b8f659e7bfe5756d1335fec24ba Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.PersistentContextCache
 05524b8f659e7bfe5756d1335fec24ba Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.PersistentContextCacheEditor
 6870603ae7bb16795ccfe06c374a83e9 Sirenix.OdinInspector.Editor.dll:Sirenix.OdinInspector.Editor.SirenixPreferencesWindow
-abb278a6d30954ac917e8a9a8feab827 Assembly-CSharp.dll:.Tutorial_Manager
+145eeda7db5d1e085b1b7ae1aa1ec895 Assembly-CSharp.dll:.Tutorial_Manager
 c05569b21d2e4233a08d7cf7c2c66e35 Assembly-CSharp.dll:.DidPlayerCollide
 4aadab9e3e4d34f6e069833451e815bb Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.CreaseShading
 392b07d16bb9576e376c83a94e345a48 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.InlineButtonExamples
@@ -417,3 +417,4 @@ e73bcb9a4f68bde94e5184b6a094b86f Assembly-CSharp-firstpass.dll:Sirenix.OdinInspe
 e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 38ddcbadfec401f50a831c6d717e7e3e Assembly-CSharp.dll:.GetIP
 6e279e7acd065d4541e7b65ae41cef1b Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.TitleGroupExamples
+57b30761daa12d3e05f3106f1c4709ed Assembly-CSharp.dll:.RotateDoor

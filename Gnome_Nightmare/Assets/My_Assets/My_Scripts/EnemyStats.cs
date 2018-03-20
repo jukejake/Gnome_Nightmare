@@ -27,6 +27,7 @@ public class EnemyStats : CharacterStats {
         if (CurrentHealth <= 0.0f) { return false; }
         //apply damage
         TakeDamage(amount);
+
         //Check to see if the enemy died
         if (CurrentHealth <= 0.0f) { return true; }
         else { return false; }
@@ -52,6 +53,9 @@ public class EnemyStats : CharacterStats {
         if (this.gameObject.GetComponent<CapsuleCollider>()) { this.gameObject.GetComponent<CapsuleCollider>().enabled = false; }
         if (this.gameObject.GetComponent<BoxCollider>())     { this.gameObject.GetComponent<BoxCollider>().enabled = false; }
         if (this.gameObject.GetComponent<MeshCollider>())    { this.gameObject.GetComponent<MeshCollider>().enabled = false; }
+
+        //Send Death Message 
+        if (this.gameObject.GetComponent<Agent>()) { this.gameObject.GetComponent<Agent>().SendDestroy(); }
 
         //if (ParticlesOnDeath != null) {
         //    GameObject v_ParticlesOnDeath = Instantiate(ParticlesOnDeath, this.transform.position, this.transform.rotation);

@@ -17,10 +17,12 @@ public class Agent : SerializedMonoBehaviour {
     private Client_Manager client;
     private EnemyStats enemyHealth;
     private PlayerStats playerHealth;
+
     private void Awake() {
         if (Client_Manager.instance) { client = Client_Manager.instance; }
         else if (Server_Manager.instance) { server = Server_Manager.instance; }
     }
+
     private void Start() {
         // Repeat X, in Y seconds, every Z seconds.
         if (client) { InvokeRepeating("ClientRepeatThis", StartIn, RepeatEvery); }
@@ -40,39 +42,11 @@ public class Agent : SerializedMonoBehaviour {
     public bool Health = false;
 
     private Vector3 pos = new Vector3(0.0f,0.0f,0.0f);
-    private Quaternion rot = new Quaternion(0.0f,0.0f,0.0f,0.0f);
+    private Vector3 rot = new Vector3(0.0f,0.0f,0.0f);
     private float health = 0.0f;
 
 
-    public void SendInstantiate() {
-
-        if (PrefabNumber == -1 || AgentNumber == -1) { return; }
-
-        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
-        if (Position) {
-            Vector3 pos = this.gameObject.transform.position;
-            temp += ("&POS(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
-        }
-        if (Rotation) {
-            Quaternion rot = this.gameObject.transform.rotation;
-            temp += ("&POS(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
-        }
-        if (Health) {
-            if (enemyHealth) { temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
-            if (playerHealth) { temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
-        }
-        if (client) { client.SendData(temp); }
-        if (server) { server.SendData(temp); }
-        
-    }
-
-    private void ClientRepeatThis() {
-
-        if (AgentNumber == -1) { return; }
-
-        Debug.Log("Client");
-
-        string temp = ("#" + AgentNumber.ToString() + "|");
+    private string GetDataToSend(string temp) {
         if (Position) {
             if (pos != this.gameObject.transform.position) {
                 pos = this.gameObject.transform.position;
@@ -80,38 +54,42 @@ public class Agent : SerializedMonoBehaviour {
             }
         }
         if (Rotation) {
-            if (rot != this.gameObject.transform.rotation) {
-                rot = this.gameObject.transform.rotation;
-                temp += ("&POS(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
+            if (rot != this.gameObject.transform.rotation.eulerAngles) {
+                rot = this.gameObject.transform.rotation.eulerAngles;
+                temp += ("&ROT(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
             }
         }
         if (Health) {
             if (enemyHealth && health != enemyHealth.CurrentHealth) { health = enemyHealth.CurrentHealth; temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
             if (playerHealth && health != enemyHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
         }
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { client.SendData(temp); }
+        return temp;
+    }
+
+    public void SendInstantiate() {
+        if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
+
+        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
+        temp += GetDataToSend(temp);
+        if (client) { client.SendData(temp); }
+        if (server) { server.SendData(temp); }
+        
+    }
+
+    private void ClientRepeatThis() {
+        if (AgentNumber == -1) { return; }
+
+        string temp = ("#" + AgentNumber.ToString() + "|");
+        temp += GetDataToSend(temp);
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Client: " + temp); client.SendData(temp); }
         
     }
     private void ServerRepeatThis() {
-
         if (AgentNumber == -1) { return; }
 
-        Debug.Log("Server");
-
         string temp = ("#" + AgentNumber.ToString() + "|");
-        if (Position) {
-            Vector3 pos = this.gameObject.transform.position;
-            temp += ("&POS(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
-        }
-        if (Rotation) {
-            Quaternion rot = this.gameObject.transform.rotation;
-            temp += ("&POS(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
-        }
-        if (Health) {
-            if (enemyHealth) { temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
-            if (playerHealth) { temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
-        }
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { server.SendData(temp); }
+        temp += GetDataToSend(temp);
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Server: " + temp); server.SendData(temp); }
     }
 
     public void SendDestroy() {
@@ -120,13 +98,12 @@ public class Agent : SerializedMonoBehaviour {
 
         string temp = ("~#" + AgentNumber.ToString() + "|");
 
+        Debug.Log(temp + " died");
+
         if (client) { client.SendData(temp); }
         if (server) { server.SendData(temp); }
 
     }
 
     private void OnDestroy() { SendDestroy(); }
-
-
-
 }

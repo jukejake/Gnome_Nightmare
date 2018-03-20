@@ -622,7 +622,7 @@ Transform:
   m_GameObject: {fileID: 1876794503768076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4964072721854882}
   - {fileID: 4178483986238620}
@@ -932,7 +932,7 @@ MonoBehaviour:
   StartIn: 1
   RepeatEvery: 1
   AgentNumber: -1
-  PrefabNumber: -1
+  PrefabNumber: 3
   Position: 0
   Rotation: 0
   Health: 0

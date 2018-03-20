@@ -68,9 +68,7 @@ public class Client_Manager : SerializedMonoBehaviour {
         }
         //Destroy an object
         if (data.Contains("~")) {
-            //Distroy Code Here
             destroy = true;
-
             data = data.Substring(1);
         }
         //Instantiate an object
@@ -78,8 +76,6 @@ public class Client_Manager : SerializedMonoBehaviour {
             string t = data.Split('|')[0];
             t = t.Substring(1);
             instantiate = int.Parse(t);
-            //Instantiate Code Here
-
             data = data.Substring(t.Length+2);
         }
         //ID of an object

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -336,8 +336,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  PlayerNumber: 0
   ServerOn: 0
-  ServerMessage: ~@456|#123|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|&Hello
+  ServerMessage: '@4|#1|&POS(-30.0,0.0,15.0)&ROT(9.8,7.6,5.4)&HP26|'
 --- !u!1001 &811439617
 Prefab:
   m_ObjectHideFlags: 0
@@ -435,7 +436,7 @@ Prefab:
     - target: {fileID: 224714143998355640, guid: c80c6b81de13ec240b5d3913b047ad64,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 17.484417
+      value: 17.000017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80c6b81de13ec240b5d3913b047ad64, type: 2}
