@@ -265,29 +265,29 @@ namespace EnemySpawners {
                 int ID = RandomUtils.RandomInt(IncreaseByRange.Damage.x, IncreaseByRange.Damage.y);
                 int IE = RandomUtils.RandomInt(IncreaseByRange.Exp   .x, IncreaseByRange.Exp   .y);
                 int IP = RandomUtils.RandomInt(IncreaseByRange.Points.x, IncreaseByRange.Points.y);
-                if (IncreaseByInt.Cap1 > IncreasedAmount) {
+                if (IncreaseByRange.Cap1 > IncreasedAmount) {
                     IncreasedAmount += IN;
-                    if (IncreaseByInt.Cap1 < IncreasedAmount) { IncreasedAmount = IncreaseByInt.Cap1; }
+                    if (IncreaseByRange.Cap1 < IncreasedAmount) { IncreasedAmount = IncreaseByRange.Cap1; }
                 }
-                if (IncreaseByInt.Cap2 > IncreasedHealth) {
+                if (IncreaseByRange.Cap2 > IncreasedHealth) {
                     IncreasedHealth += IH;
-                    if (IncreaseByInt.Cap2 < IncreasedHealth) { IncreasedHealth = IncreaseByInt.Cap2; }
+                    if (IncreaseByRange.Cap2 < IncreasedHealth) { IncreasedHealth = IncreaseByRange.Cap2; }
                 }
-                if (IncreaseByInt.Cap3 > IncreasedArmour) {
+                if (IncreaseByRange.Cap3 > IncreasedArmour) {
                     IncreasedArmour += IA;
-                    if (IncreaseByInt.Cap3 < IncreasedArmour) { IncreasedArmour = IncreaseByInt.Cap3; }
+                    if (IncreaseByRange.Cap3 < IncreasedArmour) { IncreasedArmour = IncreaseByRange.Cap3; }
                 }
-                if (IncreaseByInt.Cap4 > IncreasedDamage) {
+                if (IncreaseByRange.Cap4 > IncreasedDamage) {
                     IncreasedDamage += ID;
-                    if (IncreaseByInt.Cap4 < IncreasedDamage) { IncreasedDamage = IncreaseByInt.Cap4; }
+                    if (IncreaseByRange.Cap4 < IncreasedDamage) { IncreasedDamage = IncreaseByRange.Cap4; }
                 }
-                if (IncreaseByInt.Cap5 > IncreasedExp) {
+                if (IncreaseByRange.Cap5 > IncreasedExp) {
                     IncreasedExp += IE;
-                    if (IncreaseByInt.Cap5 < IncreasedExp) { IncreasedExp = IncreaseByInt.Cap5; }
+                    if (IncreaseByRange.Cap5 < IncreasedExp) { IncreasedExp = IncreaseByRange.Cap5; }
                 }
-                if (IncreaseByInt.Cap6 > IncreasedPoints) {
+                if (IncreaseByRange.Cap6 > IncreasedPoints) {
                     IncreasedPoints += IP;
-                    if (IncreaseByInt.Cap6 < IncreasedPoints) { IncreasedPoints = IncreaseByInt.Cap6; }
+                    if (IncreaseByRange.Cap6 < IncreasedPoints) { IncreasedPoints = IncreaseByRange.Cap6; }
                 }
             }
             else {
