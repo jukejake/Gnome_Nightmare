@@ -17,6 +17,8 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     public bool WeaponTypeHitScan;
     [ToggleGroup("WeaponTypeProjectile", order: 2, groupTitle: "Projectile")]
     public bool WeaponTypeProjectile;
+    [ToggleGroup("HealthItems", order: 2, groupTitle: "Health Items")]
+    public bool HealthItems;
 
     [ToggleGroup("WeaponTypeHitScan"), ToggleGroup("WeaponTypeProjectile")]
     public Ammo_Types.Ammo TypeOfAmmo = Ammo_Types.Ammo.Basic;
@@ -43,6 +45,9 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     public float s_BulletSpeed;
     [ToggleGroup("WeaponTypeProjectile")]
     public bool AimingHitscan = false;
+
+    [ToggleGroup("HealthItems")]
+    public float HealingAmount = 10.0f;
 
     [BoxGroup("Sound")]
     public AudioSource FireSound;
@@ -75,6 +80,7 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
 
         if (WeaponTypeHitScan) { HitScanWeapons_Update(); }
         else if (WeaponTypeProjectile) { ProjectileWeapons_Update(); }
+        else if (HealthItems) { HealthItems_Update(); }
     }
     
 
@@ -210,7 +216,16 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
         s_Spawner.transform.rotation = Quaternion.identity;
     }
     #endregion
-    
+
+    #region HealthItems
+    private void HealthItems_Update() {
+        if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
+            playerManager.player.GetComponent<PlayerStats>().HealAmount(HealingAmount);
+            Destroy(menuManager.Weapon_Slot.transform.GetChild(0).gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+    #endregion
 
     private void Reload() {
         if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { return; }

@@ -96,6 +96,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
+                        SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the Barn.";
                         Counter = 0;
@@ -140,6 +141,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
+                        SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the House.";
                         Counter = 0;
@@ -181,6 +183,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = false;
                         //Activate all spawners
+                        SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         EventPrompt.text = "Gnomes are attacking the Bunker.";
                         Counter = 0;
@@ -190,6 +193,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = true;
                         EventPrompt.text = "";
                         Stage = 6;
+                        SpawnManager.TimeBetweenRounds = 20.0f;
                     }
                     if (Counter < PromptTime) { Counter += 1; }
                     else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }

@@ -15,8 +15,7 @@ public class PlayerStats : CharacterStats {
     public bool isDead = false;
     public float TotalHealth;
 
-    private void Start() {
-    }
+    private void Start() { }
 
     private void Update() {
         HealthBar();
@@ -55,7 +54,7 @@ public class PlayerStats : CharacterStats {
         //Add player modifiers
         //Damage.AddModifier(0.50f);
         //Armour.AddModifier(0.50f);
-        FullHealth();
+        //FullHealth();
 
         //Incress player Level
         PlayerLevel += 1;

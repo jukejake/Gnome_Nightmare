@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114893570496251966}
   - component: {fileID: 135447238334392258}
   - component: {fileID: 23919597779804254}
+  - component: {fileID: 114428016194843890}
   m_Layer: 2
   m_Name: Flame_Can_PickUp
   m_TagString: Items
@@ -238,7 +239,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902338955726660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -435,6 +436,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114428016194843890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902338955726660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 180
 --- !u!114 &114444579091499554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -550,6 +565,7 @@ MonoBehaviour:
       Data: 
   WeaponTypeHitScan: 1
   WeaponTypeProjectile: 0
+  HealthItems: 0
   TypeOfAmmo: 1
   PlayerCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198378658579366162}
@@ -561,6 +577,7 @@ MonoBehaviour:
   s_bullet: {fileID: 0}
   s_BulletSpeed: 0
   AimingHitscan: 0
+  HealingAmount: 10
   FireSound: {fileID: 0}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82389738173237538}

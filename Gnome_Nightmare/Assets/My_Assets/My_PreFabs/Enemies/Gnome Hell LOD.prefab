@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
   anim: {fileID: 95583798969893132}
-  MaxFollowDistance: 100
+  MaxFollowDistance: 1000
   MaxAttackDistance: 1.8
   RangeDivisible: 5
   TimerDelay: 0.5
@@ -1512,7 +1512,7 @@ LODGroup:
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LODs:
-  - screenRelativeHeight: 0.9534776
+  - screenRelativeHeight: 0.999
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 137274370753231200}

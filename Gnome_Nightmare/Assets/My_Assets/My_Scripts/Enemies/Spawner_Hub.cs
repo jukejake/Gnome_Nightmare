@@ -80,7 +80,7 @@ namespace EnemySpawners {
             if (isOff) { return; }
             // Go through all wave components until we find something to spawn
             foreach (Enemies et in EnemiesToSpawn) {
-                //Debug.Log("["+et.NumberSpawned+"]/["+(et.StartingAmount + et.IncreasedAmount)+"] B["+et.isOff+"]");
+
                 if (et.NumberSpawned < (et.StartingAmount + et.IncreasedAmount) && et.isOff == false) {
                     
 
@@ -160,7 +160,6 @@ namespace EnemySpawners {
                     break;
                 }
                 else if ((et.NumberSpawned >= (et.StartingAmount + et.IncreasedAmount) && et.isOff == false) || (et.NumberSpawned == 0 && et.isOff == true)) {
-                    //Debug.Log("[" + et.NumberSpawned + "] [" + et.StartingAmount + "][" + et.IncreasedAmount + "]" + et.Enemy.name.ToString());
                     et.isOff = true;
                     et.EndOfWaveComp = true;
                     NumberOfWavesCompleted++;

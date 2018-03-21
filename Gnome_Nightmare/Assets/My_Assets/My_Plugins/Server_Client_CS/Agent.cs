@@ -70,7 +70,7 @@ public class Agent : SerializedMonoBehaviour {
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
 
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
-        temp += GetDataToSend(temp);
+        temp = GetDataToSend(temp);
         if (client) { client.SendData(temp); }
         if (server) { server.SendData(temp); }
         
@@ -80,7 +80,7 @@ public class Agent : SerializedMonoBehaviour {
         if (AgentNumber == -1) { return; }
 
         string temp = ("#" + AgentNumber.ToString() + "|");
-        temp += GetDataToSend(temp);
+        temp = GetDataToSend(temp);
         if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Client: " + temp); client.SendData(temp); }
         
     }
@@ -88,7 +88,7 @@ public class Agent : SerializedMonoBehaviour {
         if (AgentNumber == -1) { return; }
 
         string temp = ("#" + AgentNumber.ToString() + "|");
-        temp += GetDataToSend(temp);
+        temp = GetDataToSend(temp);
         if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Server: " + temp); server.SendData(temp); }
     }
 

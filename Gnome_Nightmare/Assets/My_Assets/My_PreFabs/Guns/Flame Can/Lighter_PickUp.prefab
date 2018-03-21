@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114785485884245736}
   - component: {fileID: 135903206428933848}
   - component: {fileID: 23030061600461940}
+  - component: {fileID: 114978024308482994}
   m_Layer: 2
   m_Name: Lighter_PickUp
   m_TagString: Items
@@ -110,7 +111,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696605160986344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -212,6 +213,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 1, z: 0}
+--- !u!114 &114978024308482994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696605160986344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 60
 --- !u!135 &135903206428933848
 SphereCollider:
   m_ObjectHideFlags: 1

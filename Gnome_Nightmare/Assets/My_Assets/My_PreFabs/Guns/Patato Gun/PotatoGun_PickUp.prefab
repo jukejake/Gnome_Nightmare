@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114919140031324192}
   - component: {fileID: 114022890975830852}
   - component: {fileID: 136526254606522228}
+  - component: {fileID: 135010043276450146}
+  - component: {fileID: 114322328834707740}
   m_Layer: 2
   m_Name: PotatoGun_PickUp
   m_TagString: Items
@@ -343,7 +345,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8fec5ff633d88aa4e925ba297f430aff, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -487,6 +489,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114322328834707740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126897304676958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 180
 --- !u!114 &114708728371556446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -602,6 +618,7 @@ MonoBehaviour:
       Data: 
   WeaponTypeHitScan: 0
   WeaponTypeProjectile: 1
+  HealthItems: 0
   TypeOfAmmo: 1
   PlayerCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198913115188148096}
@@ -613,6 +630,7 @@ MonoBehaviour:
   s_bullet: {fileID: 1622081733761270, guid: d14ce8f327cc53e4ebd41b89784a4036, type: 2}
   s_BulletSpeed: 50
   AimingHitscan: 0
+  HealingAmount: 10
   FireSound: {fileID: 82937961537243880}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82857756911962662}
@@ -628,6 +646,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1110811399918626, guid: b6b13d8d49ff0c846b55aa2a4d67ed4d, type: 2}
+--- !u!135 &135010043276450146
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126897304676958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136526254606522228
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -636,7 +666,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1126897304676958}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2.41
   m_Direction: 2

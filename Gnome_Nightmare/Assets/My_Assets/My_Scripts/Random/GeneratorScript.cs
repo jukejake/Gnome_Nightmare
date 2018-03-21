@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GeneratorScript : MonoBehaviour {
 	public Text bPrompt;
 	public GameObject lights;
+	public GameObject computer;
 	public static bool isActive = true;
 	private float timer = 0.0f;
 	private bool lightsAreOff = false;
@@ -14,48 +15,42 @@ public class GeneratorScript : MonoBehaviour {
 	{
 		if (!isActive && !lightsAreOff)
 		{
-			// turn off all lights in map
+			computer.GetComponent<UnHide>().Hide();
 			lights.GetComponent<UnHide>().Hide();
 			lightsAreOff = true;
 		}
 		else if(isActive && lightsAreOff)
 		{
+			computer.GetComponent<UnHide>().View();
 			lights.GetComponent<UnHide>().View();
 			lightsAreOff = false;
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnCollisionEnter(Collision other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(other.gameObject.name == "Player")
 		{
 			if (Event_Manager.isEventActive(1, 2))
 			{
 				if (!ButtonPrompt.promptActive)
 				{
-					bPrompt.text = "Hold 'E' To Turn On";
+					bPrompt.text = "Press 'E' To Turn On";
 					ButtonPrompt.promptActive = true;
 				}
 			}
 		}
 	}
 
-	private void OnTriggerStay(Collider other)
+	private void OnCollisionStay(Collision other)
 	{
-		if(other.gameObject.tag == "Player")
+		if (other.gameObject.name == "Player")
 		{
 			if (Event_Manager.isEventActive(1, 2))
 			{
-				if (Input.GetKey(KeyCode.E))
+				if (Input.GetKeyDown(KeyCode.E))
 				{
-					if (timer < 1.5f)
-					{
-						timer += Time.deltaTime;
-					}
-					else
-					{
-						isActive = true;
-					}
+					isActive = true;
 				}
 				else if (Input.GetKeyUp(KeyCode.E))
 				{
@@ -65,13 +60,14 @@ public class GeneratorScript : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerExit(Collider other)
+	private void OnCollisionExit(Collision other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.name == "Player")
 		{
-			if (Event_Manager.isEventActive(1, 2) && ButtonPrompt.promptActive)
+			if (ButtonPrompt.promptActive)
 			{
-				GetComponent<ButtonPrompt>().prompt.text = "";
+				bPrompt.text = "";
+				ButtonPrompt.promptActive = false;
 			}
 		}
 	}

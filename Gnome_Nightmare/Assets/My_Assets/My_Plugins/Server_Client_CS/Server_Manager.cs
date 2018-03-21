@@ -22,7 +22,7 @@ public class Server_Manager : SerializedMonoBehaviour {
 
     private ServerDll.Server server = new ServerDll.Server();
     public bool ServerOn = false;
-    public string ServerMessage = "~@4|#123|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|&Hello";
+    public string ServerMessage = "~@4|#4|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|";
 
     [Button]
     private void ServerStart() {
@@ -46,7 +46,6 @@ public class Server_Manager : SerializedMonoBehaviour {
             foreach (ServerClient c in server.TCP_Clients) { 
                 string TCP_Data = server.TCP_GetDataV2(c);
                 if (!string.IsNullOrEmpty(TCP_Data)) {
-                    //Debug.Log(TCP_Data);
                     ProcessData(TCP_Data);
                 }
             }
@@ -59,14 +58,13 @@ public class Server_Manager : SerializedMonoBehaviour {
         int ID = -1;
         Vector3 pos = new Vector3();
         Vector3 rot = new Vector3();
+        Vector3 evt = new Vector3();
         int hp = -1;
 
 
         //Destroy an object
         if (data.Contains("~")) {
-            //Distroy Code Here
             destroy = true;
-
             data = data.Substring(1);
         }
         //Instantiate an object
@@ -74,8 +72,6 @@ public class Server_Manager : SerializedMonoBehaviour {
             string t = data.Split('|')[0];
             t = t.Substring(1);
             instantiate = int.Parse(t);
-            //Instantiate Code Here
-
             data = data.Substring(t.Length+2);
         }
         //ID of an object
@@ -87,8 +83,7 @@ public class Server_Manager : SerializedMonoBehaviour {
         }
         //Position of an object
         if (data.Contains("&POS"))  {
-            string t = data.Split('(')[1];
-            t = t.Split(')')[0];
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
@@ -97,8 +92,7 @@ public class Server_Manager : SerializedMonoBehaviour {
         }
         //Rotation of an object
         if (data.Contains("&ROT"))  {
-            string t = data.Split('(')[1];
-            t = t.Split(')')[0];
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
@@ -112,8 +106,17 @@ public class Server_Manager : SerializedMonoBehaviour {
             hp = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
+        //Current Event
+        if (data.Contains("!")) {
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
+            float x = float.Parse(t.Split(',')[0]);
+            float y = float.Parse(t.Split(',')[1]);
+            float z = float.Parse(t.Split(',')[2]);
+            evt = new Vector3(x, y, z);
+            data = data.Substring(t.Length + 3);
+        }
 
-        //Need to handle Events
+        //Need ID to handle Events
         if (ID == -1) { return; }
 
         if (destroy) {
@@ -156,7 +159,6 @@ public class Server_Manager : SerializedMonoBehaviour {
                     agent.gameObject.transform.rotation = Quaternion.Euler(rot);
                     if (hp != -1 && agent.GetComponentInParent<EnemyStats>())  { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
                     if (hp != -1 && agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }
-
                     Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")");
                     Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")");
                     if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }

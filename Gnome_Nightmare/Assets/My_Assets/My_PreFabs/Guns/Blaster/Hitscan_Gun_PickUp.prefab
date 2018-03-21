@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114460691261126160}
   - component: {fileID: 23585388491796770}
   - component: {fileID: 114757966806715034}
+  - component: {fileID: 114010901427277954}
   m_Layer: 2
   m_Name: Hitscan_Gun_PickUp
   m_TagString: Items
@@ -211,7 +212,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051321533215820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -575,6 +576,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114010901427277954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051321533215820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 180
 --- !u!114 &114137657312899888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -725,6 +740,7 @@ MonoBehaviour:
       Data: 
   WeaponTypeHitScan: 1
   WeaponTypeProjectile: 0
+  HealthItems: 0
   TypeOfAmmo: 1
   PlayerCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198113282999074578}
@@ -736,6 +752,7 @@ MonoBehaviour:
   s_bullet: {fileID: 0}
   s_BulletSpeed: 0
   AimingHitscan: 0
+  HealingAmount: 10
   FireSound: {fileID: 82980498450635244}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82166952882181236}

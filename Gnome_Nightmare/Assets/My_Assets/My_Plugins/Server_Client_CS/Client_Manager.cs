@@ -21,8 +21,8 @@ public class Client_Manager : SerializedMonoBehaviour {
 
     private ServerDll.Client client = new ServerDll.Client();
     public bool ClientOn = false;
-    public string ClientMessage = "Test";
-    
+    public string ClientMessage = "~@4|#4|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|";
+
     [Button]
     public void ConnectToServer() {
         if (client.TCP_ConnectToServer()) { ClientOn = true; }
@@ -36,7 +36,6 @@ public class Client_Manager : SerializedMonoBehaviour {
     }
 
 
-
     // Update is called once per frame
     private void Update () {
         if (IDTable == null) { IDTable = ID_Table.instance; }
@@ -44,28 +43,25 @@ public class Client_Manager : SerializedMonoBehaviour {
         if (ClientOn) {
             string TCP_Data = client.TCP_GetData();
             if (!string.IsNullOrEmpty(TCP_Data)) {
-                //Debug.Log(TCP_Data);
                 ProcessData(TCP_Data);
             }
         }
 	}
 
+
+
+
+
     private void ProcessData(string data) {
         bool destroy = false;
         int instantiate = -1;
         int ID = -1;
-        Vector3 pos = new Vector3(); ;
-        Vector3 rot = new Vector3(); ;
+        Vector3 pos = new Vector3();
+        Vector3 rot = new Vector3();
+        Vector3 evt = new Vector3();
         int hp = -1;
 
-        //Set Player Number
-        if (data.Contains("!")) {
-            string t = data.Split('|')[0];
-            t = t.Substring(1);
-            PlayerNumber = int.Parse(t);
-
-            data = data.Substring(t.Length + 2);
-        }
+        
         //Destroy an object
         if (data.Contains("~")) {
             destroy = true;
@@ -87,8 +83,7 @@ public class Client_Manager : SerializedMonoBehaviour {
         }
         //Position of an object
         if (data.Contains("&POS"))  {
-            string t = data.Split('(')[1];
-            t = t.Split(')')[0];
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
@@ -97,8 +92,7 @@ public class Client_Manager : SerializedMonoBehaviour {
         }
         //Rotation of an object
         if (data.Contains("&ROT"))  {
-            string t = data.Split('(')[1];
-            t = t.Split(')')[0];
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
@@ -112,8 +106,17 @@ public class Client_Manager : SerializedMonoBehaviour {
             hp = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
+        //Current Event
+        if (data.Contains("!")) {
+            string t = data.Split('(')[1]; t = t.Split(')')[0];
+            float x = float.Parse(t.Split(',')[0]);
+            float y = float.Parse(t.Split(',')[1]);
+            float z = float.Parse(t.Split(',')[2]);
+            evt = new Vector3(x, y, z);
+            data = data.Substring(t.Length + 3);
+        }
 
-        //Need to handle Events
+        //Need ID to handle Events
         if (ID == -1) { return; }
 
         if (destroy) {
@@ -162,13 +165,11 @@ public class Client_Manager : SerializedMonoBehaviour {
                 }
             }
         }
-
     }
 
     public void Quit() {
         client.TCP_CloseSocket();
         Destroy(this);
     }
-
-
+    
 }

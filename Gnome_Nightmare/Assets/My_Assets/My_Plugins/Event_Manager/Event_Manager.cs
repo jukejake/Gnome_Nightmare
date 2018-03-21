@@ -12,7 +12,8 @@ public class Event_Manager : SerializedMonoBehaviour
     public static Event_Manager instance;
     private void Awake() { instance = this; }
 
-    [StructLayout(LayoutKind.Sequential)]
+	#region plugin
+	[StructLayout(LayoutKind.Sequential)]
 	public struct Vec3 { public float x, y, z; }
 
 	[DllImport("EventManager")]
@@ -86,6 +87,7 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static extern int getNextEvent();
 	[DllImport("EventManager")]
 	public static extern int getLastEvent();
+	#endregion
 
 	Vec3 pos;
 	public Text prompt;
@@ -126,78 +128,27 @@ public class Event_Manager : SerializedMonoBehaviour
         InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
     }
 
-    // Update is called once per frame
-    private void Update()
-	{
-        return;
-		//Debug.Log("Next Event Round: " + nextEventRound);
-		Debug.Log("Fire Count: " + fireCount);
-
-		// check if the current round = anticpated event round
-		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound)
-		{
-			nextEventRound = getNextEvent();
-			active = 0;
-			//active = getNextEvent();
-		}
-
-		// if fire event is active
-		if (active == 0)
-		{
-			fireEvent();
-		}	
-		else if(active == 1)	// if outage event is active
-		{
-			outageEvent();
-		}
-
-		if (fireFailed)
-		{
-			if (KeepTime == 0.0f)
-			{
-				prompt.text = "EVENT FAILED!";
-				KeepTime += Time.deltaTime;
-
-				for (int i = 11; i < 14; i++)
-				{
-					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
-				}
-			}
-			else if (KeepTime < 10.0f) {
-				KeepTime += Time.deltaTime;
-			}
-			else if (KeepTime > 10.0f && KeepTime < 11.0f)
-			{
-				prompt.text = "";
-				KeepTime = 11.0f;
-			}
-		}
-
-		if (menu == null) {
-            menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
-        }
-	}
-
     //Update but with controlled timing
     private void UpdateControlled() {
-		//Debug.Log("Next Event Round: " + nextEventRound);
-		//Debug.Log("Fire Count: " + fireCount);
 
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 			nextEventRound = getNextEvent();
-			active = 0;
+			active = 1;
             eventRoundProgress = 0;
             //active = getNextEvent();
         }
 
 		// if fire event is active
-		if (active == 0) { FireEventControlled(); }
+		if (active == 0) { FireEvent(); }
         // if outage event is active
         else if (active == 1) { outageEvent(); }
 
 		if (fireFailed) {
+			//	if the player failed to finish to beat the fire event fire spreads around barn, preventing the player from going inside and fires become invincible
+
 			if (KeepTime == 0.0f) {
+				prompt.color = Color.red;
 				prompt.text = "EVENT FAILED!";
 				KeepTime += RepeatEvery; 
 				for (int i = 11; i < 14; i++) {
@@ -210,6 +161,26 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (KeepTime >= 10.0f && KeepTime < (20.0f + RepeatEvery)) {
 				prompt.text = "";
 				KeepTime = 20.0f + RepeatEvery;
+				prompt.color = Color.white;
+			}
+		}
+		else if (outageFailed)
+		{
+			if (KeepTime == 0.0f)
+			{
+				prompt.color = Color.red;
+				prompt.text = "EVENT FAILED!";
+				KeepTime += RepeatEvery;
+			}
+			else if (KeepTime < 5.0f)
+			{
+				KeepTime += RepeatEvery;
+			}
+			else if (KeepTime >= 5.0f && KeepTime < (20.0f + RepeatEvery))
+			{
+				prompt.text = "";
+				KeepTime = 20.0f + RepeatEvery;
+				prompt.color = Color.white;
 			}
 		}
 
@@ -218,7 +189,7 @@ public class Event_Manager : SerializedMonoBehaviour
         }
 	}
     //Fire Event but with controlled timing
-    private void FireEventControlled()	//	handles fire event while it is active
+    private void FireEvent()	//	handles fire event while it is active
 	{
         // give 2 rounds to complete the event
         if (eventRoundProgress < 3)	 {
@@ -272,8 +243,8 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "THE BARN IS SAFE!";
 					KeepTime += RepeatEvery;
 				}
-				else if (KeepTime < 10.0f) { KeepTime += RepeatEvery; }
-				else if (KeepTime >= 10.0f && KeepTime < (20.0f + RepeatEvery)) {
+				else if (KeepTime < 5.0f) { KeepTime += RepeatEvery; }
+				else if (KeepTime >= 5.0f && KeepTime < (20.0f + RepeatEvery)) {
 					prompt.text = "";
 					KeepTime = 20.0f + RepeatEvery;
 					active = 100;
@@ -329,6 +300,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		setParent(1, 0, -1);
 		newEvent(1);
 		setEventName(1, 1, "Find the generator");
+		//setParent(1, 1, 0);
 		setImmediateChild(1, 1, 0);
 		newEvent(1);
 		setEventName(1, 2, "Turn on the generator");
@@ -348,91 +320,6 @@ public class Event_Manager : SerializedMonoBehaviour
 		//}
 	}
 
-	private void fireEvent()	//	handles fire event while it is active
-	{
-		if (eventRoundProgress < 3)	// give 2 rounds to complete the event
-		{
-			if (!fireSpawned)
-			{
-				for (int i = 0; i < fireCountMax; i++)
-				{
-					fire = Instantiate(firePrefab, transform.GetChild(0).transform.GetChild(i).transform);
-					fireCount++;
-				}
-				setActiveEventSet(0, true);
-				fireSpawned = true;
-			}
-
-			if (!getEventStatus(0, 0) && isEventActive(0, 0))
-			{
-				if (!promptSpawned)
-				{
-					prompt.text = "Find The Fire Extinguisher";
-					promptSpawned = true;
-				}
-
-                Component[] Slots;
-                if (menu != null) { 
-                    // check if fire extinguisher is in any players' inventory	
-                    Slots = menu.Inventory_Slot.GetComponentsInChildren<Drag_Inventory>();	
-                    foreach (Drag_Inventory slots in Slots) {
-                        if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
-							moveOn(0, 0);
-							promptSpawned = false;
-						}
-                    }
-		              // check if fire extinguisher is in any players' inventory		
-		              Slots = menu.Weapon_Slot.GetComponentsInChildren<Drag_Inventory>();
-		              foreach (Drag_Inventory slots in Slots) {
-		                  if (slots.typeOfItem == Drag_Inventory.Slot.Extinguisher) {
-							moveOn(0, 0);
-							promptSpawned = false;
-						}
-					}
-                }
-			}
-			else if (!getEventStatus(0, 1) && isEventActive(0, 1))
-			{
-				prompt.text = "Put Out All of the Fires. " + fireCount + "/" + fireCountMax + " Remaining";
-				promptSpawned = true;
-
-				// check if all of the fires have been put out
-				if (fireCount < 1)
-				{
-					moveOn(0, 1);
-					promptSpawned = false;
-				}
-			}
-			else if (getEventStatus(0, 1) && fireCount == 0)
-			{
-				if (KeepTime == 0.0f)
-				{
-					prompt.text = "THE BARN IS SAFE!";
-					KeepTime += Time.deltaTime;
-				}
-				else if (KeepTime < 10.0f)
-				{
-					KeepTime += Time.deltaTime;
-				}
-				else if (KeepTime > 10.0f && KeepTime < 11.0f)
-				{
-					prompt.text = "";
-					KeepTime = 11.0f;
-					active = 100;
-					if (!resetFireEvent())
-					{
-						Debug.Log("Fire event failed to reset!");
-					}
-				}
-			}
-		}
-		else if(eventRoundProgress >= 3 && !getEventStatus(0, 1))	// event was not completed in time
-		{
-			active = 100;
-			fireFailed = true;
-			barnBarrier.GetComponent<Collider>().isTrigger = false;
-		}
-	}
 
 	private void outageEvent()  //	handles outage event while it is active
 	{
@@ -444,6 +331,7 @@ public class Event_Manager : SerializedMonoBehaviour
 				setActiveEventSet(1, true);
 				hasEventSetActive = true;
 				promptSpawned = false;
+				KeepTime = 0.0f;
 			}
 
 			if (!getEventStatus(1, 0) && isEventActive(1, 0))
@@ -454,11 +342,12 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "Get to the Bunker!";
 					promptSpawned = true;
 				}
-				Debug.Log("player is in boundary "+playerInEntranceBoundary);
+				//Debug.Log("player is in boundary " + playerInEntranceBoundary);
 
 				if (playerInEntranceBoundary)
 				{
 					moveOn(1, 0);
+					setActiveEvent(1, 1, true);
 					promptSpawned = false;
 				}
 			}
@@ -467,7 +356,7 @@ public class Event_Manager : SerializedMonoBehaviour
 				// check if a player has reached the generator room
 				if (!promptSpawned)
 				{
-					prompt.text = "Find the Generator Room";
+					prompt.text = "Find The Generator Room";
 					promptSpawned = true;
 				}
 
@@ -480,18 +369,44 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 2) && isEventActive(1, 2))
 			{
 				// check the generator status
+				if (!promptSpawned)
+				{
+					prompt.text = "Activate The Power Switch";
+					promptSpawned = true;
+				}
 
-				if (GeneratorScript.isActive == true)
+				if (GeneratorScript.isActive)
 				{
 					moveOn(1, 2);
 					promptSpawned = false;
+				}
+			}
+			else if(getEventStatus(1,2) && GeneratorScript.isActive)
+			{
+				if (KeepTime == 0.0f)
+				{
+					prompt.text = "Power has returned! You can access RainForest again";
+					KeepTime += RepeatEvery;
+				}
+				else if (KeepTime < 5.0f)
+				{
+					KeepTime += RepeatEvery;
+				}
+				else if (KeepTime >= 5.0f && KeepTime < 6.0f+ RepeatEvery)
+				{
+					prompt.text = "";
+					KeepTime = 6.0f;
+					active = 100;
+					if (!resetOutageEvent())
+					{
+						Debug.Log("Outage event failed to reset!");
+					}
 				}
 			}
 		}
 		else if (eventRoundProgress >= 3 && !getEventStatus(1, 2)){
 			active = 100;
 			outageFailed = true;
-
 		}
 	}
 

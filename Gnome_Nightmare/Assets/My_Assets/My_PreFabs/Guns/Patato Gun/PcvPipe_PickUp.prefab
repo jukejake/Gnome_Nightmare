@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 114542931157168498}
   - component: {fileID: 114039476115376240}
   - component: {fileID: 136645035983771258}
+  - component: {fileID: 135292669080482924}
+  - component: {fileID: 114146072208046452}
   m_Layer: 2
   m_Name: PcvPipe_PickUp
   m_TagString: Items
@@ -88,7 +90,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9d36fc9959ee66345988409889e824d8, type: 2}
+  - {fileID: 2100000, guid: dd837aed08f94764f8e62c62e0a46ec9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +129,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 1, z: 0}
+--- !u!114 &114146072208046452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318553915874518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 60
 --- !u!114 &114542931157168498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
+--- !u!135 &135292669080482924
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318553915874518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136645035983771258
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -147,7 +175,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1318553915874518}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2
   m_Height: 1.8
   m_Direction: 2

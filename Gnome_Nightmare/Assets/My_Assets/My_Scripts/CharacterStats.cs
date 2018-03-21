@@ -44,4 +44,8 @@ public class CharacterStats : MonoBehaviour {
     public void FullHealth() {
         CurrentHealth = MaxHealth;
     }
+    public void HealAmount(float amount) {
+        CurrentHealth += amount;
+        if (CurrentHealth > MaxHealth) { CurrentHealth = MaxHealth; }
+    }
 }

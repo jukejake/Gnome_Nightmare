@@ -379,6 +379,7 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Guns\GetDamageInfo.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Gun_Behaviour.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Guns\Melee_Behaviour.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Item\Despawn.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\Item_To_Pick_Up.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\ItemStats.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Item\Rotate_Slowly.cs" />

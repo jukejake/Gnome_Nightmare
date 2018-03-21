@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114629483412091128}
   - component: {fileID: 114284060020075450}
   - component: {fileID: 114319414185042214}
+  - component: {fileID: 114464990046479020}
   m_Layer: 2
   m_Name: Fuel_Ammo_PickUp
   m_TagString: Items
@@ -117,7 +118,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1545359809133002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeOfAmmo: 7
   Amount: 25
+  AmountText: {fileID: 0}
 --- !u!114 &114319414185042214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +187,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 1, z: 0}
+--- !u!114 &114464990046479020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545359809133002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 60
 --- !u!114 &114629483412091128
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 114412154651967202}
   - component: {fileID: 114808213294640194}
   - component: {fileID: 136892485208381914}
+  - component: {fileID: 135348975623032200}
+  - component: {fileID: 114005912455173164}
   m_Layer: 2
   m_Name: Co2Tank_PickUp
   m_TagString: Items
@@ -88,7 +90,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: bea3f293ae67b4445a9182407907b0c0, type: 2}
+  - {fileID: 2100000, guid: dd837aed08f94764f8e62c62e0a46ec9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +117,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170750937550476}
   m_Mesh: {fileID: 4300000, guid: adeeb4ee0635f114b9693e8f35a08b8d, type: 3}
+--- !u!114 &114005912455173164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765470873170534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f28908792353545adfeed032942928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartIn: 0
+  RepeatEvery: 1
+  DespawnAfter: 60
 --- !u!114 &114412154651967202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 1, z: 0}
+--- !u!135 &135348975623032200
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765470873170534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136892485208381914
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -147,7 +175,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1765470873170534}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2
   m_Height: 0.6
   m_Direction: 1
