@@ -35,7 +35,8 @@ namespace EnemySpawners {
             //Finds and updates the UI
             if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) {
                 EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").gameObject;
-                EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]");
+                //EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]");
+                EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave]");
             }
         }
     

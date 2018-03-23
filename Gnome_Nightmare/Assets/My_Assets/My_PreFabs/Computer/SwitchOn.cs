@@ -12,4 +12,7 @@ public class SwitchOn : MonoBehaviour {
         if (SwitchThis.activeSelf) { SwitchThis.SetActive(false); }
         else { SwitchThis.SetActive(true); }
     }
+    public void SwitchON() { SwitchThis.SetActive(true); }
+    public void SwitchOFF() { SwitchThis.SetActive(false); }
+    
 }

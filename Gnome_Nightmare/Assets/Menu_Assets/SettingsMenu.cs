@@ -9,8 +9,19 @@ public class SettingsMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
-    Resolution[] resolutions;
-    bool isFullscreen = false;
+    private Resolution[] resolutions;
+    public Resolution resolution;
+    public bool isFullscreen = false;
+
+    private Setting_Info setting_Info;
+
+    private void Awake() {
+        setting_Info = GameObject.FindObjectOfType(typeof(Setting_Info)) as Setting_Info;
+        if (setting_Info) {
+            setting_Info.settingsMenu = this;
+            setting_Info.ApplyThis();
+        }
+    }
 
     private void Start() {
         resolutions = Screen.resolutions;
@@ -43,6 +54,7 @@ public class SettingsMenu : MonoBehaviour {
 
     public void SetVolume(float volume) {
         audioMixer.SetFloat("volume", volume);
+        if (setting_Info) { setting_Info.Volume = volume; }
     }
 
     public void ToggleTimer(bool isOn) {
@@ -54,15 +66,25 @@ public class SettingsMenu : MonoBehaviour {
 
     public void SetQuality(int qualityIndex) {
         QualitySettings.SetQualityLevel(qualityIndex);
+        if (setting_Info) { setting_Info.qualityIndex = qualityIndex; }
     }
 
     public void SetFullscreen(bool _isFullscreen) {
         isFullscreen = _isFullscreen;
         Screen.fullScreen = _isFullscreen;
+        if (setting_Info) { setting_Info.isFullscreen = isFullscreen; }
     }
 
     public void SetResolution(int resolutionIndex) {
-        Resolution resolution = resolutions[resolutionIndex];
+        resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, isFullscreen);
+        if (setting_Info) { setting_Info.resolution = resolution; }
+    }
+    public void SetResolution(Resolution r) {
+        resolution = r;
+        Screen.SetResolution(resolution.width, resolution.height, isFullscreen);
+    }
+    public void SetResolution() {
         Screen.SetResolution(resolution.width, resolution.height, isFullscreen);
     }
 

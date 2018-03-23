@@ -38,7 +38,6 @@ public class PlayerManager : MonoBehaviour {
         isColliding = false;
 
 
-
         if (Input.GetKey(KeyCode.Escape) || Input.GetButton("Start")) {
             //If player is in a menu exit it
             if (ExitAllMenus()){ return; }
@@ -55,14 +54,7 @@ public class PlayerManager : MonoBehaviour {
             //Enter score menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
         }
-        else if (Input.GetButton("Tab")) {
-
-            //If player is in a menu exit it
-            if (MenuOpen) { ExitMenus(); return; }
-
-            //Enter drop menu
-            if (TriggerHit == 0) { OpenDropMenu(); }
-        }
+        else if (Input.GetButton("Tab") || Input.GetButton("CY")) { ExitMenus(); }
         else if (Input.GetKeyDown(KeyCode.F) || Input.GetButton("RightStickDown")) {
             MenuTimer = 0.3f;
             if (this.transform.Find("Flash_Light")){
@@ -100,7 +92,7 @@ public class PlayerManager : MonoBehaviour {
     private bool isColliding = false;
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit++; }
+        if (other.tag != "Items" && other.gameObject.layer == 2) { TriggerHit++; }
         else if (other.tag == "Items" && other.GetComponent<Item_To_Pick_Up>()) {
             if (isColliding) { return; }
             else { isColliding = true; }
@@ -110,7 +102,7 @@ public class PlayerManager : MonoBehaviour {
                 Drop_Inventory DropA = menuManager.Ammo_Slot.GetComponent<Drop_Inventory>();
                 //If the player has room in their ammo inventory, pick up the item
                 if (DropA.NumberOfSlotsFilled < DropA.NumberOfSlotsTotal) {
-                    MenuTimer = 0.1f;
+                    MenuTimer = 0.05f;
                     //Spawn item
                     GameObject Item = (GameObject)Instantiate(ItemPickUp);
                     Item.name = ItemPickUp.name;
@@ -129,7 +121,11 @@ public class PlayerManager : MonoBehaviour {
         }
     }
     private void OnTriggerStay(Collider other) {
-        if (MenuOpen || MenuTimer > 0.0f) { return; }
+
+        //If player is in a menu exit it
+        if (MenuTimer > 0.0f) { return; }
+        if (MenuOpen && other.tag == "Check_Tag" && (Input.GetButton("Tab") || Input.GetButton("CY"))) { CloseCheckTag(other); return; }
+
         //If player is selecting a 
         if (Input.GetButton("E") || Input.GetButton("CB")) {
             //If player interacts with an item
@@ -142,10 +138,15 @@ public class PlayerManager : MonoBehaviour {
             else if (other.tag == "Crafting_Table") { CraftingMenu(other); }
             //If player interacts with a NPC
             else if (other.tag == "NPC") { }
+            //Enter drop menu
+            else if (TriggerHit == 0) {
+                if (MenuOpen) { CloseDropMenu(); }
+                else { OpenDropMenu(); }
+            }
         }
     }
     private void OnTriggerExit(Collider other) {
-        if (other.tag != "Items" && other.gameObject.layer != 0 && other.gameObject.layer != 8) { TriggerHit--; }
+        if (other.tag != "Items" && other.gameObject.layer == 2) { TriggerHit--; }
         //If player interacts with a crafting table
         if (other.tag == "Crafting_Table") { Crafting_Table.instance.CloseCraftingTable(); }
         CloseCheckTag(other);
@@ -154,23 +155,18 @@ public class PlayerManager : MonoBehaviour {
 
     private void OpenCheckTag(Collider other) {
         if (other.gameObject.name == "Computer") {
-            if (!other.gameObject.GetComponent<SwitchOn>().IsOn()) {
-                other.gameObject.GetComponent<SwitchOn>().Switch();
-                Cursor.lockState = CursorLockMode.None;
-                MenuTimer = 0.3f;
-                MenuOpen = true;
-            }
-            else { CloseCheckTag(other); }
+            other.gameObject.GetComponent<SwitchOn>().SwitchON();
+            Cursor.lockState = CursorLockMode.None;
+            MenuTimer = 0.3f;
+            MenuOpen = true;
         }
     }
     private void CloseCheckTag(Collider other) {
         if (other.gameObject.name == "Computer") {
-            if (other.gameObject.GetComponent<SwitchOn>().IsOn()) {
-                other.gameObject.GetComponent<SwitchOn>().Switch();
-                Cursor.lockState = CursorLockMode.Locked;
-                MenuTimer = 0.3f;
-                MenuOpen = false;
-            }
+            other.gameObject.GetComponent<SwitchOn>().SwitchOFF();
+            Cursor.lockState = CursorLockMode.Locked;
+            MenuTimer = 0.3f;
+            MenuOpen = false;
         }
     }
 
