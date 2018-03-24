@@ -58,7 +58,7 @@ namespace EnemySpawners {
         //Updates the UI and re-activates spawners at the end of the round
         public void UpdateUI() {
             //Update UI
-            if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave] [" + CheckAliveEnemyCount() + "/" + CheckTotalEnemyCount() + "-Enemies]"); }
+            if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + CurrentLevel + "-Wave]"); }
         }
     
         //Checks the amount of enemies currently alive

@@ -3401,7 +3401,7 @@ Note: Every time you call the method with tolerance specified, a new instance of
     </member>
     <member name="M:UnityEngine.Caching.ClearCache">
       <summary>
-        <para>Removes all AssetBundle and Procedural Material content that has been cached by the current application.</para>
+        <para>Removes all AssetBundle content that has been cached by the current application.</para>
       </summary>
       <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
       <returns>
@@ -3410,7 +3410,7 @@ Note: Every time you call the method with tolerance specified, a new instance of
     </member>
     <member name="M:UnityEngine.Caching.ClearCache(System.Int32)">
       <summary>
-        <para>Removes all AssetBundle and Procedural Material content that has been cached by the current application.</para>
+        <para>Removes all AssetBundle content that has been cached by the current application.</para>
       </summary>
       <param name="expiration">The number of seconds that AssetBundles may remain unused in the cache.</param>
       <returns>
@@ -6506,9 +6506,7 @@ The default value is Camera.MonoOrStereoscopicEye.Left, so Camera.MonoOrStereosc
     </member>
     <member name="T:UnityEngine.DeviceType">
       <summary>
-        <para>Enumeration for SystemInfo.deviceType, denotes a coarse grouping of kinds of devices.
-
-Universal Windows Platform: tablets are treated as desktop machines, thus DeviceType.Handheld will only be returned for Windows Phones and IoT family devices.</para>
+        <para>Enumeration for SystemInfo.deviceType, denotes a coarse grouping of kinds of devices.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.DeviceType.Console">
@@ -21080,7 +21078,7 @@ The Player ID is always 1, because only one Editor can be connected.</param>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.enableBinaryLog">
       <summary>
-        <para>Sets profiler output file in built players.</para>
+        <para>Enables the logging of profiling data to a file.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.enabled">
@@ -21090,7 +21088,7 @@ The Player ID is always 1, because only one Editor can be connected.</param>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.logFile">
       <summary>
-        <para>Sets profiler output file in built players.</para>
+        <para>Specifies the file to use when writing profiling data.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Profiling.Profiler.maxNumberOfSamplesPerFrame">
@@ -23999,6 +23997,11 @@ See Also: ReflectionProbeTimeSlicingMode.</para>
         <para>Create a new empty command buffer.</para>
       </summary>
     </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.DisableScissorRect">
+      <summary>
+        <para>Add a command to disable the hardware scissor rectangle.</para>
+      </summary>
+    </member>
     <member name="M:UnityEngine.Rendering.CommandBuffer.DisableShaderKeyword(System.String)">
       <summary>
         <para>Adds a command to disable global shader keyword.</para>
@@ -24100,6 +24103,12 @@ InvalidOperationException will be thrown if the current platform doesn't support
       <param name="material">Material to use.</param>
       <param name="submeshIndex">Which subset of the mesh to render.</param>
       <param name="shaderPass">Which pass of the shader to use (default is -1, which renders all passes).</param>
+    </member>
+    <member name="M:UnityEngine.Rendering.CommandBuffer.EnableScissorRect(UnityEngine.Rect)">
+      <summary>
+        <para>Add a command to enable the hardware scissor rectangle.</para>
+      </summary>
+      <param name="scissor">Viewport rectangle in pixel coordinates.</param>
     </member>
     <member name="M:UnityEngine.Rendering.CommandBuffer.EnableShaderKeyword(System.String)">
       <summary>
@@ -27289,9 +27298,9 @@ A scene may be invalid if, for example, you tried to open a scene that does not 
     </member>
     <member name="?:UnityEngine.SceneManagement.SceneManager.activeSceneChanged(UnityEngine.Events.UnityAction`2&lt;UnityEngine.SceneManagement.Scene,UnityEngine.SceneManagement.Scene&gt;)">
       <summary>
-        <para>Add a delegate to this to get notifications when the active Scene has changed</para>
+        <para>Subscribe to this event to get notified when the active Scene has changed.</para>
       </summary>
-      <param name="value"></param>
+      <param name="value">Previous active scene and the new active scene.</param>
     </member>
     <member name="P:UnityEngine.SceneManagement.SceneManager.sceneCount">
       <summary>
