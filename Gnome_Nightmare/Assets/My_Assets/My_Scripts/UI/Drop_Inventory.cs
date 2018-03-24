@@ -37,7 +37,19 @@ public class Drop_Inventory : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                 if (Item.GetComponent<Ammo_Types>() && DI.gameObject.GetComponent<Ammo_Types>()) {
                     Item.GetComponent<Ammo_Types>().Amount = DI.gameObject.GetComponent<Ammo_Types>().Amount;
                 }
-                
+
+                //Instantiate the Agent so that it will send to the other clients
+                Agent tempAgent;
+                if (Item.GetComponent<Agent>()) { tempAgent = Item.GetComponent<Agent>(); }
+                else {
+                    Item.AddComponent<Agent>();
+                    tempAgent = Item.GetComponent<Agent>();
+                }
+                tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
+                ID_Table.instance.ItemList.RemoveAt(0);
+                tempAgent.RepeatEvery = 10.0f;
+                tempAgent.SendInstantiate(Item.transform.position);
+
 
                 //Drop Item to floor
                 Destroy(DI.gameObject);

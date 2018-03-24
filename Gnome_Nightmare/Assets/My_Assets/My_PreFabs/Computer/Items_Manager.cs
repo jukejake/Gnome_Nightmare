@@ -155,6 +155,20 @@ public class Items_Manager : SerializedMonoBehaviour  {
                 OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
                 ToStats.SetStats(FromStats, ToStats);
             }
+
+            //Instantiate the Agent so that it will send to the other clients
+            Agent tempAgent;
+            if (Item.transform.GetChild(0).GetComponent<Agent>()) { tempAgent = Item.transform.GetChild(0).GetComponent<Agent>(); }
+            else {
+                Item.transform.GetChild(0).gameObject.AddComponent<Agent>();
+                tempAgent = Item.transform.GetChild(0).GetComponent<Agent>();
+            }
+            tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
+            ID_Table.instance.ItemList.RemoveAt(0);
+            tempAgent.RepeatEvery = 10.0f;
+            tempAgent.SendInstantiate(Item.transform.position);
+
+
         }
     }
 }

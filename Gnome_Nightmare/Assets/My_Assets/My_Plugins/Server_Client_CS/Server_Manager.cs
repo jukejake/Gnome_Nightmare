@@ -126,6 +126,9 @@ public class Server_Manager : SerializedMonoBehaviour {
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
+                    //If the ID is for an Item Add it back to the ItemList
+                    if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
+                    //Destroy the object
                     Destroy(agent.gameObject);
                 }
             }
@@ -137,17 +140,25 @@ public class Server_Manager : SerializedMonoBehaviour {
             if (IDTable.IDTable.TryGetValue(instantiate, out t)) {
                 GameObject temp = Instantiate(t, pos, Quaternion.Euler(rot));
                 temp.name = t.name;
+                //Set the Agents ID
                 if (temp.GetComponent<Agent>()) { temp.GetComponent<Agent>().AgentNumber = ID; }
+                //Create Agent component
                 else {
                     temp.AddComponent<Agent>();
                     temp.GetComponent<Agent>().AgentNumber = ID;
                 }
+                //If the ID is for an Item Remove it from the ItemList
+                if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Remove(ID); }
+                //Set health
                 if (hp != -1) {
                     if (temp.GetComponent<EnemyStats>())  { temp.GetComponent<EnemyStats>().MaxHealth = hp;  temp.GetComponent<EnemyStats>().CurrentHealth = hp; }
                     if (temp.GetComponent<PlayerStats>()) { temp.GetComponent<PlayerStats>().MaxHealth = hp; temp.GetComponent<PlayerStats>().CurrentHealth = hp; }
                 }
+                //If Taged as an Item, parent the Item to the Items tab.
                 if (temp.tag == "Items") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Items_Spawn_Here").transform); }
+                //If Taged as an Enemy, parent the Item to the Enemies tab.
                 else if (temp.tag == "Enemy") { temp.transform.SetParent(GameObject.FindGameObjectWithTag("Enemies_Spawn_Here").transform); }
+                //
             }
         }
         else {

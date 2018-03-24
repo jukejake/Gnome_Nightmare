@@ -59,6 +59,8 @@ public class EnemyDropList : SerializedMonoBehaviour {
                         Item.transform.SetParent(GameObject.Find("World").transform.Find("Items").transform);
                         Item.transform.localPosition = AtPosition.localPosition + new Vector3(0.0f, 0.5f, 0.0f);
 
+
+                        //Stuff happend and I dont need all of this, but keeping it any-way just in case.
                         if (TempItem.GetComponent<ItemStats>() && Item.transform.GetChild(0).GetComponent<Gun_Behaviour>()) {
                             OdinTables.WeaponStatsTable FromStats = TempItem.GetComponent<ItemStats>().itemStats;
                             OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
@@ -83,7 +85,20 @@ public class EnemyDropList : SerializedMonoBehaviour {
                             ToStats.SetStats(FromStats, ToStats);
                             Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats = ToStats;
                         }
-                        Destroy(TempItem); 
+                        Destroy(TempItem);
+
+                        //Instantiate the Agent so that it will send to the other clients
+                        Agent tempAgent;
+                        if (Item.GetComponent<Agent>()) { tempAgent = Item.GetComponent<Agent>(); }
+                        else {
+                            Item.AddComponent<Agent>();
+                            tempAgent = Item.GetComponent<Agent>();
+                        }
+                        tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
+                        ID_Table.instance.ItemList.RemoveAt(0);
+                        tempAgent.RepeatEvery = 10.0f;
+                        tempAgent.SendInstantiate(Item.transform.position);
+
                     }
 
 

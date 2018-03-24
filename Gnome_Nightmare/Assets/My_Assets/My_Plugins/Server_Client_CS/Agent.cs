@@ -71,9 +71,18 @@ public class Agent : SerializedMonoBehaviour {
 
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
+
         if (client) { client.SendData(temp); }
         if (server) { server.SendData(temp); }
-        
+    }
+    public void SendInstantiate(Vector3 InitialPos) {
+        if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
+
+        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&POS(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
+        temp = GetDataToSend(temp);
+
+        if (client) { client.SendData(temp); }
+        if (server) { server.SendData(temp); }
     }
 
     private void ClientRepeatThis() {
@@ -81,28 +90,31 @@ public class Agent : SerializedMonoBehaviour {
 
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
+
         if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Client: " + temp); client.SendData(temp); }
-        
     }
     private void ServerRepeatThis() {
         if (AgentNumber == -1) { return; }
 
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
+
         if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Server: " + temp); server.SendData(temp); }
     }
 
     public void SendDestroy() {
 
         if (AgentNumber == -1) { return; }
-
+        
+        //If the ID is for an Item Add it back to the ItemList
+        if (AgentNumber >= 300 && AgentNumber <= 500) { ID_Table.instance.ItemList.Add(AgentNumber); }
+        //[~] Destroy [#|] Agent ID
         string temp = ("~#" + AgentNumber.ToString() + "|");
 
         Debug.Log(temp + " died");
 
         if (client) { client.SendData(temp); }
         if (server) { server.SendData(temp); }
-
     }
 
     private void OnDestroy() { SendDestroy(); }
