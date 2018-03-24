@@ -1060,7 +1060,8 @@ MonoBehaviour:
   PrefabNumber: 2
   Position: 0
   Rotation: 0
-  Health: 0
+  Health: 1
+  CantDie: 0
 --- !u!136 &136663792650533730
 CapsuleCollider:
   m_ObjectHideFlags: 1

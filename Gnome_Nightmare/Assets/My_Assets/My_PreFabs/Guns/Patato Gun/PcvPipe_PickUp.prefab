@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 136645035983771258}
   - component: {fileID: 135292669080482924}
   - component: {fileID: 114146072208046452}
+  - component: {fileID: 114557772012953240}
   m_Layer: 2
   m_Name: PcvPipe_PickUp
   m_TagString: Items
@@ -155,6 +156,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUpItem: {fileID: 1836897297177462, guid: 44dc951484aee584baf151a8c7134a27, type: 2}
+--- !u!114 &114557772012953240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318553915874518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 11
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!135 &135292669080482924
 SphereCollider:
   m_ObjectHideFlags: 1

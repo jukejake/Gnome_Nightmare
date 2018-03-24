@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 136526254606522228}
   - component: {fileID: 135010043276450146}
   - component: {fileID: 114322328834707740}
+  - component: {fileID: 114753123587925964}
   m_Layer: 2
   m_Name: PotatoGun_PickUp
   m_TagString: Items
@@ -635,6 +636,34 @@ MonoBehaviour:
   FireSound: {fileID: 82937961537243880}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82857756911962662}
+--- !u!114 &114753123587925964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126897304676958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 7
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114919140031324192
 MonoBehaviour:
   m_ObjectHideFlags: 1

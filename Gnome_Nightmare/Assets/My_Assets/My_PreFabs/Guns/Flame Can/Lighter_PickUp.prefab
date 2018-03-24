@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 135903206428933848}
   - component: {fileID: 23030061600461940}
   - component: {fileID: 114978024308482994}
+  - component: {fileID: 114828895120698036}
   m_Layer: 2
   m_Name: Lighter_PickUp
   m_TagString: Items
@@ -213,6 +214,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 1, z: 0}
+--- !u!114 &114828895120698036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696605160986344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 15
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114978024308482994
 MonoBehaviour:
   m_ObjectHideFlags: 1

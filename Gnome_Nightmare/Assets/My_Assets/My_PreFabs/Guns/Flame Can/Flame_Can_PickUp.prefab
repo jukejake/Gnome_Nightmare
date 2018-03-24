@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 135447238334392258}
   - component: {fileID: 23919597779804254}
   - component: {fileID: 114428016194843890}
+  - component: {fileID: 114743172329205338}
   m_Layer: 2
   m_Name: Flame_Can_PickUp
   m_TagString: Items
@@ -582,6 +583,34 @@ MonoBehaviour:
   FireSound: {fileID: 0}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82389738173237538}
+--- !u!114 &114743172329205338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902338955726660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 9
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114893570496251966
 MonoBehaviour:
   m_ObjectHideFlags: 1

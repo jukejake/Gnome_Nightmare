@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 23585388491796770}
   - component: {fileID: 114757966806715034}
   - component: {fileID: 114010901427277954}
+  - component: {fileID: 114838173541824828}
   m_Layer: 2
   m_Name: Hitscan_Gun_PickUp
   m_TagString: Items
@@ -758,6 +759,34 @@ MonoBehaviour:
   FireSound: {fileID: 82980498450635244}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 82166952882181236}
+--- !u!114 &114838173541824828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051321533215820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 5
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!135 &135784119782365718
 SphereCollider:
   m_ObjectHideFlags: 1

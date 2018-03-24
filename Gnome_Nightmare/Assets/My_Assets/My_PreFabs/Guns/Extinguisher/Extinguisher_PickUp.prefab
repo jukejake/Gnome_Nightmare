@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 114329941948814812}
   - component: {fileID: 23133108805438594}
   - component: {fileID: 114080071859982048}
+  - component: {fileID: 114813332472097372}
   m_Layer: 2
   m_Name: Extinguisher_PickUp
   m_TagString: Items
@@ -380,6 +381,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114813332472097372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907074840004976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 10
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114940556755240396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,6 +524,7 @@ MonoBehaviour:
       Data: 
   WeaponTypeHitScan: 0
   WeaponTypeProjectile: 1
+  HealthItems: 0
   TypeOfAmmo: 8
   PlayerCamera: {fileID: 0}
   MuzzleFlash: {fileID: 198373805995830742}
@@ -505,6 +535,7 @@ MonoBehaviour:
   s_bullet: {fileID: 1035447361870386, guid: ebacc4c9829cc534188177719df330d0, type: 2}
   s_BulletSpeed: 10
   AimingHitscan: 0
+  HealingAmount: 10
   FireSound: {fileID: 0}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 0}

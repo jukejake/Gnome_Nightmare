@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114261767340886538}
   - component: {fileID: 114745819643565050}
   - component: {fileID: 114843618194757258}
+  - component: {fileID: 114213371481723188}
   m_Layer: 2
   m_Name: Juice_PickUp
   m_TagString: Items
@@ -190,6 +191,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889082875090836}
   m_Mesh: {fileID: 4300000, guid: 67ff78ce6bbc1044981258847fc35f68, type: 3}
+--- !u!114 &114213371481723188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192650841885480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 17
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114261767340886538
 MonoBehaviour:
   m_ObjectHideFlags: 1

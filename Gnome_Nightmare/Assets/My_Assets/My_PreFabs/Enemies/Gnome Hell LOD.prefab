@@ -936,7 +936,8 @@ MonoBehaviour:
   PrefabNumber: 3
   Position: 0
   Rotation: 0
-  Health: 0
+  Health: 1
+  CantDie: 0
 --- !u!114 &114507640716121764
 MonoBehaviour:
   m_ObjectHideFlags: 1

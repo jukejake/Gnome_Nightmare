@@ -40,6 +40,7 @@ public class Agent : SerializedMonoBehaviour {
     public bool Rotation = false;
     [BoxGroup("Stuff To Send/3", false), LabelWidth(40)]
     public bool Health = false;
+    public bool CantDie = false;
 
     private Vector3 pos = new Vector3(0.0f,0.0f,0.0f);
     private Vector3 rot = new Vector3(0.0f,0.0f,0.0f);
@@ -61,7 +62,7 @@ public class Agent : SerializedMonoBehaviour {
         }
         if (Health) {
             if (enemyHealth && health != enemyHealth.CurrentHealth) { health = enemyHealth.CurrentHealth; temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
-            if (playerHealth && health != enemyHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
+            if (playerHealth && health != playerHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
         }
         return temp;
     }

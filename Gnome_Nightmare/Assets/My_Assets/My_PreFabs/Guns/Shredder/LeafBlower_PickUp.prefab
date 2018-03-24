@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 136480245180054504}
   - component: {fileID: 135080970080232502}
   - component: {fileID: 114641441156294286}
+  - component: {fileID: 114836394680698974}
   m_Layer: 2
   m_Name: LeafBlower_PickUp
   m_TagString: Items
@@ -143,6 +144,34 @@ MonoBehaviour:
   StartIn: 0
   RepeatEvery: 1
   DespawnAfter: 60
+--- !u!114 &114836394680698974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132868123280110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -1
+  PrefabNumber: 13
+  Position: 1
+  Rotation: 0
+  Health: 0
+  CantDie: 0
 --- !u!114 &114960779078247710
 MonoBehaviour:
   m_ObjectHideFlags: 1

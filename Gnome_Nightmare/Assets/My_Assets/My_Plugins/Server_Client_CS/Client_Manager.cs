@@ -125,6 +125,7 @@ public class Client_Manager : SerializedMonoBehaviour {
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
+                    if (agent.CantDie) { return; }
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
                     //If the ID is for an Item Add it back to the ItemList
                     if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
