@@ -17,7 +17,6 @@ public class Server_Manager : SerializedMonoBehaviour {
     private void Start() { 
         IDTable = ID_Table.instance;
         ServerStart();
-        TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager;
     }
 
     public int PlayerNumber = 1;
@@ -43,6 +42,7 @@ public class Server_Manager : SerializedMonoBehaviour {
     // Update is called once per frame
     private void Update () {
         if (IDTable == null) { IDTable = ID_Table.instance; }
+        if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
 
         if (ServerOn) {
             server.TCP_UpdateV2();
