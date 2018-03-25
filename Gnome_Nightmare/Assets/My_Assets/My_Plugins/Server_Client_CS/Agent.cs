@@ -61,8 +61,8 @@ public class Agent : SerializedMonoBehaviour {
             }
         }
         if (Health) {
-            if (enemyHealth && health != enemyHealth.CurrentHealth) { health = enemyHealth.CurrentHealth; temp += ("@HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
-            if (playerHealth && health != playerHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("@HP" + playerHealth.CurrentHealth.ToString() + "|"); }
+            if (enemyHealth && health != enemyHealth.CurrentHealth) { health = enemyHealth.CurrentHealth; temp += ("&HP" + enemyHealth.CurrentHealth.ToString() + "|"); }
+            if (playerHealth && health != playerHealth.CurrentHealth) { health = playerHealth.CurrentHealth; temp += ("&HP" + playerHealth.CurrentHealth.ToString() + "|"); }
         }
         return temp;
     }

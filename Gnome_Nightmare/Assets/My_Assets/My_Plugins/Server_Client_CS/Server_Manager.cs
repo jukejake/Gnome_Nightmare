@@ -169,13 +169,12 @@ public class Server_Manager : SerializedMonoBehaviour {
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
-                    agent.gameObject.transform.position = pos;
-                    agent.gameObject.transform.rotation = Quaternion.Euler(rot);
-                    if (hp != -1 && agent.GetComponentInParent<EnemyStats>())  { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
-                    if (hp != -1 && agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }
-                    Debug.Log("Position: (" + pos.x + "," + pos.y + "," + pos.z + ")");
-                    Debug.Log("Rotation: (" + rot.x + "," + rot.y + "," + rot.z + ")");
-                    if (ID != -1 && hp >= 0) { Debug.Log("Health: " + hp); }
+                    if (pos != Vector3.zero) { agent.gameObject.transform.position = pos; }
+                    if (rot != Vector3.zero) { agent.gameObject.transform.rotation = Quaternion.Euler(rot); }
+                    if (hp >= 0) {
+                        if (agent.GetComponentInParent<EnemyStats>()) { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
+                        if (agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }
+                    }
                 }
             }
         }
