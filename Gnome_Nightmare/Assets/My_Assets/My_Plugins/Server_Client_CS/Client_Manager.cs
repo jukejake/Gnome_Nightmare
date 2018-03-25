@@ -9,12 +9,15 @@ public class Client_Manager : SerializedMonoBehaviour {
 
     public static Client_Manager instance;
     private ID_Table IDTable;
+    private Tutorial_Manager TM;
     private void Awake() {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
     private void Start() {
         IDTable = ID_Table.instance;
+
+        TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager;
     }
 
     public int PlayerNumber = -1;
@@ -51,8 +54,7 @@ public class Client_Manager : SerializedMonoBehaviour {
 
 
 
-
-
+    
     private void ProcessData(string data) {
         bool destroy = false;
         int instantiate = -1;
@@ -107,6 +109,13 @@ public class Client_Manager : SerializedMonoBehaviour {
             hp = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
+        //Tutorial Stage
+        if (data.Contains("&TS")) {
+            string t = data.Split('|')[0];
+            t = t.Substring(3);
+            TM.Stage = int.Parse(t);
+            data = data.Substring(t.Length + 4);
+        }
         //Current Event
         if (data.Contains("!")) {
             string t = data.Split('(')[1]; t = t.Split(')')[0];
@@ -119,7 +128,6 @@ public class Client_Manager : SerializedMonoBehaviour {
 
         //Need ID to handle Events
         if (ID == -1) { return; }
-        if (ID == -2) { return; }
 
         if (destroy) {
             Debug.Log("Destroy: " + ID);

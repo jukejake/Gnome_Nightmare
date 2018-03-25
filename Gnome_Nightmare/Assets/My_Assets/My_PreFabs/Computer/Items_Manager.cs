@@ -128,6 +128,19 @@ public class Items_Manager : SerializedMonoBehaviour  {
                 OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
                 ToStats.SetStats(FromStats, ToStats);
             }
+            
+            //Instantiate the Agent so that it will send to the other clients
+            Agent tempAgent;
+            if (Item.GetComponent<Agent>()) { tempAgent = Item.GetComponent<Agent>(); }
+            else {
+                Item.gameObject.AddComponent<Agent>();
+                tempAgent = Item.GetComponent<Agent>();
+            }
+            tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
+            ID_Table.instance.ItemList.RemoveAt(0);
+            tempAgent.RepeatEvery = 10.0f;
+            tempAgent.SendInstantiate(Item.transform.position);
+
         }
         else if (GetCurrentlySelectedTab() == 1 && PlayerManager.instance.GetComponent<PlayerStats>().CheckPoints(OnlineTable.Parts[CurrentlySelectedItem].Price)) {
             PlayerManager.instance.GetComponent<PlayerStats>().UsePoints(OnlineTable.Parts[CurrentlySelectedItem].Price);
@@ -141,6 +154,19 @@ public class Items_Manager : SerializedMonoBehaviour  {
                 OdinTables.WeaponStatsTable ToStats = Item.transform.GetChild(0).GetComponent<Gun_Behaviour>().Stats;
                 ToStats.SetStats(FromStats, ToStats);
             }
+            
+            //Instantiate the Agent so that it will send to the other clients
+            Agent tempAgent;
+            if (Item.GetComponent<Agent>()) { tempAgent = Item.GetComponent<Agent>(); }
+            else {
+                Item.gameObject.AddComponent<Agent>();
+                tempAgent = Item.GetComponent<Agent>();
+            }
+            tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
+            ID_Table.instance.ItemList.RemoveAt(0);
+            tempAgent.RepeatEvery = 10.0f;
+            tempAgent.SendInstantiate(Item.transform.position);
+
         }
         else if (GetCurrentlySelectedTab() == 2 && PlayerManager.instance.GetComponent<PlayerStats>().CheckPoints(OnlineTable.Misc[CurrentlySelectedItem].Price)) {
             PlayerManager.instance.GetComponent<PlayerStats>().UsePoints(OnlineTable.Misc[CurrentlySelectedItem].Price);
@@ -158,10 +184,10 @@ public class Items_Manager : SerializedMonoBehaviour  {
 
             //Instantiate the Agent so that it will send to the other clients
             Agent tempAgent;
-            if (Item.transform.GetChild(0).GetComponent<Agent>()) { tempAgent = Item.transform.GetChild(0).GetComponent<Agent>(); }
+            if (Item.GetComponent<Agent>()) { tempAgent = Item.GetComponent<Agent>(); }
             else {
-                Item.transform.GetChild(0).gameObject.AddComponent<Agent>();
-                tempAgent = Item.transform.GetChild(0).GetComponent<Agent>();
+                Item.gameObject.AddComponent<Agent>();
+                tempAgent = Item.GetComponent<Agent>();
             }
             tempAgent.AgentNumber = ID_Table.instance.ItemList[0];
             ID_Table.instance.ItemList.RemoveAt(0);
