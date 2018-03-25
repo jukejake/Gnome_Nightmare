@@ -3615,12 +3615,12 @@ MonoBehaviour:
     SerializationNodes: []
   StartIn: 1
   RepeatEvery: 1
-  AgentNumber: 5
-  PrefabNumber: -1
-  Position: 1
-  Rotation: 1
-  Health: 1
-  CantDie: 0
+  AgentNumber: -1
+  PrefabNumber: 99
+  Position: 0
+  Rotation: 0
+  Health: 0
+  CantDie: 1
 --- !u!114 &114526127701375190
 MonoBehaviour:
   m_ObjectHideFlags: 1

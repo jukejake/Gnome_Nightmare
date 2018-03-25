@@ -931,7 +931,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   StartIn: 1
-  RepeatEvery: 1
+  RepeatEvery: 0.3
   AgentNumber: -1
   PrefabNumber: 3
   Position: 0

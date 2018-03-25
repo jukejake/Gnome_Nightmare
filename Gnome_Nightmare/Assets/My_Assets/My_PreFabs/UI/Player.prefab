@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 114322951171868344}
   - component: {fileID: 82911057436326288}
   - component: {fileID: 208160012886129824}
+  - component: {fileID: 114137757661804580}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -3590,6 +3591,34 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114137757661804580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333888178946622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 0.1
+  AgentNumber: -1
+  PrefabNumber: 99
+  Position: 1
+  Rotation: 1
+  Health: 1
+  CantDie: 1
 --- !u!114 &114258442408304088
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1055,7 +1055,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   StartIn: 1
-  RepeatEvery: 1
+  RepeatEvery: 0.3
   AgentNumber: -1
   PrefabNumber: 2
   Position: 0

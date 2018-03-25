@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,9 +152,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114398401445455940, guid: 602659201fd83274e946500f24a0c7c5,
+    - target: {fileID: 114340854286029566, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 477926138}
     - target: {fileID: 114354296939898438, guid: 602659201fd83274e946500f24a0c7c5,
@@ -162,11 +162,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 477926138}
-    - target: {fileID: 224755463277757520, guid: 602659201fd83274e946500f24a0c7c5,
+    - target: {fileID: 114398401445455940, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 477926138}
     - target: {fileID: 224755463277757520, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -206,16 +206,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224878690328391352, guid: 602659201fd83274e946500f24a0c7c5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.062174495
-      objectReference: {fileID: 0}
-    - target: {fileID: 224878690328391352, guid: 602659201fd83274e946500f24a0c7c5,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.999985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 602659201fd83274e946500f24a0c7c5, type: 2}
@@ -337,6 +327,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  PlayerNumber: -1
   ClientOn: 0
   ClientMessage: Test
 --- !u!4 &477926139

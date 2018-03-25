@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using ServerDll;
 using Sirenix.OdinInspector;
 
@@ -118,6 +119,7 @@ public class Client_Manager : SerializedMonoBehaviour {
 
         //Need ID to handle Events
         if (ID == -1) { return; }
+        if (ID == -2) { return; }
 
         if (destroy) {
             Debug.Log("Destroy: " + ID);
@@ -182,6 +184,20 @@ public class Client_Manager : SerializedMonoBehaviour {
     public void Quit() {
         client.TCP_CloseSocket();
         Destroy(this);
+    }
+
+    public void SetPlayerNumber(int num) {
+        PlayerNumber = num;
+    }
+    public void SetPlayerNumber(string num) {
+        int x = -1;
+        int.TryParse(num, out x);
+        PlayerNumber = x;
+    }
+    public void SetPlayerNumber(Text num) {
+        int x = -1;
+        int.TryParse(num.text, out x);
+        PlayerNumber = x;
     }
     
 }
