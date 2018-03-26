@@ -3,7 +3,6 @@
 public class Player_Movement : MonoBehaviour {
 
     public GameObject Menu_Prefab;
-
     [HideInInspector]
     public float SpeedModifier = 1.0f;
     public float jumpSpeed = 20.0f;
@@ -108,17 +107,18 @@ public class Player_Movement : MonoBehaviour {
         }
 
         //If the player is grounded do not apply additional gravity
-        if (m_IsGrounded) { moveDirection.y -= 0.0f * Time.deltaTime; }
-        else { moveDirection.y -= (90.0f / Mathf.Clamp(Jump.y,0.25f,360.0f)) * Time.deltaTime; } //((90/0.25) = 360)
+        if (m_IsGrounded) { moveDirection.y -= 0.0f * Time.deltaTime; GetComponent<Rigidbody>().useGravity = false; }
+        else { moveDirection.y -= (90.0f / Mathf.Clamp(Jump.y,0.25f,360.0f)) * Time.deltaTime; GetComponent<Rigidbody>().useGravity = true; } //((90/0.25) = 360)
 
         //Move player
         moveDirection = m_Rigidbody.rotation * moveDirection;
         m_Rigidbody.velocity = moveDirection;
 
-
+        //Is the player on the ground?
         if (l_IsGrounded.GetComponent<CheckCollider>().IsTriggered || r_IsGrounded.GetComponent<CheckCollider>().IsTriggered || IsGroundedCollider.GetComponent<CheckCollider>().IsTriggered) { m_IsGrounded = true; }
         else if (m_IsGrounded == true) { m_IsGrounded = false; }
 
+        //reset the anamation if in a menu
         if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
             //Update Animator Perameters
             animPer_H = Input.GetAxis("Horizontal");

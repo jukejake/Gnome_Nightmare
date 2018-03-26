@@ -16,6 +16,7 @@ public class Client_Manager : SerializedMonoBehaviour {
     }
     private void Start() {
         IDTable = ID_Table.instance;
+
     }
 
     public int PlayerNumber = -1;
