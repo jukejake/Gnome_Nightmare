@@ -3615,7 +3615,7 @@ MonoBehaviour:
     SerializationNodes: []
   StartIn: 1
   RepeatEvery: 1
-  AgentNumber: -1
+  AgentNumber: 0
   PrefabNumber: 99
   Position: 0
   Rotation: 0

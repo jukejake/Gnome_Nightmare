@@ -178,6 +178,7 @@ public class Client_Manager : SerializedMonoBehaviour {
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
+                    //Make this Lerp
                     if (pos != Vector3.zero) { agent.gameObject.transform.position = pos; }
                     if (rot != Vector3.zero) { agent.gameObject.transform.rotation = Quaternion.Euler(rot); }
                     if (hp >= 0) {
