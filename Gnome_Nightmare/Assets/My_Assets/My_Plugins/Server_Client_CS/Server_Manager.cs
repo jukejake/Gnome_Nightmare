@@ -16,6 +16,7 @@ public class Server_Manager : SerializedMonoBehaviour {
     }
     private void Start() { 
         IDTable = ID_Table.instance;
+        server.SetPort(8080);
         ServerStart();
     }
 
