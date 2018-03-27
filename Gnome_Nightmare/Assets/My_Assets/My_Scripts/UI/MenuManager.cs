@@ -24,6 +24,9 @@ public class MenuManager : MonoBehaviour {
     [System.NonSerialized]
     public int CurrentSlot = -1;
 
+    protected Text TotalAmountText;
+    protected Text CurrentAmountText;
+
     // Use this for initialization
     private void Start() {
         Invoke("DelayedStart", 0.1f);
@@ -43,8 +46,18 @@ public class MenuManager : MonoBehaviour {
         }
         else if (timer <= 0.0f) { ScrollThroughInventory(); }
 
+
         if (Weapon_Slot == null) { return; }
-        else if (Weapon_Slot.transform.childCount != 0 && !WeaponEquiped) { EquipWeapon(); }
+
+        if (Weapon_Slot.transform.childCount == 0) {
+            //Set the total amount of Ammo
+            if (TotalAmountText == null) { if (GameObject.Find("Amount Of Ammo")) { TotalAmountText = GameObject.Find("Amount Of Ammo").GetComponent<Text>(); } }
+            TotalAmountText.text = "";
+            if (CurrentAmountText == null) { if (GameObject.Find("Current Ammo")) { CurrentAmountText = GameObject.Find("Current Ammo").GetComponent<Text>(); } }
+            CurrentAmountText.text = "";
+        }
+
+        if (Weapon_Slot.transform.childCount != 0 && !WeaponEquiped) { EquipWeapon(); }
         else if (Weapon_Slot.transform.childCount == 0 && WeaponEquiped) { UnEquipWeapon(); }
     }
 
@@ -189,6 +202,9 @@ public class MenuManager : MonoBehaviour {
                 CurrentSlot -= 1;
                 //Debug.Log("Push");
             }
+            //Set the total amount of Ammo
+            TotalAmountText.text = "";
+            CurrentAmountText.text = "";
         }
     }
     public void EnableGraphicRaycaster(bool enable) {

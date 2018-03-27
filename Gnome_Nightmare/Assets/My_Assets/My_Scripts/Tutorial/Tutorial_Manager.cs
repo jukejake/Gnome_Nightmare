@@ -37,6 +37,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     private int Counter = 0;
     private int PromptTime = 10;
     private int WaveClient = 0;
+    private Text EnemyInfoUI;
 
 
     // Use this for initialization
@@ -53,10 +54,16 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
         if (Client_Manager.instance) { InvokeRepeating("SlowUpdateClient", 0.50f, 1.0f); }//Start In, Repeat Every
         else if (Server_Manager.instance) { InvokeRepeating("SlowUpdateServer", 0.50f, 1.0f); }//Start In, Repeat Every
         else { InvokeRepeating("SlowUpdateSP", 0.50f, 1.0f); }//Start In, Repeat Every
+
+        Invoke("DelayedStart", 0.1f);
     }
-	
-	// Update for the Server
-	void SlowUpdateServer () {
+    //Used so that everything gets a chance to load before trying to accsess it
+    private void DelayedStart() {
+        //Finds and updates the UI
+        if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) { EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").GetComponent<Text>(); }
+    }
+    // Update for the Server
+    void SlowUpdateServer () {
         if (!On) { return; }
 
         switch (Stage)
@@ -294,6 +301,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Destroy(BarnArea);
                         Stage = 1;
                         WaveClient = 1;
+                        UpdateUI();
                         EventPrompt.text = "Gnomes are attacking the Barn.";
                         Counter = 0;
                     }
@@ -332,6 +340,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Destroy(HouseArea);
                         Stage = 4;
                         WaveClient = 2;
+                        UpdateUI();
                         EventPrompt.text = "Gnomes are attacking the House.";
                         Counter = 0;
                     }
@@ -367,6 +376,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Destroy(BunkerArea);
                         Stage = 7;
                         WaveClient = 3;
+                        UpdateUI();
                         EventPrompt.text = "Gnomes are attacking the Bunker.";
                         Counter = 0;
                     }
@@ -397,6 +407,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             //Attack continuously (Gnomes)
             case 9: {
                     WaveClient++;
+                    UpdateUI();
                     Stage = 10;
                     break;
             }
@@ -609,5 +620,11 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
         }
 
 
+    }
+
+
+    //Updates the UI
+    public void UpdateUI() {
+        if (EnemyInfoUI != null) { EnemyInfoUI.GetComponent<Text>().text = ("[" + WaveClient + "-Wave]"); }
     }
 }

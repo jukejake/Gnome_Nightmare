@@ -58,8 +58,11 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
 
     protected PlayerManager playerManager;
     protected MenuManager menuManager;
-    protected GameObject AmountText;
     protected Transform EffectTab;
+
+    protected GameObject AmountText;
+    protected Text TotalAmountText;
+    protected Text CurrentAmountText;
     #endregion
 
     // Use this for initialization
@@ -258,20 +261,21 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     }
 
     public void SetTextToAmount() {
+        //Set the total amount of Ammo
+        if (TotalAmountText == null) { if (GameObject.Find("Amount Of Ammo")) { TotalAmountText = GameObject.Find("Amount Of Ammo").GetComponent<Text>(); } }
+        int Tammo = menuManager.Ammo_Slot.GetComponent<Ammo_Inventory>().CheckAmount(TypeOfAmmo);
+        if (Tammo == -1) { TotalAmountText.text = ""; }
+        else if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { TotalAmountText.text = ""; }
+        else if (TypeOfAmmo == Ammo_Types.Ammo.None) { TotalAmountText.text = ""; }
+        else { TotalAmountText.text = Tammo.ToString(); }
+        //Set the Current amount of Ammo
+        if (CurrentAmountText == null) { if (GameObject.Find("Current Ammo")) { CurrentAmountText = GameObject.Find("Current Ammo").GetComponent<Text>(); } }
+        int Cammo = (int)Stats.AmountCount.GetValue();
+        if (Cammo == -1) { CurrentAmountText.text = ""; }
+        else if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) { TotalAmountText.text = ""; }
+        else if (TypeOfAmmo == Ammo_Types.Ammo.None) { TotalAmountText.text = ""; }
+        else { CurrentAmountText.text = Cammo.ToString(); }
 
-        if (TypeOfAmmo == Ammo_Types.Ammo.Extinguisher) {
-            if (menuManager.Weapon_Slot.transform.GetChild(0) && menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject) {
-                //need to change if Add a Swap function (Already have one with controllers)
-                if (AmountText == null) { AmountText = menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject; }
-                AmountText.GetComponent<Text>().text = " ";
-            }
-        }
-        else if (menuManager.Weapon_Slot.transform.GetChild(0) && menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject) {
-            //need to change if Add a Swap function (Already have one with controllers)
-            if (AmountText == null) { AmountText = menuManager.Weapon_Slot.transform.GetChild(0).transform.Find("Amount_Text").gameObject; }
-            AmountText.GetComponent<Text>().text = Stats.AmountCount.GetValue().ToString();
-        }
-        else { AmountText = null; }
     }
 
 }

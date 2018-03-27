@@ -37,4 +37,13 @@ public class Ammo_Inventory : MonoBehaviour {
             }
         }
     }
+    
+    public int CheckAmount(Ammo_Types.Ammo type) {
+        for (int i = 0; i < this.transform.childCount; i++) {
+            if (this.transform.GetChild(i).GetComponent<Ammo_Types>().TypeOfAmmo == type) {
+                return this.transform.GetChild(i).GetComponent<Ammo_Types>().Amount;
+            }
+        }
+        return -1;
+    }
 }

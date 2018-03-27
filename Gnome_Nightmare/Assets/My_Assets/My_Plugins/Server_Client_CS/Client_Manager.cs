@@ -165,10 +165,8 @@ public class Client_Manager : SerializedMonoBehaviour {
                     if (agent.CantDie) { return; }
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
                     //If the ID is for an Item Add it back to the ItemList
-                    if (ID >= 300 && ID <= 500) {
-                        ID_Table.instance.ItemList.Add(ID);
-                        agent.GetComponent<EnemyStats>().OnDeath();
-                    }
+                    if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
+                    else if (ID >= 100 && ID <= 300) { agent.GetComponent<EnemyStats>().OnDeath(); }
                     //Destroy the object
                     else { Destroy(agent.gameObject); }
                 }
