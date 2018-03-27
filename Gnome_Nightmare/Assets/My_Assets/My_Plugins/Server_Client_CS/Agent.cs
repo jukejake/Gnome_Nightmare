@@ -23,9 +23,24 @@ public class Agent : SerializedMonoBehaviour {
     [HorizontalGroup("Info 2/2", 0.5f), LabelWidth(90)]
     public int PrefabNumber = -1;
 
+    [BoxGroup("Stuff To Send", false)]
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
+    public bool Position = false;
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
+    public bool Rotation = false;
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(40)]
+    public bool Health = false;
+    public bool CantDie = false;
+
     private EnemyStats enemyHealth;
     private PlayerStats playerHealth;
+    private Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
+    private Vector3 rot = new Vector3(0.0f, 0.0f, 0.0f);
+    private float health = 0.0f;
 
+    [HideInInspector]
+    public Vector3 TargetPos = new Vector3(0.0f, 0.0f, 0.0f);
+    public float LerpSpeed = 0.2f;
 
     private void Start() {
         // Repeat X, in Y seconds, every Z seconds.
@@ -36,28 +51,13 @@ public class Agent : SerializedMonoBehaviour {
         if (this.GetComponent<PlayerStats>()) { playerHealth = this.GetComponent<PlayerStats>(); }
     }
 
-
-    [BoxGroup("Stuff To Send", false)]
-    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
-    public bool Position = false;
-    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
-    public bool Rotation = false;
-    [HorizontalGroup("Stuff To Send/1"), LabelWidth(40)]
-    public bool Health = false;
-    public bool CantDie = false;
-
-    private Vector3 pos = new Vector3(0.0f,0.0f,0.0f);
-    private Vector3 rot = new Vector3(0.0f,0.0f,0.0f);
-    private float health = 0.0f;
-
-    public Vector3 TargetPos = new Vector3(0.0f, 0.0f, 0.0f);
-
+    
     private void Update() {
-        //If Agent is not at Target
-        if (TargetPos != this.gameObject.transform.position) {
+        //If Agent is not at Target and not at (0,0,0)
+        if (TargetPos != this.gameObject.transform.position && TargetPos != Vector3.zero) {
             //If the Target position is a long distance away just teloport it to the Target position
             if (Vector3.Distance(TargetPos, this.gameObject.transform.position) > 10.0f) { this.gameObject.transform.position = TargetPos; }
-            else { Vector3.Lerp(this.gameObject.transform.position, TargetPos, Time.deltaTime); }
+            else { this.gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, TargetPos, LerpSpeed); }
         }
     }
 
@@ -69,13 +69,13 @@ public class Agent : SerializedMonoBehaviour {
         if (Position) {
             if (pos != this.gameObject.transform.position) {
                 pos = this.gameObject.transform.position;
-                temp += ("&POS(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
+                temp += ("&P(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
             }
         }
         if (Rotation) {
             if (rot != this.gameObject.transform.rotation.eulerAngles) {
                 rot = this.gameObject.transform.rotation.eulerAngles;
-                temp += ("&ROT(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
+                temp += ("&R(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
             }
         }
         if (Health) {
@@ -97,7 +97,7 @@ public class Agent : SerializedMonoBehaviour {
     public void SendInstantiate(Vector3 InitialPos) {
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
 
-        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&POS(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
+        string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&P(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
         temp = GetDataToSend(temp);
 
         if (client) { client.SendData(temp); }

@@ -207,6 +207,21 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224632724643947150, guid: 602659201fd83274e946500f24a0c7c5,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224878690328391352, guid: 602659201fd83274e946500f24a0c7c5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00001555698
+      objectReference: {fileID: 0}
+    - target: {fileID: 224755463277757520, guid: 602659201fd83274e946500f24a0c7c5,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 602659201fd83274e946500f24a0c7c5, type: 2}
   m_IsPrefabParent: 0
@@ -327,7 +342,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  PlayerNumber: -1
+  PlayerNumber: -2
   ClientOn: 0
   ClientMessage: Test
 --- !u!4 &477926139

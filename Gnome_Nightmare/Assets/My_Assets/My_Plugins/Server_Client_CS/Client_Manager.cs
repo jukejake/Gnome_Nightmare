@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using ServerDll;
@@ -86,22 +87,22 @@ public class Client_Manager : SerializedMonoBehaviour {
             data = data.Substring(t.Length+2);
         }
         //Position of an object
-        if (data.Contains("&POS"))  {
+        if (data.Contains("&P"))  {
             string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
             pos = new Vector3(x,y,z);
-            data = data.Substring(t.Length+6);
+            data = data.Substring(t.Length+4);
         }
         //Rotation of an object
-        if (data.Contains("&ROT"))  {
+        if (data.Contains("&R"))  {
             string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
             rot = new Vector3(x,y,z);
-            data = data.Substring(t.Length+6);
+            data = data.Substring(t.Length+4);
         }
         //Health of an object
         if (data.Contains("&HP")) {
@@ -125,6 +126,13 @@ public class Client_Manager : SerializedMonoBehaviour {
             float z = float.Parse(t.Split(',')[2]);
             evt = new Vector3(x, y, z);
             data = data.Substring(t.Length + 3);
+        }
+        //New ID
+        if (data.Contains("&NID"))  {
+            string t = data.Split('|')[0];
+            t = t.Substring(4);
+            ID = int.Parse(t);
+            data = data.Substring(t.Length+6);
         }
 
         //Need ID to handle Events

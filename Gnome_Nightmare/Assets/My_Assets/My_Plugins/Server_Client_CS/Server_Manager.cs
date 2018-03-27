@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using ServerDll;
@@ -21,11 +22,13 @@ public class Server_Manager : SerializedMonoBehaviour {
     }
 
     public int PlayerNumber = 1;
+    [HideInInspector]
+    public List<int> NIDList = Enumerable.Range(1, 99).ToList();
 
 
     private ServerDll.Server server = new ServerDll.Server();
     public bool ServerOn = false;
-    public string ServerMessage = "~@4|#4|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|";
+    public string ServerMessage = "~@4|#4|&P(1.2,3.4,5.6)&R(9.8,7.6,5.4)&HP26|";
 
     [Button]
     private void ServerStart() {
@@ -86,22 +89,22 @@ public class Server_Manager : SerializedMonoBehaviour {
             data = data.Substring(t.Length+2);
         }
         //Position of an object
-        if (data.Contains("&POS"))  {
+        if (data.Contains("&P"))  {
             string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
             pos = new Vector3(x,y,z);
-            data = data.Substring(t.Length+6);
+            data = data.Substring(t.Length+4);
         }
         //Rotation of an object
-        if (data.Contains("&ROT"))  {
+        if (data.Contains("&R"))  {
             string t = data.Split('(')[1]; t = t.Split(')')[0];
             float x = float.Parse(t.Split(',')[0]);
             float y = float.Parse(t.Split(',')[1]);
             float z = float.Parse(t.Split(',')[2]);
             rot = new Vector3(x,y,z);
-            data = data.Substring(t.Length+6);
+            data = data.Substring(t.Length+4);
         }
         //Health of an object
         if (data.Contains("&HP")) {
@@ -126,9 +129,22 @@ public class Server_Manager : SerializedMonoBehaviour {
             evt = new Vector3(x, y, z);
             data = data.Substring(t.Length + 3);
         }
+        //New ID
+        if (data.Contains("&NID"))  {
+            string t = data.Split('|')[0];
+            t = t.Substring(4);
+            ID = int.Parse(t);
+            data = data.Substring(t.Length+6);
+        }
 
         //Need ID to handle Events
         if (ID == -1) { return; }
+        if (ID == -2) {
+            ID = NIDList[0];
+            NIDList.RemoveAt(0);
+            SendData("#-2|&NID" + ID + "|");
+            return;
+        }
 
         if (destroy) {
             Debug.Log("Destroy: " + ID);
@@ -140,6 +156,8 @@ public class Server_Manager : SerializedMonoBehaviour {
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
                     //If the ID is for an Item Add it back to the ItemList
                     if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
+                    //If the ID is for an NID Add it back to the NIDList
+                    if (ID >= 1 && ID <= 99) { NIDList.Add(ID); }
                     //Destroy the object
                     Destroy(agent.gameObject);
                 }
