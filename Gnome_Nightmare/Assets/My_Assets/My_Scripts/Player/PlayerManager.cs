@@ -62,6 +62,7 @@ public class PlayerManager : MonoBehaviour {
             }
         }
         else if (Input.GetKeyDown(KeyCode.T)) {
+            return; //Do nothing
             Transform temp = GameObject.Find("Managers").transform.Find("ChatServerDll");
             if (temp){
                 temp.GetComponent<SwitchActive>().Switch();

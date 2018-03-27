@@ -17,16 +17,16 @@ public class Player_Spawn_Location : MonoBehaviour {
         if (player.GetComponent<Agent>()) {
             if (Server_Manager.instance) {
                 player.GetComponent<Agent>().AgentNumber = Server_Manager.instance.PlayerNumber;
-                player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Server_Manager.instance.PlayerNumber + 1;
+                //player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Server_Manager.instance.PlayerNumber + 1;
             }
             else if (Client_Manager.instance) {
                 player.GetComponent<Agent>().AgentNumber = Client_Manager.instance.PlayerNumber;
-                player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Client_Manager.instance.PlayerNumber + 1;
+                //player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Client_Manager.instance.PlayerNumber - 1;
             }
             //Just in case //Though this will still case problems
             if (player.GetComponent<Agent>().AgentNumber == -1) {
                 player.GetComponent<Agent>().AgentNumber = RandomUtils.RandomInt(2, 99);
-                player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = player.GetComponent<Agent>().AgentNumber + 1;
+                //player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = player.GetComponent<Agent>().AgentNumber + 1;
             }
 
             player.GetComponent<Agent>().SendInstantiate();

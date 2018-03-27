@@ -138,7 +138,7 @@ public class Server_Manager : SerializedMonoBehaviour {
             //Find Object with the same [ID] and change it.
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
-                if (agent.AgentNumber == ID) { agent.AgentNumber = NID; }
+                if (agent.AgentNumber == ID) { agent.AgentNumber = NID; break; }
             }
             ID = NID;
         }
@@ -161,11 +161,16 @@ public class Server_Manager : SerializedMonoBehaviour {
                     if (agent.CantDie) { return; }
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
                     //If the ID is for an Item Add it back to the ItemList
-                    if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
-                    //If the ID is for an NID Add it back to the NIDList
-                    if (ID >= 1 && ID <= 99) { NIDList.Add(ID); }
-                    //Destroy the object
-                    Destroy(agent.gameObject);
+                    if (ID >= 300 && ID <= 500) {
+                        ID_Table.instance.ItemList.Add(ID);
+                        agent.GetComponent<EnemyStats>().OnDeath();
+                    }
+                    else {
+                        //If the ID is for an NID Add it back to the NIDList
+                        if (ID >= 1 && ID <= 99) { NIDList.Add(ID); }
+                        //Destroy the object
+                        Destroy(agent.gameObject);
+                    }
                 }
             }
         }
@@ -204,8 +209,9 @@ public class Server_Manager : SerializedMonoBehaviour {
                 if (agent.AgentNumber == ID) {
                     //Make this Lerp
                     if (pos != Vector3.zero) { agent.TargetPos = pos; }
+                    if (rot != Vector3.zero) { agent.TargetRot = rot; }
                     //if (pos != Vector3.zero) { agent.gameObject.transform.position = pos; }
-                    if (rot != Vector3.zero) { agent.gameObject.transform.rotation = Quaternion.Euler(rot); }
+                    //if (rot != Vector3.zero) { agent.gameObject.transform.rotation = Quaternion.Euler(rot); }
                     if (hp >= 0) {
                         if (agent.GetComponentInParent<EnemyStats>()) { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
                         if (agent.GetComponentInParent<PlayerStats>()) { agent.gameObject.GetComponent<PlayerStats>().CurrentHealth = hp; }

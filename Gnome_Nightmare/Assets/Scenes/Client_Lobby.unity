@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -215,7 +215,7 @@ Prefab:
     - target: {fileID: 224878690328391352, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000006522138
+      value: -0.000007528048
       objectReference: {fileID: 0}
     - target: {fileID: 224755463277757520, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
@@ -272,7 +272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1443465725350988, guid: 602659201fd83274e946500f24a0c7c5, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224836982779205140, guid: 602659201fd83274e946500f24a0c7c5,
         type: 2}
@@ -414,7 +414,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  PlayerNumber: -2
+  PlayerNumber: -1
   ClientOn: 0
   ClientMessage: Test
 --- !u!4 &477926139

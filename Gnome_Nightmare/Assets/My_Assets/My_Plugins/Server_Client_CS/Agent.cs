@@ -40,6 +40,8 @@ public class Agent : SerializedMonoBehaviour {
 
     [HideInInspector]
     public Vector3 TargetPos = new Vector3(0.0f, 0.0f, 0.0f);
+    [HideInInspector]
+    public Vector3 TargetRot = new Vector3(0.0f, 0.0f, 0.0f);
     public float LerpSpeed = 0.2f;
 
     private void Start() {
@@ -51,13 +53,17 @@ public class Agent : SerializedMonoBehaviour {
         if (this.GetComponent<PlayerStats>()) { playerHealth = this.GetComponent<PlayerStats>(); }
     }
 
-    
     private void Update() {
         //If Agent is not at Target and not at (0,0,0)
         if (TargetPos != this.gameObject.transform.position && TargetPos != Vector3.zero) {
             //If the Target position is a long distance away just teloport it to the Target position
             if (Vector3.Distance(TargetPos, this.gameObject.transform.position) > 10.0f) { this.gameObject.transform.position = TargetPos; }
             else { this.gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, TargetPos, LerpSpeed); }
+        }
+        //If Agent is not at Target and not at (0,0,0)
+        if (TargetRot != this.gameObject.transform.rotation.eulerAngles && TargetRot != Vector3.zero) {
+            //If the Target position is a long distance away just teloport it to the Target position
+            this.gameObject.transform.rotation = Quaternion.Lerp(this.gameObject.transform.rotation, Quaternion.Euler(TargetRot), LerpSpeed);
         }
     }
 

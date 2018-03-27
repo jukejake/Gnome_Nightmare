@@ -9419,6 +9419,10 @@ Prefab:
       propertyPath: serializationData.SerializedBytes.Array.data[2205]
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1526984884235540, guid: 365e67ef86ca9c3448a30eea3c405cb4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365e67ef86ca9c3448a30eea3c405cb4, type: 2}
   m_IsPrefabParent: 0

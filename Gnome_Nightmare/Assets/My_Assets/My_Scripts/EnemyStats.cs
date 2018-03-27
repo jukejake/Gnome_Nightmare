@@ -6,6 +6,7 @@ public class EnemyStats : CharacterStats {
 
     public int Experience = 1;
     public int Points = 1;
+    public bool isDead = false;
     //public GameObject ParticlesOnDeath;
     public Transform Health_Bar;
     
@@ -35,6 +36,9 @@ public class EnemyStats : CharacterStats {
 
     //On enemy death destory the enemy
     public void OnDeath() {
+        if (isDead) { return; }
+        else { isDead = true; }
+
         FindDropItem();
         //If the enemy is a Destructible object, destroy through destruction
         Destructible isDestructible = this.GetComponent<Destructible>();
@@ -74,6 +78,9 @@ public class EnemyStats : CharacterStats {
         Health_Bar.GetChild(0).GetComponent<RectTransform>().transform.localScale = Health;
         Health = new Vector3(1.0f-(v_Health), 1.0f, 1.0f);
         Health_Bar.GetChild(1).GetComponent<RectTransform>().transform.localScale = Health;
+        
+        //Make sure the enemy has health
+        //if (CurrentHealth <= 0.0f) { OnDeath(); }
     }
 
 

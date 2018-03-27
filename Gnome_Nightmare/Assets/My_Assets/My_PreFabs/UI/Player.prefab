@@ -1710,7 +1710,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4444746718789592}
   - component: {fileID: 136987883779053010}
-  - component: {fileID: 114690243031883650}
   m_Layer: 2
   m_Name: Top
   m_TagString: Untagged
@@ -3820,36 +3819,6 @@ MonoBehaviour:
   r_IsGrounded: {fileID: 136567880580534040}
   animPer_H: 0
   animPer_V: 0
---- !u!114 &114690243031883650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936210949936328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  StartIn: 1
-  RepeatEvery: 0.2
-  AgentNumber: 1
-  PrefabNumber: -1
-  Position: 0
-  Rotation: 1
-  Health: 0
-  CantDie: 0
-  TargetPos: {x: 0, y: 0, z: 0}
-  LerpSpeed: 0.2
 --- !u!114 &114767190808961908
 MonoBehaviour:
   m_ObjectHideFlags: 1
