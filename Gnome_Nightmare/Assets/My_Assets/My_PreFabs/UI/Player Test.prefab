@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4082931108046300}
   - component: {fileID: 136477653323134008}
+  - component: {fileID: 114752899562967000}
   m_Layer: 2
   m_Name: Top
   m_TagString: Untagged
@@ -1308,7 +1309,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4678589538522040}
-  - component: {fileID: 114171975365922018}
   m_Layer: 2
   m_Name: HitBox
   m_TagString: Untagged
@@ -3488,36 +3488,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114171975365922018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1725468414655958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  StartIn: 1
-  RepeatEvery: 1
-  AgentNumber: -3
-  PrefabNumber: -1
-  Position: 0
-  Rotation: 1
-  Health: 0
-  CantDie: 0
-  TargetPos: {x: 0, y: 0, z: 0}
-  LerpSpeed: 0.2
 --- !u!114 &114201939778868688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3646,7 +3616,7 @@ MonoBehaviour:
     SerializationNodes: []
   StartIn: 1
   RepeatEvery: 1
-  AgentNumber: 0
+  AgentNumber: -1
   PrefabNumber: 99
   Position: 0
   Rotation: 0
@@ -3704,6 +3674,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsTriggered: 0
+--- !u!114 &114752899562967000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167065990921384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -3
+  PrefabNumber: -1
+  Position: 0
+  Rotation: 0
+  Health: 0
+  CantDie: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  LerpSpeed: 0.2
 --- !u!114 &114782837480346490
 MonoBehaviour:
   m_ObjectHideFlags: 1
