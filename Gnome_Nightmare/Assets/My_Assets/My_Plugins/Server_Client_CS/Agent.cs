@@ -5,23 +5,27 @@ using Sirenix.OdinInspector;
 
 public class Agent : SerializedMonoBehaviour {
 
-    [HorizontalGroup("Basic Info 1", 0.5f), LabelWidth(50)]
-    public float StartIn = 1.0f;
-    [HorizontalGroup("Basic Info 1", 0.5f), LabelWidth(90)]
-    public float RepeatEvery = 1.0f;
-    [HorizontalGroup("Basic Info 2", 0.5f), LabelWidth(90)]
-    public int AgentNumber = -1;
-    [HorizontalGroup("Basic Info 2", 0.5f), LabelWidth(90)]
-    public int PrefabNumber = -1;
     private Server_Manager server;
     private Client_Manager client;
-    private EnemyStats enemyHealth;
-    private PlayerStats playerHealth;
-
     private void Awake() {
         if (Client_Manager.instance) { client = Client_Manager.instance; }
         else if (Server_Manager.instance) { server = Server_Manager.instance; }
     }
+
+    [BoxGroup("Info 1", false)]
+    [HorizontalGroup("Info 1/1", 0.5f), LabelWidth(50)]
+    public float StartIn = 1.0f;
+    [HorizontalGroup("Info 1/1", 0.5f), LabelWidth(90)]
+    public float RepeatEvery = 1.0f;
+    [BoxGroup("Info 2", false)]
+    [HorizontalGroup("Info 2/2", 0.5f), LabelWidth(90)]
+    public int AgentNumber = -1;
+    [HorizontalGroup("Info 2/2", 0.5f), LabelWidth(90)]
+    public int PrefabNumber = -1;
+
+    private EnemyStats enemyHealth;
+    private PlayerStats playerHealth;
+
 
     private void Start() {
         // Repeat X, in Y seconds, every Z seconds.
@@ -33,18 +37,32 @@ public class Agent : SerializedMonoBehaviour {
     }
 
 
-    [HorizontalGroup("Stuff To Send", 0.03f)]
-    [BoxGroup("Stuff To Send/1", false), LabelWidth(50)]
+    [BoxGroup("Stuff To Send", false)]
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
     public bool Position = false;
-    [BoxGroup("Stuff To Send/2", false), LabelWidth(50)]
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(50)]
     public bool Rotation = false;
-    [BoxGroup("Stuff To Send/3", false), LabelWidth(40)]
+    [HorizontalGroup("Stuff To Send/1"), LabelWidth(40)]
     public bool Health = false;
     public bool CantDie = false;
 
     private Vector3 pos = new Vector3(0.0f,0.0f,0.0f);
     private Vector3 rot = new Vector3(0.0f,0.0f,0.0f);
     private float health = 0.0f;
+
+    public Vector3 TargetPos = new Vector3(0.0f, 0.0f, 0.0f);
+
+    private void Update() {
+        //If Agent is not at Target
+        if (TargetPos != this.gameObject.transform.position) {
+            //If the Target position is a long distance away just teloport it to the Target position
+            if (Vector3.Distance(TargetPos, this.gameObject.transform.position) > 10.0f) { this.gameObject.transform.position = TargetPos; }
+            else { Vector3.Lerp(this.gameObject.transform.position, TargetPos, Time.deltaTime); }
+        }
+    }
+
+
+
 
 
     private string GetDataToSend(string temp) {

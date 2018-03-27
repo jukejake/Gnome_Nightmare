@@ -179,7 +179,8 @@ public class Server_Manager : SerializedMonoBehaviour {
             foreach (var agent in agents) {
                 if (agent.AgentNumber == ID) {
                     //Make this Lerp
-                    if (pos != Vector3.zero) { agent.gameObject.transform.position = pos; }
+                    if (pos != Vector3.zero) { agent.TargetPos = pos; }
+                    //if (pos != Vector3.zero) { agent.gameObject.transform.position = pos; }
                     if (rot != Vector3.zero) { agent.gameObject.transform.rotation = Quaternion.Euler(rot); }
                     if (hp >= 0) {
                         if (agent.GetComponentInParent<EnemyStats>()) { agent.gameObject.GetComponent<EnemyStats>().CurrentHealth = hp; }
