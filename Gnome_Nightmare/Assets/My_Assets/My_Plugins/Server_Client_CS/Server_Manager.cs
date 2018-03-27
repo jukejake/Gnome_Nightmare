@@ -133,8 +133,14 @@ public class Server_Manager : SerializedMonoBehaviour {
         if (data.Contains("&NID"))  {
             string t = data.Split('|')[0];
             t = t.Substring(4);
-            ID = int.Parse(t);
-            data = data.Substring(t.Length+6);
+            int NID = int.Parse(t);
+            data = data.Substring(t.Length+5);
+            //Find Object with the same [ID] and change it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) { agent.AgentNumber = NID; }
+            }
+            ID = NID;
         }
 
         //Need ID to handle Events
@@ -143,7 +149,8 @@ public class Server_Manager : SerializedMonoBehaviour {
             ID = NIDList[0];
             NIDList.RemoveAt(0);
             SendData("#-2|&NID" + ID + "|");
-            return;
+            Debug.Log("New ID:" + ID);
+            //return;
         }
 
         if (destroy) {

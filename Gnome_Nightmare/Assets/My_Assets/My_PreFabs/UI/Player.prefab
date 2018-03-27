@@ -3618,7 +3618,7 @@ MonoBehaviour:
   Position: 1
   Rotation: 1
   Health: 1
-  CantDie: 1
+  CantDie: 0
   TargetPos: {x: 0, y: 0, z: 0}
   LerpSpeed: 0.2
 --- !u!114 &114258442408304088

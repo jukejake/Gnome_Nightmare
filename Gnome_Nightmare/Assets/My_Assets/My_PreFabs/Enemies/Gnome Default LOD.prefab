@@ -1041,6 +1041,8 @@ MonoBehaviour:
   Rotation: 0
   Health: 1
   CantDie: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  LerpSpeed: 0.1
 --- !u!114 &114716237812920698
 MonoBehaviour:
   m_ObjectHideFlags: 1

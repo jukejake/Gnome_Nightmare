@@ -22,7 +22,7 @@ public class Client_Manager : SerializedMonoBehaviour {
     }
 
     public int PlayerNumber = -1;
-
+    private bool InGame = false;
 
     private ServerDll.Client client = new ServerDll.Client();
     public bool ClientOn = false;
@@ -45,6 +45,18 @@ public class Client_Manager : SerializedMonoBehaviour {
     private void Update () {
         if (IDTable == null) { IDTable = ID_Table.instance; }
         if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
+
+        if (!InGame) {
+            string TCP_Data = client.TCP_GetData();
+            if (!string.IsNullOrEmpty(TCP_Data)) {
+                if (TCP_Data.Contains("&StartGame|")) {
+                    var temp = GameObject.FindObjectOfType(typeof(LoadScenes)) as LoadScenes;
+                    temp.LoadSceneFromString("Gnome_Nightmare");
+                    InGame = true;
+                }
+            }
+            return;
+        }
 
         if (ClientOn) {
             string TCP_Data = client.TCP_GetData();
@@ -131,8 +143,14 @@ public class Client_Manager : SerializedMonoBehaviour {
         if (data.Contains("&NID"))  {
             string t = data.Split('|')[0];
             t = t.Substring(4);
-            ID = int.Parse(t);
-            data = data.Substring(t.Length+6);
+            int NID = int.Parse(t);
+            data = data.Substring(t.Length+5);
+            //Find Object with the same [ID] and change it.
+            Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
+            foreach (var agent in agents) {
+                if (agent.AgentNumber == ID) { agent.AgentNumber = NID; }
+            }
+            ID = NID;
         }
 
         //Need ID to handle Events
