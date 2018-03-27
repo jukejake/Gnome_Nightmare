@@ -145,12 +145,11 @@ public class Server_Manager : SerializedMonoBehaviour {
 
         //Need ID to handle Events
         if (ID == -1) { return; }
-        if (ID == -2) {
+        if (ID <= -2 && ID >= -99) {
+            SendData("#" + ID + "|&NID" + NIDList[0] + "|");
             ID = NIDList[0];
             NIDList.RemoveAt(0);
-            SendData("#-2|&NID" + ID + "|");
             Debug.Log("New ID:" + ID);
-            //return;
         }
 
         if (destroy) {

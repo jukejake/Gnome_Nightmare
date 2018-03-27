@@ -691,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1335407090158464
 GameObject:
   m_ObjectHideFlags: 1
@@ -1308,13 +1308,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4678589538522040}
+  - component: {fileID: 114171975365922018}
   m_Layer: 2
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1726973437064352
 GameObject:
   m_ObjectHideFlags: 1
@@ -1570,7 +1571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1873881848879996
 GameObject:
   m_ObjectHideFlags: 1
@@ -1769,7 +1770,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167065990921384}
-  m_LocalRotation: {x: -0.1107629, y: -0.12297625, z: -0.013813041, w: 0.9861124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2680,7 +2681,7 @@ Transform:
   m_GameObject: {fileID: 1515365296106032}
   m_LocalRotation: {x: 0.00000019729484, y: 0.000000006002664, z: -0.000000004190951,
     w: 1}
-  m_LocalPosition: {x: 3.3900003, y: 0.061722476, z: -4.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4678589538522040}
@@ -3284,7 +3285,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dbd488440948c6941af41e30b2507225, type: 2}
+  - {fileID: 2100000, guid: dd837aed08f94764f8e62c62e0a46ec9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3487,6 +3488,36 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114171975365922018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725468414655958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21124abbd8ed4b0449323a5fa73377aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  StartIn: 1
+  RepeatEvery: 1
+  AgentNumber: -3
+  PrefabNumber: -1
+  Position: 0
+  Rotation: 1
+  Health: 0
+  CantDie: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  LerpSpeed: 0.2
 --- !u!114 &114201939778868688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3634,6 +3665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BasedOnCamera: 0
+  BasedOnObject: 1
+  Object: {fileID: 4678589538522040}
 --- !u!114 &114694144468300052
 MonoBehaviour:
   m_ObjectHideFlags: 1
