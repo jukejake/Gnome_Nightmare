@@ -37,7 +37,7 @@ public class Event_Manager : SerializedMonoBehaviour
 	[DllImport("EventManager")]
 	public static extern int genNextEventInfo(int min, int max);
 	[DllImport("EventManager")]
-	public static extern bool resetEvent(int index);
+	public static extern void resetEvent(int index);
 	[DllImport("EventManager")]
 	public static extern void setActiveEventSet(int index, bool status);
 	[DllImport("EventManager")]
@@ -105,11 +105,12 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
 	private bool outageFailed = false;
+	private bool floodedFailed = false;
 	private bool hasEventSetActive = false;	//	keeps track if the event set has been set to active or not just so we're not repeatedly setting it to true
 	private bool promptSpawned = false;
 	private GameObject fire;
 	private float KeepTime = 0.0f;
-	private static int fireCountMax = 10;
+	private int fireCountMax = 10;
 
     [HorizontalGroup("Basic Info 1", 0.5f), LabelWidth(50)]
     public float StartIn = 1.0f;
@@ -123,8 +124,6 @@ public class Event_Manager : SerializedMonoBehaviour
 		createAchievements();
 		Debug.Log("Achievements created successfully!");
 		nextEventRound = 4;
-
-        //Debug.Log("[ Name: " + ansiIt(getEventName(0, 0)) + " | Num in set " + getNumObjectives(0) + " ] [ X-" + getWaypointPos(0, 0, "x") + " | Y-" + getWaypointPos(0, 0, "y") + " | Z-" + getWaypointPos(0, 0, "z") + "]");
         InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
     }
 
@@ -136,13 +135,25 @@ public class Event_Manager : SerializedMonoBehaviour
 			nextEventRound = getNextEvent();
 			active = 1;
             eventRoundProgress = 0;
-            //active = getNextEvent();
+			nextEventRound = genNextEventInfo(2, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
+			//active = getNextEvent();
+			Debug.Log("Round next event will happen: " + nextEventRound);
+			Debug.Log("Next event: " + getNextEvent());
+			
         }
 
-		// if fire event is active
-		if (active == 0) { FireEvent(); }
-        // if outage event is active
-        else if (active == 1) { outageEvent(); }
+		if (active == 0)
+		{
+			FireEvent();
+		}
+        else if (active == 1)
+		{
+			outageEvent();
+		}
+		else if(active == 2)
+		{
+			floodedEvent();
+		}
 
 		if (fireFailed) {
 			//	if the player failed to finish to beat the fire event fire spreads around barn, preventing the player from going inside and fires become invincible
@@ -164,7 +175,7 @@ public class Event_Manager : SerializedMonoBehaviour
 				prompt.color = Color.white;
 			}
 		}
-		else if (outageFailed)
+		if (outageFailed)
 		{
 			if (KeepTime == 0.0f)
 			{
@@ -183,13 +194,17 @@ public class Event_Manager : SerializedMonoBehaviour
 				prompt.color = Color.white;
 			}
 		}
+		if (floodedFailed)
+		{
+
+		}
 
 		if (menu == null) {
             menu = GameObject.FindObjectOfType(typeof(MenuManager)) as MenuManager;
         }
 	}
     //Fire Event but with controlled timing
-    private void FireEvent()	//	handles fire event while it is active
+    private void FireEvent()	//	handles fire event while it is actives
 	{
         // give 2 rounds to complete the event
         if (eventRoundProgress < 3)	 {
@@ -248,7 +263,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "";
 					KeepTime = 20.0f + RepeatEvery;
 					active = 100;
-					if (!resetFireEvent()) { Debug.Log("Fire event failed to reset!"); }
+					resetEvent(0);
 				}
 			}
 		}
@@ -259,67 +274,6 @@ public class Event_Manager : SerializedMonoBehaviour
 			barnBarrier.GetComponent<Collider>().isTrigger = false;
 		}
 	}
-
-	[Button]
-	public void GetSecond() {
-
-		Debug.Log("Current Event:1: " + ansiIt(getEventName(0, 0)));
-		Debug.Log("Current Event:2: " + ansiIt(getEventName(1, 0)));
-	}
-
-	private void OnDestroy()
-	{
-		DestroyManager();
-	}
-
-	private string ansiIt(IntPtr str)
-	{
-		return Marshal.PtrToStringAnsi(str);
-	}
-
-	private void createEvents()
-	{
-		initAccess();
-
-		// barn fire event
-		createEventSet();
-		setEventSetName(0, "Barn Fire");
-		newEvent(0);
-		setEventName(0, 0, "Find the fire extinguisher");
-		setParent(0, 0, -1);
-		newEvent(0);
-		setEventName(0, 1, "Put out all the fires");
-		setImmediateChild(0, 1, 0);
-		setLast(0, 1);
-
-		// outage event
-		createEventSet();
-		setEventSetName(1, "Outage");
-		newEvent(1);
-		setEventName(1, 0, "Get to the bunker!");
-		setParent(1, 0, -1);
-		newEvent(1);
-		setEventName(1, 1, "Find the generator");
-		//setParent(1, 1, 0);
-		setImmediateChild(1, 1, 0);
-		newEvent(1);
-		setEventName(1, 2, "Turn on the generator");
-		setImmediateChild(1, 2, 1);
-	}
-
-	private void createAchievements()
-	{
-		addAchievement("Up and Coming");
-		setAchievementDesc(0, "Complete the Tutorial");
-
-		//if (!checkForAchieveList()) {
-		//	for (int i = 0; i < getNumAchievements(); i++)
-		//	{
-		//		setAchievementStatus(i, false);
-		//	}
-		//}
-	}
-
 
 	private void outageEvent()  //	handles outage event while it is active
 	{
@@ -381,7 +335,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					promptSpawned = false;
 				}
 			}
-			else if(getEventStatus(1,2) && GeneratorScript.isActive)
+			else if (getEventStatus(1, 2) && GeneratorScript.isActive)
 			{
 				if (KeepTime == 0.0f)
 				{
@@ -392,41 +346,93 @@ public class Event_Manager : SerializedMonoBehaviour
 				{
 					KeepTime += RepeatEvery;
 				}
-				else if (KeepTime >= 5.0f && KeepTime < 6.0f+ RepeatEvery)
+				else if (KeepTime >= 5.0f && KeepTime < 6.0f + RepeatEvery)
 				{
 					prompt.text = "";
 					KeepTime = 6.0f;
 					active = 100;
-					if (!resetOutageEvent())
-					{
-						Debug.Log("Outage event failed to reset!");
-					}
+					resetEvent(1);
 				}
 			}
 		}
-		else if (eventRoundProgress >= 3 && !getEventStatus(1, 2)){
+		else if (eventRoundProgress >= 3 && !getEventStatus(1, 2))
+		{
 			active = 100;
 			outageFailed = true;
 		}
 	}
 
-	private bool resetFireEvent()
+	private void floodedEvent()		//	handles flooded event while it is active
 	{
-		fireCount = fireCountMax;
-		if (!resetEvent(0))
-		{
-			return false;
-		}
-		fireSpawned = false;
-		return true;	// returns true if there are no errors
+
 	}
 
-	private bool resetOutageEvent()
+	[Button]
+	public void GetSecond() {
+
+		Debug.Log("Current Event:1: " + ansiIt(getEventName(0, 0)));
+		Debug.Log("Current Event:2: " + ansiIt(getEventName(1, 0)));
+	}
+
+	private void OnDestroy()
 	{
-		if (!resetEvent(1))
-		{
-			return false;
-		}
-		return true;    // returns true if there are no errors
+		DestroyManager();
+	}
+
+	private string ansiIt(IntPtr str)
+	{
+		return Marshal.PtrToStringAnsi(str);
+	}
+
+	private void createEvents()
+	{
+		initAccess();
+
+		// barn fire event
+		createEventSet();
+		setEventSetName(0, "Barn Fire");
+		newEvent(0);
+		setEventName(0, 0, "Find the fire extinguisher");
+		setParent(0, 0, -1);
+		newEvent(0);
+		setEventName(0, 1, "Put out all the fires");
+		setImmediateChild(0, 1, 0);
+		setLast(0, 1);
+
+		// outage event
+		createEventSet();
+		setEventSetName(1, "Outage");
+		newEvent(1);
+		setEventName(1, 0, "Get to the bunker!");
+		setParent(1, 0, -1);
+		newEvent(1);
+		setEventName(1, 1, "Find the generator");
+		setImmediateChild(1, 1, 0);
+		newEvent(1);
+		setEventName(1, 2, "Turn on the generator");
+		setImmediateChild(1, 2, 1);
+
+		// flooded event
+		createEventSet();
+		setEventSetName(2, "Flooded");
+		newEvent(2);
+		setEventName(2, 0, "");
+		setParent(2, 0, -1);
+		newEvent(2);
+		setEventName(2, 1, "");
+		setImmediateChild(2, 1, 0);
+	}
+
+	private void createAchievements()
+	{
+		addAchievement("Up and Coming");
+		setAchievementDesc(0, "Complete the Tutorial");
+
+		//if (!checkForAchieveList()) {
+		//	for (int i = 0; i < getNumAchievements(); i++)
+		//	{
+		//		setAchievementStatus(i, false);
+		//	}
+		//}
 	}
 }

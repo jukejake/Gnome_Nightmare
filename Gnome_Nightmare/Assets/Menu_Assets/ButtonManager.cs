@@ -5,7 +5,12 @@ using Sirenix.OdinInspector;
 public class ButtonManager : SerializedMonoBehaviour {
 
     public static ButtonManager instance;
-    void Awake() { instance = this; HideAll(); }
+	private bool isLonely = true;
+
+	void Awake() {
+		instance = this; HideAll();
+		if (Client_Manager.instance || Server_Manager.instance) { isLonely = false; }
+	}
 
     [ToggleGroup("Settings_Menu", order: 0, groupTitle: "Settings Menu")]
     public bool Settings_Menu;
@@ -25,18 +30,20 @@ public class ButtonManager : SerializedMonoBehaviour {
     public GameObject PauseMenu;
 
     public void OpenPauseMenu() {
-        Time.timeScale = 0.1f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        PauseMenu.GetComponent<UnHide>().View();
-        Cursor.lockState = CursorLockMode.None;
-    }
+		PauseMenu.GetComponent<UnHide>().View();
+		Cursor.lockState = CursorLockMode.None;
+		if (!isLonely) { return; }
+		Time.timeScale = 0.0f;
+		Time.fixedDeltaTime = 0.02f * Time.timeScale;
+	}
     public void ClosePauseMenu() {
-        Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        HideAll();
-        PlayerManager.instance.MenuOpen = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+		HideAll();
+		PlayerManager.instance.MenuOpen = false;
+		Cursor.lockState = CursorLockMode.Locked;
+		if (!isLonely) { return; }
+		Time.timeScale = 1.0f;
+		Time.fixedDeltaTime = 0.02f * Time.timeScale;
+	}
 
 
     [ToggleGroup("Death_Menu", order: 2, groupTitle: "Death Menu")]

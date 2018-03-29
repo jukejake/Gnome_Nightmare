@@ -17,3 +17,7 @@ v1.3:
 
 v1.4
 - fixed setEventSetName function bug
+
+v1.5
+- removed while loop in the generateNextEventRound function
+- resetEvent now uses a for loop inside the wrapper rather than recursing through the hierarchy

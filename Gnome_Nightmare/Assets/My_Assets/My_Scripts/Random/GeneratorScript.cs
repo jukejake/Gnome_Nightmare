@@ -67,8 +67,6 @@ public class GeneratorScript : MonoBehaviour {
 		}
 	}
 
-
-
     private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.name == "Player") {
             if (Event_Manager.isEventActive(1, 2)) {
