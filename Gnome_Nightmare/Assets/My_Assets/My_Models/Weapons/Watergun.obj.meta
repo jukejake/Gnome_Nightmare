@@ -5,12 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: pTorus2
     100002: //RootNode
+    100004: polySurface2
     400000: pTorus2
     400002: //RootNode
+    400004: polySurface2
     2100000: pTorus2Mat
+    2100002: polySurface2Mat
     2300000: pTorus2
+    2300002: polySurface2
     3300000: pTorus2
+    3300002: polySurface2
     4300000: pTorus2
+    4300002: polySurface2
   externalObjects: {}
   materials:
     importMaterials: 1

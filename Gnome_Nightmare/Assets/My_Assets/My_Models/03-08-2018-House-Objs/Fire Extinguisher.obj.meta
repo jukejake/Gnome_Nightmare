@@ -5,12 +5,24 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: pCylinder94
+    100004: initialShadingGroup_polySurface1
+    100006: polySurface1
     400000: //RootNode
     400002: pCylinder94
+    400004: initialShadingGroup_polySurface1
+    400006: polySurface1
     2100000: pCylinder94Mat
+    2100002: initialShadingGroup_polySurface1Mat
+    2100004: polySurface1Mat
     2300000: pCylinder94
+    2300002: initialShadingGroup_polySurface1
+    2300004: polySurface1
     3300000: pCylinder94
+    3300002: initialShadingGroup_polySurface1
+    3300004: polySurface1
     4300000: pCylinder94
+    4300002: initialShadingGroup_polySurface1
+    4300004: polySurface1
   externalObjects: {}
   materials:
     importMaterials: 1

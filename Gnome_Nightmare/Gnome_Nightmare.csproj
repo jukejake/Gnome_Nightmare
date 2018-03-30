@@ -402,8 +402,8 @@
     <Compile Include="Assets\My_Assets\My_Scripts\Random\CS_PlatformInputController.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Enemies_Prefs.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Eyes_Follow_Cursor.cs" />
-    <Compile Include="Assets\My_Assets\My_Scripts\Random\GeneratorScript.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\Orbit_Objects.cs" />
+    <Compile Include="Assets\My_Assets\My_Scripts\Random\PowerScript.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\RandomUtils.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\ScaleMesh.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\Random\ShockWave.cs" />

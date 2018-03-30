@@ -219,7 +219,7 @@ public class Event_Manager : SerializedMonoBehaviour
 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0)) {
 				if (!promptSpawned) {
-					prompt.text = "Find The Fire Extinguisher";
+					prompt.text = "The Gnomes set the Barn on Fire! Find The Fire Extinguisher!";
 					promptSpawned = true;
 				}
 
@@ -281,7 +281,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		{
 			if (!hasEventSetActive)
 			{
-				GeneratorScript.isActive = false;
+				PowerScript.isActive = false;
 				setActiveEventSet(1, true);
 				hasEventSetActive = true;
 				promptSpawned = false;
@@ -293,7 +293,7 @@ public class Event_Manager : SerializedMonoBehaviour
 				// check if a player is in the bunker space
 				if (!promptSpawned)
 				{
-					prompt.text = "Get to the Bunker!";
+					prompt.text = "The Gnomes Shut the Power Off! Get to the Bunker!";
 					promptSpawned = true;
 				}
 				//Debug.Log("player is in boundary " + playerInEntranceBoundary);
@@ -329,13 +329,13 @@ public class Event_Manager : SerializedMonoBehaviour
 					promptSpawned = true;
 				}
 
-				if (GeneratorScript.isActive)
+				if (PowerScript.isActive)
 				{
 					moveOn(1, 2);
 					promptSpawned = false;
 				}
 			}
-			else if (getEventStatus(1, 2) && GeneratorScript.isActive)
+			else if (getEventStatus(1, 2) && PowerScript.isActive)
 			{
 				if (KeepTime == 0.0f)
 				{
@@ -392,7 +392,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		createEventSet();
 		setEventSetName(0, "Barn Fire");
 		newEvent(0);
-		setEventName(0, 0, "Find the fire extinguisher");
+		setEventName(0, 0, "The Gnomes set the Barn on Fire! Find the fire extinguisher!");
 		setParent(0, 0, -1);
 		newEvent(0);
 		setEventName(0, 1, "Put out all the fires");
@@ -403,7 +403,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		createEventSet();
 		setEventSetName(1, "Outage");
 		newEvent(1);
-		setEventName(1, 0, "Get to the bunker!");
+		setEventName(1, 0, "The Gnomes Shut the Power Off! Get to the bunker!");
 		setParent(1, 0, -1);
 		newEvent(1);
 		setEventName(1, 1, "Find the generator");
@@ -411,16 +411,21 @@ public class Event_Manager : SerializedMonoBehaviour
 		newEvent(1);
 		setEventName(1, 2, "Turn on the generator");
 		setImmediateChild(1, 2, 1);
+		setLast(1, 2);
 
 		// flooded event
 		createEventSet();
 		setEventSetName(2, "Flooded");
 		newEvent(2);
-		setEventName(2, 0, "");
+		setEventName(2, 0, "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!");
 		setParent(2, 0, -1);
 		newEvent(2);
-		setEventName(2, 1, "");
+		setEventName(2, 1, "Get to the Old Generator in the Bunker");
 		setImmediateChild(2, 1, 0);
+		newEvent(2);
+		setEventName(2, 2, "Stand by the Generator to Replace it");
+		setImmediateChild(2, 2, 1);
+		setLast(2, 2);
 	}
 
 	private void createAchievements()
