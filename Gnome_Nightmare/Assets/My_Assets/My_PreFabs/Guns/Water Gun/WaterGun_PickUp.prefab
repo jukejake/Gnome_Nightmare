@@ -215,7 +215,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dd837aed08f94764f8e62c62e0a46ec9, type: 2}
+  - {fileID: 2100000, guid: 4914fa9233ce42a44b6949f1a1e66f3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -666,7 +666,7 @@ MonoBehaviour:
   StartIn: 1
   RepeatEvery: 1
   AgentNumber: -1
-  PrefabNumber: 6
+  PrefabNumber: 18
   Position: 1
   Rotation: 0
   Health: 0

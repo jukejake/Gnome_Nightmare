@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65914068379660278}
   - component: {fileID: 65974940574499510}
   - component: {fileID: 65319953534805536}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Barn Area Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4866015374193652}
   - component: {fileID: 114464703070333276}
   - component: {fileID: 65295809689173382}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: House Tringer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4835295555059110}
   - component: {fileID: 114405539676966110}
   - component: {fileID: 65021069731305170}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Bunker Tringer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1978289192306040}
   m_LocalRotation: {x: 0, y: 0.31730464, z: 0, w: 0.94832367}
-  m_LocalPosition: {x: 13.5, y: -5, z: 120}
+  m_LocalPosition: {x: 42.5, y: -5, z: 129.1}
   m_LocalScale: {x: 30, y: 10, z: 30}
   m_Children: []
   m_Father: {fileID: 4881728663877952}

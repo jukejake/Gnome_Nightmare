@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4828129887062378}
   - component: {fileID: 65872430957621292}
   - component: {fileID: 114215968208694398}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Generator Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999444763622550}
   - component: {fileID: 65962602449484874}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Barn_Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 65003078132215782}
   - component: {fileID: 114153278127752196}
   - component: {fileID: 65042563554875518}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,8 +664,9 @@ MonoBehaviour:
   barnBarrier: {fileID: 1180266003875306}
   bunkerEntrance: {fileID: 1526041039363424}
   generatorRoom: {fileID: 1061611176100444}
-  eventRoundProgress: 0
+  generator: {fileID: 0}
   playerInEntranceBoundary: 0
   playerInGRBoundary: 0
+  eventRoundProgress: 0
   StartIn: 1
   RepeatEvery: 1
