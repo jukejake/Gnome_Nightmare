@@ -8,17 +8,19 @@ using Sirenix.OdinInspector;
 
 public class Client_Manager : SerializedMonoBehaviour {
 
+    public int PortNumber = 8080;
     public static Client_Manager instance;
     private ID_Table IDTable;
     private Tutorial_Manager TM;
+    private Event_Manager ET;
     private void Awake() {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
     private void Start() {
         IDTable = ID_Table.instance;
-        client.SetPort(8080);
-
+        client.SetPort(PortNumber);
+        ET = Event_Manager.instance;
     }
 
     public int PlayerNumber = -1;
@@ -138,6 +140,7 @@ public class Client_Manager : SerializedMonoBehaviour {
             float z = float.Parse(t.Split(',')[2]);
             evt = new Vector3(x, y, z);
             data = data.Substring(t.Length + 3);
+            ET.SetEvent(evt);
         }
         //New ID
         if (data.Contains("&NID"))  {

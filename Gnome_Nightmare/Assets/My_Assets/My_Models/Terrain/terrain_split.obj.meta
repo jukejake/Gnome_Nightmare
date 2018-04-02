@@ -23,6 +23,12 @@ ModelImporter:
     2100006: initialShadingGroup_polySurface1_polySurface4Mat
     2100008: initialShadingGroup_polySurface2_polySurface1Mat
     2100010: initialShadingGroup_polySurface9Mat
+    2100012: lambert4SG
+    2100014: lambert6SG
+    2100016: lambert3SG
+    2100018: lambert5SG
+    2100020: lambert8SG
+    2100022: lambert7SG
     2300000: initialShadingGroup_polySurface14
     2300002: initialShadingGroup_polySurface15
     2300004: initialShadingGroup_polySurface17

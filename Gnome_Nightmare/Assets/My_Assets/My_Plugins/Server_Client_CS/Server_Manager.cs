@@ -8,6 +8,7 @@ using Sirenix.OdinInspector;
 
 public class Server_Manager : SerializedMonoBehaviour {
 
+    public int PortNumber = 8080;
     public static Server_Manager instance;
     private ID_Table IDTable;
     private Tutorial_Manager TM;
@@ -17,7 +18,7 @@ public class Server_Manager : SerializedMonoBehaviour {
     }
     private void Start() { 
         IDTable = ID_Table.instance;
-        server.SetPort(8080);
+        server.SetPort(PortNumber);
         ServerStart();
     }
 

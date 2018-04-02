@@ -6,6 +6,9 @@ using Sirenix.OdinInspector;
 using EnemySpawners;
 
 public class Tutorial_Manager : SerializedMonoBehaviour {
+    
+    public static Tutorial_Manager instance;
+    private void Awake() { instance = this; }
 
     public bool On = true;
     public int Stage = -1;
