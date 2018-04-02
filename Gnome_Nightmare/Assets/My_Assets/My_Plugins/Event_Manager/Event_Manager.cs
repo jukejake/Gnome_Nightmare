@@ -89,19 +89,20 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static extern int getLastEvent();
 	#endregion
 
-	Vec3 pos;
 	public Text prompt;
 	public MenuManager menu;
 	public GameObject firePrefab;
 	public GameObject barnBarrier;
 	public GameObject bunkerEntrance;
 	public GameObject generatorRoom;
+	public GameObject generator;
+	public bool playerInEntranceBoundary = false;
+	public bool playerInGRBoundary = false;
 	public int eventRoundProgress = 0;  // how many rounds passed since event started
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
 	public static int active = 100;   // 100 for null (essentially, not literally)
-	public bool playerInEntranceBoundary = false;
-	public bool playerInGRBoundary = false;
+	public static bool gennyReplaced = false;
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
 	private bool outageFailed = false;
@@ -132,11 +133,9 @@ public class Event_Manager : SerializedMonoBehaviour
 
 		// check if the current round = anticpated event round
 		if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
-			nextEventRound = getNextEvent();
-			active = 1;
+			active = getNextEvent();
             eventRoundProgress = 0;
 			nextEventRound = genNextEventInfo(2, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
-			//active = getNextEvent();
 			Debug.Log("Round next event will happen: " + nextEventRound);
 			Debug.Log("Next event: " + getNextEvent());
 			
@@ -196,7 +195,22 @@ public class Event_Manager : SerializedMonoBehaviour
 		}
 		if (floodedFailed)
 		{
-
+			if (KeepTime == 0.0f)
+			{
+				prompt.color = Color.red;
+				prompt.text = "EVENT FAILED!";
+				KeepTime += RepeatEvery;
+			}
+			else if (KeepTime < 5.0f)
+			{
+				KeepTime += RepeatEvery;
+			}
+			else if (KeepTime >= 5.0f && KeepTime < (20.0f + RepeatEvery))
+			{
+				prompt.text = "";
+				KeepTime = 20.0f + RepeatEvery;
+				prompt.color = Color.white;
+			}
 		}
 
 		if (menu == null) {
@@ -215,6 +229,7 @@ public class Event_Manager : SerializedMonoBehaviour
 				}
 				setActiveEventSet(0, true);
 				fireSpawned = true;
+				KeepTime = 0.0f;
 			}
 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0)) {
@@ -352,6 +367,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime = 6.0f;
 					active = 100;
 					resetEvent(1);
+					hasEventSetActive = false;
 				}
 			}
 		}
@@ -359,12 +375,58 @@ public class Event_Manager : SerializedMonoBehaviour
 		{
 			active = 100;
 			outageFailed = true;
+			hasEventSetActive = false;
 		}
 	}
 
 	private void floodedEvent()		//	handles flooded event while it is active
 	{
+		if(eventRoundProgress < 3)
+		{
+			if (!hasEventSetActive)
+			{
+				setActiveEventSet(2, true);
+				hasEventSetActive = true;
+				KeepTime = 0.0f;
+			}
 
+			if(!getEventStatus(2,0) && isEventActive(2, 0))
+			{
+				if (!promptSpawned)
+				{
+					prompt.text = "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!";
+					promptSpawned = true;
+					GeneratorScript.isActive = false;
+				}
+			}
+			else if(!getEventStatus(2,1) && isEventActive(2, 1))
+			{
+				if (!promptSpawned)
+				{
+					prompt.text = "Find the Old Generator in the Bunker";
+					promptSpawned = true;
+				}
+			}
+			else if(!getEventStatus(2,2) && isEventActive(2, 2))
+			{
+				if (!promptSpawned)
+				{
+					prompt.text = "Stand by the Generator to Replace it";
+					promptSpawned = true;
+					GeneratorScript.eventIsActive = true;
+				}
+
+				if(gennyReplaced)
+				{
+					moveOn(2, 2);
+				}
+			}
+		}
+		else if (eventRoundProgress >= 3 && !getEventStatus(2, 2))
+		{
+			active = 100;
+			floodedFailed = true;
+		}
 	}
 
 	[Button]
@@ -420,7 +482,7 @@ public class Event_Manager : SerializedMonoBehaviour
 		setEventName(2, 0, "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!");
 		setParent(2, 0, -1);
 		newEvent(2);
-		setEventName(2, 1, "Get to the Old Generator in the Bunker");
+		setEventName(2, 1, "Find the Old Generator in the Bunker");
 		setImmediateChild(2, 1, 0);
 		newEvent(2);
 		setEventName(2, 2, "Stand by the Generator to Replace it");
