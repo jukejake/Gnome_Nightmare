@@ -369,7 +369,7 @@ public class Event_Manager : SerializedMonoBehaviour
         else if (eventRoundProgress >= 3 && !getEventStatus(0, 1)) {
 			active = 100;
 			fireFailed = true;
-			barnBarrier.GetComponent<Collider>().isTrigger = false;
+			//barnBarrier.GetComponent<Collider>().isTrigger = false;
 		}
 	}
 
