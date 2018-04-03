@@ -9,7 +9,7 @@ public class GeneratorScript : MonoBehaviour {
 	public bool isNew;
 	public static bool isActive = true;     //	false means that the generator is broken
 	public static bool eventIsActive = false;
-	public static bool carrying = false;
+	public bool carrying = false;
 	public static float timer = 10.0f;
 	private bool smokeSpawned = false;
 	private bool promptSpawned = false;
@@ -34,9 +34,18 @@ public class GeneratorScript : MonoBehaviour {
 	{
 		if (collision.gameObject.name == "Player" && eventIsActive)
 		{
-			if (!isNew && carrying)
+			if(!isNew && !carrying)
 			{
-
+				if (!promptSpawned)
+				{
+					bPrompt.text = "This Generator is Broken, Find The Replacement...";
+					promptSpawned = true;
+					ButtonPrompt.promptActive = true;
+				}
+			}
+			else if (!isNew && carrying)
+			{
+				Event_Manager.instance.newGennyPlaced = true;
 			}
 		}
 	}
@@ -45,16 +54,18 @@ public class GeneratorScript : MonoBehaviour {
 	{
 		if(collision.gameObject.name == "Player" && eventIsActive)
 		{
-			if (!isNew)
+			if (!isNew && Event_Manager.isEventActive(2, 2))
 			{
 				if (timer <= 10.0f && timer >= 0.0f)
 				{
 					timer -= Time.deltaTime;
 					bPrompt.text = timer.ToString();
 				}
-				else
+				else if (timer < 0.0f)
 				{
 					Event_Manager.gennyReplaced = true;
+					Destroy(smokeParticles);
+					smokeSpawned = false;
 				}
 			}
 			else

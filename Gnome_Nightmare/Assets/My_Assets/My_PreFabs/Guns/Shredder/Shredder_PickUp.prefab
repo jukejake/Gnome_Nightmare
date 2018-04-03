@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319376517702440}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.046778, y: -0.706, z: -12.998771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4865283115860406}
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561604842218550}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.09200001}
+  m_LocalPosition: {x: 0, y: -0.425, z: -0.09200001}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4865283115860406}
@@ -214,7 +214,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dd837aed08f94764f8e62c62e0a46ec9, type: 2}
+  - {fileID: 2100000, guid: 5b396c7118f572b4993b160125d57592, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,7 +240,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561604842218550}
-  m_Mesh: {fileID: 4300000, guid: 5ab9ca89e10517c44a3f3d2e2cb289b6, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 5ab9ca89e10517c44a3f3d2e2cb289b6, type: 3}
 --- !u!82 &82403725368046930
 AudioSource:
   m_ObjectHideFlags: 1
@@ -653,6 +653,9 @@ MonoBehaviour:
   Rotation: 0
   Health: 0
   CantDie: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  TargetRot: {x: 0, y: 0, z: 0}
+  LerpSpeed: 0.2
 --- !u!114 &114550991246641908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,6 +679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb78b9c4db08d04dbe766c603859d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BasedOnCamera: 1
+  BasedOnObject: 0
+  Object: {fileID: 0}
 --- !u!135 &135818704411549180
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -95,11 +95,11 @@ public class Event_Manager : SerializedMonoBehaviour
 	public GameObject barnBarrier;
 	public GameObject bunkerEntrance;
 	public GameObject generatorRoom;
-	public GameObject generator;
-	public GameObject brokenGenerator;
-	public GameObject player;
+	public UnHide generator;
+	public UnHide brokenGenerator;
 	public bool playerInEntranceBoundary = false;
 	public bool playerInGRBoundary = false;
+	public bool newGennyPlaced = false;
 	public int eventRoundProgress = 0;  // how many rounds passed since event started
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
@@ -107,6 +107,7 @@ public class Event_Manager : SerializedMonoBehaviour
 	public static bool gennyReplaced = false;
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
+	private bool bunkerFlooded = false;
 	private bool outageFailed = false;
 	private bool floodedFailed = false;
 	private bool hasEventSetActive = false;	//	keeps track if the event set has been set to active or not just so we're not repeatedly setting it to true
@@ -143,7 +144,27 @@ public class Event_Manager : SerializedMonoBehaviour
     private void UpdateControlled() {
 
         // check if the current round = anticpated event round
-		if (IsServer) { 
+		if (Islonely) {
+            if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
+				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4)
+				{
+					active = 2;
+				}
+				else
+				{
+					active = getNextEvent();
+				}
+                eventRoundProgress = 0;
+                nextEventRound = genNextEventInfo(2, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
+                Debug.Log("Round next event will happen: " + nextEventRound);
+                Debug.Log("Next event: " + getNextEvent());
+            }
+
+            if (active == 0) { FireEvent(); }
+            else if (active == 1) { OutageEvent(); }
+            else if (active == 2) { FloodedEvent(); }
+        }
+		else if (IsServer) { 
 		    // check if the current round = anticpated event round
 		    if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 		    	active = getNextEvent();
@@ -157,7 +178,7 @@ public class Event_Manager : SerializedMonoBehaviour
             else if (active == 1) { OutageEvent_Server(); }
             else if (active == 2) { FloodedEvent_Server(); }
         }
-        else if (Islonely || !IsServer) {
+        else if (!IsServer && !Islonely) {
             if (Tutorial_Manager.instance.Stage == nextEventRound) {
                 active = getNextEvent();
                 eventRoundProgress = 0;
@@ -384,7 +405,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 1) && isEventActive(1, 1)) {
 				// check if a player has reached the generator room
 				if (!promptSpawned) {
-					prompt.text = "Find The Generator Room";
+					prompt.text = "Find The Power Room";
 					promptSpawned = true;
 				} 
 				if (playerInGRBoundary) {
@@ -453,7 +474,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 1) && isEventActive(1, 1)) {
 				// check if a player has reached the generator room
 				if (!promptSpawned) {
-					prompt.text = "Find The Generator Room";
+					prompt.text = "Find The Power Room";
 					promptSpawned = true;
 				} 
 				if (playerInGRBoundary) {
@@ -503,17 +524,21 @@ public class Event_Manager : SerializedMonoBehaviour
 			if (!hasEventSetActive) {
 				setActiveEventSet(2, true);
 				hasEventSetActive = true;
+				GeneratorScript.eventIsActive = true;
 				KeepTime = 0.0f;
 			}
 
 			if(!getEventStatus(2,0) && isEventActive(2, 0)) {
 				if (!promptSpawned) {
-					prompt.text = "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!";
+					prompt.text = "The bunker generator was broken! Find The Replacement!";
 					promptSpawned = true;
 					GeneratorScript.isActive = false;
-				} 
-				if (GeneratorScript.carrying) {
+				}
+
+				if (generator.GetComponent<GeneratorScript>().carrying) {
+					generator.Hide();
 					moveOn(2, 0);
+					setActiveEvent(2, 1, true);
 					promptSpawned = false;
 				}
 			}
@@ -522,7 +547,12 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "Find the Old Generator in the Bunker";
 					promptSpawned = true;
 				}
-				generator.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 1, player.transform.position.z + 3);
+
+				if (newGennyPlaced)
+				{
+					moveOn(2, 1);
+					promptSpawned = false;
+				}
 			}
 			else if(!getEventStatus(2,2) && isEventActive(2, 2)) {
 				if (!promptSpawned) {
@@ -530,7 +560,18 @@ public class Event_Manager : SerializedMonoBehaviour
 					promptSpawned = true;
 					GeneratorScript.eventIsActive = true;
 				} 
-				if(gennyReplaced) { moveOn(2, 2); }
+
+				if(gennyReplaced)
+				{
+					generator.View();
+					//generator.transform.Equals(brokenGenerator.transform);
+					generator.transform.position = brokenGenerator.transform.position;
+					generator.transform.rotation = brokenGenerator.transform.rotation;
+					brokenGenerator.Hide();
+					ButtonPrompt.promptActive = false;
+					promptSpawned = false;
+					moveOn(2, 2);
+				}
 			}
 		}
 		else if (eventRoundProgress >= 3 && !getEventStatus(2, 2)) {
