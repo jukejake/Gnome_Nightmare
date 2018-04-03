@@ -9,8 +9,8 @@ public class GeneratorScript : MonoBehaviour {
 	public bool isNew;
 	public static bool isActive = true;     //	false means that the generator is broken
 	public static bool eventIsActive = false;
-	public bool carrying = false;
 	public static float timer = 10.0f;
+	private GameObject smokeSpawn;
 	private bool smokeSpawned = false;
 	private bool promptSpawned = false;
 
@@ -24,7 +24,7 @@ public class GeneratorScript : MonoBehaviour {
 		{
 			if (!smokeSpawned)
 			{
-				Instantiate(smokeParticles, transform);
+				smokeSpawn = Instantiate(smokeParticles, transform);
 				smokeSpawned = true;
 			}
 		}
@@ -34,16 +34,7 @@ public class GeneratorScript : MonoBehaviour {
 	{
 		if (collision.gameObject.name == "Player" && eventIsActive)
 		{
-			if(!isNew && !carrying)
-			{
-				if (!promptSpawned)
-				{
-					bPrompt.text = "This Generator is Broken, Find The Replacement...";
-					promptSpawned = true;
-					ButtonPrompt.promptActive = true;
-				}
-			}
-			else if (!isNew && carrying)
+			if (!isNew && Event_Manager.instance.carrying)
 			{
 				Event_Manager.instance.newGennyPlaced = true;
 			}
@@ -56,21 +47,23 @@ public class GeneratorScript : MonoBehaviour {
 		{
 			if (!isNew && Event_Manager.isEventActive(2, 2))
 			{
-				if (timer <= 10.0f && timer >= 0.0f)
+				if (timer <= 10.0f && timer > 0.0f)
 				{
 					timer -= Time.deltaTime;
-					bPrompt.text = timer.ToString();
+					bPrompt.text = "Repair Time: " + timer.ToString()[0] + timer.ToString()[1] + timer.ToString()[2] + timer.ToString()[3] + "s";
 				}
-				else if (timer < 0.0f)
-				{
-					Event_Manager.gennyReplaced = true;
-					Destroy(smokeParticles);
+				else if (timer <= 0.0f)
+				{			
+					Destroy(smokeSpawn);
 					smokeSpawned = false;
+					Event_Manager.instance.gennyReplaced = true;
+					timer = 0.0f;
+					bPrompt.text = "";
 				}
 			}
 			else
 			{
-				if (!promptSpawned && !ButtonPrompt.promptActive && !carrying)
+				if (!promptSpawned && !Event_Manager.instance.carrying && isNew)
 				{
 					bPrompt.text = "Press 'E' to Carry";
 					promptSpawned = true;
@@ -82,7 +75,7 @@ public class GeneratorScript : MonoBehaviour {
 					bPrompt.text = "";
 					promptSpawned = false;
 					ButtonPrompt.promptActive = false;
-					carrying = true;
+					Event_Manager.instance.carrying = true;
 				}
 			}
 		}

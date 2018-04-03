@@ -100,11 +100,12 @@ public class Event_Manager : SerializedMonoBehaviour
 	public bool playerInEntranceBoundary = false;
 	public bool playerInGRBoundary = false;
 	public bool newGennyPlaced = false;
+	public bool gennyReplaced = false;
 	public int eventRoundProgress = 0;  // how many rounds passed since event started
+	public bool carrying = false;
 	public static int fireCount = 0;   // current fire count for the barn fire
 	public static int nextEventRound = 0;  //	0 just for initialization
 	public static int active = 100;   // 100 for null (essentially, not literally)
-	public static bool gennyReplaced = false;
 	public static bool fireFailed = false;
 	private bool fireSpawned = false;
 	private bool bunkerFlooded = false;
@@ -251,7 +252,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			} 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0)) {
 				if (!promptSpawned) {
-					prompt.text = "The Gnomes set the Barn on Fire! Find The Fire Extinguisher!";
+					prompt.text = "The gnomes set the barn on fire! Find the fire extinguisher!";
 					promptSpawned = true;
 				} 
                 Component[] Slots;
@@ -275,7 +276,7 @@ public class Event_Manager : SerializedMonoBehaviour
                 }
 			}
 			else if (!getEventStatus(0, 1) && isEventActive(0, 1)) {
-				prompt.text = "Put Out All of the Fires. " + fireCount + "/" + fireCountMax + " Remaining";
+				prompt.text = "Put out all of the fires. " + fireCount + "/" + fireCountMax + " Remaining";
 				promptSpawned = true; 
 				// check if all of the fires have been put out
 				if (fireCount < 1) {
@@ -319,7 +320,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			} 
 			if (!getEventStatus(0, 0) && isEventActive(0, 0)) {
 				if (!promptSpawned) {
-					prompt.text = "The Gnomes set the Barn on Fire! Find The Fire Extinguisher!";
+					prompt.text = "The gnomes set the barn on fire! Find the fire extinguisher!";
 					promptSpawned = true;
 				} 
                 Component[] Slots;
@@ -347,7 +348,7 @@ public class Event_Manager : SerializedMonoBehaviour
                 }
 			}
 			else if (!getEventStatus(0, 1) && isEventActive(0, 1)) {
-				prompt.text = "Put Out All of the Fires. " + fireCount + "/" + fireCountMax + " Remaining";
+				prompt.text = "Put out all of the fires. " + fireCount + "/" + fireCountMax + " Remaining";
 				promptSpawned = true; 
 				// check if all of the fires have been put out
 				if (fireCount < 1) {
@@ -392,7 +393,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			if (!getEventStatus(1, 0) && isEventActive(1, 0)) {
 				// check if a player is in the bunker space
 				if (!promptSpawned) {
-					prompt.text = "The Gnomes Shut the Power Off! Get to the Bunker!";
+					prompt.text = "The gnomes shut the power off! Get to the bunker!";
 					promptSpawned = true;
 				}
 				//Debug.Log("player is in boundary " + playerInEntranceBoundary); 
@@ -405,7 +406,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 1) && isEventActive(1, 1)) {
 				// check if a player has reached the generator room
 				if (!promptSpawned) {
-					prompt.text = "Find The Power Room";
+					prompt.text = "Find the power room";
 					promptSpawned = true;
 				} 
 				if (playerInGRBoundary) {
@@ -416,7 +417,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 2) && isEventActive(1, 2)) {
 				// check the generator status
 				if (!promptSpawned) {
-					prompt.text = "Activate The Power Switch";
+					prompt.text = "Activate the power switch";
 					promptSpawned = true;
 				} 
 				if (PowerScript.isActive) {
@@ -459,7 +460,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			if (!getEventStatus(1, 0) && isEventActive(1, 0)) {
 				// check if a player is in the bunker space
 				if (!promptSpawned) {
-					prompt.text = "The Gnomes Shut the Power Off! Get to the Bunker!";
+					prompt.text = "The gnomes shut the power off! Get to the bunker!";
 					promptSpawned = true;
 				}
 				//Debug.Log("player is in boundary " + playerInEntranceBoundary); 
@@ -474,7 +475,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 1) && isEventActive(1, 1)) {
 				// check if a player has reached the generator room
 				if (!promptSpawned) {
-					prompt.text = "Find The Power Room";
+					prompt.text = "Find the power room";
 					promptSpawned = true;
 				} 
 				if (playerInGRBoundary) {
@@ -487,7 +488,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			else if (!getEventStatus(1, 2) && isEventActive(1, 2)) {
 				// check the generator status
 				if (!promptSpawned) {
-					prompt.text = "Activate The Power Switch";
+					prompt.text = "Activate the power switch";
 					promptSpawned = true;
 				} 
 				if (PowerScript.isActive) {
@@ -530,12 +531,12 @@ public class Event_Manager : SerializedMonoBehaviour
 
 			if(!getEventStatus(2,0) && isEventActive(2, 0)) {
 				if (!promptSpawned) {
-					prompt.text = "The bunker generator was broken! Find The Replacement!";
+					prompt.text = "The bunker generator was broken! Find the replacement!";
 					promptSpawned = true;
 					GeneratorScript.isActive = false;
 				}
 
-				if (generator.GetComponent<GeneratorScript>().carrying) {
+				if (carrying) {
 					generator.Hide();
 					moveOn(2, 0);
 					setActiveEvent(2, 1, true);
@@ -544,7 +545,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			}
 			else if(!getEventStatus(2,1) && isEventActive(2, 1)) {
 				if (!promptSpawned) {
-					prompt.text = "Find the Old Generator in the Bunker";
+					prompt.text = "Find the old generator in the bunker";
 					promptSpawned = true;
 				}
 
@@ -556,7 +557,7 @@ public class Event_Manager : SerializedMonoBehaviour
 			}
 			else if(!getEventStatus(2,2) && isEventActive(2, 2)) {
 				if (!promptSpawned) {
-					prompt.text = "Stand by the Generator to Replace it";
+					prompt.text = "Stand by the generator to replace it";
 					promptSpawned = true;
 					GeneratorScript.eventIsActive = true;
 				} 
@@ -565,12 +566,29 @@ public class Event_Manager : SerializedMonoBehaviour
 				{
 					generator.View();
 					//generator.transform.Equals(brokenGenerator.transform);
-					generator.transform.position = brokenGenerator.transform.position;
-					generator.transform.rotation = brokenGenerator.transform.rotation;
-					brokenGenerator.Hide();
+					//generator.transform.position = brokenGenerator.transform.position;
+					//generator.transform.rotation = brokenGenerator.transform.rotation;
+					//brokenGenerator.Hide();
 					ButtonPrompt.promptActive = false;
 					promptSpawned = false;
 					moveOn(2, 2);
+				}
+			}
+			else if(getEventStatus(2,2) && isEventActive(2, 2))
+			{
+				if (KeepTime == 0.0f)
+				{
+					prompt.text = "You Stopped The Bunker From Flooding!";
+					KeepTime += RepeatEvery;
+				}
+				else if (KeepTime < 5.0f) { KeepTime += RepeatEvery; }
+				else if (KeepTime >= 5.0f && KeepTime < 6.0f + RepeatEvery)
+				{
+					prompt.text = "";
+					KeepTime = 6.0f;
+					active = 100;
+					resetEvent(2);
+					hasEventSetActive = false;
 				}
 			}
 		}
