@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfAmmo: 1
-  Amount: 1000
+  Amount: 100
   AmountText: {fileID: 1962649429117938}
 --- !u!114 &114471345104224192
 MonoBehaviour:

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats {
 
@@ -11,6 +12,7 @@ public class PlayerStats : CharacterStats {
     private int Downs = 0;
 
     private Transform HealthBarObj;
+    private Text ScoreBox;
 
     public bool isDead = false;
     public float TotalHealth;
@@ -83,6 +85,8 @@ public class PlayerStats : CharacterStats {
             Health = new Vector3(1.0f - (v_Health), 1.0f, 1.0f);
             HealthBarObj.GetChild(2).GetComponent<RectTransform>().transform.localScale = Health;
         }
+        if (ScoreBox == null) { if (GameObject.Find("Score box")) { ScoreBox = GameObject.Find("Score box").GetComponent<Text>(); } }
+        else if (ScoreBox != null) { ScoreBox.text = "Money: " + Points.ToString(); }
         //if (this.gameObject.transform.Find("HealthBarTop")) {
         //    float v_Health = CurrentHealth / MaxHealth;
         //    v_Health = Mathf.Clamp(v_Health, 0.0f, 1.0f);

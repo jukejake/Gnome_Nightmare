@@ -911,7 +911,7 @@ MonoBehaviour:
   AudioOnDamage: {fileID: 82184071374545834}
   AudioOverTime: {fileID: 0}
   Experience: 3
-  Points: 1
+  Points: 3
   isDead: 0
   Health_Bar: {fileID: 224163645501428916}
 --- !u!114 &114527805361495096

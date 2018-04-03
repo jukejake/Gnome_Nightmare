@@ -219,6 +219,9 @@ MonoBehaviour:
   Rotation: 0
   Health: 0
   CantDie: 0
+  TargetPos: {x: 0, y: 0, z: 0}
+  TargetRot: {x: 0, y: 0, z: 0}
+  LerpSpeed: 0.2
 --- !u!114 &114261767340886538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,7 +386,7 @@ MonoBehaviour:
   s_bullet: {fileID: 0}
   s_BulletSpeed: 0
   AimingHitscan: 0
-  HealingAmount: 10
+  HealingAmount: 13
   FireSound: {fileID: 0}
   ImpactSound: {fileID: 0}
   ReloadSound: {fileID: 0}

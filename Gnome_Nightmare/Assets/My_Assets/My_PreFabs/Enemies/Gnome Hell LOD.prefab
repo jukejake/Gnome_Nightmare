@@ -939,6 +939,7 @@ MonoBehaviour:
   Health: 1
   CantDie: 0
   TargetPos: {x: 0, y: 0, z: 0}
+  TargetRot: {x: 0, y: 0, z: 0}
   LerpSpeed: 0.1
 --- !u!114 &114507640716121764
 MonoBehaviour:
@@ -1028,7 +1029,8 @@ MonoBehaviour:
   AudioOnDamage: {fileID: 82405198492694628}
   AudioOverTime: {fileID: 0}
   Experience: 3
-  Points: 1
+  Points: 5
+  isDead: 0
   Health_Bar: {fileID: 224533505384740582}
 --- !u!114 &114925436806763628
 MonoBehaviour:
