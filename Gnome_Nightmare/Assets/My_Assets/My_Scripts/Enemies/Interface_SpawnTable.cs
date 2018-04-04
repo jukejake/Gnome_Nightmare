@@ -52,8 +52,6 @@ namespace EnemySpawners {
                 //ActivateAllSpawnersInCurrentRound();
             }
         }
-        
-    
     
         //Updates the UI and re-activates spawners at the end of the round
         public void UpdateUI() {
@@ -154,7 +152,7 @@ namespace EnemySpawners {
         //Activates all spawners in current round
         public void ActivateAllSpawnersInCurrentRound() {
             CurrentLevel += 1;
-
+			HellRoundUIColorChange.doCheck = true;
             if (Event_Manager.instance != null) { Event_Manager.instance.eventRoundProgress++; }
 
             //Goes through each spawner and sets the them to deactive
