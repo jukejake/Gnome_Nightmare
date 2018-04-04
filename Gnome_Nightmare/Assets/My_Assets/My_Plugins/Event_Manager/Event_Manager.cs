@@ -147,7 +147,7 @@ public class Event_Manager : SerializedMonoBehaviour
         // check if the current round = anticpated event round
 		if (Islonely) {
             if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
-				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4) { active = 0; }
+				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4) { active = 1; }
 				else {	//	ensure that an event is not done twice in a row
 					active = getNextEvent();
 					if (getLastEvent() == active)
@@ -171,7 +171,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					}
 				}
                 eventRoundProgress = 0;
-                nextEventRound = genNextEventInfo(3, 6) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
+                nextEventRound = genNextEventInfo(3, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
                 Debug.Log("Round next event will happen: " + nextEventRound);
                 Debug.Log("Next event: " + getNextEvent());
             }
