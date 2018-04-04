@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (MenuTimer > 0.0f) { MenuTimer -= Time.deltaTime; return; }
+        if (MenuTimer > 0.0f) { MenuTimer -= Time.fixedDeltaTime; return; }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
 
         if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
@@ -164,6 +164,8 @@ public class PlayerManager : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             MenuTimer = 0.3f;
             MenuOpen = true;
+            Time.timeScale = 0.10f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
     }
     private void CloseCheckTag(Collider other) {
@@ -172,6 +174,8 @@ public class PlayerManager : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             MenuTimer = 0.3f;
             MenuOpen = false;
+            Time.timeScale = 01.0f;
+            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
     }
 
@@ -276,4 +280,5 @@ public class PlayerManager : MonoBehaviour {
         }
         else { return false; }
     }
+
 }
