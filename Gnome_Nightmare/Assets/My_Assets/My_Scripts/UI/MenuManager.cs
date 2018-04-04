@@ -147,7 +147,7 @@ public class MenuManager : MonoBehaviour {
         }
 
         //Select Item by Key [1,2,3,4,5,6]
-        for (int i = 0; i < 6; i++) {
+        for (int i = 01; i < 7; i++) {
             if (Input.GetKeyDown(i.ToString())) {
                 if (Inventory_Slot.transform.childCount < i) { return; }
                 CurrentSlot = (i-1);
