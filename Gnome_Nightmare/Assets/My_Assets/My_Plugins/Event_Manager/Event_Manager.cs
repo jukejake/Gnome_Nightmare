@@ -148,43 +148,64 @@ public class Event_Manager : SerializedMonoBehaviour
 		if (Islonely) {
             if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4) { active = 0; }
-				else { active = getNextEvent(); }
+				else {	//	ensure that an event is not done twice in a row
+					active = getNextEvent();
+					if (getLastEvent() == active)
+					{
+						if (active == 0)
+						{
+							active = UnityEngine.Random.Range(1, 2);
+						}
+						else if (active == 1)
+						{
+							active = UnityEngine.Random.Range(0, 2);
+							if (active == 1)
+							{
+								active = 0;
+							}
+						}
+						else if (active == 2)
+						{
+							active = UnityEngine.Random.Range(0, 1);
+						}
+					}
+				}
                 eventRoundProgress = 0;
-                nextEventRound = genNextEventInfo(2, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
+                nextEventRound = genNextEventInfo(3, 6) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
                 Debug.Log("Round next event will happen: " + nextEventRound);
                 Debug.Log("Next event: " + getNextEvent());
             }
 
             if (active == 0) { FireEvent(); }
             else if (active == 1) { OutageEvent(); }
-            //else if (active == 2) { FloodedEvent(); }
+            else if (active == 2) { FloodedEvent(); }
         }
 		else if (IsServer) { 
 		    // check if the current round = anticpated event round
 		    if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
 		    	active = getNextEvent();
                 eventRoundProgress = 0;
-		    	nextEventRound = genNextEventInfo(2, 4) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
+		    	nextEventRound = genNextEventInfo(3, 6) + EnemySpawners.Interface_SpawnTable.instance.CurrentLevel;
 		    	Debug.Log("Round next event will happen: " + nextEventRound);
 		    	Debug.Log("Next event: " + getNextEvent());
             }
 
             if (active == 0) { FireEvent_Server(); }
             else if (active == 1) { OutageEvent_Server(); }
-            //else if (active == 2) { FloodedEvent_Server(); }
+            else if (active == 2) { FloodedEvent_Server(); }
         }
         else if (!IsServer && !Islonely) {
             if (Tutorial_Manager.instance.Stage == nextEventRound) {
                 active = getNextEvent();
                 eventRoundProgress = 0;
-                nextEventRound = genNextEventInfo(2, 4) + Tutorial_Manager.instance.Stage;
+                nextEventRound = genNextEventInfo(3, 6) + Tutorial_Manager.instance.Stage;
                 Debug.Log("Round next event will happen: " + nextEventRound);
                 Debug.Log("Next event: " + getNextEvent());
             }
 
             if (active == 0) { FireEvent(); }
             else if (active == 1) { OutageEvent(); }
-            //else if (active == 2) { FloodedEvent(); }
+            else if (active == 2) { FloodedEvent(); }
         }
 
 
@@ -289,6 +310,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime = 20.0f + RepeatEvery;
 					active = 100;
 					resetEvent(0);
+					fireSpawned = false;
 				}
 			}
 		}
@@ -296,7 +318,8 @@ public class Event_Manager : SerializedMonoBehaviour
         else if (eventRoundProgress >= 3 && !getEventStatus(0, 1)) {
 			active = 100;
 			fireFailed = true;
-			barnBarrier.GetComponent<Collider>().isTrigger = false;
+			fireSpawned = false;
+			//barnBarrier.GetComponent<Collider>().isTrigger = false;
 		}
 	}
     private void FireEvent_Server() {
@@ -362,6 +385,7 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime = 20.0f + RepeatEvery;
 					active = 100;
 					resetEvent(0);
+					fireSpawned = false;
 				}
 			}
 		}
@@ -369,6 +393,7 @@ public class Event_Manager : SerializedMonoBehaviour
         else if (eventRoundProgress >= 3 && !getEventStatus(0, 1)) {
 			active = 100;
 			fireFailed = true;
+			fireSpawned = false;
 			//barnBarrier.GetComponent<Collider>().isTrigger = false;
 		}
 	}
@@ -554,21 +579,17 @@ public class Event_Manager : SerializedMonoBehaviour
 					prompt.text = "Stand by the generator to replace it";
 					promptSpawned = true;
 					GeneratorScript.eventIsActive = true;
-				} 
-
+				}
+				Debug.Log(gennyReplaced);
 				if(gennyReplaced)
 				{
 					generator.View();
-					//generator.transform.Equals(brokenGenerator.transform);
-					//generator.transform.position = brokenGenerator.transform.position;
-					//generator.transform.rotation = brokenGenerator.transform.rotation;
-					//brokenGenerator.Hide();
 					ButtonPrompt.promptActive = false;
 					promptSpawned = false;
 					moveOn(2, 2);
 				}
 			}
-			else if(getEventStatus(2,2) && isEventActive(2, 2))
+			else if(getEventStatus(2,2) && !isEventActive(2, 2))
 			{
 				if (KeepTime == 0.0f)
 				{
@@ -583,12 +604,18 @@ public class Event_Manager : SerializedMonoBehaviour
 					active = 100;
 					resetEvent(2);
 					hasEventSetActive = false;
+					gennyReplaced = false;
+					newGennyPlaced = false;
 				}
 			}
 		}
 		else if (eventRoundProgress >= 3 && !getEventStatus(2, 2)) {
 			active = 100;
 			floodedFailed = true;
+			resetEvent(2);
+			hasEventSetActive = false;
+			gennyReplaced = false;
+			newGennyPlaced = false;
 		}
 	}
     private void FloodedEvent_Server() {
@@ -631,19 +658,19 @@ public class Event_Manager : SerializedMonoBehaviour
 		setImmediateChild(1, 2, 1);
 		setLast(1, 2);
 
-		//// flooded event
-		//createEventSet();
-		//setEventSetName(2, "Flooded");
-		//newEvent(2);
-		//setEventName(2, 0, "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!");
-		//setParent(2, 0, -1);
-		//newEvent(2);
-		//setEventName(2, 1, "Find the Old Generator in the Bunker");
-		//setImmediateChild(2, 1, 0);
-		//newEvent(2);
-		//setEventName(2, 2, "Stand by the Generator to Replace it");
-		//setImmediateChild(2, 2, 1);
-		//setLast(2, 2);
+		// flooded event
+		createEventSet();
+		setEventSetName(2, "Flooded");
+		newEvent(2);
+		setEventName(2, 0, "The Gnomes Broke The Pump Generator In The Bunker! Find The Replacement!");
+		setParent(2, 0, -1);
+		newEvent(2);
+		setEventName(2, 1, "Find the Old Generator in the Bunker");
+		setImmediateChild(2, 1, 0);
+		newEvent(2);
+		setEventName(2, 2, "Stand by the Generator to Replace it");
+		setImmediateChild(2, 2, 1);
+		setLast(2, 2);
 	}
 
 	private void createAchievements() {

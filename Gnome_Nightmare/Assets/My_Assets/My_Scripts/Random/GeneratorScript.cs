@@ -18,6 +18,10 @@ public class GeneratorScript : MonoBehaviour {
 	void Update () {
 		if (!isNew && isActive)
 		{
+			if (smokeSpawned)
+			{
+				Destroy(smokeSpawn);
+			}
 			//	play generator sound
 		}
 		else if(!isNew && !isActive)
@@ -56,9 +60,9 @@ public class GeneratorScript : MonoBehaviour {
 				{			
 					Destroy(smokeSpawn);
 					smokeSpawned = false;
-					Event_Manager.instance.gennyReplaced = true;
 					timer = 0.0f;
 					bPrompt.text = "";
+					Event_Manager.instance.gennyReplaced = true;
 				}
 			}
 			else

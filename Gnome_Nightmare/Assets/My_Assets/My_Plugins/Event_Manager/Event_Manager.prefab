@@ -669,6 +669,8 @@ MonoBehaviour:
   playerInEntranceBoundary: 0
   playerInGRBoundary: 0
   newGennyPlaced: 0
+  gennyReplaced: 0
   eventRoundProgress: 0
+  carrying: 0
   StartIn: 1
   RepeatEvery: 1

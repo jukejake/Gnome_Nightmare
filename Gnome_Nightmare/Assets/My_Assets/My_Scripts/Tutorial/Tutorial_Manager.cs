@@ -81,7 +81,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     T_BunkerFog.name = BunkerFog.name;
 
                     SpawnManager.ToggleAll = true;
-                    EventPrompt.text = "Look around the Barn.";
+                    EventPrompt.text = "Leave the barn";
                     Counter = 0;
 
                     break;
@@ -113,7 +113,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the Barn.";
+                        EventPrompt.text = "Gnomes are attacking the barn";
                         Counter = 0;
                         Stage = 2;
                         Server_Manager.instance.SendData("&TS1|");
@@ -128,7 +128,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        EventPrompt.text = "Look through the House.";
+                        EventPrompt.text = "Find the computer and access RainForest";
                         Counter = 0;
                         Stage = 3;
                         Server_Manager.instance.SendData("&TS2|");
@@ -169,7 +169,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the House.";
+                        EventPrompt.text = "Gnomes are attacking the house";
                         Counter = 0;
                         Stage = 5;
                         Server_Manager.instance.SendData("&TS4|");
@@ -184,7 +184,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        EventPrompt.text = "Look for the power switch in the Bunker.";
+                        EventPrompt.text = "Check on the power switch in the bunker";
                         Counter = 0;
                         Stage = 6;
                         Server_Manager.instance.SendData("&TS5|");
@@ -222,7 +222,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the Bunker.";
+                        EventPrompt.text = "Gnomes are attacking the bunker";
                         Counter = 0;
                         Stage = 8;
                         Server_Manager.instance.SendData("&TS7|");
@@ -292,7 +292,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     T_BunkerFog = (GameObject)Instantiate(BunkerFog);
                     T_BunkerFog.name = BunkerFog.name;
                     
-                    EventPrompt.text = "Look around the Barn.";
+                    EventPrompt.text = "Leave the barn";
                     Counter = 0;
 
                     break;
@@ -305,7 +305,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Stage = 1;
                         WaveClient = 1;
                         UpdateUI();
-                        EventPrompt.text = "Gnomes are attacking the Barn.";
+                        EventPrompt.text = "Gnomes are attacking the barn";
                         Counter = 0;
                     }
                     if (Counter < PromptTime) { Counter += 1; }
@@ -323,7 +323,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             }
             //Unlock House
             case 2: {
-                    EventPrompt.text = "Look through the House.";
+                    EventPrompt.text = "Find the computer and access RainForest";
                     Counter = 0;
                     Stage = 3;
                     T_HouseFog.SetActive(false);
@@ -344,7 +344,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Stage = 4;
                         WaveClient = 2;
                         UpdateUI();
-                        EventPrompt.text = "Gnomes are attacking the House.";
+                        EventPrompt.text = "Gnomes are attacking the house";
                         Counter = 0;
                     }
                     if (Counter < PromptTime) { Counter += 1; }
@@ -362,7 +362,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             }
             //Unlock Bunker
             case 5: {
-                    EventPrompt.text = "Look for the power switch in the Bunker.";
+                    EventPrompt.text = "Check on the power switch in the bunker";
                     Counter = 0;
                     Stage = 6;
                     T_BunkerFog.SetActive(false);
@@ -380,7 +380,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         Stage = 7;
                         WaveClient = 3;
                         UpdateUI();
-                        EventPrompt.text = "Gnomes are attacking the Bunker.";
+                        EventPrompt.text = "Gnomes are attacking the bunker";
                         Counter = 0;
                     }
                     if (Counter < PromptTime) { Counter += 1; }
@@ -440,7 +440,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     T_BunkerFog.name = BunkerFog.name;
 
                     SpawnManager.ToggleAll = true;
-                    EventPrompt.text = "Look around the Barn.";
+                    EventPrompt.text = "Leave the barn";
                     Counter = 0;
 
                     break;
@@ -471,7 +471,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the Barn.";
+                        EventPrompt.text = "Gnomes are attacking the barn";
                         Counter = 0;
                         Stage = 2;
                     }
@@ -485,7 +485,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        EventPrompt.text = "Look through the House.";
+                        EventPrompt.text = "Find the computer and access RainForest";
                         Counter = 0;
                         Stage = 3;
                         T_HouseFog.SetActive(false);
@@ -524,7 +524,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the House.";
+                        EventPrompt.text = "Gnomes are attacking the house";
                         Counter = 0;
                         Stage = 5;
                     }
@@ -538,7 +538,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                     if (OldLevel+1 == SpawnManager.CurrentLevel && OldLevel+1 == SpawnManager.OldLevel && SpawnManager.EverythingDead) {
                         OldLevel = SpawnManager.CurrentLevel;
                         SpawnManager.ToggleAll = true;
-                        EventPrompt.text = "Look for the power switch in the Bunker.";
+                        EventPrompt.text = "Check on the power switch in the bunker";
                         Counter = 0;
                         Stage = 6;
                         T_BunkerFog.SetActive(false);
@@ -574,7 +574,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         //Activate all spawners
                         SpawnManager.TimeBetweenRounds = 1.0f;
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
-                        EventPrompt.text = "Gnomes are attacking the Bunker.";
+                        EventPrompt.text = "Gnomes are attacking the bunker";
                         Counter = 0;
                         Stage = 8;
                     }

@@ -89551,8 +89551,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPrompt: {fileID: 114491893335059452}
-  smokeParticles: {fileID: 0}
-  isNew: 0
+  lights: {fileID: 0}
+  computer: {fileID: 114941703338711046}
+  GreenLight: {fileID: 114692508664589454}
+  RedLight: {fileID: 114977125366605490}
 --- !u!114 &114579403557004430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130607,7 +130609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 250}
+  m_AnchoredPosition: {x: 471, y: 340.00006}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224348221006408956
@@ -131455,7 +131457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 200}
+  m_AnchoredPosition: {x: 471.00006, y: 290}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224550969413731080
