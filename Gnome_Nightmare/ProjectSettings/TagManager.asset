@@ -16,6 +16,7 @@ TagManager:
   - Fire_Spawn
   - Enemy
   - Enemies_Spawn_Here
+  - Cinemechine_Trigger
   layers:
   - Default
   - TransparentFX
