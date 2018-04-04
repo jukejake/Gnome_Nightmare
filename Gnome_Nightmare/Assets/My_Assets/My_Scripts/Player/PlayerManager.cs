@@ -18,8 +18,6 @@ public class PlayerManager : MonoBehaviour {
     private GameObject InventorySlot;
     private Color color = UnityEngine.Color.white;
 
-    public AudioSource PickupSound;
-
     private void Start() {
         Invoke("DelayedStart", 0.1f);
         InvokeRepeating("UpdateSlow", 1.0f, 1.0f);
@@ -119,8 +117,6 @@ public class PlayerManager : MonoBehaviour {
                         DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount - 1; //has a chance that and additional ammo can be added into the inventory
                     }
                     Destroy(other.gameObject);
-
-                    if (PickupSound != null) { PickupSound.Play(); }
                 }
             }
         }
@@ -204,8 +200,6 @@ public class PlayerManager : MonoBehaviour {
                     DropA.NumberOfSlotsFilled = menuManager.Ammo_Slot.transform.childCount - 1; //has a chance that and additional ammo can be added into the inventory
                 }
                 Destroy(other.gameObject);
-
-                if (PickupSound != null) { PickupSound.Play(); }
             }
         }
         //If the player has room in their inventory, pick up the item
@@ -228,8 +222,6 @@ public class PlayerManager : MonoBehaviour {
 
             //Destroy item on ground
             Destroy(other.gameObject);
-
-            if (PickupSound != null) { PickupSound.Play(); }
         }
     }
 

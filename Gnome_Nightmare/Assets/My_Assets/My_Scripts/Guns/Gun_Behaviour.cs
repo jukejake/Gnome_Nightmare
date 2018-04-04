@@ -224,7 +224,6 @@ public class Gun_Behaviour : SerializedMonoBehaviour {
     private void HealthItems_Update() {
         if ((Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
             playerManager.player.GetComponent<PlayerStats>().HealAmount(HealingAmount);
-			FireSound.Play();
             Destroy(menuManager.Weapon_Slot.transform.GetChild(0).gameObject);
             Destroy(this.gameObject);
         }
