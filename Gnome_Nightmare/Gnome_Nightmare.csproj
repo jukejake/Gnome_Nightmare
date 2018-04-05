@@ -414,6 +414,7 @@
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo\Cinemechine_Camera_Trigger.cs" />
+    <Compile Include="Assets\My_Assets\My_PreFabs\Guns\Ammo\Soundwhenhit.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\Particles\Fire.cs" />
     <Compile Include="Assets\My_Assets\My_PreFabs\UI\Load_Menu.cs" />
     <Compile Include="Assets\My_Assets\My_Scripts\AudioManager.cs" />
