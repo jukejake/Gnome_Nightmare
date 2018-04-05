@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (MenuTimer > 0.0f) { MenuTimer -= Time.fixedDeltaTime; return; }
+        if (MenuTimer > 0.0f) { MenuTimer -= Time.fixedUnscaledDeltaTime; return; }
         else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
 
         if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
@@ -175,7 +175,7 @@ public class PlayerManager : MonoBehaviour {
             MenuTimer = 0.3f;
             MenuOpen = false;
             Time.timeScale = 01.0f;
-            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
     }
 

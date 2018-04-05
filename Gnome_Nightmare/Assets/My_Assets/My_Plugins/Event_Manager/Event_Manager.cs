@@ -95,7 +95,8 @@ public class Event_Manager : SerializedMonoBehaviour
 	public GameObject barnBarrier;
 	public GameObject bunkerEntrance;
 	public GameObject generatorRoom;
-	public UnHide generator;
+    public UnHide Flood;
+    public UnHide generator;
 	public UnHide brokenGenerator;
 	public bool playerInEntranceBoundary = false;
 	public bool playerInGRBoundary = false;
@@ -147,7 +148,7 @@ public class Event_Manager : SerializedMonoBehaviour
         // check if the current round = anticpated event round
 		if (Islonely) {
             if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == nextEventRound) {
-				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4) { active = 1; }
+				if (EnemySpawners.Interface_SpawnTable.instance.CurrentLevel == 4) { active = 0; }
 				else {	//	ensure that an event is not done twice in a row
 					active = getNextEvent();
 					if (getLastEvent() == active)
@@ -450,9 +451,9 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime += RepeatEvery;
 				}
 				else if (KeepTime < 5.0f) { KeepTime += RepeatEvery; }
-				else if (KeepTime >= 5.0f && KeepTime < 6.0f + RepeatEvery) {
+				else if (KeepTime >= 5.0f && KeepTime < (6.0f + RepeatEvery)) {
 					prompt.text = "";
-					KeepTime = 6.0f;
+					KeepTime = 6.0f + RepeatEvery;
 					active = 100;
 					resetEvent(1);
 					hasEventSetActive = false;
@@ -522,9 +523,9 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime += RepeatEvery;
 				}
 				else if (KeepTime < 5.0f) { KeepTime += RepeatEvery; }
-				else if (KeepTime >= 5.0f && KeepTime < 6.0f + RepeatEvery) {
+				else if (KeepTime >= 5.0f && KeepTime < (6.0f + RepeatEvery)) {
 					prompt.text = "";
-					KeepTime = 6.0f;
+					KeepTime = 6.0f + RepeatEvery;
 					active = 100;
 					resetEvent(1);
 					hasEventSetActive = false;
@@ -597,15 +598,16 @@ public class Event_Manager : SerializedMonoBehaviour
 					KeepTime += RepeatEvery;
 				}
 				else if (KeepTime < 5.0f) { KeepTime += RepeatEvery; }
-				else if (KeepTime >= 5.0f && KeepTime < 6.0f + RepeatEvery)
+				else if (KeepTime >= 5.0f && KeepTime < (6.0f + RepeatEvery))
 				{
 					prompt.text = "";
-					KeepTime = 6.0f;
+					KeepTime = 6.0f + RepeatEvery;
 					active = 100;
 					resetEvent(2);
 					hasEventSetActive = false;
 					gennyReplaced = false;
 					newGennyPlaced = false;
+                    GeneratorScript.isActive = true;
 				}
 			}
 		}
@@ -616,7 +618,9 @@ public class Event_Manager : SerializedMonoBehaviour
 			hasEventSetActive = false;
 			gennyReplaced = false;
 			newGennyPlaced = false;
-		}
+            Flood.View();
+
+        }
 	}
     private void FloodedEvent_Server() {
         //Needs to be updated with 

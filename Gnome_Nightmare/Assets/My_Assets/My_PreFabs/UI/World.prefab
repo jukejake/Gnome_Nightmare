@@ -81071,7 +81071,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114892941488621878}
         m_MethodName: CheckCombinations
         m_Mode: 1
         m_Arguments:
@@ -83768,7 +83768,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114892941488621878}
         m_MethodName: CloseCraftingTable
         m_Mode: 1
         m_Arguments:
@@ -90998,12 +90998,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b596fd10a0693458fc9f8f7705bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Output_Slot: {fileID: 0}
-  Modifier_Slot: {fileID: 0}
-  Combined_First_Slot: {fileID: 0}
-  Combined_Second_Slot: {fileID: 0}
-  Disassemble_First_Slot: {fileID: 0}
-  Disassemble_Second_Slot: {fileID: 0}
+  Output_Slot: {fileID: 1713306842936986}
+  Modifier_Slot: {fileID: 1119902675107200}
+  Combined_First_Slot: {fileID: 1442745912922694}
+  Combined_Second_Slot: {fileID: 1490921095146960}
+  Disassemble_First_Slot: {fileID: 1268199462023202}
+  Disassemble_Second_Slot: {fileID: 1600796423878256}
 --- !u!114 &114612035085251616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94736,7 +94736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114892941488621878}
         m_MethodName: CheckDisassemble
         m_Mode: 1
         m_Arguments:

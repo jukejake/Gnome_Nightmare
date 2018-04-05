@@ -44,7 +44,7 @@ public class Crafting_Table : SerializedMonoBehaviour {
     void Update() {
         if (menuManager == null) { menuManager = MenuManager.instance; }
         if (IsCrafting) {
-            if (timer > 0.0f) { timer -= Time.fixedDeltaTime; }
+            if (timer > 0.0f) { timer -= Time.fixedUnscaledDeltaTime; }
             LeftJoystickPlacement();
         }
     }
@@ -59,7 +59,7 @@ public class Crafting_Table : SerializedMonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
 
         Time.timeScale = 0.10f;
-        //Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
 
     public void CloseCraftingTable() {

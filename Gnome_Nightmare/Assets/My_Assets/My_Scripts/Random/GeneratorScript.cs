@@ -58,8 +58,8 @@ public class GeneratorScript : MonoBehaviour {
 				}
 				else if (timer <= 0.0f)
 				{			
-					Destroy(smokeSpawn);
-					smokeSpawned = false;
+					//Destroy(smokeSpawn);
+					//smokeSpawned = false;
 					timer = 0.0f;
 					bPrompt.text = "";
 					Event_Manager.instance.gennyReplaced = true;
