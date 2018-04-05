@@ -136,7 +136,7 @@ public class Agent : SerializedMonoBehaviour {
         //[~] Destroy [#|] Agent ID
         string temp = ("~#" + AgentNumber.ToString() + "|");
 
-        Debug.Log(temp + " died");
+        //Debug.Log(temp + " died");
 
         if (client) { client.SendData(temp); }
         if (server) { server.SendData(temp); }

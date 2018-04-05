@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c9963c4662cde49a8d401e4b3c0df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 3
+  MaxHealth: 1.5
   CurrentHealth: 0
   Damage:
     stat: 1
@@ -955,6 +955,7 @@ MonoBehaviour:
   AudioOverTime: {fileID: 0}
   Experience: 3
   Points: 1
+  isDead: 0
   Health_Bar: {fileID: 224053919605714790}
 --- !u!114 &114556483793091112
 MonoBehaviour:
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   Health: 1
   CantDie: 0
   TargetPos: {x: 0, y: 0, z: 0}
+  TargetRot: {x: 0, y: 0, z: 0}
   LerpSpeed: 0.1
 --- !u!114 &114716237812920698
 MonoBehaviour:

@@ -5,9 +5,9 @@ public class PlayerStats : CharacterStats {
 
     public string PlayerName = "Player";
     private int PlayerLevel = 1;
-    private int PlayerExperience = 0;
+    private float PlayerExperience = 0;
     private int MaxExperienceForLevel = 10;
-    private int Points = 10;
+    private float Points = 50;
     private int Kills = 0;
     private int Downs = 0;
 
@@ -28,10 +28,10 @@ public class PlayerStats : CharacterStats {
     public void SetPlayerName(string name) { PlayerName = name; }
 
     //Points
-    public int GetPoints() { return Points; }
-    public void AddPoints(int amount) { Points += amount; }
-    public void UsePoints(int amount) { Points -= amount; }
-    public bool CheckPoints(int amount) {
+    public float GetPoints() { return Points; }
+    public void AddPoints(float amount) { Points += amount; }
+    public void UsePoints(float amount) { Points -= amount; }
+    public bool CheckPoints(float amount) {
         if (Points >= amount) { return true; }
         else { return false; }
     }
@@ -46,7 +46,7 @@ public class PlayerStats : CharacterStats {
 
     //Adds Experience to the player
     //If the player Experience is full, level up
-    public void AddExperience(int amount) {
+    public void AddExperience(float amount) {
         PlayerExperience += amount;
         if (PlayerExperience >= MaxExperienceForLevel) { PlayerLevelUp(); }
     }

@@ -103,7 +103,7 @@ namespace EnemySpawners {
                     //enemySpawnTable.spawners[i].LastAvtiveRound will be set as the current round... (only for this)
                     else if (CurrentLevel == (spawnerHub[i].EnemiesToSpawn[j].LastAvtiveRound) || (CurrentLevel == spawnerHub[i].EnemiesToSpawn[j].StartAt)) {
                         //counts amount of enemies to spawn multiplyed by number of waves in spawner
-                        EnemyCount += (spawnerHub[i].EnemiesToSpawn[j].StartingAmount + spawnerHub[i].EnemiesToSpawn[j].IncreasedAmount);
+                        EnemyCount += (int)(spawnerHub[i].EnemiesToSpawn[j].StartingAmount + spawnerHub[i].EnemiesToSpawn[j].IncreasedAmount);
                     }
                 }
             }

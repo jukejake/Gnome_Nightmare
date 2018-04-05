@@ -4,8 +4,8 @@ using UnityEngine.AI;
 
 public class EnemyStats : CharacterStats {
 
-    public int Experience = 1;
-    public int Points = 1;
+    public float Experience = 1;
+    public float Points = 1;
     public bool isDead = false;
     //public GameObject ParticlesOnDeath;
     public Transform Health_Bar;

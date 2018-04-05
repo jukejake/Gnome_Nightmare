@@ -290,7 +290,7 @@ MonoBehaviour:
       Data: 1
     - Name: baseValue
       Entry: 4
-      Data: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -302,7 +302,7 @@ MonoBehaviour:
       Data: 2
     - Name: baseValue
       Entry: 4
-      Data: 20
+      Data: 100
     - Name: 
       Entry: 8
       Data: 
@@ -314,7 +314,7 @@ MonoBehaviour:
       Data: 3
     - Name: baseValue
       Entry: 4
-      Data: 40
+      Data: 25
     - Name: 
       Entry: 8
       Data: 

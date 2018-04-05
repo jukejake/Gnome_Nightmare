@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/better_cinematic.unity
+- path: Assets/Scenes/Gnome_Nightmare.unity
   isLoaded: 1
   isActive: 1

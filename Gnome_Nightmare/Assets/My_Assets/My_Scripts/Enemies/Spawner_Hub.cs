@@ -52,10 +52,14 @@ namespace EnemySpawners {
         public PlayerInArea BunkerArea;
 
         //public List<GameObject> SpawnPositions = new List<GameObject>();
-        public List<GameObject> Barn_SP = new List<GameObject>();
-        public List<GameObject> House_SP = new List<GameObject>();
-        public List<GameObject> Bunker_SP = new List<GameObject>();
+        [TabGroup("Enemies", "Spawn", false, 0)]
         public List<Enemies> EnemiesToSpawn = new List<Enemies>(1);
+        [TabGroup("Enemies","Barn", false, 1)]
+        public List<GameObject> Barn_SP = new List<GameObject>();
+        [TabGroup("Enemies", "House", false, 2)]
+        public List<GameObject> House_SP = new List<GameObject>();
+        [TabGroup("Enemies", "Bunker", false, 3)]
+        public List<GameObject> Bunker_SP = new List<GameObject>();
 
 
         public void Update() {
@@ -95,7 +99,7 @@ namespace EnemySpawners {
 
                         GameObject tempObj = Instantiate(et.Enemy, Barn_SP[number].transform.position + RandomPosition, Barn_SP[number].transform.rotation);
                         tempObj.transform.SetParent(WorldEnenies.transform);
-                        et.IncreaseStats(tempObj);
+                        et.IncreaseStats(tempObj.GetComponent<EnemyStats>());
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
 
@@ -116,7 +120,7 @@ namespace EnemySpawners {
 
                         GameObject tempObj = Instantiate(et.Enemy, House_SP[number].transform.position + RandomPosition, House_SP[number].transform.rotation);
                         tempObj.transform.SetParent(WorldEnenies.transform);
-                        et.IncreaseStats(tempObj);
+                        et.IncreaseStats(tempObj.GetComponent<EnemyStats>());
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
 
@@ -137,7 +141,7 @@ namespace EnemySpawners {
 
                         GameObject tempObj = Instantiate(et.Enemy, Bunker_SP[number].transform.position + RandomPosition, Bunker_SP[number].transform.rotation);
                         tempObj.transform.SetParent(WorldEnenies.transform);
-                        et.IncreaseStats(tempObj);
+                        et.IncreaseStats(tempObj.GetComponent<EnemyStats>());
                         tempObj.name = et.Enemy.name;
                         tempObj.GetComponent<NavMeshAgent>().speed = speed;
 
@@ -201,7 +205,7 @@ namespace EnemySpawners {
         public int TotalEnemyCount() {
             int totalEnemyCount = 0;
             foreach (Enemies et in EnemiesToSpawn) {
-                totalEnemyCount += (et.StartingAmount + et.IncreasedAmount);
+                totalEnemyCount += (int)(et.StartingAmount + et.IncreasedAmount);
             }
             return totalEnemyCount;
         }
@@ -249,21 +253,21 @@ namespace EnemySpawners {
         public EnemiesStatsInt IncreaseByInt = new EnemiesStatsInt();
 
         [System.NonSerialized]
-        public  int IncreasedAmount;
-        private int IncreasedHealth;
-        private int IncreasedArmour;
-        private int IncreasedDamage;
-        private int IncreasedExp;
-        private int IncreasedPoints;
+        public  float IncreasedAmount;
+        private float IncreasedHealth;
+        private float IncreasedArmour;
+        private float IncreasedDamage;
+        private float IncreasedExp;
+        private float IncreasedPoints;
     
         public void IncreaseStats() {
             if (RandomIncrease) {
-                int IN = RandomUtils.RandomInt(IncreaseByRange.Amount.x, IncreaseByRange.Amount.y);
-                int IH = RandomUtils.RandomInt(IncreaseByRange.Health.x, IncreaseByRange.Health.y);
-                int IA = RandomUtils.RandomInt(IncreaseByRange.Armour.x, IncreaseByRange.Armour.y);
-                int ID = RandomUtils.RandomInt(IncreaseByRange.Damage.x, IncreaseByRange.Damage.y);
-                int IE = RandomUtils.RandomInt(IncreaseByRange.Exp   .x, IncreaseByRange.Exp   .y);
-                int IP = RandomUtils.RandomInt(IncreaseByRange.Points.x, IncreaseByRange.Points.y);
+                float IN = RandomUtils.RandomFloat(IncreaseByRange.Amount.x, IncreaseByRange.Amount.y);
+                float IH = RandomUtils.RandomFloat(IncreaseByRange.Health.x, IncreaseByRange.Health.y);
+                float IA = RandomUtils.RandomFloat(IncreaseByRange.Armour.x, IncreaseByRange.Armour.y);
+                float ID = RandomUtils.RandomFloat(IncreaseByRange.Damage.x, IncreaseByRange.Damage.y);
+                float IE = RandomUtils.RandomFloat(IncreaseByRange.Exp   .x, IncreaseByRange.Exp   .y);
+                float IP = RandomUtils.RandomFloat(IncreaseByRange.Points.x, IncreaseByRange.Points.y);
                 if (IncreaseByRange.Cap1 > IncreasedAmount) {
                     IncreasedAmount += IN;
                     if (IncreaseByRange.Cap1 < IncreasedAmount) { IncreasedAmount = IncreaseByRange.Cap1; }
@@ -316,12 +320,12 @@ namespace EnemySpawners {
                 }
             }
         }
-        public void IncreaseStats(GameObject ThisEnemy) {
-            ThisEnemy.GetComponent<EnemyStats>().MaxHealth += IncreasedHealth;
-            ThisEnemy.GetComponent<EnemyStats>().Armour.baseValue += IncreasedArmour;
-            ThisEnemy.GetComponent<EnemyStats>().Damage.baseValue += IncreasedDamage;
-            ThisEnemy.GetComponent<EnemyStats>().Experience += IncreasedExp;
-            ThisEnemy.GetComponent<EnemyStats>().Points += IncreasedPoints;
+        public void IncreaseStats(EnemyStats ThisEnemy) {
+            ThisEnemy.MaxHealth += IncreasedHealth;
+            ThisEnemy.Armour.baseValue += IncreasedArmour;
+            ThisEnemy.Damage.baseValue += IncreasedDamage;
+            ThisEnemy.Experience += IncreasedExp;
+            ThisEnemy.Points += IncreasedPoints;
         }
     }
     
@@ -332,11 +336,11 @@ namespace EnemySpawners {
     
         [TableColumnWidth(90)]
         [VerticalGroup("Split/Stats 1"), LabelWidth(50)]
-        public int Amount;
+        public float Amount;
         [VerticalGroup("Split/Stats 1"), LabelWidth(50)]
-        public int Health;
+        public float Health;
         [VerticalGroup("Split/Stats 1"), LabelWidth(50)]
-        public int Points;
+        public float Points;
 
         [HorizontalGroup("Split", 20)]
 
@@ -352,11 +356,11 @@ namespace EnemySpawners {
 
         //[TableColumnWidth(90)]
         [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
-        public int Armour;
+        public float Armour;
         [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
-        public int Damage;
+        public float Damage;
         [VerticalGroup("Split/Stats 2"), LabelWidth(50), HideInInspector]
-        public int Exp;
+        public float Exp;
 
         [HorizontalGroup("Split", 0)]
 
