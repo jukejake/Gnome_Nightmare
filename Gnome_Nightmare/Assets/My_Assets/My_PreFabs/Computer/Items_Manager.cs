@@ -40,7 +40,7 @@ public class Items_Manager : SerializedMonoBehaviour  {
                 Temp.GetComponent<RectTransform>().localScale = vec31;
             }
             Vector2 Temp2 = DisplayContent.GetComponent<RectTransform>().sizeDelta;
-            Temp2.y = (210.0f+(34.0f*(Mathf.Clamp(OnlineTable.Ammo.Count-3, 0, 100000))));
+            Temp2.y = (210.0f + (34.0f * (Mathf.Clamp(OnlineTable.Ammo.Count - 3, 0, 100000))));
             DisplayContent.GetComponent<RectTransform>().sizeDelta = Temp2;
         }
         else if (CurrentlySelectedTab == 1) { 
