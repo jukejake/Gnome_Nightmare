@@ -5,7 +5,10 @@ public class MenuManager : MonoBehaviour {
 
 
     public static MenuManager instance;
-    void Awake() { instance = this; }
+    void Awake() {
+        instance = this;
+        if (DTF_Slot == null) { DTF_Slot = GameObject.Find("Drop_To_Floor"); }
+    }
     public GameObject Menu;
     private GameObject player;
     private GameObject weapon;

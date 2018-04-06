@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour {
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {
         menuManager = MenuManager.instance;
-        InventorySlot = menuManager.Menu.transform.GetChild(0).gameObject; //0 is "Item_Inventory"
+        InventorySlot = menuManager.Inventory_Slot.gameObject;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour {
         isColliding = false;
 
 
-        if (Input.GetKey(KeyCode.Escape) || Input.GetButton("Start")) {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start")) {
             //If player is in a menu exit it
             if (ExitAllMenus()){ return; }
             MenuTimer = 0.1f;
@@ -48,17 +48,17 @@ public class PlayerManager : MonoBehaviour {
             //Enter pause menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenPauseMenu(); }
         }
-        else if (Input.GetKey(KeyCode.BackQuote) || Input.GetButton("Back")) {
+        else if (Input.GetKeyDown(KeyCode.BackQuote) || Input.GetButtonDown("Back")) {
             //If player is in a menu exit it
             if (ExitAllMenus()) { return; }
-            MenuTimer = 0.3f;
+            MenuTimer = 0.1f;
             MenuOpen = true;
             //Enter score menu
             if (ButtonManager.instance) { ButtonManager.instance.OpenScoreMenu(); }
         }
-        else if (Input.GetButton("Tab") || Input.GetButton("CY")) { ExitMenus(); }
-        else if (Input.GetKeyDown(KeyCode.F) || Input.GetButton("RightStickDown")) {
-            MenuTimer = 0.3f;
+        else if (Input.GetButtonDown("Tab") || Input.GetButtonDown("CY")) { ExitMenus(); }
+        else if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("RightStickDown")) {
+            MenuTimer = 0.1f;
             if (this.transform.Find("Flash_Light")){
                 this.transform.Find("Flash_Light").GetComponent<SwitchActive>().Switch();
             }
@@ -105,7 +105,7 @@ public class PlayerManager : MonoBehaviour {
                 Drop_Inventory DropA = menuManager.Ammo_Slot.GetComponent<Drop_Inventory>();
                 //If the player has room in their ammo inventory, pick up the item
                 if (DropA.NumberOfSlotsFilled < DropA.NumberOfSlotsTotal) {
-                    MenuTimer = 0.05f;
+                    //MenuTimer = 0.05f;
                     //Spawn item
                     GameObject Item = (GameObject)Instantiate(ItemPickUp);
                     Item.name = ItemPickUp.name;
@@ -132,11 +132,11 @@ public class PlayerManager : MonoBehaviour {
         if (MenuOpen && other.tag == "Check_Tag" && (Input.GetButton("Tab") || Input.GetButton("CY"))) { CloseCheckTag(other); return; }
 
         //If player is selecting a 
-        if (Input.GetButton("E") || Input.GetButton("CB")) {
+        if (Input.GetButtonDown("E") || Input.GetButtonDown("CB")) {
             //If player interacts with an item
             if (other.tag == "Items") { ItemPickUp(other); }
         }
-        else if (Input.GetButton("Tab") || Input.GetButton("CY")) {
+        else if (Input.GetButtonDown("Tab") || Input.GetButtonDown("CY")) {
             //If player interacts with a Computer
             if (other.tag == "Check_Tag") { OpenCheckTag(other); }
             //If player interacts with a crafting table
@@ -162,7 +162,7 @@ public class PlayerManager : MonoBehaviour {
         if (other.gameObject.name == "Computer") {
             other.gameObject.GetComponent<SwitchOn>().SwitchON();
             Cursor.lockState = CursorLockMode.None;
-            MenuTimer = 0.3f;
+            MenuTimer = 0.1f;
             MenuOpen = true;
             Time.timeScale = 0.10f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -172,7 +172,7 @@ public class PlayerManager : MonoBehaviour {
         if (other.gameObject.name == "Computer") {
             other.gameObject.GetComponent<SwitchOn>().SwitchOFF();
             Cursor.lockState = CursorLockMode.Locked;
-            MenuTimer = 0.3f;
+            MenuTimer = 0.1f;
             MenuOpen = false;
             Time.timeScale = 01.0f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -180,7 +180,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void CraftingMenu(Collider other) {
-        MenuTimer = 0.3f;
+        MenuTimer = 0.1f;
         //If already in the crafting menu then exit it
         if (other.gameObject.transform.GetChild(0) && other.gameObject.transform.GetChild(0).gameObject.activeSelf) { ExitMenus(); }
         else { if (Crafting_Table.instance) { Crafting_Table.instance.OpenCraftingTable(); } }
@@ -194,7 +194,7 @@ public class PlayerManager : MonoBehaviour {
             Drop_Inventory DropA = menuManager.Ammo_Slot.GetComponent<Drop_Inventory>();
             //If the player has room in their ammo inventory, pick up the item
             if (DropA.NumberOfSlotsFilled < DropA.NumberOfSlotsTotal) {
-                MenuTimer = 0.1f;
+                MenuTimer = 0.05f;
                 //Spawn item
                 GameObject Item = (GameObject)Instantiate(ItemPickUp);
                 Item.name = ItemPickUp.name;
@@ -214,7 +214,7 @@ public class PlayerManager : MonoBehaviour {
         }
         //If the player has room in their inventory, pick up the item
         else if (DropI.NumberOfSlotsFilled < DropI.NumberOfSlotsTotal && ItemPickUp.GetComponent<Drag_Inventory>().typeOfItem != Drag_Inventory.Slot.Ammo) {
-            MenuTimer = 0.1f;
+            MenuTimer = 0.05f;
             //Spawn item
             GameObject Item = (GameObject)Instantiate(ItemPickUp);
             Item.name = ItemPickUp.name;
@@ -241,23 +241,25 @@ public class PlayerManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         MenuOpen = true;
         menuManager.EnableGraphicRaycaster(true);
+        menuManager.DTF_Slot.transform.parent.GetComponent<GraphicRaycaster>().enabled = true;
         color.a = 0.20f;
-        menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
-        MenuTimer = 0.3f;
+        menuManager.DTF_Slot.GetComponent<Image>().color = color;
+        MenuTimer = 0.1f;
     }
     public void CloseDropMenu() {
         Cursor.lockState = CursorLockMode.Locked;
         MenuOpen = false;
         menuManager.EnableGraphicRaycaster(false);
+        menuManager.DTF_Slot.transform.parent.GetComponent<GraphicRaycaster>().enabled = false;
         color.a = 0.0f;
-        menuManager.Menu.transform.GetChild(2).GetComponent<Image>().color = color;//2 is "Drop_To_Floor"
-        MenuTimer = 0.3f;
+        menuManager.DTF_Slot.GetComponent<Image>().color = color;
+        MenuTimer = 0.1f;
 
     }
 
 
     private void ExitMenus() {
-        MenuTimer = 0.3f;
+        MenuTimer = 0.1f;
         //If a menu is open, close it
         CloseDropMenu();
         if (Crafting_Table.instance) { Crafting_Table.instance.CloseCraftingTable(); }
@@ -268,7 +270,7 @@ public class PlayerManager : MonoBehaviour {
     }
     private bool ExitAllMenus() {
         if (MenuOpen) {
-            MenuTimer = 0.3f;
+            MenuTimer = 0.1f;
             //If a menu is open, close it
             CloseDropMenu();
             if (Crafting_Table.instance) { Crafting_Table.instance.CloseCraftingTable(); }

@@ -37,6 +37,7 @@ public class PlayerScoreMenu : MonoBehaviour {
             temp.transform.Find("Downs Text").GetComponent<Text>().text = player.GetComponent<PlayerStats>().GetDowns().ToString();
             temp.transform.Find("Points Text").GetComponent<Text>().text = player.GetComponent<PlayerStats>().GetPoints().ToString();
             temp.transform.SetParent(ContentBox.transform);
+            temp.transform.localScale = StatsPanelPrefab.transform.localScale;
             PlayerPanel.Add(temp);
         }
     }
