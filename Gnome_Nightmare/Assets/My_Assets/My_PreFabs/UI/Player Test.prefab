@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 33684103616328388}
   - component: {fileID: 23977020998409376}
   m_Layer: 0
-  m_Name: GUN:pCylinder387
+  m_Name: GUN:pCylinder388
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3622,6 +3622,7 @@ MonoBehaviour:
   Health: 0
   CantDie: 0
   TargetPos: {x: 0, y: 0, z: 0}
+  TargetRot: {x: 0, y: 0, z: 0}
   LerpSpeed: 0.2
 --- !u!114 &114526127701375190
 MonoBehaviour:

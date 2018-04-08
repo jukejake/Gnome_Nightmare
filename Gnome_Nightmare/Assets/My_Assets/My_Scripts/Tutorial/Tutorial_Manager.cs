@@ -42,6 +42,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
     private int WaveClient = 0;
     private Text EnemyInfoUI;
 
+    private Server_Manager server_Manager;
 
     // Use this for initialization
     void Start () {
@@ -53,17 +54,18 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
             T_BunkerFog = (GameObject)Instantiate(BunkerFog);
             T_BunkerFog.name = BunkerFog.name;
         }
-
-        if (Client_Manager.instance) { InvokeRepeating("SlowUpdateClient", 0.50f, 1.0f); }//Start In, Repeat Every
-        else if (Server_Manager.instance) { InvokeRepeating("SlowUpdateServer", 0.50f, 1.0f); }//Start In, Repeat Every
-        else { InvokeRepeating("SlowUpdateSP", 0.50f, 1.0f); }//Start In, Repeat Every
-
         Invoke("DelayedStart", 0.1f);
+        Invoke("LateStart", 0.10f);
     }
     //Used so that everything gets a chance to load before trying to accsess it
     private void DelayedStart() {
         //Finds and updates the UI
         if (GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info")) { EnemyInfoUI = GameObject.Find("World").transform.Find("Screen_Menu").transform.Find("Enemy Info").GetComponent<Text>(); }
+    }
+    private void LateStart() {
+        if (Client_Manager.instance) { InvokeRepeating("SlowUpdateClient", 0.50f, 1.0f); Debug.Log("1"); }//Start In, Repeat Every
+        else if (Server_Manager.instance) { server_Manager = Server_Manager.instance; InvokeRepeating("SlowUpdateServer", 0.50f, 1.0f); Debug.Log("2"); }//Start In, Repeat Every
+        else if (Client_Manager.instance == null && server_Manager == null) { InvokeRepeating("SlowUpdateSP", 0.50f, 1.0f); Debug.Log("3"); }//Start In, Repeat Every
     }
     // Update for the Server
     void SlowUpdateServer () {
@@ -92,7 +94,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         BarnArea.SetActive(false);
                         Destroy(BarnArea);
                         Stage = 1;
-                        Server_Manager.instance.SendData("&TS0|");
+                        server_Manager.SendData("&TS0|");
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
                             SP_Hub.SpawnAtHouse = false;
@@ -116,7 +118,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Gnomes are attacking the barn";
                         Counter = 0;
                         Stage = 2;
-                        Server_Manager.instance.SendData("&TS1|");
+                        server_Manager.SendData("&TS1|");
                     }
                     if (Counter < PromptTime) { Counter += 1; }
                     else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
@@ -131,7 +133,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Find the computer and access RainForest";
                         Counter = 0;
                         Stage = 3;
-                        Server_Manager.instance.SendData("&TS2|");
+                        server_Manager.SendData("&TS2|");
                         T_HouseFog.SetActive(false);
                         Destroy(T_HouseFog);
                         //Open the House Doors
@@ -149,7 +151,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         HouseArea.SetActive(false);
                         Destroy(HouseArea);
                         Stage = 4;
-                        Server_Manager.instance.SendData("&TS3|");
+                        server_Manager.SendData("&TS3|");
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
                             SP_Hub.SpawnAtHouse = true;
@@ -172,7 +174,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Gnomes are attacking the house";
                         Counter = 0;
                         Stage = 5;
-                        Server_Manager.instance.SendData("&TS4|");
+                        server_Manager.SendData("&TS4|");
                     }
                     if (Counter < PromptTime) { Counter += 1; }
                     else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
@@ -187,7 +189,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Check on the power switch in the bunker";
                         Counter = 0;
                         Stage = 6;
-                        Server_Manager.instance.SendData("&TS5|");
+                        server_Manager.SendData("&TS5|");
                         T_BunkerFog.SetActive(false);
                         Destroy(T_BunkerFog);
                     }
@@ -202,7 +204,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         BunkerArea.SetActive(false);
                         Destroy(BunkerArea);
                         Stage = 7;
-                        Server_Manager.instance.SendData("&TS6|");
+                        server_Manager.SendData("&TS6|");
                         if (SP_Hub != null) {
                             SP_Hub.SpawnAtBarn = true;
                             SP_Hub.SpawnAtHouse = true;
@@ -225,7 +227,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         EventPrompt.text = "Gnomes are attacking the bunker";
                         Counter = 0;
                         Stage = 8;
-                        Server_Manager.instance.SendData("&TS7|");
+                        server_Manager.SendData("&TS7|");
                     }
                     if (Counter < PromptTime) { Counter += 1; }
                     else if (Counter == PromptTime) { Counter += 1; EventPrompt.text = ""; }
@@ -239,7 +241,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = true;
                         EventPrompt.text = "";
                         Stage = 9;
-                        Server_Manager.instance.SendData("&TS8|");
+                        server_Manager.SendData("&TS8|");
                         SpawnManager.TimeBetweenRounds = 20.0f;
                     }
                     if (Counter < PromptTime) { Counter += 1; }
@@ -257,7 +259,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ActivateAllSpawnersInCurrentRound();
                         //Debug.Log("Round Start!");
                         Stage = 10;
-                        Server_Manager.instance.SendData("&TS9|");
+                        server_Manager.SendData("&TS9|");
                     }
                     break;
             }
@@ -267,7 +269,7 @@ public class Tutorial_Manager : SerializedMonoBehaviour {
                         SpawnManager.ToggleAll = true;
                         //Debug.Log("Round Over!");
                         Stage = 9;
-                        Server_Manager.instance.SendData("&TS10|");
+                        server_Manager.SendData("&TS10|");
                     }
                     break;
             }

@@ -5,8 +5,8 @@ using Sirenix.OdinInspector;
 
 public class Agent : SerializedMonoBehaviour {
 
-    //private Server_Manager server;
-    //private Client_Manager client;
+    private Server_Manager server;
+    private Client_Manager client;
     private void Awake() {
         //if (Client_Manager.instance) { client = Client_Manager.instance; }
         //else if (Server_Manager.instance) { server = Server_Manager.instance; }
@@ -47,9 +47,11 @@ public class Agent : SerializedMonoBehaviour {
     private void Start() {
         if (this.GetComponent<EnemyStats>()) { enemyHealth = this.GetComponent<EnemyStats>(); }
         if (this.GetComponent<PlayerStats>()) { playerHealth = this.GetComponent<PlayerStats>(); }
-        Invoke("LateStart", 1.0f);
+        Invoke("LateStart", 0.50f);
     }
     private void LateStart() {
+        if (Client_Manager.instance) { client = Client_Manager.instance; }
+        else if (Server_Manager.instance) { server = Server_Manager.instance; }
         // Repeat X, in Y seconds, every Z seconds.
         if (Client_Manager.instance) { InvokeRepeating("ClientRepeatThis", StartIn, RepeatEvery); }
         else if (Server_Manager.instance) { InvokeRepeating("ServerRepeatThis", StartIn, RepeatEvery); }
@@ -98,8 +100,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        if (client) { client.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (server) { server.SendData(temp); Debug.Log("Server Instantiate"); }
     }
     public void SendInstantiate(Vector3 InitialPos) {
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
@@ -107,8 +109,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&P(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
         temp = GetDataToSend(temp);
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        if (client) { client.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (server) { server.SendData(temp); Debug.Log("Server Instantiate"); }
     }
 
     private void ClientRepeatThis() {
@@ -117,7 +119,7 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Client: " + temp);*/ Client_Manager.instance.SendData(temp); }
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Client: " + temp);*/ client.SendData(temp); }
     }
     private void ServerRepeatThis() {
         if (AgentNumber == -1) { return; }
@@ -125,7 +127,7 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Server: " + temp);*/ Server_Manager.instance.SendData(temp); }
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Server: " + temp);*/ server.SendData(temp); }
     }
 
     public void SendDestroy() {
@@ -139,8 +141,8 @@ public class Agent : SerializedMonoBehaviour {
 
         //Debug.Log(temp + " died");
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        if (client) { client.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (server) { server.SendData(temp); Debug.Log("Server Instantiate"); }
     }
 
     private void OnDestroy() { SendDestroy(); }

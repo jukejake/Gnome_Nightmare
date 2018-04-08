@@ -12,7 +12,7 @@ public class Player_Spawn_Location : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Invoke("LateStart", 1.0f);
+        Invoke("LateStart", 0.50f);
     }
     private void LateStart() {
         //Spawn the player

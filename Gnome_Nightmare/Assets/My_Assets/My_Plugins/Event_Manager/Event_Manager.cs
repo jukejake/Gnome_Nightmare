@@ -135,11 +135,13 @@ public class Event_Manager : SerializedMonoBehaviour
 		Debug.Log("Achievements created successfully!");
 		nextEventRound = 4;
 
+        Invoke("LateStart", 0.5f);
+        InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
+    }
+    private void LateStart() {
         if (Client_Manager.instance) { IsServer = false; }
         else if (Server_Manager.instance) { IsServer = true; Server_Manager.instance = server_Manager; }
         else { Islonely = true; }
-
-        InvokeRepeating("UpdateControlled", StartIn, RepeatEvery);
     }
 
     //Update but with controlled timing
