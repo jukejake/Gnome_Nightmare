@@ -1065,6 +1065,7 @@ MonoBehaviour:
   MaxAttackDistance: 1.8
   RangeDivisible: 5
   TimerDelay: 0.5
+  TimerDelayModifier: 50
   AttackDelay: 0.9
 --- !u!136 &136244492513536834
 CapsuleCollider:

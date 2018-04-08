@@ -44,7 +44,8 @@ public class Crafting_Table : SerializedMonoBehaviour {
     void Update() {
         if (menuManager == null) { menuManager = MenuManager.instance; }
         if (IsCrafting) {
-            if (timer > 0.0f) { timer -= Time.fixedUnscaledDeltaTime; }
+            if (PlayerManager.instance.MenuOpen && timer > 0.0f) { timer -= Time.fixedUnscaledDeltaTime; }
+            else if (!PlayerManager.instance.MenuOpen && timer > 0.0f) { timer -= Time.deltaTime; }
             LeftJoystickPlacement();
         }
     }

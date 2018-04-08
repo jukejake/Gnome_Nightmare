@@ -5,11 +5,11 @@ using Sirenix.OdinInspector;
 
 public class Agent : SerializedMonoBehaviour {
 
-    private Server_Manager server;
-    private Client_Manager client;
+    //private Server_Manager server;
+    //private Client_Manager client;
     private void Awake() {
-        if (Client_Manager.instance) { client = Client_Manager.instance; }
-        else if (Server_Manager.instance) { server = Server_Manager.instance; }
+        //if (Client_Manager.instance) { client = Client_Manager.instance; }
+        //else if (Server_Manager.instance) { server = Server_Manager.instance; }
     }
 
     [BoxGroup("Info 1", false)]
@@ -45,14 +45,15 @@ public class Agent : SerializedMonoBehaviour {
     public float LerpSpeed = 0.2f;
 
     private void Start() {
-        // Repeat X, in Y seconds, every Z seconds.
-        if (client) { InvokeRepeating("ClientRepeatThis", StartIn, RepeatEvery); }
-        else if (server) { InvokeRepeating("ServerRepeatThis", StartIn, RepeatEvery); }
-
         if (this.GetComponent<EnemyStats>()) { enemyHealth = this.GetComponent<EnemyStats>(); }
         if (this.GetComponent<PlayerStats>()) { playerHealth = this.GetComponent<PlayerStats>(); }
+        Invoke("LateStart", 1.0f);
     }
-
+    private void LateStart() {
+        // Repeat X, in Y seconds, every Z seconds.
+        if (Client_Manager.instance) { InvokeRepeating("ClientRepeatThis", StartIn, RepeatEvery); }
+        else if (Server_Manager.instance) { InvokeRepeating("ServerRepeatThis", StartIn, RepeatEvery); }
+    }
     private void Update() {
         //If Agent is not at Target and not at (0,0,0)
         if (TargetPos != this.gameObject.transform.position && TargetPos != Vector3.zero) {
@@ -97,8 +98,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (client) { client.SendData(temp); }
-        if (server) { server.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
     }
     public void SendInstantiate(Vector3 InitialPos) {
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
@@ -106,8 +107,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&P(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
         temp = GetDataToSend(temp);
 
-        if (client) { client.SendData(temp); }
-        if (server) { server.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
     }
 
     private void ClientRepeatThis() {
@@ -116,7 +117,7 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Client: " + temp); client.SendData(temp); }
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Client: " + temp);*/ Client_Manager.instance.SendData(temp); }
     }
     private void ServerRepeatThis() {
         if (AgentNumber == -1) { return; }
@@ -124,7 +125,7 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (temp != ("#" + AgentNumber.ToString() + "|")) { Debug.Log("Server: " + temp); server.SendData(temp); }
+        if (temp != ("#" + AgentNumber.ToString() + "|")) { /*Debug.Log("Server: " + temp);*/ Server_Manager.instance.SendData(temp); }
     }
 
     public void SendDestroy() {
@@ -138,8 +139,8 @@ public class Agent : SerializedMonoBehaviour {
 
         //Debug.Log(temp + " died");
 
-        if (client) { client.SendData(temp); }
-        if (server) { server.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
     }
 
     private void OnDestroy() { SendDestroy(); }

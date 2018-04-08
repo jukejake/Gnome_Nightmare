@@ -159,7 +159,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-d9d51624e322107ef47c46f92dfa97fe Assembly-CSharp.dll:.Setting_Info
+4b6d5162c869da39fbbf216e053567b3 Assembly-CSharp.dll:.Setting_Info
 cc8f31e82b02d7648aefdbfe84c58f8d Assembly-CSharp.dll:.Melee_Behaviour
 2e1c52e5a2935c4b6cc54db16edb7491 Assembly-CSharp.dll:.Player_Rotation
 31338e66dc45afdf7be2abcf008bc9dc Assembly-CSharp.dll:.DestroyOnTrigger
@@ -256,7 +256,7 @@ a603292b6db6a664a288c5de0f7e9192 Assembly-CSharp.dll:.LoadScenes
 c3b726e1ef77ecefcf78c4586a6bf32e Assembly-CSharp.dll:Cinemachine.CinemachineTrackedDolly
 b35abd84deac0466a0d6a5e61617b42b Assembly-CSharp.dll:.Load_Menu
 1964183ea3577a57eea77574aa7d84ba Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.OnValueChangedExamples
-e6ce634f093d302e61e11d4a121f4230 Assembly-CSharp.dll:.SettingsMenu
+b0ac1f4e595ee2d7ccbce61a1ca93ac2 Assembly-CSharp.dll:.SettingsMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Cinemachine.CinemachinePipeline
 9e98b5ab7de651b3c195100bc0258b65 Assembly-CSharp.dll:.PlayerManager
 db9dcef35dd0418144859ea98417d438 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ListExamples
@@ -422,14 +422,12 @@ b246e17fb1f0c77d2dc485bcf8d70cbd Assembly-CSharp-firstpass.dll:Sirenix.OdinInspe
 34351e72db52a45774ccd637ec825823 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.AssetListExamples
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ShowInInspectorExamples
 5c6c4af9dd0211e85d36fa6f206c1b2e Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.RequiredExamples
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Soundwhenhit
 99ad8131abbc01f4f941398ce309533a Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.HideInEditorAndPlayModeExamples
 6d693049241987bdae4e4b2d8ef35946 Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.HideLabelExamples
 1740bc60fc621c2ed2fdbe746ccb90d1 Assembly-CSharp.dll:.ParticleInterface
 8286f8eb34786df289cc25eb39fa10da Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.ShowPropertiesInTheInspectorExamples
 aecf6a3f476b57a085e158b00de3bb5e Assembly-CSharp.dll:.CraftingManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Ammo_Inventory
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cinemechine_Camera_Trigger
 53dbd7baa3c8da2f87828dd70d70dae4 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated
 7fc3adfac7efbc0706567dbaca46f637 Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Fisheye
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DeleteWhenHit
@@ -457,3 +455,5 @@ e73bcb9a4f68bde94e5184b6a094b86f Assembly-CSharp-firstpass.dll:Sirenix.OdinInspe
 e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 38ddcbadfec401f50a831c6d717e7e3e Assembly-CSharp.dll:.GetIP
 6e279e7acd065d4541e7b65ae41cef1b Assembly-CSharp-firstpass.dll:Sirenix.OdinInspector.Demos.TitleGroupExamples
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cinemechine_Camera_Trigger
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Soundwhenhit

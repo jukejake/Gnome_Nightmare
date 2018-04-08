@@ -1,41 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using ServerDll;
-using Sirenix.OdinInspector;
+//using Sirenix.OdinInspector;
 
-public class Server_Manager : SerializedMonoBehaviour {
+public class Server_Manager : MonoBehaviour {
 
     public int PortNumber = 8080;
     public static Server_Manager instance;
-    private ID_Table IDTable;
-    private Tutorial_Manager TM;
+    //private ID_Table IDTable;
+    //private Tutorial_Manager TM;
+    public int PlayerNumber = 0;
+    [HideInInspector]
+    public List<int> NIDList = Enumerable.Range(1, 99).ToList();
+    private ServerDll.Server server = new ServerDll.Server();
+    public bool ServerOn = false;
+    public string ServerMessage = "~@4|#4|&P(1.2,3.4,5.6)&R(9.8,7.6,5.4)&HP26|";
+
     private void Awake() {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
     private void Start() { 
-        IDTable = ID_Table.instance;
         server.SetPort(PortNumber);
         ServerStart();
+        //IDTable = ID_Table.instance;
     }
 
-    public int PlayerNumber = 1;
-    [HideInInspector]
-    public List<int> NIDList = Enumerable.Range(1, 99).ToList();
-
-
-    private ServerDll.Server server = new ServerDll.Server();
-    public bool ServerOn = false;
-    public string ServerMessage = "~@4|#4|&P(1.2,3.4,5.6)&R(9.8,7.6,5.4)&HP26|";
-
-    [Button]
+    //[Button]
     private void ServerStart() {
         if (server.TCP_Start()) { ServerOn = true; }
     }
-    [Button]
+    //[Button]
     private void Send() {
         server.TCP_Send(ServerMessage);
     }
@@ -46,8 +43,8 @@ public class Server_Manager : SerializedMonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
-        if (IDTable == null) { IDTable = ID_Table.instance; }
-        if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
+        //if (IDTable == null) { IDTable = ID_Table.instance; }
+        //if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
 
         if (ServerOn) {
             server.TCP_UpdateV2();
@@ -67,7 +64,7 @@ public class Server_Manager : SerializedMonoBehaviour {
         Vector3 pos = new Vector3();
         Vector3 rot = new Vector3();
         Vector3 evt = new Vector3();
-        int hp = -1;
+        float hp = -1;
 
 
         //Destroy an object
@@ -111,14 +108,14 @@ public class Server_Manager : SerializedMonoBehaviour {
         if (data.Contains("&HP")) {
             string t = data.Split('|')[0];
             t = t.Substring(3);
-            hp = int.Parse(t);
+            hp = float.Parse(t);
             data = data.Substring(t.Length + 4);
         }
         //Tutorial Stage
         if (data.Contains("&TS")) {
             string t = data.Split('|')[0];
             t = t.Substring(3);
-            TM.Stage = int.Parse(t);
+            Tutorial_Manager.instance.Stage = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
         //Current Event
@@ -177,7 +174,8 @@ public class Server_Manager : SerializedMonoBehaviour {
             //Instantiate and Object with [ID] from the ID_Table
             Debug.Log("Instantiate: " + instantiate + " | ID: " + ID);
             GameObject t;
-            if (IDTable.IDTable.TryGetValue(instantiate, out t)) {
+            if (ID_Table.instance.IDTable.TryGetValue(instantiate, out t)) {
+                Debug.Log("Was in Table");
                 GameObject temp = Instantiate(t, pos, Quaternion.Euler(rot));
                 temp.name = t.name;
                 //Set the Agents ID
@@ -238,5 +236,16 @@ public class Server_Manager : SerializedMonoBehaviour {
         int.TryParse(num.text, out x);
         PlayerNumber = x;
     }
+
+    public void SetInstance() { instance = this; }
+
+    private void OnLevelWasLoaded(int level) {
+        instance = this;
+        Debug.Log("Level: " + level);
+        if (instance == null) { Debug.Log("WTF:1"); instance = this; }
+        if (Server_Manager.instance == null) { Debug.Log("WTF:2"); Server_Manager.instance = this; }
+    }
+
+
 
 }

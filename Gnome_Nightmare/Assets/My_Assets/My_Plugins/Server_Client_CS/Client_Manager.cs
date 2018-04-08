@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+
 using UnityEngine;
 using UnityEngine.UI;
 using ServerDll;
@@ -10,25 +9,24 @@ public class Client_Manager : SerializedMonoBehaviour {
 
     public int PortNumber = 8080;
     public static Client_Manager instance;
-    private ID_Table IDTable;
-    private Tutorial_Manager TM;
-    private Event_Manager ET;
+    //private ID_Table IDTable;
+    //private Tutorial_Manager TM;
+    //private Event_Manager ET;
+    public int PlayerNumber = -1;
+    private bool InGame = false;
+    private ServerDll.Client client = new ServerDll.Client();
+    public bool ClientOn = false;
+    public string ClientMessage = "~@4|#4|&P(1.2,3.4,5.6)&R(9.8,7.6,5.4)&HP26|";
+
     private void Awake() {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
     private void Start() {
-        IDTable = ID_Table.instance;
         client.SetPort(PortNumber);
-        ET = Event_Manager.instance;
+        //IDTable = ID_Table.instance;
+        //ET = Event_Manager.instance;
     }
-
-    public int PlayerNumber = -1;
-    private bool InGame = false;
-
-    private ServerDll.Client client = new ServerDll.Client();
-    public bool ClientOn = false;
-    public string ClientMessage = "~@4|#4|&POS(1.2,3.4,5.6)&ROT(9.8,7.6,5.4)&HP26|";
 
     [Button]
     public void ConnectToServer() {
@@ -45,8 +43,8 @@ public class Client_Manager : SerializedMonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
-        if (IDTable == null) { IDTable = ID_Table.instance; }
-        if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
+        //if (IDTable == null) { IDTable = ID_Table.instance; }
+        //if (TM == null) { TM = GameObject.FindObjectOfType(typeof(Tutorial_Manager)) as Tutorial_Manager; }
 
         if (!InGame) {
             string TCP_Data = client.TCP_GetData();
@@ -78,7 +76,7 @@ public class Client_Manager : SerializedMonoBehaviour {
         Vector3 pos = new Vector3();
         Vector3 rot = new Vector3();
         Vector3 evt = new Vector3();
-        int hp = -1;
+        float hp = -1;
 
         
         //Destroy an object
@@ -122,14 +120,14 @@ public class Client_Manager : SerializedMonoBehaviour {
         if (data.Contains("&HP")) {
             string t = data.Split('|')[0];
             t = t.Substring(3);
-            hp = int.Parse(t);
+            hp = float.Parse(t);
             data = data.Substring(t.Length + 4);
         }
         //Tutorial Stage
         if (data.Contains("&TS")) {
             string t = data.Split('|')[0];
             t = t.Substring(3);
-            TM.Stage = int.Parse(t);
+            Tutorial_Manager.instance.Stage = int.Parse(t);
             data = data.Substring(t.Length + 4);
         }
         //Current Event
@@ -140,7 +138,7 @@ public class Client_Manager : SerializedMonoBehaviour {
             float z = float.Parse(t.Split(',')[2]);
             evt = new Vector3(x, y, z);
             data = data.Substring(t.Length + 3);
-            ET.SetEvent(evt);
+            Event_Manager.instance.SetEvent(evt);
         }
         //New ID
         if (data.Contains("&NID"))  {
@@ -176,10 +174,11 @@ public class Client_Manager : SerializedMonoBehaviour {
             }
         }
         else if (instantiate != -1) {
+            Debug.Log("Was in Table");
             //Instantiate and Object with [ID] from the ID_Table
             Debug.Log("Instantiate: " + instantiate + " | ID: " + ID);
             GameObject t;
-            if (IDTable.IDTable.TryGetValue(instantiate, out t)) {
+            if (ID_Table.instance.IDTable.TryGetValue(instantiate, out t)) {
                 GameObject temp = Instantiate(t, pos, Quaternion.Euler(rot));
                 temp.name = t.name;
                 //Set the Agents ID

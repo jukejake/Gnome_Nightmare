@@ -974,6 +974,7 @@ MonoBehaviour:
   MaxAttackDistance: 1.8
   RangeDivisible: 5
   TimerDelay: 0.5
+  TimerDelayModifier: 50
   AttackDelay: 0.9
 --- !u!114 &114635384846738084
 MonoBehaviour:

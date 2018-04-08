@@ -18,9 +18,11 @@ public class Player_Movement : MonoBehaviour {
     public Collider l_IsGrounded;
     public Collider r_IsGrounded;
     private Rigidbody m_Rigidbody;
+    private PlayerManager playerManager;
+    private PlayerStats playerStats;
     //private AudioSource m_audioSource;
 
-	private Vector3 moveDirection = Vector3.zero;
+    private Vector3 moveDirection = Vector3.zero;
 	private float rotX;
     private float rotY;
     public float animPer_H;
@@ -40,6 +42,9 @@ public class Player_Movement : MonoBehaviour {
         //Spawns Prefab used for the Player
         this.transform.SetParent(EmptyWorld.transform);
         this.name = "Player";
+        //
+        playerManager = this.gameObject.GetComponent<PlayerManager>();
+        playerStats = this.gameObject.GetComponent<PlayerStats>();
 
         m_Rigidbody = gameObject.GetComponent<Rigidbody>();
         //m_audioSource = gameObject.GetComponent<AudioSource>();
@@ -49,8 +54,7 @@ public class Player_Movement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //If the player is in a menu they wont move
-        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) { return; }
-        if (this.gameObject.GetComponent<PlayerStats>().isDead) { return; }
+        if (playerManager.MenuOpen || playerStats.isDead) { return; }
 
         //Get the Xaxis rotation
         if (Input.GetAxis("Right Joystick X") != 0.0f) { rotX = Input.GetAxis("Right Joystick X") * SensitivityXAxis; }
@@ -74,9 +78,9 @@ public class Player_Movement : MonoBehaviour {
     void FixedUpdate() {
         //If the player is in a menu they wont move
         //if (this.gameObject.GetComponent<PlayerManager>().MenuOpen) {}
-        if (this.gameObject.GetComponent<PlayerStats>().isDead) { m_Rigidbody.velocity = new Vector3(0,0,0); return; }
+        if (playerStats.isDead) { m_Rigidbody.velocity = new Vector3(0,0,0); return; }
 
-        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
+        if (playerManager.MenuOpen == false) {
             //Get movement
             if (Input.GetButton("Run") || Input.GetButton("LeftStickDown")) { moveDirection = new Vector3(Input.GetAxis("Horizontal") * (SpeedModifier*runSpeed), 0.0f, Input.GetAxis("Vertical") * (SpeedModifier*runSpeed)); }
             else { moveDirection = new Vector3(Input.GetAxis("Horizontal") * (SpeedModifier*moveSpeed), 0.0f, Input.GetAxis("Vertical") * (SpeedModifier*moveSpeed)); }
@@ -119,7 +123,7 @@ public class Player_Movement : MonoBehaviour {
         else if (m_IsGrounded == true) { m_IsGrounded = false; }
 
         //reset the anamation if in a menu
-        if (this.gameObject.GetComponent<PlayerManager>().MenuOpen == false) {
+        if (playerManager.MenuOpen == false) {
             //Update Animator Perameters
             animPer_H = Input.GetAxis("Horizontal");
             animPer_V = Input.GetAxis("Vertical");

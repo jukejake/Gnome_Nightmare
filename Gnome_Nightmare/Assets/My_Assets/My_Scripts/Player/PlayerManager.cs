@@ -33,8 +33,10 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (MenuTimer > 0.0f) { MenuTimer -= Time.fixedUnscaledDeltaTime; return; }
-        else if (MenuTimer < 0.0f) { MenuTimer = 0.0f; }
+        if (!MenuOpen && MenuTimer > 0.0f) { MenuTimer -= Time.deltaTime; return; }
+        else if (!MenuOpen && MenuTimer < 0.0f) { MenuTimer = 0.0f; }
+        else if (MenuOpen && MenuTimer > 0.0f) { MenuTimer -= Time.fixedUnscaledDeltaTime; return; }
+        else if (MenuOpen && MenuTimer < 0.0f) { MenuTimer = 0.0f; }
 
         if (player.GetComponent<PlayerStats>().isDead) { ButtonManager.instance.OpenDeathMenu(); return; }
         isColliding = false;

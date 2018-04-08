@@ -16,10 +16,12 @@ public class Player_Spawn_Location : MonoBehaviour {
         player.name = "Player";
         if (player.GetComponent<Agent>()) {
             if (Server_Manager.instance) {
+                Debug.Log(Server_Manager.instance.PlayerNumber);
                 player.GetComponent<Agent>().AgentNumber = Server_Manager.instance.PlayerNumber;
                 //player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Server_Manager.instance.PlayerNumber + 1;
             }
             else if (Client_Manager.instance) {
+                Debug.Log(Client_Manager.instance.PlayerNumber);
                 player.GetComponent<Agent>().AgentNumber = Client_Manager.instance.PlayerNumber;
                 //player.transform.GetChild(0).GetComponentInChildren<Agent>().AgentNumber = Client_Manager.instance.PlayerNumber - 1;
             }
@@ -37,5 +39,18 @@ public class Player_Spawn_Location : MonoBehaviour {
         camera.GetComponent<CameraFollow>().FollowThis = player.transform.Find("HitBox").Find("Top").Find("Head").gameObject;
         camera.GetComponent<CameraFollow>().endPoint = player.transform.Find("Endpoint").transform;
         
+    }
+
+    private void FixedUpdate() {
+        if (Server_Manager.instance == null) {
+            Debug.Log("WTF");
+            if (GameObject.FindObjectOfType<Server_Manager>()) {
+                GameObject.FindObjectOfType<Server_Manager>().SetInstance(); Debug.Log("Set Instance:1");
+                if (Server_Manager.instance == null) {
+                    if (GameObject.Find("Server")) { GameObject.Find("Server").GetComponent<Server_Manager>().SetInstance(); Debug.Log("Set Instance:2"); }
+                }
+            }
+        }
+        if (Server_Manager.instance) { Debug.Log("It is there."); }
     }
 }

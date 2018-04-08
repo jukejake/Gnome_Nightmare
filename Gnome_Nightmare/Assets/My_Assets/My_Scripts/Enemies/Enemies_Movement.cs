@@ -14,6 +14,7 @@ public class Enemies_Movement : MonoBehaviour {
     public float MaxAttackDistance = 1.0f;
     public float RangeDivisible = 10.0f;
     public float TimerDelay = 0.50f;
+    public float TimerDelayModifier = 30.0f;
     public float AttackDelay = 0.90f;
 
     private float timer = 0.0f;
@@ -62,7 +63,7 @@ public class Enemies_Movement : MonoBehaviour {
             }
             //If the player is withen Follow Distance but outside Attack Distance
             else if (ClosestPlayerDistance < MaxFollowDistance) {
-                TimerDelay = Mathf.Clamp((ClosestPlayerDistance / 30.0f), 0.1f, 1.0f);
+                TimerDelay = Mathf.Clamp((ClosestPlayerDistance / TimerDelayModifier), 0.1f, 1.0f);
                 SetDestination(playerNum);
                 return;
             }

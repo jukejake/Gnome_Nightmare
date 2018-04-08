@@ -268,7 +268,6 @@ GameObject:
   m_Component:
   - component: {fileID: 578654115}
   - component: {fileID: 578654117}
-  - component: {fileID: 578654113}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -276,33 +275,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &578654113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 578654112}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 201e72b767fc0714aa82dea51cfae4d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  IsServer: 1
-  IsClient: 1
-  chatContainer: {fileID: 811439618}
-  messagePrefab: {fileID: 1148311129028354, guid: ee719740301afd447aca1d538df8f2d9,
-    type: 2}
-  Chat: {fileID: 0}
-  Login: {fileID: 0}
 --- !u!4 &578654115
 Transform:
   m_ObjectHideFlags: 0
@@ -327,19 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a378652572aef4fb5fd51d24f79681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
+  PortNumber: 8080
   PlayerNumber: 0
   NIDList: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f00000060000000610000006200000063000000
   ServerOn: 0
-  ServerMessage: '@4|#1|&POS(-30.0,0.0,15.0)&ROT(9.8,7.6,5.4)&HP26|'
+  ServerMessage: '@4|#1|&P(-30.0,0.0,15.0)&R(9.8,7.6,5.4)&HP26|'
 --- !u!1001 &811439617
 Prefab:
   m_ObjectHideFlags: 0
@@ -398,12 +362,12 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 578654113}
+      objectReference: {fileID: 0}
     - target: {fileID: 114499491740752744, guid: c80c6b81de13ec240b5d3913b047ad64,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 578654113}
+      objectReference: {fileID: 0}
     - target: {fileID: 224591041372161638, guid: c80c6b81de13ec240b5d3913b047ad64,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -536,11 +500,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c80c6b81de13ec240b5d3913b047ad64, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &811439618 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1124027170570858, guid: c80c6b81de13ec240b5d3913b047ad64,
-    type: 2}
-  m_PrefabInternal: {fileID: 811439617}
 --- !u!1 &1637735100
 GameObject:
   m_ObjectHideFlags: 0
