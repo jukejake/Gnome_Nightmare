@@ -160,7 +160,7 @@ public class Server_Manager : MonoBehaviour {
                     Debug.Log("Destroyed: " + agent.gameObject.name + " | ID: " + ID);
                     //If the ID is for an Item Add it back to the ItemList
                     if (ID >= 300 && ID <= 500) { ID_Table.instance.ItemList.Add(ID); }
-                    else if (ID >= 100 && ID <= 300) { agent.GetComponent<EnemyStats>().OnDeath(); }
+                    if (ID >= 100 && ID <= 300) { agent.GetComponent<EnemyStats>().OnDeath(); }
                     else {
                         //If the ID is for an NID Add it back to the NIDList
                         if (ID >= 1 && ID <= 99) { NIDList.Add(ID); }
