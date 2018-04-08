@@ -98,8 +98,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
     }
     public void SendInstantiate(Vector3 InitialPos) {
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
@@ -107,8 +107,8 @@ public class Agent : SerializedMonoBehaviour {
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&P(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
         temp = GetDataToSend(temp);
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
     }
 
     private void ClientRepeatThis() {
@@ -139,8 +139,8 @@ public class Agent : SerializedMonoBehaviour {
 
         //Debug.Log(temp + " died");
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
+        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
     }
 
     private void OnDestroy() { SendDestroy(); }

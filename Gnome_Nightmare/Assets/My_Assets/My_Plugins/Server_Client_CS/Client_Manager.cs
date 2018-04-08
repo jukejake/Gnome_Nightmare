@@ -78,7 +78,7 @@ public class Client_Manager : SerializedMonoBehaviour {
         Vector3 evt = new Vector3();
         float hp = -1;
 
-        
+
         //Destroy an object
         if (data.Contains("~")) {
             destroy = true;
