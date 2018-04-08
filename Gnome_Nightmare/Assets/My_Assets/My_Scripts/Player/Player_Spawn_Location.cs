@@ -8,9 +8,13 @@ public class Player_Spawn_Location : MonoBehaviour {
 
     public GameObject PlayerPrefab;
     public GameObject CameraPrefab;
+    private bool serverStarted;
 
     // Use this for initialization
     void Start () {
+        Invoke("LateStart", 1.0f);
+    }
+    private void LateStart() {
         //Spawn the player
         GameObject player = (GameObject)Instantiate(PlayerPrefab, this.transform.position, this.transform.rotation);
         player.name = "Player";
@@ -38,10 +42,12 @@ public class Player_Spawn_Location : MonoBehaviour {
         camera.name = "Main Camera";
         camera.GetComponent<CameraFollow>().FollowThis = player.transform.Find("HitBox").Find("Top").Find("Head").gameObject;
         camera.GetComponent<CameraFollow>().endPoint = player.transform.Find("Endpoint").transform;
-        
     }
 
-    private void FixedUpdate() {
+    private void Update() {
+        if (Client_Manager.instance) { Destroy(this, 2.0f); return; }
+        if (serverStarted) { Destroy(this, 2.0f); return; }
+
         if (Server_Manager.instance == null) {
             Debug.Log("WTF");
             if (GameObject.FindObjectOfType<Server_Manager>()) {
@@ -51,6 +57,6 @@ public class Player_Spawn_Location : MonoBehaviour {
                 }
             }
         }
-        if (Server_Manager.instance) { Debug.Log("It is there."); }
+        if (Server_Manager.instance) { serverStarted = true; }
     }
 }

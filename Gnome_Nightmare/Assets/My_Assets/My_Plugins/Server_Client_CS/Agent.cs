@@ -76,13 +76,13 @@ public class Agent : SerializedMonoBehaviour {
         if (Position) {
             if (pos != this.gameObject.transform.position) {
                 pos = this.gameObject.transform.position;
-                temp += ("&P(" + pos.x.ToString() + "," + pos.y.ToString() + "," + pos.z.ToString() + ")");
+                temp += ("&P(" + System.Math.Round(pos.x, 2).ToString() + "," + System.Math.Round(pos.y, 2).ToString() + "," + System.Math.Round(pos.z, 2).ToString() + ")");
             }
         }
         if (Rotation) {
             if (rot != this.gameObject.transform.rotation.eulerAngles) {
                 rot = this.gameObject.transform.rotation.eulerAngles;
-                temp += ("&R(" + rot.x.ToString() + "," + rot.y.ToString() + "," + rot.z.ToString() + ")");
+                temp += ("&R(" + System.Math.Round(rot.x, 2).ToString() + "," + System.Math.Round(rot.y, 2).ToString() + "," + System.Math.Round(rot.z, 2).ToString() + ")");
             }
         }
         if (Health) {

@@ -70,4 +70,9 @@ Thumbs.db
 # Really BIG files
 *.assets.resS
 .assets.resS
+*.[Rr][Ee][Ss][Ss]
 .[Rr][Ee][Ss][Ss]
+*.resS
+.resS
+Gnome_Nightmare/Assets/My_Assets/My_Material/Images/uv.png
+Gnome_Nightmare/Library/PlayerDataCache/Data/sharedassets1.assets.resS

@@ -12,11 +12,6 @@ public class LoadScenes : MonoBehaviour {
         if (dropDown) { LoadScenesToDropDown(dropDown); }
     }
 
-    private void FixedUpdate() {
-        if (Server_Manager.instance == null) { Debug.Log("WTF"); }
-        if (Server_Manager.instance) { Debug.Log("It is there."); }
-    }
-
 
     public void LoadSceneFromString(string newGame) { SceneManager.LoadScene(newGame); }
 
