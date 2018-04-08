@@ -44,6 +44,8 @@ public class Agent : SerializedMonoBehaviour {
     public Vector3 TargetRot = new Vector3(0.0f, 0.0f, 0.0f);
     public float LerpSpeed = 0.2f;
 
+    private bool IsLonely = false;
+
     private void Start() {
         if (this.GetComponent<EnemyStats>()) { enemyHealth = this.GetComponent<EnemyStats>(); }
         if (this.GetComponent<PlayerStats>()) { playerHealth = this.GetComponent<PlayerStats>(); }
@@ -53,6 +55,7 @@ public class Agent : SerializedMonoBehaviour {
         // Repeat X, in Y seconds, every Z seconds.
         if (Client_Manager.instance) { InvokeRepeating("ClientRepeatThis", StartIn, RepeatEvery); }
         else if (Server_Manager.instance) { InvokeRepeating("ServerRepeatThis", StartIn, RepeatEvery); }
+        else { IsLonely = true; }
     }
     private void Update() {
         //If Agent is not at Target and not at (0,0,0)
@@ -93,22 +96,26 @@ public class Agent : SerializedMonoBehaviour {
     }
 
     public void SendInstantiate() {
+        if (IsLonely) { return; }
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
 
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|");
         temp = GetDataToSend(temp);
 
         if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        else if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        else { Invoke("SendInstantiate", 0.50f); }
     }
     public void SendInstantiate(Vector3 InitialPos) {
+        if (IsLonely) { return; }
         if (PrefabNumber == -1 || AgentNumber == -1) { Debug.Log("Could not Instantiate"); return; }
 
         string temp = ("@" + PrefabNumber.ToString() + "|" + "#" + AgentNumber.ToString() + "|" + "&P(" + InitialPos.x.ToString() + "," + InitialPos.y.ToString() + "," + InitialPos.z.ToString() + ")");
         temp = GetDataToSend(temp);
 
         if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        else if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        else { Invoke("SendInstantiate", 0.50f); }
     }
 
     private void ClientRepeatThis() {
@@ -129,7 +136,7 @@ public class Agent : SerializedMonoBehaviour {
     }
 
     public void SendDestroy() {
-
+        if (IsLonely) { return; }
         if (AgentNumber == -1) { return; }
         
         //If the ID is for an Item Add it back to the ItemList
@@ -139,8 +146,9 @@ public class Agent : SerializedMonoBehaviour {
 
         //Debug.Log(temp + " died");
 
-        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Instantiate"); }
-        if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Instantiate"); }
+        if (Client_Manager.instance) { Client_Manager.instance.SendData(temp); Debug.Log("Client Destroy"); }
+        else if (Server_Manager.instance) { Server_Manager.instance.SendData(temp); Debug.Log("Server Destroy"); }
+        else { Invoke("SendDestroy", 0.50f); }
     }
 
     private void OnDestroy() { SendDestroy(); }

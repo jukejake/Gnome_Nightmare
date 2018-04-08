@@ -12,7 +12,7 @@ public class Player_Spawn_Location : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Invoke("LateStart", 0.50f);
+        Invoke("LateStart", 1.0f);
     }
     private void LateStart() {
         //Spawn the player
@@ -46,10 +46,10 @@ public class Player_Spawn_Location : MonoBehaviour {
 
     private void Update() {
         if (Client_Manager.instance) { Destroy(this, 2.0f); return; }
-        if (serverStarted) { Destroy(this, 2.0f); return; }
+        //if (serverStarted) { Destroy(this, 2.0f); return; }
 
         if (Server_Manager.instance == null) {
-            Debug.Log("WTF");
+            //Debug.Log("WTF");
             if (GameObject.FindObjectOfType<Server_Manager>()) {
                 GameObject.FindObjectOfType<Server_Manager>().SetInstance(); Debug.Log("Set Instance:1");
                 if (Server_Manager.instance == null) {
@@ -57,6 +57,6 @@ public class Player_Spawn_Location : MonoBehaviour {
                 }
             }
         }
-        if (Server_Manager.instance) { serverStarted = true; }
+        //if (Server_Manager.instance) { serverStarted = true; }
     }
 }

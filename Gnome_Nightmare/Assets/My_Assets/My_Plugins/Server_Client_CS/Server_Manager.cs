@@ -151,7 +151,7 @@ public class Server_Manager : MonoBehaviour {
         }
 
         if (destroy) {
-            Debug.Log("Destroy: " + ID);
+            //Debug.Log("Destroy: " + ID);
             //Find Object with the same [ID] and Destroy it.
             Agent[] agents = (Agent[]) GameObject.FindObjectsOfType(typeof(Agent));
             foreach (var agent in agents) {
