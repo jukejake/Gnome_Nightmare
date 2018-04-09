@@ -8,11 +8,9 @@ public class Melee_Behaviour : SerializedMonoBehaviour {
     [TableList]
     public OdinTables.WeaponStatsTable Stats = new OdinTables.WeaponStatsTable();
 
-    protected PlayerManager playerManager;
+    public PlayerManager playerManager;
     protected MenuManager menuManager;
     protected Camera PlayerCamera;
-    protected float NextTimeToFire = 0.0f;
-
 
     // Use this for initialization
     void Start () {
@@ -33,30 +31,51 @@ public class Melee_Behaviour : SerializedMonoBehaviour {
     }
 
     #region MeleeWeapons
-    private bool weaponSwung = false;
-    private int swingAnimCount = 0;
-    private bool DownSwing = true;
+    protected float SwingProgress = 0.0f;
+
+    [BoxGroup("Weapon Data", true, true)]
+    [HorizontalGroup("Weapon Data/Group 0", 0.33f), LabelWidth(90)]
+    public bool weaponSwung = false;
+    [HorizontalGroup("Weapon Data/Group 0", 0.33f), LabelWidth(90)]
+    public bool DownSwing = true;
+    //[HorizontalGroup("Weapon Data/Group 0", 0.33f), LabelWidth(90)]
+    //public float SwingSpeed = 0.1f;
+    [HorizontalGroup("Weapon Data/Group 1", 0.5f), LabelWidth(90)]
+    public Vector3 StartRot = Vector3.zero;
+    [HorizontalGroup("Weapon Data/Group 1", 0.5f), LabelWidth(90)]
+    public Vector3 StartPos = Vector3.zero;
+    [HorizontalGroup("Weapon Data/Group 2", 0.5f), LabelWidth(50)]
+    public Vector3 EndRot = Vector3.zero;
+    [HorizontalGroup("Weapon Data/Group 2", 0.5f), LabelWidth(50)]
+    public Vector3 EndPos = Vector3.zero;
+    [HorizontalGroup("Weapon Data/Group 3", 0.5f), LabelWidth(90)]
+    public Vector3 CurrentRot = Vector3.zero;
+    [HorizontalGroup("Weapon Data/Group 3", 0.5f), LabelWidth(90)]
+    public Vector3 CurrentPos = Vector3.zero;
+
     void MeleeWeapons_Update() {
-        if (weaponSwung == false && (Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f) && Time.time >= NextTimeToFire) {
-            NextTimeToFire = Time.time + (1.0f / this.Stats.FireRate.GetValue());
+        if (weaponSwung == false && (Input.GetButton("Fire1") || Input.GetAxis("Right Trigger") != 0.0f)) {
             weaponSwung = true;
-            swingAnimCount = 0;
+            SwingProgress = 0.0f;
         }
         else if (weaponSwung) {
+            SwingProgress += (this.Stats.FireRate.GetValue() * Time.deltaTime);
             // Swing weapon
-            if (DownSwing && swingAnimCount < 7) {
-                this.transform.Rotate(10, 0, 0);
-                swingAnimCount++;
-                if (swingAnimCount >= 7) { DownSwing = false; }
-
+            if (DownSwing) { 
+                CurrentPos = Vector3.Lerp(StartPos, EndPos, SwingProgress);
+                CurrentRot = Vector3.Lerp(StartRot, EndRot, SwingProgress);
+                if (CurrentRot == EndRot && CurrentPos == EndPos) { DownSwing = false; SwingProgress = 0.0f; }
             }
-            else if (!DownSwing && swingAnimCount >= 0) {
-                this.transform.Rotate(-10, 0, 0);
-                swingAnimCount--;
-                if (swingAnimCount <= 0) { DownSwing = true; weaponSwung = false; }
+            else if (!DownSwing) {
+                CurrentPos = Vector3.Lerp(EndPos, StartPos, SwingProgress);
+                CurrentRot = Vector3.Lerp(EndRot, StartRot, SwingProgress);
+                if (CurrentRot == StartRot && CurrentPos == StartPos) { DownSwing = true; weaponSwung = false; SwingProgress = 0.0f; }
             }
+            this.transform.GetChild(0).localPosition = CurrentPos;
+            this.transform.GetChild(0).localRotation = Quaternion.Euler(CurrentRot);
         }
     }
-
+    
+    
     #endregion
 }

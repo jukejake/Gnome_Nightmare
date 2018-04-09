@@ -74,6 +74,10 @@ public class MenuManager : MonoBehaviour {
             if (Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>()) { weapon.GetComponent<Gun_Behaviour>().Stats = Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats; }
             if (Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>()) { weapon.GetComponent<Gun_Behaviour>().TypeOfAmmo = Weapon_Slot.transform.GetChild(0).GetComponent<Drag_Inventory>().typeOfAmmo; }
         }
+        if (weapon.GetComponent<Melee_Behaviour>()) {
+            weapon.GetComponent<Melee_Behaviour>().enabled = true;
+            if (Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>()) { weapon.GetComponent<Melee_Behaviour>().Stats = Weapon_Slot.transform.GetChild(0).GetComponent<ItemStats>().itemStats; }
+        }
         if (weapon.GetComponent<Eyes_Follow_Cursor>()) { weapon.GetComponent<Eyes_Follow_Cursor>().enabled = true; }
         //weapon.transform.SetParent(player.transform);
         GameObject temp = GameObject.Find("GUN:pCylinder387");
